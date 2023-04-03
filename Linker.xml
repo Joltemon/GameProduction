@@ -1,0 +1,4 @@
+﻿<linker>
+  <assembly fullname="MidnightRail" />
+  <assembly fullname="GodotSharp" />
+</linker>
