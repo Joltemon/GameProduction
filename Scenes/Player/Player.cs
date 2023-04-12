@@ -70,7 +70,7 @@ public partial class Player : RigidBody3D
 		ApplyCentralForce(MoveDir);
 
 		// Apply ground drag
-		LinearDamp = isGrounded ? GroundDrag : AirDrag;
+		LinearDamp = isGrounded ? GroundDrag : 0;
 		if (isGrounded)
 			LimitSpeed();
 	}
@@ -98,6 +98,11 @@ public partial class Player : RigidBody3D
 			newRotation.X = Mathf.Clamp(newRotation.X, -Mathf.Pi/2, Mathf.Pi/2);
 			newRotation.Y -= Mathf.DegToRad(mouseEvent.Relative.X * LookSpeed);
 			Camera!.Rotation = newRotation;
+		}
+		else if (inputEvent.IsActionPressed("Pause"))
+		{
+			if (OS.HasFeature("editor"))
+				GetTree().Quit();
 		}
 	}
 }

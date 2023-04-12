@@ -1,29 +1,35 @@
-[gd_scene load_steps=7 format=3 uid="uid://onxf5dqo62q1"]
+[gd_scene load_steps=9 format=3 uid="uid://bfm8d47igl6nx"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.cs" id="1_1q63t"]
 [ext_resource type="PackedScene" uid="uid://2sph37pnblar" path="res://Scenes/Items/Propulsor/Propulsor.tscn" id="2_pr4gl"]
 [ext_resource type="Script" path="res://Scenes/Player/Scripts/OverlayCamera.cs" id="3_8qmuj"]
+[ext_resource type="PackedScene" uid="uid://phk6uejxvcxk" path="res://Scenes/UI/HUD/HUD.tscn" id="4_uemel"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jbb0a"]
 friction = 0.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a7e0n"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5jp3"]
+albedo_color = Color(0.164706, 0.164706, 0.164706, 1)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ptkde"]
+material = SubResource("StandardMaterial3D_e5jp3")
 
 [node name="Player" type="RigidBody3D" node_paths=PackedStringArray("Camera", "FloorDetector", "Collider")]
+mass = 3.0
 physics_material_override = SubResource("PhysicsMaterial_jbb0a")
 gravity_scale = 2.0
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_1q63t")
-MoveSpeed = 30.0
-AirMoveSpeed = 10.0
+MoveSpeed = 80.0
+AirMoveSpeed = 20.0
 LookSpeed = 0.5
-JumpStrength = 16.0
+JumpStrength = 32.0
 GroundDrag = 10.0
 AirDrag = 2.0
-SprintMultiplier = 2.0
+SprintMultiplier = 1.5
 CrouchStrength = 1.0
 MaxAirSpeed = 100.0
 Camera = NodePath("Camera")
@@ -62,6 +68,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="Overlay"]
 transparent_bg = true
+handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
@@ -70,3 +77,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 cull_mask = 1047554
 script = ExtResource("3_8qmuj")
 TrackingNode = NodePath("../../../Camera")
+
+[node name="HUD" parent="." instance=ExtResource("4_uemel")]

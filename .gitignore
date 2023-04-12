@@ -6,3 +6,5 @@
 .vscode/
 .vs/
 .idea/
+
+*.old*
