@@ -1,4 +1,12 @@
-[gd_scene format=3 uid="uid://hj4lwgvavmsm"]
+[gd_scene load_steps=5 format=3 uid="uid://hj4lwgvavmsm"]
+
+[ext_resource type="Script" path="res://Scenes/UI/MainMenu.cs" id="1_od65u"]
+[ext_resource type="FontFile" uid="uid://bl6mlmr7bntmf" path="res://Assets/Fonts/acier-bat-text-gris.otf" id="1_wpxkb"]
+[ext_resource type="Shader" path="res://Scenes/UI/MainMenuBlur.gdshader" id="2_ml626"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qsg02"]
+shader = ExtResource("2_ml626")
+shader_parameter/strength = null
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,3 +15,69 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_od65u")
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonBackground" type="ColorRect" parent="Background"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Blur" type="Panel" parent="Background"]
+material = SubResource("ShaderMaterial_qsg02")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Title"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 112.0
+offset_right = 1056.0
+offset_bottom = 232.0
+
+[node name="A" type="Label" parent="Title/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.831373, 0.54902, 1)
+theme_override_fonts/font = ExtResource("1_wpxkb")
+theme_override_font_sizes/font_size = 120
+text = "ADRENARUSH"
+
+[node name="A2" type="Label" parent="Title/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0.803922, 1)
+theme_override_fonts/font = ExtResource("1_wpxkb")
+theme_override_font_sizes/font_size = 120
+text = "A"
+
+[node name="A3" type="Label" parent="Title/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.572549, 0.776471, 1)
+theme_override_fonts/font = ExtResource("1_wpxkb")
+theme_override_font_sizes/font_size = 120
+text = "A"
+
+[node name="A4" type="Label" parent="Title/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.145098, 0.278431, 1, 1)
+theme_override_fonts/font = ExtResource("1_wpxkb")
+theme_override_font_sizes/font_size = 120
+text = "A"
