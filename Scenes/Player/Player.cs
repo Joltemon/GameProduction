@@ -12,6 +12,7 @@ public partial class Player : RigidBody3D
 	[Export] public float AirDrag;
 	[Export] public float SprintMultiplier;
 	[Export] public float CrouchStrength;
+	[Export] public float MaxAirSpeed;
 
 	float ColliderTargetHeight;
 	float LookPivotTargetHeight;
@@ -40,20 +41,21 @@ public partial class Player : RigidBody3D
 		Vector2 InputDir;
 		Vector3 MoveDir;
 		float sprintAdjustment = 1;
+		bool isGrounded = FloorDetector!.IsColliding();
 
 		InputDir = Input.GetVector("MoveLeft", "MoveRight", "MoveForward", "MoveBackward").Rotated(-Camera!.Rotation.Y);
 		
-		// Crouching
+		// Crouching (broken right now, don't ask why)
 		if (Input.IsActionPressed("MoveCrouch"))
 		{
 			sprintAdjustment = 0.2f;
-			Collider!.Shape.Set("height", ColliderTargetHeight - CrouchStrength);
-			Collider.Position = new Vector3(Collider.Position.X, (ColliderTargetHeight / 2) - (CrouchStrength / 2), Collider.Position.X);
+			// Collider!.Shape.Set("height", ColliderTargetHeight - CrouchStrength);
+			// Collider.Position = new Vector3(Collider.Position.X, (ColliderTargetHeight / 2) - (CrouchStrength / 2), Collider.Position.X);
 		}
 		else
 		{
-			Collider!.Shape.Set("height", ColliderTargetHeight);
-			Collider.Position = new Vector3(Collider.Position.Z, ColliderTargetHeight / 2, Collider.Position.Z);
+			// Collider!.Shape.Set("height", ColliderTargetHeight);
+			// Collider.Position = new Vector3(Collider.Position.Z, ColliderTargetHeight / 2, Collider.Position.Z);
 		}
 
 		// Walking
@@ -61,36 +63,31 @@ public partial class Player : RigidBody3D
 			sprintAdjustment = SprintMultiplier;
 		
 		MoveDir = new Vector3(InputDir.X, 0, InputDir.Y) * sprintAdjustment * (float)delta * 180;
-		if (FloorDetector!.IsColliding())
-			MoveDir *= MoveSpeed;
-		else
-			MoveDir *= AirMoveSpeed;
 		
+		// Apply movement speed
+		MoveDir *= isGrounded ? MoveSpeed : AirMoveSpeed;
+		
+		GD.Print(LinearVelocity);
 		ApplyCentralForce(MoveDir);
 
-		if (FloorDetector.IsColliding())
-		{
-			LinearDamp = GroundDrag;
-		}
-		else
-		{
-			LinearDamp = 0;
-		}
-		// LimitSpeed();
+		// Apply ground drag
+		LinearDamp = isGrounded ? GroundDrag : AirDrag;
+		if (isGrounded)
+			LimitSpeed();
 	}
 
 	// Clamp the player's horizontal velocity to an acceptable value
-	// public void LimitSpeed()
-	// {
-	// 	Vector2 flatVelocity = new Vector2(LinearVelocity.X, LinearVelocity.Z);
+	public void LimitSpeed()
+	{
+		Vector2 flatVelocity = new Vector2(LinearVelocity.X, LinearVelocity.Z);
 
-	// 	// LengthSquared avoids square-root calculation and runs faster.
-	// 	if (flatVelocity.LengthSquared() > MaxAirSpeed)
-	// 	{
-	// 		Vector2 limitedVelocity = flatVelocity.Normalized() * MaxAirSpeed;
-	// 		LinearVelocity = new Vector3(limitedVelocity.X, LinearVelocity.Y, limitedVelocity.Y);
-	// 	}
-	// }
+		// LengthSquared avoids square-root calculation and runs faster.
+		if (flatVelocity.Length() > MaxAirSpeed)
+		{
+			Vector2 limitedVelocity = flatVelocity.Normalized() * MaxAirSpeed;
+			LinearVelocity = new Vector3(limitedVelocity.X, LinearVelocity.Y, limitedVelocity.Y);
+		}
+	}
 	
 	public override void _Input(InputEvent inputEvent)
 	{

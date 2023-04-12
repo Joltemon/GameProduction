@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://2sph37pnblar"]
+
+[ext_resource type="PackedScene" uid="uid://hisxss0s4nbt" path="res://Assets/Models/Blasters/blasterR.glb" id="1_gu5qy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erlys"]
+resource_name = "dark"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.196244, 0.237565, 0.283019, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgcab"]
+resource_name = "metal"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.796078, 0.815686, 0.878431, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sv653"]
+resource_name = "darkMetal"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.592157, 0.635294, 0.768627, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uc3fd"]
+albedo_color = Color(0.396078, 0.196078, 0.203922, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83rc8"]
+resource_name = "_defaultMat"
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 1)
+metallic = 1.0
+
+[node name="Propulsor" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_gu5qy")]
+
+[node name="blasterR2" parent="Model" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_erlys")
+surface_material_override/1 = SubResource("StandardMaterial3D_lgcab")
+surface_material_override/2 = SubResource("StandardMaterial3D_sv653")
+surface_material_override/3 = SubResource("StandardMaterial3D_uc3fd")
+surface_material_override/4 = SubResource("StandardMaterial3D_83rc8")
+
+[editable path="Model"]
