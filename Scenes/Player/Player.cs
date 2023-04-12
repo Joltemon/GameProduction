@@ -67,7 +67,6 @@ public partial class Player : RigidBody3D
 		// Apply movement speed
 		MoveDir *= isGrounded ? MoveSpeed : AirMoveSpeed;
 		
-		GD.Print(LinearVelocity);
 		ApplyCentralForce(MoveDir);
 
 		// Apply ground drag
