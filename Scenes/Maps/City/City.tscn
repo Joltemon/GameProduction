@@ -1,0 +1,89 @@
+[gd_scene load_steps=15 format=3 uid="uid://c0jpqsxkvwqnv"]
+
+[ext_resource type="PackedScene" uid="uid://onxf5dqo62q1" path="res://Scenes/Player/Player.tscn" id="1_r1yjt"]
+[ext_resource type="PackedScene" uid="uid://cpxujabsfk112" path="res://Assets/Models/City/large_buildingD.glb" id="2_e5wb7"]
+[ext_resource type="PackedScene" uid="uid://cgnu2mbbgvdho" path="res://Assets/Models/City/large_buildingC.glb" id="3_81ti4"]
+[ext_resource type="PackedScene" uid="uid://c216kcgcjvh8v" path="res://Assets/Models/City/large_buildingB.glb" id="4_5fnae"]
+[ext_resource type="PackedScene" uid="uid://cs6vix6ik3j8o" path="res://Scenes/Maps/City/large_building_a.tscn" id="6_4tw5v"]
+[ext_resource type="PackedScene" uid="uid://c0gkt0aeciflq" path="res://Assets/Models/City/large_buildingE.glb" id="6_eo3dv"]
+[ext_resource type="PackedScene" uid="uid://bv3d1dk7q183b" path="res://Assets/Models/City/large_buildingF.glb" id="7_sc3it"]
+[ext_resource type="PackedScene" uid="uid://cdnccrntfqcxf" path="res://Assets/Models/City/large_buildingG.glb" id="8_83jlh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8eok3"]
+sky_top_color = Color(1, 0.45098, 0.309804, 1)
+sky_horizon_color = Color(0.682353, 0.447059, 1, 1)
+ground_bottom_color = Color(0.207843, 0.2, 0.188235, 1)
+ground_horizon_color = Color(0.682353, 0.447059, 1, 1)
+
+[sub_resource type="Sky" id="Sky_227wc"]
+sky_material = SubResource("ProceduralSkyMaterial_8eok3")
+
+[sub_resource type="Environment" id="Environment_04nc8"]
+background_mode = 2
+sky = SubResource("Sky_227wc")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m516r"]
+albedo_color = Color(0.215686, 0.215686, 0.215686, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rn126"]
+material = SubResource("StandardMaterial3D_m516r")
+size = Vector2(100, 100)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_d7l57"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_04nc8")
+
+[node name="Player" parent="." instance=ExtResource("1_r1yjt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8132, -0.107399, 38.27)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_rn126")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_d7l57")
+
+[node name="large_buildingD" parent="." instance=ExtResource("2_e5wb7")]
+transform = Transform3D(-3.60335e-07, 0, 8.24349, 0, 8.24349, 0, -8.24349, 0, -3.60335e-07, -12.9505, 0, 30.5274)
+
+[node name="large_buildingC" parent="." instance=ExtResource("3_81ti4")]
+transform = Transform3D(-3.60335e-07, 0, 8.24349, 0, 8.24349, 0, -8.24349, 0, -3.60335e-07, -11.2989, 0, 38.9502)
+
+[node name="large_buildingB" parent="." instance=ExtResource("4_5fnae")]
+transform = Transform3D(8.24349, 0, 0, 0, 8.24349, 0, 0, 0, 8.24349, 37.1647, 0, 32.7838)
+
+[node name="large_buildingE" parent="." instance=ExtResource("6_eo3dv")]
+transform = Transform3D(8.24349, 0, 0, 0, 8.24349, 0, 0, 0, 8.24349, -65.7411, 0, 39.1392)
+
+[node name="large_buildingF" parent="." instance=ExtResource("7_sc3it")]
+transform = Transform3D(8.24349, 0, 0, 0, 8.24349, 0, 0, 0, 8.24349, 55.7008, 0, 62.4615)
+
+[node name="large_buildingG" parent="." instance=ExtResource("8_83jlh")]
+transform = Transform3D(8.24349, 0, 0, 0, 8.24349, 0, 0, 0, 8.24349, -84.2727, 0, 18.5047)
+
+[node name="large_buildingD2" parent="." instance=ExtResource("2_e5wb7")]
+transform = Transform3D(9.83027e-08, 0, -8.24349, 0, 8.24349, 0, 8.24349, 0, 9.83027e-08, 13.265, 0, 30.5743)
+
+[node name="large_buildingC2" parent="." instance=ExtResource("3_81ti4")]
+transform = Transform3D(9.83027e-08, 0, -8.24349, 0, 8.24349, 0, 8.24349, 0, 9.83027e-08, 11.6238, 0, 38.9971)
+
+[node name="large_buildingD3" parent="." instance=ExtResource("2_e5wb7")]
+transform = Transform3D(-3.60335e-07, 0, 8.24349, 0, 8.24349, 0, -8.24349, 0, -3.60335e-07, -12.9505, 0, 20.3608)
+
+[node name="large_buildingD4" parent="." instance=ExtResource("2_e5wb7")]
+transform = Transform3D(9.83027e-08, 0, -8.24349, 0, 8.24349, 0, 8.24349, 0, 9.83027e-08, 13.2858, 0, 13.7985)
+
+[node name="large_buildingC3" parent="." instance=ExtResource("3_81ti4")]
+transform = Transform3D(9.83027e-08, 0, -8.24349, 0, 8.24349, 0, 8.24349, 0, 9.83027e-08, 11.6256, 0, 22.2213)
+
+[node name="large_buildingD5" parent="." instance=ExtResource("2_e5wb7")]
+transform = Transform3D(9.83027e-08, 0, -8.24349, 0, 8.24349, 0, 8.24349, 0, 9.83027e-08, 13.2858, 0, 3.63196)
+
+[node name="large_buildingA" parent="." instance=ExtResource("6_4tw5v")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0.112728, 0, 47.1884)
