@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://oqp8xiwqab1k"]
+
+[ext_resource type="Script" path="res://Scenes/Weapons/Projectile/Projectile.cs" id="1_ddvfs"]
+[ext_resource type="PackedScene" uid="uid://bclxmowxm3wf2" path="res://Scenes/Weapons/Projectile/WarpField.tscn" id="2_oder6"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_cie0s"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2tuna"]
+radius = 0.1
+
+[node name="Projectile" type="Area3D"]
+collision_layer = 0
+script = ExtResource("1_ddvfs")
+Speed = 40.0
+WarpField = ExtResource("2_oder6")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_cie0s")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_2tuna")
+
+[node name="DestroyTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="OnCollide"]
+[connection signal="timeout" from="DestroyTimer" to="." method="OnTimeout"]

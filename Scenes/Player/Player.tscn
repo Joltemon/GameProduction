@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfm8d47igl6nx"]
+[gd_scene load_steps=10 format=3 uid="uid://bfm8d47igl6nx"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.cs" id="1_1q63t"]
-[ext_resource type="PackedScene" uid="uid://2sph37pnblar" path="res://Scenes/Items/Propulsor/Propulsor.tscn" id="2_pr4gl"]
+[ext_resource type="PackedScene" uid="uid://c1je4btt0vci8" path="res://Scenes/Weapons/WeaponHolder/WeaponHolder.tscn" id="2_5mgoj"]
 [ext_resource type="Script" path="res://Scenes/Player/Scripts/OverlayCamera.cs" id="3_8qmuj"]
 [ext_resource type="PackedScene" uid="uid://phk6uejxvcxk" path="res://Scenes/UI/HUD/HUD.tscn" id="4_uemel"]
 
@@ -16,7 +16,12 @@ albedo_color = Color(0.164706, 0.164706, 0.164706, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ptkde"]
 material = SubResource("StandardMaterial3D_e5jp3")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_q3eb4"]
+radius = 0.45
+
 [node name="Player" type="RigidBody3D" node_paths=PackedStringArray("Camera", "FloorDetector", "Collider")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_layer = 2
 mass = 3.0
 physics_material_override = SubResource("PhysicsMaterial_jbb0a")
 gravity_scale = 2.0
@@ -31,7 +36,7 @@ GroundDrag = 10.0
 AirDrag = 2.0
 SprintMultiplier = 1.5
 CrouchStrength = 1.0
-MaxAirSpeed = 100.0
+MaxAirSpeed = 15.0
 Camera = NodePath("Camera")
 FloorDetector = NodePath("FloorDetector")
 Collider = NodePath("Collider")
@@ -48,15 +53,15 @@ mesh = SubResource("CapsuleMesh_ptkde")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 cull_mask = 1048573
 
-[node name="Hand" type="Node3D" parent="Camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.3, -0.6)
+[node name="WeaponHolder" parent="Camera" instance=ExtResource("2_5mgoj")]
 
-[node name="Propulsor" parent="Camera/Hand" instance=ExtResource("2_pr4gl")]
+[node name="AimRaycast" type="RayCast3D" parent="Camera"]
+target_position = Vector3(0, 0, -10)
 
-[node name="FloorDetector" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-target_position = Vector3(0, -0.3, 0)
-hit_from_inside = true
+[node name="FloorDetector" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("SphereShape3D_q3eb4")
+target_position = Vector3(0, 0, 0)
 
 [node name="Overlay" type="SubViewportContainer" parent="."]
 anchors_preset = 15
@@ -73,7 +78,7 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="OverlayCamera" type="Camera3D" parent="Overlay/SubViewport" node_paths=PackedStringArray("TrackingNode")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cull_mask = 1047554
 script = ExtResource("3_8qmuj")
 TrackingNode = NodePath("../../../Camera")

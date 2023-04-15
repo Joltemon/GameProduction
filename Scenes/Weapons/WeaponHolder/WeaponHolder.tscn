@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1je4btt0vci8"]
+
+[ext_resource type="Script" path="res://Scenes/Weapons/WeaponHolder/WeaponHolder.cs" id="1_jojs7"]
+[ext_resource type="PackedScene" uid="uid://2sph37pnblar" path="res://Scenes/Weapons/Propulsor/Propulsor.tscn" id="2_onpxo"]
+
+[node name="WeaponHolder" type="Node3D" node_paths=PackedStringArray("Weapon", "AimRaycast")]
+script = ExtResource("1_jojs7")
+Weapon = NodePath("WeaponOffset/Propulsor")
+AimRaycast = NodePath("RayCast")
+
+[node name="WeaponOffset" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.3, -0.55)
+
+[node name="Propulsor" parent="WeaponOffset" instance=ExtResource("2_onpxo")]
+
+[node name="RayCast" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -10)

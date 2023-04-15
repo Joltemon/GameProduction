@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bclxmowxm3wf2"]
+
+[ext_resource type="Script" path="res://Scenes/Weapons/Projectile/WarpField.cs" id="1_y6fjv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3wccs"]
+radius = 2.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2uqn8"]
+transparency = 1
+albedo_color = Color(0.337255, 0.490196, 0.780392, 0.392157)
+
+[sub_resource type="SphereMesh" id="SphereMesh_dvdki"]
+radius = 2.5
+height = 5.0
+
+[node name="WarpField" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_y6fjv")
+Force = 100.0
+Radius = 2.5
+
+[node name="Shape" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_3wccs")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_2uqn8")
+mesh = SubResource("SphereMesh_dvdki")

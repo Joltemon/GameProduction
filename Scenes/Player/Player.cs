@@ -19,8 +19,10 @@ public partial class Player : RigidBody3D
 
 	[ExportGroup("Player Components")]
 	[Export] Camera3D? Camera;
-	[Export] RayCast3D? FloorDetector;
+	[Export] ShapeCast3D? FloorDetector;
 	[Export] CollisionShape3D? Collider;
+
+	[Signal] public delegate void PrimaryFireEventHandler(Vector3 targetPos);
 
 	public override void _Ready()
 	{
@@ -71,21 +73,18 @@ public partial class Player : RigidBody3D
 
 		// Apply ground drag
 		LinearDamp = isGrounded ? GroundDrag : 0;
-		if (isGrounded)
-			LimitSpeed();
+		// use custom drag formula for air, to preserve gravity
+		if (!isGrounded)
+			ApplyAirDrag(delta);
 	}
 
-	// Clamp the player's horizontal velocity to an acceptable value
-	public void LimitSpeed()
+	// Apply drag to all axes but Y, to leave gravity acceleration intact
+	public void ApplyAirDrag(double delta)
 	{
-		Vector2 flatVelocity = new Vector2(LinearVelocity.X, LinearVelocity.Z);
-
-		// LengthSquared avoids square-root calculation and runs faster.
-		if (flatVelocity.Length() > MaxAirSpeed)
-		{
-			Vector2 limitedVelocity = flatVelocity.Normalized() * MaxAirSpeed;
-			LinearVelocity = new Vector3(limitedVelocity.X, LinearVelocity.Y, limitedVelocity.Y);
-		}
+		var newVelocity = LinearVelocity;
+		newVelocity.X *= (float)(1 - delta * AirDrag);
+		newVelocity.Z *= (float)(1 - delta * AirDrag);
+		LinearVelocity = newVelocity;
 	}
 	
 	public override void _Input(InputEvent inputEvent)

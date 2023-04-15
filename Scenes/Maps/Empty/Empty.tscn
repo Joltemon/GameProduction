@@ -7,6 +7,8 @@ sky_top_color = Color(0.192157, 0.2, 0.54902, 1)
 sky_horizon_color = Color(0.571569, 0.573529, 0.660784, 1)
 ground_bottom_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
 ground_horizon_color = Color(0.571569, 0.573529, 0.660784, 1)
+sun_angle_max = 10.0
+sun_curve = 0.5
 
 [sub_resource type="Sky" id="Sky_obeso"]
 sky_material = SubResource("ProceduralSkyMaterial_d2xdq")
@@ -23,8 +25,7 @@ albedo_color = Color(0.054902, 0.0588235, 0.156863, 1)
 material = SubResource("StandardMaterial3D_4lhem")
 size = Vector3(100, 0.5, 100)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_k43m3"]
-size = Vector3(100, 0.5, 100)
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_xgt3q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hi55o"]
 albedo_color = Color(0.184314, 1, 0.164706, 1)
@@ -80,6 +81,7 @@ material = SubResource("StandardMaterial3D_jyeu6")
 [node name="EmptyMap" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_8o8po")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_k1b1x")
@@ -95,7 +97,7 @@ mesh = SubResource("BoxMesh_8rljh")
 [node name="Collider" type="StaticBody3D" parent="Floor"]
 
 [node name="Shape" type="CollisionShape3D" parent="Floor/Collider"]
-shape = SubResource("BoxShape3D_k43m3")
+shape = SubResource("WorldBoundaryShape3D_xgt3q")
 
 [node name="Objects" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)

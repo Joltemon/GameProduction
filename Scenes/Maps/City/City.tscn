@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://c0jpqsxkvwqnv"]
 
-[ext_resource type="PackedScene" uid="uid://onxf5dqo62q1" path="res://Scenes/Player/Player.tscn" id="1_r1yjt"]
+[ext_resource type="PackedScene" uid="uid://bfm8d47igl6nx" path="res://Scenes/Player/Player.tscn" id="1_r1yjt"]
 [ext_resource type="PackedScene" uid="uid://cpxujabsfk112" path="res://Assets/Models/City/large_buildingD.glb" id="2_e5wb7"]
 [ext_resource type="PackedScene" uid="uid://cgnu2mbbgvdho" path="res://Assets/Models/City/large_buildingC.glb" id="3_81ti4"]
 [ext_resource type="PackedScene" uid="uid://c216kcgcjvh8v" path="res://Assets/Models/City/large_buildingB.glb" id="4_5fnae"]
