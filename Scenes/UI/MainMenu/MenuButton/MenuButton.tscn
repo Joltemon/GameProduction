@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1ic84gxqno7q"]
+
+[ext_resource type="FontFile" uid="uid://dyqcx0nfi1g2n" path="res://Assets/Fonts/SourceCodePro-BoldItalic.ttf" id="1_y1eor"]
+[ext_resource type="Script" path="res://Scenes/UI/MainMenu/MenuButton/MenuButton.cs" id="2_npxms"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f54qu"]
+bg_color = Color(0.156863, 0.156863, 0.156863, 1)
+border_width_left = 6
+border_width_top = 3
+border_width_right = 2
+border_color = Color(0.411765, 0.411765, 0.411765, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+
+[node name="Button" type="Button"]
+offset_right = 256.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("1_y1eor")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_f54qu")
+text = "Text"
+script = ExtResource("2_npxms")
+
+[connection signal="mouse_entered" from="." to="." method="OnMouseEnter"]
+[connection signal="mouse_exited" from="." to="." method="OnMouseExit"]

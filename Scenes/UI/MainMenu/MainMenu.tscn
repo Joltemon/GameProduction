@@ -1,0 +1,164 @@
+[gd_scene load_steps=9 format=3 uid="uid://dfcvbhiopq6s7"]
+
+[ext_resource type="Script" path="res://Scenes/UI/MainMenu/MainMenu.cs" id="1_fxmxj"]
+[ext_resource type="FontFile" uid="uid://bl6mlmr7bntmf" path="res://Assets/Fonts/acier-bat-text-gris.otf" id="2_k3u2l"]
+[ext_resource type="Shader" path="res://Scenes/UI/MainMenu/MainMenuBlur.gdshader" id="3_g5kg3"]
+[ext_resource type="PackedScene" uid="uid://c1ic84gxqno7q" path="res://Scenes/UI/MainMenu/MenuButton/MenuButton.tscn" id="4_2xk3y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qsg02"]
+shader = ExtResource("3_g5kg3")
+shader_parameter/strength = 0.25
+
+[sub_resource type="Animation" id="Animation_j415k"]
+resource_name = "AddBlur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blur:material:shader_parameter/strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [null, 0.25]
+}
+
+[sub_resource type="Animation" id="Animation_x5wx6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blur:material:shader_parameter/strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6l7os"]
+_data = {
+"AddBlur": SubResource("Animation_j415k"),
+"RESET": SubResource("Animation_x5wx6")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fxmxj")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 192.0
+offset_top = 88.0
+offset_right = -192.0
+offset_bottom = 227.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.831373, 0.54902, 1)
+theme_override_fonts/font = ExtResource("2_k3u2l")
+theme_override_font_sizes/font_size = 120
+text = "ADRENARUSH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Backgrounds" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="Control" parent="Backgrounds"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="Shape" type="Polygon2D" parent="Backgrounds/Buttons"]
+rotation = -3.14159
+scale = Vector2(376.5, 376.5)
+color = Color(0.223529, 0.470588, 0.454902, 0.619608)
+polygon = PackedVector2Array(0, 0, -1.5, 0, 0, 1.25)
+
+[node name="Blur" type="Panel" parent="Backgrounds"]
+visible = false
+material = SubResource("ShaderMaterial_qsg02")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlurAnimation" type="AnimationPlayer" parent="Backgrounds"]
+libraries = {
+"": SubResource("AnimationLibrary_6l7os")
+}
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" parent="Buttons" instance=ExtResource("4_2xk3y")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -368.0
+offset_right = 288.0
+offset_bottom = -304.0
+grow_vertical = 0
+text = "Start"
+
+[node name="SettingsButton" parent="Buttons" instance=ExtResource("4_2xk3y")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = -272.0
+offset_right = 360.0
+offset_bottom = -208.0
+grow_vertical = 0
+text = "Settings"
+
+[node name="CreditsButton" parent="Buttons" instance=ExtResource("4_2xk3y")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = -176.0
+offset_right = 464.0
+offset_bottom = -112.0
+grow_vertical = 0
+text = "Credits"
+
+[node name="QuitButton" parent="Buttons" instance=ExtResource("4_2xk3y")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 296.0
+offset_top = -80.0
+offset_right = 560.0
+offset_bottom = -16.0
+grow_vertical = 0
+text = "Quit"
