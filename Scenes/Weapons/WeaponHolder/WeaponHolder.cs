@@ -15,7 +15,7 @@ public partial class WeaponHolder : Node3D
 		// Shooting the gun
 		if (inputEvent.IsActionPressed("PrimaryFire"))
 		{
-			if (AimRaycast!.IsColliding() && GlobalPosition.DistanceTo(AimRaycast.GetCollisionPoint()) <= 1)
+			if (AimRaycast!.IsColliding() && Mathf.Abs(GlobalPosition.DistanceTo(AimRaycast.GetCollisionPoint())) <= 1)
 				CloseRangePrimaryFire();
 			else
 				StandardPrimaryFire();
@@ -53,6 +53,7 @@ public partial class WeaponHolder : Node3D
 	
 	void StandardPrimaryFire()
 	{
+		AnimationPlayer?.Stop();
 		AnimationPlayer?.Play("Fire");
 		if (AimRaycast!.IsColliding())
 		{

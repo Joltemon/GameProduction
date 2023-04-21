@@ -17,6 +17,7 @@ corner_radius_bottom_left = 26
 [node name="Button" type="Button"]
 offset_right = 256.0
 offset_bottom = 64.0
+pivot_offset = Vector2(128, 32)
 theme_override_fonts/font = ExtResource("1_y1eor")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_f54qu")
@@ -25,3 +26,4 @@ script = ExtResource("2_npxms")
 
 [connection signal="mouse_entered" from="." to="." method="OnMouseEnter"]
 [connection signal="mouse_exited" from="." to="." method="OnMouseExit"]
+[connection signal="pressed" from="." to="." method="OnPressed"]

@@ -29,4 +29,7 @@
   <ItemGroup>
     <TrimmerRootDescriptor Include="Linker.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Tomlyn" Version="*-*" />
+  </ItemGroup>
 </Project>

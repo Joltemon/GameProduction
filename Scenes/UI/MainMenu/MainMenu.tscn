@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfcvbhiopq6s7"]
+[gd_scene load_steps=11 format=3 uid="uid://dfcvbhiopq6s7"]
 
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu/MainMenu.cs" id="1_fxmxj"]
 [ext_resource type="FontFile" uid="uid://bl6mlmr7bntmf" path="res://Assets/Fonts/acier-bat-text-gris.otf" id="2_k3u2l"]
@@ -46,16 +46,40 @@ _data = {
 "RESET": SubResource("Animation_x5wx6")
 }
 
-[node name="Control" type="Control"]
+[sub_resource type="Animation" id="Animation_rlt22"]
+resource_name = "Sway"
+length = 10.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.523599, 2.61799, 0), Vector3(-0.523599, 2.0944, 4.61042e-09)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eyv4o"]
+_data = {
+"Sway": SubResource("Animation_rlt22")
+}
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_fxmxj")
+
+[node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_fxmxj")
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="UI"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -71,7 +95,7 @@ text = "ADRENARUSH"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Backgrounds" type="Control" parent="."]
+[node name="Backgrounds" type="Control" parent="UI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,20 +103,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Buttons" type="Control" parent="Backgrounds"]
+[node name="Buttons" type="Control" parent="UI/Backgrounds"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
 
-[node name="Shape" type="Polygon2D" parent="Backgrounds/Buttons"]
+[node name="Shape" type="Polygon2D" parent="UI/Backgrounds/Buttons"]
 rotation = -3.14159
 scale = Vector2(376.5, 376.5)
 color = Color(0.223529, 0.470588, 0.454902, 0.619608)
 polygon = PackedVector2Array(0, 0, -1.5, 0, 0, 1.25)
 
-[node name="Blur" type="Panel" parent="Backgrounds"]
+[node name="Blur" type="Panel" parent="UI/Backgrounds"]
 visible = false
 material = SubResource("ShaderMaterial_qsg02")
 layout_mode = 1
@@ -102,12 +126,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BlurAnimation" type="AnimationPlayer" parent="Backgrounds"]
+[node name="BlurAnimation" type="AnimationPlayer" parent="UI/Backgrounds"]
 libraries = {
 "": SubResource("AnimationLibrary_6l7os")
 }
 
-[node name="Buttons" type="Control" parent="."]
+[node name="Buttons" type="Control" parent="UI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -115,7 +139,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StartButton" parent="Buttons" instance=ExtResource("4_2xk3y")]
+[node name="StartButton" parent="UI/Buttons" instance=ExtResource("4_2xk3y")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -127,7 +151,7 @@ offset_bottom = -304.0
 grow_vertical = 0
 text = "Start"
 
-[node name="SettingsButton" parent="Buttons" instance=ExtResource("4_2xk3y")]
+[node name="SettingsButton" parent="UI/Buttons" instance=ExtResource("4_2xk3y")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -139,7 +163,7 @@ offset_bottom = -208.0
 grow_vertical = 0
 text = "Settings"
 
-[node name="CreditsButton" parent="Buttons" instance=ExtResource("4_2xk3y")]
+[node name="CreditsButton" parent="UI/Buttons" instance=ExtResource("4_2xk3y")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -151,7 +175,7 @@ offset_bottom = -112.0
 grow_vertical = 0
 text = "Credits"
 
-[node name="QuitButton" parent="Buttons" instance=ExtResource("4_2xk3y")]
+[node name="QuitButton" parent="UI/Buttons" instance=ExtResource("4_2xk3y")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -162,3 +186,16 @@ offset_right = 560.0
 offset_bottom = -16.0
 grow_vertical = 0
 text = "Quit"
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Camera" type="Camera3D" parent="World"]
+transform = Transform3D(-0.866026, -0.25, 0.433013, 0, 0.866025, 0.5, -0.5, 0.433013, -0.75, 10, 12, -11)
+
+[node name="Animation" type="AnimationPlayer" parent="World/Camera"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_eyv4o")
+}
+
+[connection signal="Pressed" from="UI/Buttons/QuitButton" to="." method="Quit"]

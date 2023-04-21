@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfm8d47igl6nx"]
+[gd_scene load_steps=13 format=3 uid="uid://bfm8d47igl6nx"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.cs" id="1_1q63t"]
 [ext_resource type="PackedScene" uid="uid://c1je4btt0vci8" path="res://Scenes/Weapons/WeaponHolder/WeaponHolder.tscn" id="2_5mgoj"]
@@ -16,15 +16,29 @@ albedo_color = Color(0.164706, 0.164706, 0.164706, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ptkde"]
 material = SubResource("StandardMaterial3D_e5jp3")
 
+[sub_resource type="SphereMesh" id="SphereMesh_wep4s"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sew6s"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_m4s1w"]
+material = SubResource("StandardMaterial3D_sew6s")
+top_radius = 0.01
+bottom_radius = 0.01
+height = 0.01
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_q3eb4"]
 radius = 0.45
 
 [node name="Player" type="RigidBody3D" node_paths=PackedStringArray("Camera", "FloorDetector", "Collider")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 collision_layer = 2
 mass = 3.0
 physics_material_override = SubResource("PhysicsMaterial_jbb0a")
 gravity_scale = 2.0
+max_contacts_reported = 1
+contact_monitor = true
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_1q63t")
@@ -35,31 +49,49 @@ JumpStrength = 32.0
 GroundDrag = 10.0
 AirDrag = 2.0
 SprintMultiplier = 1.5
-CrouchStrength = 1.0
+CrouchStrength = 0.5
 MaxAirSpeed = 15.0
-Camera = NodePath("Camera")
+Camera = NodePath("Head/Camera")
 FloorDetector = NodePath("FloorDetector")
 Collider = NodePath("Collider")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_a7e0n")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_ptkde")
 
-[node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+[node name="Eye1" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1.51792, 0, 0, 0, 1.51792, 0, 0, 0, 1.51792, 0.104282, 0.657402, -0.450276)
+visible = false
+mesh = SubResource("SphereMesh_wep4s")
+
+[node name="Pupil" type="MeshInstance3D" parent="Mesh/Eye1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.0454473)
+mesh = SubResource("CylinderMesh_m4s1w")
+
+[node name="Eye2" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1.51792, 0, 0, 0, 1.51792, 0, 0, 0, 1.51792, -0.136828, 0.657402, -0.450276)
+visible = false
+mesh = SubResource("SphereMesh_wep4s")
+
+[node name="Pupil" type="MeshInstance3D" parent="Mesh/Eye2"]
+transform = Transform3D(1.578, 0, 0, 0, -6.89768e-08, 1.578, 0, -1.578, -6.89768e-08, 0, 0, -0.0454473)
+mesh = SubResource("CylinderMesh_m4s1w")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Camera" type="Camera3D" parent="Head"]
 cull_mask = 1048573
 
-[node name="WeaponHolder" parent="Camera" instance=ExtResource("2_5mgoj")]
+[node name="WeaponHolder" parent="Head/Camera" instance=ExtResource("2_5mgoj")]
 
-[node name="AimRaycast" type="RayCast3D" parent="Camera"]
+[node name="AimRaycast" type="RayCast3D" parent="Head/Camera"]
 target_position = Vector3(0, 0, -10)
 
 [node name="FloorDetector" type="ShapeCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
 shape = SubResource("SphereShape3D_q3eb4")
 target_position = Vector3(0, 0, 0)
 
@@ -81,6 +113,6 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cull_mask = 1047554
 script = ExtResource("3_8qmuj")
-TrackingNode = NodePath("../../../Camera")
+TrackingNode = NodePath("../../../Head/Camera")
 
 [node name="HUD" parent="." instance=ExtResource("4_uemel")]

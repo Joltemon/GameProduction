@@ -22,24 +22,47 @@ public partial class Player : RigidBody3D
 	[Export] ShapeCast3D? FloorDetector;
 	[Export] CollisionShape3D? Collider;
 
-	[Signal] public delegate void PrimaryFireEventHandler(Vector3 targetPos);
-
 	public override void _Ready()
 	{
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
 
+	bool IsCurrentlyJumping;
 	public override void _Process(double delta)
 	{
 		// Jump
-		if (Input.IsActionJustPressed("MoveJump") && FloorDetector!.IsColliding())
+		var jumpPressed = Input.IsActionPressed("MoveJump");
+		var isOnFloor = FloorDetector!.IsColliding();
+
+		if (jumpPressed && isOnFloor && !IsCurrentlyJumping)
 		{
+			// Jumping
+			IsCurrentlyJumping = true;
 			ApplyCentralImpulse(Vector3.Up * JumpStrength);
+		}
+		else if (isOnFloor && IsCurrentlyJumping)
+		{
+			// Just landed
+			IsCurrentlyJumping = false;
+		}
+
+		// Crouching
+		if (Camera != null)
+		{
+			if (Input.IsActionPressed("MoveCrouch"))
+			{
+				Camera.Position = Camera.Position.Lerp(Vector3.Down * CrouchStrength, 16 * (float)delta);
+			}
+			else
+			{
+				Camera.Position = Camera.Position.Lerp(Vector3.Zero, 16 * (float)delta);
+			}
 		}
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
+		// GD.Print(GlobalPosition.Y);
 		Vector2 InputDir;
 		Vector3 MoveDir;
 		float sprintAdjustment = 1;
@@ -51,13 +74,6 @@ public partial class Player : RigidBody3D
 		if (Input.IsActionPressed("MoveCrouch"))
 		{
 			sprintAdjustment = 0.2f;
-			// Collider!.Shape.Set("height", ColliderTargetHeight - CrouchStrength);
-			// Collider.Position = new Vector3(Collider.Position.X, (ColliderTargetHeight / 2) - (CrouchStrength / 2), Collider.Position.X);
-		}
-		else
-		{
-			// Collider!.Shape.Set("height", ColliderTargetHeight);
-			// Collider.Position = new Vector3(Collider.Position.Z, ColliderTargetHeight / 2, Collider.Position.Z);
 		}
 
 		// Walking
@@ -79,7 +95,7 @@ public partial class Player : RigidBody3D
 	}
 
 	// Apply drag to all axes but Y, to leave gravity acceleration intact
-	public void ApplyAirDrag(double delta)
+	void ApplyAirDrag(double delta)
 	{
 		var newVelocity = LinearVelocity;
 		newVelocity.X *= (float)(1 - delta * AirDrag);

@@ -15,9 +15,7 @@ public partial class WarpField : Area3D
 		{
 			if (item is RigidBody3D body)
 			{
-				// var circleSize = new Vector3(Radius, Radius, Radius);
 				var launchDirection = GlobalPosition.DirectionTo(body.GlobalPosition);
-				GD.Print(GlobalPosition - body.GlobalPosition);
 				
 				// calculate inverse distance from body
 				var launchStrength = GlobalPosition.DistanceTo(body.GlobalPosition);
@@ -25,12 +23,12 @@ public partial class WarpField : Area3D
 				if (launchStrength == 0)
 					continue; // cannot divide by zero
 
-				launchStrength = Radius - Mathf.Abs(launchStrength);
+				launchStrength = Radius - Mathf.Abs(AdjustedFalloff(launchStrength));
 				
-				// body.ApplyCentralImpulse(launchDirection * launchStrength * Force);
-				body.ApplyImpulse(launchDirection * launchStrength * Force, GlobalPosition);
+				body.ApplyImpulse(launchDirection * Force, GlobalPosition);
+				// body.LinearVelocity = launchDirection * Force;
 
-				QueueFree();
+				// QueueFree();
 			}
 		}
 	}

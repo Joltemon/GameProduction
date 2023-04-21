@@ -356,6 +356,7 @@ metadata/_edit_group_ = true
 shape = SubResource("BoxShape3D_hgoml")
 
 [node name="PixelationLayer" type="Sprite2D" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_g24j8")
 position = Vector2(576, 324)
 scale = Vector2(9, 5.0625)
