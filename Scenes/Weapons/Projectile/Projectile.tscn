@@ -10,10 +10,10 @@ height = 0.2
 [sub_resource type="SphereShape3D" id="SphereShape3D_2tuna"]
 radius = 0.1
 
-[node name="Projectile" type="Area3D"]
+[node name="Projectile" type="CharacterBody3D"]
 collision_layer = 0
 script = ExtResource("1_ddvfs")
-Speed = 40.0
+Speed = 60.0
 WarpField = ExtResource("2_oder6")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
@@ -26,5 +26,4 @@ shape = SubResource("SphereShape3D_2tuna")
 wait_time = 2.0
 autostart = true
 
-[connection signal="body_entered" from="." to="." method="OnCollide"]
 [connection signal="timeout" from="DestroyTimer" to="." method="OnTimeout"]

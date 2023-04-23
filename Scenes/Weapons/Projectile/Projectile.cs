@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Projectile : Area3D
+public partial class Projectile : CharacterBody3D
 {
 	[Export] public float Speed = 10;
 	[Export] PackedScene? WarpField;
@@ -10,22 +10,20 @@ public partial class Projectile : Area3D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
-		GlobalPosition += Direction * Speed * (float)delta;
-	}
+		var collision = MoveAndCollide(Direction * Speed * (float)delta);
 
-	void OnCollide(Node3D body)
-	{
-		// Spawn the warp field where the projectile hit
-
-		if (WarpField != null)
+		if (collision != null) // hit a wall, spawn a projectile
 		{
-			var warp = WarpField.Instantiate<WarpField>();
-			AddSibling(warp);
-			warp.TopLevel = true;
-			warp.GlobalPosition = GlobalPosition;
-		}
+			if (WarpField != null)
+			{
+				var warp = WarpField.Instantiate<WarpField>();
+				AddSibling(warp);
+				warp.TopLevel = true;
+				warp.GlobalPosition = GlobalPosition;
+			}
 
-		QueueFree();
+			QueueFree();
+		}
 	}
 
 	// Destory when out of range

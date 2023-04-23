@@ -10,6 +10,9 @@ friction = 0.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a7e0n"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_q3eb4"]
+radius = 0.45
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5jp3"]
 albedo_color = Color(0.164706, 0.164706, 0.164706, 1)
 
@@ -29,14 +32,10 @@ top_radius = 0.01
 bottom_radius = 0.01
 height = 0.01
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_q3eb4"]
-radius = 0.45
-
 [node name="Player" type="RigidBody3D" node_paths=PackedStringArray("Camera", "FloorDetector", "Collider")]
 collision_layer = 2
 mass = 3.0
 physics_material_override = SubResource("PhysicsMaterial_jbb0a")
-gravity_scale = 2.0
 max_contacts_reported = 1
 contact_monitor = true
 can_sleep = false
@@ -47,16 +46,22 @@ AirMoveSpeed = 20.0
 LookSpeed = 0.5
 JumpStrength = 32.0
 GroundDrag = 10.0
-AirDrag = 2.0
+AirDrag = 0.5
+Gravity = 2.0
 SprintMultiplier = 1.5
 CrouchStrength = 0.5
 MaxAirSpeed = 15.0
 Camera = NodePath("Head/Camera")
-FloorDetector = NodePath("FloorDetector")
+FloorDetector = NodePath("Collider/FloorDetector")
 Collider = NodePath("Collider")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_a7e0n")
+
+[node name="FloorDetector" type="ShapeCast3D" parent="Collider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+shape = SubResource("SphereShape3D_q3eb4")
+target_position = Vector3(0, 0, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_ptkde")
@@ -90,11 +95,6 @@ cull_mask = 1048573
 [node name="AimRaycast" type="RayCast3D" parent="Head/Camera"]
 target_position = Vector3(0, 0, -10)
 
-[node name="FloorDetector" type="ShapeCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
-shape = SubResource("SphereShape3D_q3eb4")
-target_position = Vector3(0, 0, 0)
-
 [node name="Overlay" type="SubViewportContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -109,10 +109,10 @@ handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="OverlayCamera" type="Camera3D" parent="Overlay/SubViewport" node_paths=PackedStringArray("TrackingNode")]
+[node name="OverlayCamera" type="Camera3D" parent="Overlay/SubViewport" node_paths=PackedStringArray("TrackingCamera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cull_mask = 1047554
 script = ExtResource("3_8qmuj")
-TrackingNode = NodePath("../../../Head/Camera")
+TrackingCamera = NodePath("../../../Head/Camera")
 
 [node name="HUD" parent="." instance=ExtResource("4_uemel")]

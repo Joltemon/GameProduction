@@ -3,13 +3,14 @@ using System;
 
 public partial class OverlayCamera : Camera3D
 {
-	[Export] Node3D? TrackingNode;
+	[Export] Camera3D? TrackingCamera;
 
 	public override void _Process(double delta)
 	{
-		if (TrackingNode == null) return;
+		if (TrackingCamera == null) return;
 		
-		GlobalPosition = TrackingNode.GlobalPosition;
-		GlobalRotation = TrackingNode.GlobalRotation;
+		GlobalPosition = TrackingCamera.GlobalPosition;
+		GlobalRotation = TrackingCamera.GlobalRotation;
+		Fov = TrackingCamera.Fov;
 	}
 }

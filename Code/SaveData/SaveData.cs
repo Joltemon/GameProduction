@@ -5,6 +5,6 @@ class Savedata
 {
 	public static void Init()
 	{
-		GD.Print(ProjectSettings.GlobalizePath("user://"));
+		// GD.Print(ProjectSettings.GlobalizePath("user://"));
 	}
 }

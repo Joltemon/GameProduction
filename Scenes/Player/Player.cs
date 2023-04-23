@@ -10,15 +10,23 @@ public partial class Player : RigidBody3D
 	[Export] public float JumpStrength;
 	[Export] public float GroundDrag;
 	[Export] public float AirDrag;
+	[Export] public float Gravity;
 	[Export] public float SprintMultiplier;
 	[Export] public float CrouchStrength;
 	[Export] public float MaxAirSpeed;
 
-	float ColliderTargetHeight;
-	float LookPivotTargetHeight;
+	public bool Flying = false;
+	
+	// float ColliderTargetHeight;
+	// float LookPivotTargetHeight;
+
+	[ExportGroup("CameraOptions")]
+	[Export] public float DefaultFov = 75;
+	[Export] public float ZoomedFov = 30;
 
 	[ExportGroup("Player Components")]
 	[Export] Camera3D? Camera;
+	[Export] Camera3D? OverlayCamera;
 	[Export] ShapeCast3D? FloorDetector;
 	[Export] CollisionShape3D? Collider;
 
@@ -27,10 +35,81 @@ public partial class Player : RigidBody3D
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
 
-	bool IsCurrentlyJumping;
 	public override void _Process(double delta)
 	{
-		// Jump
+		// Crouching
+		if (Camera != null)
+		{
+			if (Input.IsActionPressed("MoveCrouch"))
+			{
+				Camera.Position = Camera.Position.Lerp(Vector3.Down * CrouchStrength, 16 * (float)delta);
+			}
+			else
+			{
+				Camera.Position = Camera.Position.Lerp(Vector3.Zero, 16 * (float)delta);
+			}
+		}
+
+		// Camera zoom
+		if (Input.IsActionPressed("LookZoom"))
+		{
+			Camera!.Fov = Mathf.Lerp(Camera.Fov, ZoomedFov, 0.2f);
+		}
+		else
+		{
+			Camera!.Fov = Mathf.Lerp(Camera.Fov, DefaultFov, 0.2f);
+		}
+	}
+
+	public override void _PhysicsProcess(double delta)
+	{
+		float sprintAdjustment = 1;
+		bool isGrounded = FloorDetector!.IsColliding();
+
+		Vector2 inputDir = Input.GetVector("MoveLeft", "MoveRight", "MoveForward", "MoveBackward").Rotated(-Camera!.Rotation.Y);
+		
+		// Crouching
+		if (Input.IsActionPressed("MoveCrouch"))
+		{
+			sprintAdjustment = 0.2f;
+		}
+		else if (Input.IsActionPressed("MoveSprint"))
+		{
+			sprintAdjustment = SprintMultiplier;
+		}
+
+		if (Flying)
+			MoveFly(inputDir, isGrounded, sprintAdjustment, (float)delta);
+		else
+			Move(inputDir, isGrounded, sprintAdjustment, (float)delta);
+	}
+
+	bool IsCurrentlyJumping;
+	void Move(Vector2 inputDir, bool isGrounded, float speed, float delta)
+	{
+		GravityScale = Gravity;
+
+		// Walking
+		Vector3 moveDir = new Vector3(inputDir.X, 0, inputDir.Y) * speed * delta * 180;
+		
+		// Apply movement speed
+		if (isGrounded)
+		{
+			moveDir *= MoveSpeed;
+
+			LinearDamp = GroundDrag;
+		}
+		else
+		{
+			moveDir *= AirMoveSpeed;
+
+			LinearDamp = 0;
+			// ApplyAirDrag(delta);
+		}
+		
+		ApplyCentralForce(moveDir);
+
+		// Jumping
 		var jumpPressed = Input.IsActionPressed("MoveJump");
 		var isOnFloor = FloorDetector!.IsColliding();
 
@@ -45,53 +124,22 @@ public partial class Player : RigidBody3D
 			// Just landed
 			IsCurrentlyJumping = false;
 		}
-
-		// Crouching
-		if (Camera != null)
-		{
-			if (Input.IsActionPressed("MoveCrouch"))
-			{
-				Camera.Position = Camera.Position.Lerp(Vector3.Down * CrouchStrength, 16 * (float)delta);
-			}
-			else
-			{
-				Camera.Position = Camera.Position.Lerp(Vector3.Zero, 16 * (float)delta);
-			}
-		}
 	}
 
-	public override void _PhysicsProcess(double delta)
+	void MoveFly(Vector2 inputDir, bool isGrounded, float speed, float delta)
 	{
-		// GD.Print(GlobalPosition.Y);
-		Vector2 InputDir;
-		Vector3 MoveDir;
-		float sprintAdjustment = 1;
-		bool isGrounded = FloorDetector!.IsColliding();
+		GravityScale = 0;
 
-		InputDir = Input.GetVector("MoveLeft", "MoveRight", "MoveForward", "MoveBackward").Rotated(-Camera!.Rotation.Y);
-		
-		// Crouching (broken right now, don't ask why)
-		if (Input.IsActionPressed("MoveCrouch"))
-		{
-			sprintAdjustment = 0.2f;
-		}
-
-		// Walking
-		if (Input.IsActionPressed("MoveSprint"))
-			sprintAdjustment = SprintMultiplier;
-		
-		MoveDir = new Vector3(InputDir.X, 0, InputDir.Y) * sprintAdjustment * (float)delta * 180;
+		// Flying
+		Vector3 moveDir = new Vector3(inputDir.X, Camera!.Rotation.X, inputDir.Y) * speed * delta * 180;
 		
 		// Apply movement speed
-		MoveDir *= isGrounded ? MoveSpeed : AirMoveSpeed;
+		moveDir *= isGrounded ? MoveSpeed : AirMoveSpeed;
 		
-		ApplyCentralForce(MoveDir);
+		ApplyCentralForce(moveDir);
 
 		// Apply ground drag
-		LinearDamp = isGrounded ? GroundDrag : 0;
-		// use custom drag formula for air, to preserve gravity
-		if (!isGrounded)
-			ApplyAirDrag(delta);
+		LinearDamp = 15;
 	}
 
 	// Apply drag to all axes but Y, to leave gravity acceleration intact
@@ -118,6 +166,10 @@ public partial class Player : RigidBody3D
 		{
 			if (OS.HasFeature("editor"))
 				GetTree().Quit();
+		}
+		else if (inputEvent.IsActionPressed("MoveFly"))
+		{
+			Flying = !Flying;
 		}
 	}
 }

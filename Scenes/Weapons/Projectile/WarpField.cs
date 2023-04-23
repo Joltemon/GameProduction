@@ -3,7 +3,8 @@ using System;
 
 public partial class WarpField : Area3D
 {
-	[Export] float Force;
+	[Export] float VerticalForce;
+	[Export] float HorizontalForce;
 	[Export] float Radius;
 
 	public override void _PhysicsProcess(double delta)
@@ -24,11 +25,13 @@ public partial class WarpField : Area3D
 					continue; // cannot divide by zero
 
 				launchStrength = Radius - Mathf.Abs(AdjustedFalloff(launchStrength));
-				
-				body.ApplyImpulse(launchDirection * Force, GlobalPosition);
-				// body.LinearVelocity = launchDirection * Force;
 
-				// QueueFree();
+				var force = new Vector3(launchDirection.X * HorizontalForce, launchDirection.Y * VerticalForce, launchDirection.Z * HorizontalForce);
+				
+				body.ApplyImpulse(force, GlobalPosition);
+				// body.LinearVelocity = force;
+
+				QueueFree();
 			}
 		}
 	}
