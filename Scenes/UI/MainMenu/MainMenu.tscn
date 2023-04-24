@@ -149,7 +149,7 @@ offset_top = -368.0
 offset_right = 288.0
 offset_bottom = -304.0
 grow_vertical = 0
-text = "Start"
+Text = "Start"
 
 [node name="SettingsButton" parent="UI/Buttons" instance=ExtResource("4_2xk3y")]
 layout_mode = 1
@@ -161,7 +161,7 @@ offset_top = -272.0
 offset_right = 360.0
 offset_bottom = -208.0
 grow_vertical = 0
-text = "Settings"
+Text = "Settings"
 
 [node name="CreditsButton" parent="UI/Buttons" instance=ExtResource("4_2xk3y")]
 layout_mode = 1
@@ -173,7 +173,7 @@ offset_top = -176.0
 offset_right = 464.0
 offset_bottom = -112.0
 grow_vertical = 0
-text = "Credits"
+Text = "Credits"
 
 [node name="QuitButton" parent="UI/Buttons" instance=ExtResource("4_2xk3y")]
 layout_mode = 1
@@ -185,7 +185,7 @@ offset_top = -80.0
 offset_right = 560.0
 offset_bottom = -16.0
 grow_vertical = 0
-text = "Quit"
+Text = "Quit"
 
 [node name="World" type="Node3D" parent="."]
 
@@ -197,5 +197,3 @@ root_node = NodePath("../../..")
 libraries = {
 "": SubResource("AnimationLibrary_eyv4o")
 }
-
-[connection signal="Pressed" from="UI/Buttons/QuitButton" to="." method="Quit"]

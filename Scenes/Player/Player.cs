@@ -6,6 +6,7 @@ public partial class Player : RigidBody3D
 	[ExportCategory("Movement")]
 	[Export] public float MoveSpeed;
 	[Export] public float AirMoveSpeed;
+	[Export] public float FlyMoveSpeed;
 	[Export] public float LookSpeed;
 	[Export] public float JumpStrength;
 	[Export] public float GroundDrag;
@@ -16,10 +17,8 @@ public partial class Player : RigidBody3D
 	[Export] public float MaxAirSpeed;
 
 	public bool Flying = false;
+	float LookSensitivity = 1;
 	
-	// float ColliderTargetHeight;
-	// float LookPivotTargetHeight;
-
 	[ExportGroup("CameraOptions")]
 	[Export] public float DefaultFov = 75;
 	[Export] public float ZoomedFov = 30;
@@ -54,10 +53,12 @@ public partial class Player : RigidBody3D
 		if (Input.IsActionPressed("LookZoom"))
 		{
 			Camera!.Fov = Mathf.Lerp(Camera.Fov, ZoomedFov, 0.2f);
+			LookSensitivity = 0.4f;
 		}
 		else
 		{
 			Camera!.Fov = Mathf.Lerp(Camera.Fov, DefaultFov, 0.2f);
+			LookSensitivity = 1;
 		}
 	}
 
@@ -101,7 +102,9 @@ public partial class Player : RigidBody3D
 		}
 		else
 		{
-			moveDir *= AirMoveSpeed;
+			var controlReduction = Mathf.Clamp(MaxAirSpeed - LinearVelocity.Length(), 0, MaxAirSpeed); // scale AirMoveSpeed based on how fast the player is going
+
+			moveDir *= AirMoveSpeed  * controlReduction / MaxAirSpeed;
 
 			LinearDamp = 0;
 			// ApplyAirDrag(delta);
@@ -131,10 +134,10 @@ public partial class Player : RigidBody3D
 		GravityScale = 0;
 
 		// Flying
-		Vector3 moveDir = new Vector3(inputDir.X, Camera!.Rotation.X, inputDir.Y) * speed * delta * 180;
+		Vector3 moveDir = new Vector3(inputDir.X, 0, inputDir.Y).Rotated(Vector3.Right!, Camera!.Rotation.X) * speed * delta * 180;
 		
 		// Apply movement speed
-		moveDir *= isGrounded ? MoveSpeed : AirMoveSpeed;
+		moveDir *= isGrounded ? MoveSpeed : MoveSpeed;
 		
 		ApplyCentralForce(moveDir);
 
@@ -156,10 +159,12 @@ public partial class Player : RigidBody3D
 		// Mouse Look
 		if (inputEvent is InputEventMouseMotion mouseEvent)
 		{
+			var mouseMovement = mouseEvent.Relative * LookSensitivity;
+
 			Vector3 newRotation = Camera!.Rotation;
-			newRotation.X -= Mathf.DegToRad(mouseEvent.Relative.Y * LookSpeed);
+			newRotation.X -= Mathf.DegToRad(mouseMovement.Y * LookSpeed);
 			newRotation.X = Mathf.Clamp(newRotation.X, -Mathf.Pi/2, Mathf.Pi/2);
-			newRotation.Y -= Mathf.DegToRad(mouseEvent.Relative.X * LookSpeed);
+			newRotation.Y -= Mathf.DegToRad(mouseMovement.X * LookSpeed);
 			Camera!.Rotation = newRotation;
 		}
 		else if (inputEvent.IsActionPressed("Pause"))
