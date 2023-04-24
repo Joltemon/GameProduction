@@ -102,9 +102,18 @@ public partial class Player : RigidBody3D
 		}
 		else
 		{
-			var controlReduction = Mathf.Clamp(MaxAirSpeed - LinearVelocity.Length(), 0, MaxAirSpeed); // scale AirMoveSpeed based on how fast the player is going
+			moveDir *= AirMoveSpeed;
 
-			moveDir *= AirMoveSpeed  * controlReduction / MaxAirSpeed;
+			var moveDirDirection = new Vector2(moveDir.X, moveDir.Z).Normalized().Angle();
+			var velocityDirection = new Vector2(LinearVelocity.X, LinearVelocity.Z).Normalized().Angle();
+			var relativeMoveAngle = (velocityDirection - moveDirDirection) % 2*Mathf.Pi;
+
+			GD.Print(relativeMoveAngle);
+			var controlReduction = Mathf.Clamp(MaxAirSpeed - LinearVelocity.Length(), 0, MaxAirSpeed) / MaxAirSpeed; // scale AirMoveSpeed based on how fast the player is going
+			controlReduction *= Mathf.Abs((Mathf.Pi - Mathf.Abs(relativeMoveAngle)) / Mathf.Pi);
+
+			moveDir *= controlReduction;
+
 
 			LinearDamp = 0;
 			// ApplyAirDrag(delta);
