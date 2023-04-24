@@ -16,7 +16,7 @@ height = 5.0
 [node name="WarpField" type="Area3D"]
 collision_mask = 2
 script = ExtResource("1_y6fjv")
-VerticalForce = 80.0
+VerticalForce = 2000.0
 HorizontalForce = 45.0
 Radius = 2.5
 
