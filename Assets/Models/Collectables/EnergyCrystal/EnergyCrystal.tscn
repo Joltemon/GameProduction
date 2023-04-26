@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://r6icjoei8o01"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="PackedScene" path="res://Assets/Models/Collectables/scene.gltf" id="1_tfdxo"]
-[ext_resource type="PackedScene" uid="uid://bamodlv01xscd" path="res://Assets/Models/Collectables/EnergyCrystal/scene.gltf" id="2_dkyot"]
+[ext_resource type="PackedScene" uid="uid://bamodlv01xscd" path="res://Assets/Models/Collectables/EnergyCrystal/scene.gltf" id="1_6jcv6"]
 
-[node name="scene" instance=ExtResource("1_tfdxo")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pk6uj"]
+albedo_color = Color(0.588235, 0.588235, 0.588235, 1)
+emission_enabled = true
+emission = Color(0, 0.34902, 0.34902, 1)
+emission_energy_multiplier = 16.0
 
-[node name="Sketchfab_model" parent="." index="0"]
-transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0)
+[node name="scene" instance=ExtResource("1_6jcv6")]
 
-[node name="scene" parent="." index="1" instance=ExtResource("2_dkyot")]
+[node name="Object_4" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_0" index="0"]
+material_override = SubResource("StandardMaterial3D_pk6uj")
