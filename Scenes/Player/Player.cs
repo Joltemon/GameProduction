@@ -106,17 +106,17 @@ public partial class Player : RigidBody3D
 			moveDir *= AirMoveSpeed;
 
 			// Angle calculation
-			var moveDirDirection = new Vector2(moveDir.X, moveDir.Z).Normalized().Angle();
-			var velocityDirection = new Vector2(LinearVelocity.X, LinearVelocity.Z).Normalized().Angle();
-			var relativeMoveAngle = (velocityDirection - moveDirDirection);
+			var moveDirDirection = new Vector2(moveDir.X, moveDir.Z).Angle();
+			var velocityDirection = new Vector2(LinearVelocity.X, LinearVelocity.Z).Angle();
+			var relativeMoveAngle = (Mathf.Abs(velocityDirection) - Mathf.Abs(moveDirDirection));
+
 
 			var controlReduction = Mathf.Clamp(CurrentVelocity, 0, MaxAirSpeed) / MaxAirSpeed; // scale AirMoveSpeed based on how fast the player is going, 0 to 1
 			controlReduction *= 1 - Mathf.Abs(relativeMoveAngle / Mathf.Pi); // scale again based on the direction the player is trying to move, going back easier than going forwards
 
-			moveDir *= 1 - controlReduction;
+			moveDir *= Mathf.Clamp(1 - controlReduction, 0, 1);
 
 			LinearDamp = 0;
-			// ApplyAirDrag(delta);
 		}
 		
 		ApplyCentralForce(moveDir);
