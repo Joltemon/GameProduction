@@ -38,7 +38,7 @@ public partial class MenuButton : Control
 		var windowSize = DisplayServer.WindowGetSize();
 		var positionOffset = Size / 2;
 
-		var finalScale = windowSize / Size;
+		var finalScale = windowSize / positionOffset;
 
 		var tween = GetTree().CreateTween().SetParallel().SetTrans(Tween.TransitionType.Cubic);
 		
