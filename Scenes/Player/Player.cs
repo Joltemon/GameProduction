@@ -25,7 +25,7 @@ public partial class Player : RigidBody3D
 
 	[ExportGroup("Player Components")]
 	[Export] Camera3D? Camera;
-	[Export] Camera3D? OverlayCamera;
+	[Export] AnimationPlayer? MoveAnim;
 	[Export] ShapeCast3D? FloorDetector;
 	[Export] CollisionShape3D? Collider;
 
@@ -89,6 +89,7 @@ public partial class Player : RigidBody3D
 	void Move(Vector2 inputDir, bool isGrounded, float speed, float delta)
 	{
 		GravityScale = Gravity;
+		var CurrentVelocity = LinearVelocity.Length();
 
 		// Walking
 		Vector3 moveDir = new Vector3(inputDir.X, 0, inputDir.Y) * speed * delta * 180;
@@ -104,22 +105,32 @@ public partial class Player : RigidBody3D
 		{
 			moveDir *= AirMoveSpeed;
 
+			// Angle calculation
 			var moveDirDirection = new Vector2(moveDir.X, moveDir.Z).Normalized().Angle();
 			var velocityDirection = new Vector2(LinearVelocity.X, LinearVelocity.Z).Normalized().Angle();
-			var relativeMoveAngle = (velocityDirection - moveDirDirection) % 2*Mathf.Pi;
+			var relativeMoveAngle = (velocityDirection - moveDirDirection);
 
-			GD.Print(relativeMoveAngle);
-			var controlReduction = Mathf.Clamp(MaxAirSpeed - LinearVelocity.Length(), 0, MaxAirSpeed) / MaxAirSpeed; // scale AirMoveSpeed based on how fast the player is going
-			controlReduction *= Mathf.Abs((Mathf.Pi - Mathf.Abs(relativeMoveAngle)) / Mathf.Pi);
+			var controlReduction = Mathf.Clamp(CurrentVelocity, 0, MaxAirSpeed) / MaxAirSpeed; // scale AirMoveSpeed based on how fast the player is going, 0 to 1
+			controlReduction *= 1 - Mathf.Abs(relativeMoveAngle / Mathf.Pi); // scale again based on the direction the player is trying to move, going back easier than going forwards
 
-			moveDir *= controlReduction;
-
+			moveDir *= 1 - controlReduction;
 
 			LinearDamp = 0;
 			// ApplyAirDrag(delta);
 		}
 		
 		ApplyCentralForce(moveDir);
+
+		// Head bob
+		if (MoveAnim != null && isGrounded && CurrentVelocity > 0)
+		{
+			MoveAnim.Play("Walk");
+			MoveAnim.SpeedScale = CurrentVelocity / 8;
+		}
+		else if (MoveAnim != null)
+		{
+			MoveAnim.Stop();
+		}
 
 		// Jumping
 		var jumpPressed = Input.IsActionPressed("MoveJump");

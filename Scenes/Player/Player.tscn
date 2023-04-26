@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfm8d47igl6nx"]
+[gd_scene load_steps=15 format=3 uid="uid://bfm8d47igl6nx"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.cs" id="1_1q63t"]
 [ext_resource type="PackedScene" uid="uid://c1je4btt0vci8" path="res://Scenes/Weapons/WeaponHolder/WeaponHolder.tscn" id="2_5mgoj"]
@@ -32,7 +32,40 @@ top_radius = 0.01
 bottom_radius = 0.01
 height = 0.01
 
-[node name="Player" type="RigidBody3D" node_paths=PackedStringArray("Camera", "FloorDetector", "Collider")]
+[sub_resource type="Animation" id="Animation_oa6pa"]
+resource_name = "Walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(0.8, 0.8, 0.8, 0.8, 0.8),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.04, -0.1, 0), Vector3(0, 0, 0), Vector3(-0.04, -0.1, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1b21j"]
+_data = {
+"Walk": SubResource("Animation_oa6pa")
+}
+
+[node name="Player" type="RigidBody3D" node_paths=PackedStringArray("Camera", "MoveAnim", "FloorDetector", "Collider")]
 collision_layer = 2
 mass = 3.0
 physics_material_override = SubResource("PhysicsMaterial_jbb0a")
@@ -53,6 +86,7 @@ SprintMultiplier = 1.5
 CrouchStrength = 0.5
 MaxAirSpeed = 20.0
 Camera = NodePath("Head/Camera")
+MoveAnim = NodePath("Head/Animation")
 FloorDetector = NodePath("Collider/FloorDetector")
 Collider = NodePath("Collider")
 
@@ -95,6 +129,11 @@ cull_mask = 1048573
 
 [node name="AimRaycast" type="RayCast3D" parent="Head/Camera"]
 target_position = Vector3(0, 0, -10)
+
+[node name="Animation" type="AnimationPlayer" parent="Head"]
+libraries = {
+"": SubResource("AnimationLibrary_1b21j")
+}
 
 [node name="Overlay" type="SubViewportContainer" parent="."]
 anchors_preset = 15
