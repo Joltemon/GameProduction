@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://pducdeyki048"]
+
+[ext_resource type="PackedScene" uid="uid://dy6gvctilt7wg" path="res://Assets/Models/Collectables/Bottle/scene.gltf" id="1_t7s2k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3twx"]
+albedo_color = Color(0, 0, 1, 1)
+emission_enabled = true
+emission = Color(0, 0, 1, 1)
+emission_energy_multiplier = 16.0
+
+[node name="scene" instance=ExtResource("1_t7s2k")]
+transform = Transform3D(1.39501, -1.43316, 0, 1.43316, 1.39501, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Water_bottle_01_RGB_texture_0" parent="Sketchfab_model/d29a4dae1ebb4be29545fb45126e257bfbx/RootNode/Water_bottle_01" index="0"]
+material_override = SubResource("StandardMaterial3D_f3twx")

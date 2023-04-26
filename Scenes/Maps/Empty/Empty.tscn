@@ -1,8 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://cs85v43ogww0y"]
+[gd_scene load_steps=30 format=3 uid="uid://cs85v43ogww0y"]
 
 [ext_resource type="PackedScene" uid="uid://bfm8d47igl6nx" path="res://Scenes/Player/Player.tscn" id="1_8o8po"]
 [ext_resource type="Shader" uid="uid://jx8m6uyfkcvj" path="res://Assets/Shaders/Pixelate.tres" id="2_3lnlm"]
 [ext_resource type="Texture2D" uid="uid://cf4xyaf5uy0oq" path="res://Assets/Icons/icon.svg" id="3_bhhye"]
+[ext_resource type="PackedScene" uid="uid://pducdeyki048" path="res://Assets/Models/Collectables/Bottle/Adrenaline.tscn" id="4_pv4y7"]
+[ext_resource type="PackedScene" uid="uid://dhity42niwrgx" path="res://Assets/Models/Collectables/EnergyCrystal/EnergyCrystal.tscn" id="5_8x2ae"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d2xdq"]
 sky_top_color = Color(0.192157, 0.2, 0.54902, 1)
@@ -362,3 +364,12 @@ material = SubResource("ShaderMaterial_g24j8")
 position = Vector2(576, 324)
 scale = Vector2(9, 5.0625)
 texture = ExtResource("3_bhhye")
+
+[node name="scene" parent="." instance=ExtResource("4_pv4y7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57214, 0.24925, -3.31611)
+
+[node name="scene3" parent="." instance=ExtResource("5_8x2ae")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 24.1703, 18.1639, -27.1357)
+
+[node name="scene2" parent="." instance=ExtResource("4_pv4y7")]
+transform = Transform3D(1.39501, -1.43316, 0, 1.43316, 1.39501, 0, 0, 0, 2, 25.4918, 18.553, -28.1397)

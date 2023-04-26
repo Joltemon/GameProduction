@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://dhity42niwrgx"]
 
 [ext_resource type="PackedScene" uid="uid://bamodlv01xscd" path="res://Assets/Models/Collectables/EnergyCrystal/scene.gltf" id="1_6jcv6"]
 
@@ -9,6 +9,7 @@ emission = Color(0, 0.34902, 0.34902, 1)
 emission_energy_multiplier = 16.0
 
 [node name="scene" instance=ExtResource("1_6jcv6")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="Object_4" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_0" index="0"]
 material_override = SubResource("StandardMaterial3D_pk6uj")
