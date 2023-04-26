@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://oqp8xiwqab1k"]
+[gd_scene load_steps=4 format=3 uid="uid://oqp8xiwqab1k"]
 
 [ext_resource type="Script" path="res://Scenes/Weapons/Projectile/Projectile.cs" id="1_ddvfs"]
-[ext_resource type="PackedScene" uid="uid://bclxmowxm3wf2" path="res://Scenes/Weapons/Projectile/WarpField.tscn" id="2_oder6"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_cie0s"]
 radius = 0.1
@@ -14,7 +13,6 @@ radius = 0.1
 collision_layer = 0
 script = ExtResource("1_ddvfs")
 Speed = 60.0
-WarpField = ExtResource("2_oder6")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_cie0s")
