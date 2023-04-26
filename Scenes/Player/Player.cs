@@ -108,7 +108,6 @@ public partial class Player : RigidBody3D
 			var velocityDirection = new Vector2(LinearVelocity.X, LinearVelocity.Z).Normalized().Angle();
 			var relativeMoveAngle = (velocityDirection - moveDirDirection) % 2*Mathf.Pi;
 
-			GD.Print(relativeMoveAngle);
 			var controlReduction = Mathf.Clamp(MaxAirSpeed - LinearVelocity.Length(), 0, MaxAirSpeed) / MaxAirSpeed; // scale AirMoveSpeed based on how fast the player is going
 			controlReduction *= Mathf.Abs((Mathf.Pi - Mathf.Abs(relativeMoveAngle)) / Mathf.Pi);
 
