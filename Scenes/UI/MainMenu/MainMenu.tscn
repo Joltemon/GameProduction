@@ -197,3 +197,6 @@ root_node = NodePath("../../..")
 libraries = {
 "": SubResource("AnimationLibrary_eyv4o")
 }
+
+[connection signal="Pressed" from="UI/Buttons/StartButton" to="." method="StartGame"]
+[connection signal="Pressed" from="UI/Buttons/QuitButton" to="." method="Quit"]
