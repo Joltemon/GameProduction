@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://da65uxu3bm7os"
-path="res://.godot/imported/scene.gltf-8f5197d49cb01f7f7708abdcd1672b6c.scn"
+uid="uid://bamodlv01xscd"
+path="res://.godot/imported/scene.gltf-19acf4206df93f43ab843381058636e6.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Collectables/scene.gltf"
-dest_files=["res://.godot/imported/scene.gltf-8f5197d49cb01f7f7708abdcd1672b6c.scn"]
+source_file="res://Assets/Models/Collectables/EnergyCrystal/scene.gltf"
+dest_files=["res://.godot/imported/scene.gltf-19acf4206df93f43ab843381058636e6.scn"]
 
 [params]
 
