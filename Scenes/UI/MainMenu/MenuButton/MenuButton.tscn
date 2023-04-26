@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1ic84gxqno7q"]
+[gd_scene load_steps=6 format=3 uid="uid://c1ic84gxqno7q"]
 
 [ext_resource type="FontFile" uid="uid://dyqcx0nfi1g2n" path="res://Assets/Fonts/SourceCodePro-BoldItalic.ttf" id="1_y1eor"]
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu/MenuButton/MenuButton.cs" id="2_npxms"]
@@ -14,12 +14,24 @@ corner_radius_top_right = 26
 corner_radius_bottom_right = 26
 corner_radius_bottom_left = 26
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tm8hh"]
+bg_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+border_width_left = 6
+border_width_top = 3
+border_width_right = 2
+border_color = Color(0.411765, 0.411765, 0.411765, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ylyyh"]
+
 [node name="MenuButton" type="Control" node_paths=PackedStringArray("Button", "BlackOverlay")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 256.0
 offset_bottom = 64.0
-pivot_offset = Vector2(128, 32)
 script = ExtResource("2_npxms")
 HoverOffset = Vector2(20, 0)
 Button = NodePath("Button")
@@ -32,9 +44,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(128, 32)
 theme_override_fonts/font = ExtResource("1_y1eor")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_f54qu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f54qu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tm8hh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ylyyh")
 
 [node name="BlackOverlay" type="ColorRect" parent="Button"]
 layout_mode = 1
