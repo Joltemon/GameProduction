@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ygfajcaca5jd"
+path="res://.godot/imported/wallNarrowWood.obj-f4795986036bc4e26fc721e4941a021e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallNarrowWood.obj-f4795986036bc4e26fc721e4941a021e.mesh"]
+
+source_file="res://Assets/Models/Castle/wallNarrowWood.obj"
+dest_files=["res://.godot/imported/wallNarrowWood.obj-f4795986036bc4e26fc721e4941a021e.mesh", "res://.godot/imported/wallNarrowWood.obj-f4795986036bc4e26fc721e4941a021e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

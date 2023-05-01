@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://blyu3maq46o5n"
+path="res://.godot/imported/siegeRam.obj-76baffe6954f76a3a1b6f0b65a731898.mesh"
+
+[deps]
+
+files=["res://.godot/imported/siegeRam.obj-76baffe6954f76a3a1b6f0b65a731898.mesh"]
+
+source_file="res://Assets/Models/Castle/siegeRam.obj"
+dest_files=["res://.godot/imported/siegeRam.obj-76baffe6954f76a3a1b6f0b65a731898.mesh", "res://.godot/imported/siegeRam.obj-76baffe6954f76a3a1b6f0b65a731898.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

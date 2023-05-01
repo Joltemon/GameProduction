@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dd82qchveaxpj"
+path="res://.godot/imported/towerSquareMidWindows.obj-f70bfd89bff3c6491faa1f5d41d24cc6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/towerSquareMidWindows.obj-f70bfd89bff3c6491faa1f5d41d24cc6.mesh"]
+
+source_file="res://Assets/Models/Castle/towerSquareMidWindows.obj"
+dest_files=["res://.godot/imported/towerSquareMidWindows.obj-f70bfd89bff3c6491faa1f5d41d24cc6.mesh", "res://.godot/imported/towerSquareMidWindows.obj-f70bfd89bff3c6491faa1f5d41d24cc6.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

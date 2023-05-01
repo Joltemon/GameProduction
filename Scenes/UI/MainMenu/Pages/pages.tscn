@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://32rdxh7lbnyk"]
+[gd_scene load_steps=2 format=3 uid="uid://32rdxh7lbnyk"]
+
+[ext_resource type="PackedScene" uid="uid://d4gl27k01abkm" path="res://Scenes/UI/MainMenu/Pages/settings_page.tscn" id="1_tqgce"]
 
 [node name="Pages" type="Control"]
 layout_mode = 3
@@ -8,13 +10,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Settings Page" type="Control" parent="."]
+[node name="Settings Page" parent="." instance=ExtResource("1_tqgce")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Credits Page" type="Control" parent="."]
 layout_mode = 1

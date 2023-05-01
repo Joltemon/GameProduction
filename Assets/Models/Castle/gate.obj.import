@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bxdhbsxswh0km"
+path="res://.godot/imported/gate.obj-a4796779da29a29686e6b2981fb9f12d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/gate.obj-a4796779da29a29686e6b2981fb9f12d.mesh"]
+
+source_file="res://Assets/Models/Castle/gate.obj"
+dest_files=["res://.godot/imported/gate.obj-a4796779da29a29686e6b2981fb9f12d.mesh", "res://.godot/imported/gate.obj-a4796779da29a29686e6b2981fb9f12d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
