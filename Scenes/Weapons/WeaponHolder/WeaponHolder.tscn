@@ -42,14 +42,14 @@ Weapon = NodePath("WeaponOffset/Propulsor")
 WeaponOffset = NodePath("WeaponOffset")
 AimRaycast = NodePath("RayCast")
 AnimationPlayer = NodePath("AnimationPlayer")
+VerticalRecoil = 35.0
+HorizontalRecoil = 10.0
 
 [node name="WeaponOffset" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.3, 0.05)
 
 [node name="Propulsor" parent="WeaponOffset" instance=ExtResource("2_onpxo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6)
-VerticalForce = 35.0
-HorizontalForce = 20.0
 
 [node name="Model" parent="WeaponOffset/Propulsor" index="1"]
 transform = Transform3D(-2.17199e-06, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.17199e-06, 0, 0, 0)
@@ -61,6 +61,9 @@ target_position = Vector3(0, 0, -10)
 libraries = {
 "": SubResource("AnimationLibrary_mxxmn")
 }
+
+[connection signal="AmmunitionUpdated" from="WeaponOffset/Propulsor" to="." method="OnAmmunitionUpdated"]
+[connection signal="Fired" from="WeaponOffset/Propulsor" to="." method="OnFired"]
 
 [editable path="WeaponOffset/Propulsor"]
 [editable path="WeaponOffset/Propulsor/Model"]

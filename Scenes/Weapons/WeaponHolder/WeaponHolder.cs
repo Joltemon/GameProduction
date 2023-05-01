@@ -3,17 +3,24 @@ using System;
 
 public partial class WeaponHolder : Node3D
 {
+	[Export] Player? Player;
 	[Export] Propulsor? Weapon;
 	[Export] Node3D? WeaponOffset;
 	[Export] RayCast3D? AimRaycast;
 	[Export] AnimationPlayer? AnimationPlayer;
+
+	[Export] float VerticalRecoil;
+	[Export] float HorizontalRecoil;
+
+	[Signal] public delegate void FiredEventHandler();
+	[Signal] public delegate void AmmunitionUpdatedEventHandler(int ammunition);
 
 	Vector2 mouseVelocity;
 
 	public override void _Input(InputEvent inputEvent)
 	{
 		// Shooting the gun
-		if (inputEvent.IsActionPressed("PrimaryFire"))
+		if (inputEvent.IsActionPressed("PrimaryFire") && Weapon?.Ammunition > 0)
 		{
 			if (AimRaycast!.IsColliding() && Mathf.Abs(GlobalPosition.DistanceTo(AimRaycast.GetCollisionPoint())) <= 1)
 				CloseRangePrimaryFire();
@@ -65,4 +72,15 @@ public partial class WeaponHolder : Node3D
 		}
 		Weapon.PrimaryFire();
 	}
+
+	public void OnFired() 
+	{
+		EmitSignal("Fired");
+		var launchDirection = ToGlobal(new Vector3(0,0,-1)).DirectionTo(GlobalPosition);
+		var force = new Vector3(launchDirection.X * HorizontalRecoil, launchDirection.Y * VerticalRecoil, launchDirection.Z * HorizontalRecoil);
+
+		Player?.ApplyImpulse(force, GlobalPosition);
+	}
+
+	void OnAmmunitionUpdated(int ammo) => EmitSignal("AmmunitionUpdated", ammo);
 }
