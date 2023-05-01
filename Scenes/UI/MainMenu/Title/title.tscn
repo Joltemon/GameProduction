@@ -264,7 +264,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Line2D1" type="Line2D" parent="Lines"]
-position = Vector2(-1160, 17.3291)
+position = Vector2(-93.854, 17.3291)
 scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 1048, 40)
@@ -272,7 +272,7 @@ width = 2.5
 default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
 
 [node name="Line2D2" type="Line2D" parent="Lines"]
-position = Vector2(1040, 30.3293)
+position = Vector2(152.118, 30.3291)
 scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
@@ -280,7 +280,7 @@ width = 2.5
 default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
 
 [node name="Line2D3" type="Line2D" parent="Lines"]
-position = Vector2(-1160, 43.3293)
+position = Vector2(-483.66, 43.3291)
 scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
@@ -288,7 +288,7 @@ width = 2.5
 default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
 
 [node name="Line2D4" type="Line2D" parent="Lines"]
-position = Vector2(1032, 56.3291)
+position = Vector2(763.236, 56.3291)
 scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
@@ -336,7 +336,7 @@ width = 2.5
 default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
 
 [node name="TitleHBoxContainer" type="HBoxContainer" parent="."]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.466667)
 layout_mode = 0
 offset_left = 96.0
 offset_top = 56.0
@@ -349,7 +349,6 @@ texture = ExtResource("2_y8gts")
 expand_mode = 2
 
 [node name="ASpacer" type="Control" parent="TitleHBoxContainer"]
-custom_minimum_size = Vector2(1500, 0)
 layout_mode = 2
 
 [node name="D" type="TextureRect" parent="TitleHBoxContainer"]
@@ -358,7 +357,7 @@ texture = ExtResource("3_jg2we")
 expand_mode = 2
 
 [node name="DSpacer" type="Control" parent="TitleHBoxContainer"]
-custom_minimum_size = Vector2(1500, 0)
+custom_minimum_size = Vector2(3.65796, 0)
 layout_mode = 2
 
 [node name="R" type="TextureRect" parent="TitleHBoxContainer"]
@@ -367,7 +366,7 @@ texture = ExtResource("4_y2eml")
 expand_mode = 2
 
 [node name="RSpacer" type="Control" parent="TitleHBoxContainer"]
-custom_minimum_size = Vector2(1500, 0)
+custom_minimum_size = Vector2(45.2112, 0)
 layout_mode = 2
 
 [node name="E" type="TextureRect" parent="TitleHBoxContainer"]
@@ -376,7 +375,7 @@ texture = ExtResource("5_cfyi2")
 expand_mode = 2
 
 [node name="ESpacer" type="Control" parent="TitleHBoxContainer"]
-custom_minimum_size = Vector2(1500, 0)
+custom_minimum_size = Vector2(121.363, 0)
 layout_mode = 2
 
 [node name="N" type="TextureRect" parent="TitleHBoxContainer"]
@@ -385,7 +384,7 @@ texture = ExtResource("6_lqj4m")
 expand_mode = 2
 
 [node name="NSpacer" type="Control" parent="TitleHBoxContainer"]
-custom_minimum_size = Vector2(1500, 0)
+custom_minimum_size = Vector2(209.205, 0)
 layout_mode = 2
 
 [node name="A2" type="TextureRect" parent="TitleHBoxContainer"]
@@ -394,7 +393,7 @@ texture = ExtResource("2_y8gts")
 expand_mode = 2
 
 [node name="A2Spacer" type="Control" parent="TitleHBoxContainer"]
-custom_minimum_size = Vector2(1500, 0)
+custom_minimum_size = Vector2(296.296, 0)
 layout_mode = 2
 
 [node name="R2" type="TextureRect" parent="TitleHBoxContainer"]
@@ -403,7 +402,7 @@ texture = ExtResource("4_y2eml")
 expand_mode = 2
 
 [node name="R2Spacer" type="Control" parent="TitleHBoxContainer"]
-custom_minimum_size = Vector2(1500, 0)
+custom_minimum_size = Vector2(377.609, 0)
 layout_mode = 2
 
 [node name="U" type="TextureRect" parent="TitleHBoxContainer"]
@@ -412,7 +411,7 @@ texture = ExtResource("7_qtamk")
 expand_mode = 2
 
 [node name="USpacer" type="Control" parent="TitleHBoxContainer"]
-custom_minimum_size = Vector2(1500, 0)
+custom_minimum_size = Vector2(451.602, 0)
 layout_mode = 2
 
 [node name="S" type="TextureRect" parent="TitleHBoxContainer"]
@@ -421,7 +420,7 @@ texture = ExtResource("8_0rvjk")
 expand_mode = 2
 
 [node name="SSpacer" type="Control" parent="TitleHBoxContainer"]
-custom_minimum_size = Vector2(1500, 0)
+custom_minimum_size = Vector2(518.224, 0)
 layout_mode = 2
 
 [node name="H" type="TextureRect" parent="TitleHBoxContainer"]
