@@ -126,7 +126,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cull_mask = 1048573
 current = true
 
-[node name="WeaponHolder" parent="Head/Camera" instance=ExtResource("2_5mgoj")]
+[node name="WeaponHolder" parent="Head/Camera" node_paths=PackedStringArray("Player") instance=ExtResource("2_5mgoj")]
+Player = NodePath("../../..")
 
 [node name="AimRaycast" type="RayCast3D" parent="Head/Camera"]
 target_position = Vector3(0, 0, -10)
@@ -158,3 +159,5 @@ script = ExtResource("3_8qmuj")
 TrackingCamera = NodePath("../../../Head/Camera")
 
 [node name="HUD" parent="." instance=ExtResource("4_uemel")]
+
+[connection signal="AmmunitionUpdated" from="Head/Camera/WeaponHolder" to="HUD" method="AmmunitionUpdated"]

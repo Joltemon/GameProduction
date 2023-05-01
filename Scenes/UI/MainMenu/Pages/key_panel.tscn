@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://tj7dpujpykwd"]
+
+[ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="1_urev3"]
+[ext_resource type="FontFile" uid="uid://cxv5oa85st6dv" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="2_dwmd3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bitq"]
+bg_color = Color(0, 0.678431, 0.929412, 0.466667)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="Theme" id="Theme_f3il2"]
+default_font = ExtResource("1_urev3")
+default_font_size = 21
+
+[node name="KeyPanel" type="Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -180.0
+offset_right = 160.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2bitq")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -11.5
+offset_right = 56.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme = SubResource("Theme_f3il2")
+text = "Text"
+
+[node name="Key" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -28.0
+offset_right = -1.0
+offset_bottom = 38.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.482353, 0.862745, 1, 1)
+theme_override_fonts/font = ExtResource("2_dwmd3")
+theme_override_font_sizes/font_size = 48
+text = "H"
