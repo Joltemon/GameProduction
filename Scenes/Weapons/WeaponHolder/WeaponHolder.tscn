@@ -50,8 +50,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.3, 0.05)
 
 [node name="Propulsor" parent="WeaponOffset" instance=ExtResource("2_onpxo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6)
-VerticalForce = 35.0
-HorizontalForce = 35.0
 
 [node name="Model" parent="WeaponOffset/Propulsor" index="1"]
 transform = Transform3D(-2.17199e-06, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.17199e-06, 0, 0, 0)
