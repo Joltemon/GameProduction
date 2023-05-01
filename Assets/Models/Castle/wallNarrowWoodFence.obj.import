@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dj5sj31bllihx"
+path="res://.godot/imported/wallNarrowWoodFence.obj-8a2c775158219a8a5f2f7d7b3a23af3f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallNarrowWoodFence.obj-8a2c775158219a8a5f2f7d7b3a23af3f.mesh"]
+
+source_file="res://Assets/Models/Castle/wallNarrowWoodFence.obj"
+dest_files=["res://.godot/imported/wallNarrowWoodFence.obj-8a2c775158219a8a5f2f7d7b3a23af3f.mesh", "res://.godot/imported/wallNarrowWoodFence.obj-8a2c775158219a8a5f2f7d7b3a23af3f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

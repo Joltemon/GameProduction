@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://w5vg4bxk8ywg"]
+
+[ext_resource type="ArrayMesh" uid="uid://1eqp0a3ugb4b" path="res://Assets/Models/Castle/bridge.obj" id="2_cuip1"]
+[ext_resource type="PackedScene" uid="uid://bfm8d47igl6nx" path="res://Scenes/Player/Player.tscn" id="2_lhsi4"]
+
+[sub_resource type="Environment" id="Environment_teq1p"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7jp7a"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rtbc6"]
+
+[node name="Castle" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_teq1p")
+camera_attributes = SubResource("CameraAttributesPractical_7jp7a")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_lhsi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81644, 0)
+
+[node name="Bridge" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.94143, 0, 0, 0, 1, 0, 0, 0, 2.48728, -9.64094, 0, 0)
+mesh = ExtResource("2_cuip1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Bridge"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bridge/StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_rtbc6")

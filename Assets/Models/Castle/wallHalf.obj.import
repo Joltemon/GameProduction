@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bpi8biwir8wcy"
+path="res://.godot/imported/wallHalf.obj-335fb102eff1baf12418b35033e705da.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallHalf.obj-335fb102eff1baf12418b35033e705da.mesh"]
+
+source_file="res://Assets/Models/Castle/wallHalf.obj"
+dest_files=["res://.godot/imported/wallHalf.obj-335fb102eff1baf12418b35033e705da.mesh", "res://.godot/imported/wallHalf.obj-335fb102eff1baf12418b35033e705da.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

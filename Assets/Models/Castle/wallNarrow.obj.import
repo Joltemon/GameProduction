@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cssgwsf2rky6b"
+path="res://.godot/imported/wallNarrow.obj-3d49acbb83b1c53e85d5b901baa092fd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wallNarrow.obj-3d49acbb83b1c53e85d5b901baa092fd.mesh"]
+
+source_file="res://Assets/Models/Castle/wallNarrow.obj"
+dest_files=["res://.godot/imported/wallNarrow.obj-3d49acbb83b1c53e85d5b901baa092fd.mesh", "res://.godot/imported/wallNarrow.obj-3d49acbb83b1c53e85d5b901baa092fd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

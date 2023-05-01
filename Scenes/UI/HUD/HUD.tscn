@@ -1,21 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://phk6uejxvcxk"]
+[gd_scene load_steps=6 format=3 uid="uid://phk6uejxvcxk"]
 
+[ext_resource type="Shader" uid="uid://jx8m6uyfkcvj" path="res://Assets/Shaders/Pixelate.tres" id="1_1myrr"]
 [ext_resource type="Texture2D" uid="uid://dgskw8uqnqfoa" path="res://Assets/Icons/uhhh.png" id="1_4m20x"]
 [ext_resource type="Texture2D" uid="uid://c1ejuro6jb3dj" path="res://Assets/Icons/uhhhhhhhhhhhhhhhhhh2.png" id="2_owcf5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hcf8d"]
+shader = ExtResource("1_1myrr")
+shader_parameter/pix = 128.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un8lr"]
 bg_color = Color(0, 0.294118, 1, 0.584314)
 
-[node name="HUD" type="Control"]
-layout_mode = 3
+[node name="HUD" type="CanvasLayer"]
+
+[node name="PixelationLayer" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_hcf8d")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(9, 5.0625)
 
 [node name="boringreticle" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -29,7 +37,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PrimeIsAScam" type="TextureRect" parent="."]
-layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -52,7 +59,6 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_un8lr")
 value = 50.0
 
 [node name="EnergyCrystal" type="TextureRect" parent="."]
-layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 56.0

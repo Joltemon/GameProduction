@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cmej8cqxvnm85"
+path="res://.godot/imported/siegeTrebuchet.obj-626f54d37656e6ad1c13da42ae985dbf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/siegeTrebuchet.obj-626f54d37656e6ad1c13da42ae985dbf.mesh"]
+
+source_file="res://Assets/Models/Castle/siegeTrebuchet.obj"
+dest_files=["res://.godot/imported/siegeTrebuchet.obj-626f54d37656e6ad1c13da42ae985dbf.mesh", "res://.godot/imported/siegeTrebuchet.obj-626f54d37656e6ad1c13da42ae985dbf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
