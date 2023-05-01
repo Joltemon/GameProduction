@@ -1,13 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://oqp8xiwqab1k"]
+[gd_scene load_steps=7 format=3 uid="uid://oqp8xiwqab1k"]
 
 [ext_resource type="Script" path="res://Scenes/Weapons/Projectile/Projectile.cs" id="1_ddvfs"]
+[ext_resource type="Shader" path="res://Scenes/Weapons/Projectile/Projectile.gdshader" id="2_3nbl0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yctgn"]
+render_priority = 0
+shader = ExtResource("2_3nbl0")
+shader_parameter/Color = Color(0.411765, 0.596078, 1, 1)
+shader_parameter/Transparency = 0.7
 
 [sub_resource type="SphereMesh" id="SphereMesh_cie0s"]
+material = SubResource("ShaderMaterial_yctgn")
 radius = 0.1
 height = 0.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2tuna"]
 radius = 0.1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3hgdo"]
 
 [node name="Projectile" type="CharacterBody3D"]
 collision_layer = 0
@@ -23,5 +33,9 @@ shape = SubResource("SphereShape3D_2tuna")
 [node name="DestroyTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="Particles" type="GPUParticles3D" parent="."]
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_3hgdo")
 
 [connection signal="timeout" from="DestroyTimer" to="." method="OnTimeout"]

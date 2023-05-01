@@ -3,17 +3,32 @@ using System;
 
 public partial class Propulsor : Node3D
 {
+	[Export] public int Ammunition;
+
+	[ExportGroup("Components")]
 	[Export] public PackedScene? Projectile;
 	[Export] public Node3D? Tip;
-
-	[Export] float VerticalForce;
-	[Export] float HorizontalForce;
+	[Signal] public delegate void FiredEventHandler();
+	[Signal] public delegate void AmmunitionUpdatedEventHandler(int ammunition);
 
 	public Vector3 Target;
 
+	public override void _Ready()
+	{
+		EmitSignal("AmmunitionUpdated", Ammunition);
+	}
+
 	public void PrimaryFire()
 	{
+		// Sanity checks
 		if (Projectile == null) return;
+
+		if (Ammunition <= 0) return;
+		else
+		{
+			Ammunition--;
+			EmitSignal("AmmunitionUpdated", Ammunition);
+		}
 
 		var shot = Projectile.Instantiate<Projectile>();
 		AddChild(shot);
@@ -30,17 +45,6 @@ public partial class Propulsor : Node3D
 			shot.Direction = shot.GlobalTransform.Basis.X;
 		}
 
-		PlayerRecoil();
-
-
-	}
-
-	public void PlayerRecoil() 
-	{
-		var launchDirection = ToGlobal(new Vector3(0,0,-1)).DirectionTo(GlobalPosition);
-		var force = new Vector3(launchDirection.X * HorizontalForce, launchDirection.Y * VerticalForce, launchDirection.Z * HorizontalForce);
-
-		GetNode<RigidBody3D>("../../../../../").ApplyImpulse(force, GlobalPosition);
-
+		EmitSignal("Fired");
 	}
 }
