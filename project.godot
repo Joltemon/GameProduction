@@ -16,7 +16,6 @@ config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 boot_splash/bg_color=Color(0.568627, 0.568627, 0.568627, 1)
 boot_splash/image="res://Assets/Icons/unity bad.png"
 config/icon="res://Assets/Icons/sprint_icon.svg"
-boot_splash/minimum_display_time=3000
 
 [dotnet]
 
