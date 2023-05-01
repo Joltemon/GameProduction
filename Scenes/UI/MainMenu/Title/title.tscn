@@ -12,7 +12,7 @@
 
 [sub_resource type="Animation" id="Animation_7gcek"]
 resource_name = "Startup"
-length = 3.1
+length = 3.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -140,10 +140,10 @@ tracks/10/path = NodePath("Lines/Line2D1:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 1.2, 1.5),
+"times": PackedFloat32Array(0, 1.5, 1.8),
 "transitions": PackedFloat32Array(0.25, 1, 1),
 "update": 0,
-"values": [Vector2(-1157, 23.3291), Vector2(7, 23.3291), Vector2(-28.4366, 23.3291)]
+"values": [Vector2(-1160, 17.3291), Vector2(1.90735e-06, 17.3291), Vector2(-28.4367, 17.3291)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -152,10 +152,10 @@ tracks/11/path = NodePath("Lines/Line2D2:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0.2, 1.4),
-"transitions": PackedFloat32Array(0.25, 1),
+"times": PackedFloat32Array(0.2, 1.7, 2),
+"transitions": PackedFloat32Array(0.25, 1, 1),
 "update": 0,
-"values": [Vector2(1049, 36.3293), Vector2(-36.4367, 36.3293)]
+"values": [Vector2(1040, 30.3293), Vector2(-66.437, 30.329), Vector2(-36.4368, 30.3293)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -164,10 +164,10 @@ tracks/12/path = NodePath("Lines/Line2D3:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0.4, 1.6),
-"transitions": PackedFloat32Array(0.25, 1),
+"times": PackedFloat32Array(0.4, 1.9, 2.3),
+"transitions": PackedFloat32Array(0.25, 1, 1),
 "update": 0,
-"values": [Vector2(-1172, 49.3293), Vector2(-44.4367, 49.3293)]
+"values": [Vector2(-1160, 43.3293), Vector2(-14.437, 43.329), Vector2(-44.4368, 43.3293)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -176,10 +176,10 @@ tracks/13/path = NodePath("Lines/Line2D4:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0.6, 1.8),
-"transitions": PackedFloat32Array(0.25, 1),
+"times": PackedFloat32Array(0.6, 2.1, 2.5),
+"transitions": PackedFloat32Array(0.25, 1, 1),
 "update": 0,
-"values": [Vector2(1045, 62.3291), Vector2(-52.4366, 62.3291)]
+"values": [Vector2(1032, 56.3291), Vector2(-82.437, 56.329), Vector2(-52.4367, 56.3291)]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
@@ -188,10 +188,10 @@ tracks/14/path = NodePath("Lines/Line2D5:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0.8, 2),
-"transitions": PackedFloat32Array(0.25, 1),
+"times": PackedFloat32Array(0.8, 2.3, 2.8),
+"transitions": PackedFloat32Array(0.25, 1, 1),
 "update": 0,
-"values": [Vector2(-1173, 75.3291), Vector2(-60.4366, 75.3291)]
+"values": [Vector2(-1160, 69.3291), Vector2(-15.997, 69.329), Vector2(-60.4367, 69.3291)]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
@@ -200,10 +200,10 @@ tracks/15/path = NodePath("Lines/Line2D6:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(1, 2.2),
-"transitions": PackedFloat32Array(0.25, 1),
+"times": PackedFloat32Array(1, 2.5, 3),
+"transitions": PackedFloat32Array(0.25, 1, 1),
 "update": 0,
-"values": [Vector2(1046, 88.3291), Vector2(-68.4366, 88.3291)]
+"values": [Vector2(1040, 82.3291), Vector2(-98.437, 82.329), Vector2(-68.4367, 82.3291)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -212,10 +212,10 @@ tracks/16/path = NodePath("Lines/Line2D7:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
-"times": PackedFloat32Array(1.2, 2.4),
-"transitions": PackedFloat32Array(0.25, 1),
+"times": PackedFloat32Array(1.2, 2.7, 3.3),
+"transitions": PackedFloat32Array(0.25, 1, 1),
 "update": 0,
-"values": [Vector2(-1180, 101.329), Vector2(-76.4366, 101.329)]
+"values": [Vector2(-1160, 95.329), Vector2(-46.437, 95.329), Vector2(-76.4367, 95.329)]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
@@ -224,10 +224,22 @@ tracks/17/path = NodePath("Lines/Line2D8:position")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(1.4, 2.6),
-"transitions": PackedFloat32Array(0.25, 1),
+"times": PackedFloat32Array(1.4, 2.9, 3.5),
+"transitions": PackedFloat32Array(0.25, 1, 1),
 "update": 0,
-"values": [Vector2(1044, 114.329), Vector2(-84.4366, 114.329)]
+"values": [Vector2(1040, 108.329), Vector2(-114.437, 108.329), Vector2(-84.4367, 108.329)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Lines/Line2D9:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(1.6, 3.1, 3.8),
+"transitions": PackedFloat32Array(0.25, 1, 1),
+"update": 0,
+"values": [Vector2(-1160, 120), Vector2(-62.437, 120), Vector2(-92.4367, 120)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_72rmj"]
@@ -252,7 +264,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Line2D1" type="Line2D" parent="Lines"]
-position = Vector2(7, 23.3291)
+position = Vector2(-1160, 17.3291)
 scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 1048, 40)
@@ -260,7 +272,7 @@ width = 2.5
 default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
 
 [node name="Line2D2" type="Line2D" parent="Lines"]
-position = Vector2(-35.5991, 36.3293)
+position = Vector2(1040, 30.3293)
 scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
@@ -268,7 +280,7 @@ width = 2.5
 default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
 
 [node name="Line2D3" type="Line2D" parent="Lines"]
-position = Vector2(-58.3572, 49.3293)
+position = Vector2(-1160, 43.3293)
 scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
@@ -276,7 +288,7 @@ width = 2.5
 default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
 
 [node name="Line2D4" type="Line2D" parent="Lines"]
-position = Vector2(16.1533, 62.3291)
+position = Vector2(1032, 56.3291)
 scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
@@ -284,7 +296,7 @@ width = 2.5
 default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
 
 [node name="Line2D5" type="Line2D" parent="Lines"]
-position = Vector2(-280.202, 75.3291)
+position = Vector2(-1160, 69.3291)
 scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
@@ -292,7 +304,7 @@ width = 2.5
 default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
 
 [node name="Line2D6" type="Line2D" parent="Lines"]
-position = Vector2(469.004, 88.3291)
+position = Vector2(1040, 82.3291)
 scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
@@ -300,7 +312,7 @@ width = 2.5
 default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
 
 [node name="Line2D7" type="Line2D" parent="Lines"]
-position = Vector2(-1180, 101.329)
+position = Vector2(-1160, 95.329)
 scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
@@ -308,7 +320,15 @@ width = 2.5
 default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
 
 [node name="Line2D8" type="Line2D" parent="Lines"]
-position = Vector2(1044, 114.329)
+position = Vector2(1040, 108.329)
+scale = Vector2(1.1193, 1)
+skew = 0.657989
+points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
+width = 2.5
+default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
+
+[node name="Line2D9" type="Line2D" parent="Lines"]
+position = Vector2(-1160, 120)
 scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
@@ -316,7 +336,7 @@ width = 2.5
 default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
 
 [node name="TitleHBoxContainer" type="HBoxContainer" parent="."]
-modulate = Color(1, 1, 1, 0.8)
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 96.0
 offset_top = 56.0
@@ -329,6 +349,7 @@ texture = ExtResource("2_y8gts")
 expand_mode = 2
 
 [node name="ASpacer" type="Control" parent="TitleHBoxContainer"]
+custom_minimum_size = Vector2(1500, 0)
 layout_mode = 2
 
 [node name="D" type="TextureRect" parent="TitleHBoxContainer"]
@@ -337,6 +358,7 @@ texture = ExtResource("3_jg2we")
 expand_mode = 2
 
 [node name="DSpacer" type="Control" parent="TitleHBoxContainer"]
+custom_minimum_size = Vector2(1500, 0)
 layout_mode = 2
 
 [node name="R" type="TextureRect" parent="TitleHBoxContainer"]
@@ -345,6 +367,7 @@ texture = ExtResource("4_y2eml")
 expand_mode = 2
 
 [node name="RSpacer" type="Control" parent="TitleHBoxContainer"]
+custom_minimum_size = Vector2(1500, 0)
 layout_mode = 2
 
 [node name="E" type="TextureRect" parent="TitleHBoxContainer"]
@@ -353,7 +376,7 @@ texture = ExtResource("5_cfyi2")
 expand_mode = 2
 
 [node name="ESpacer" type="Control" parent="TitleHBoxContainer"]
-custom_minimum_size = Vector2(2.40002, 0)
+custom_minimum_size = Vector2(1500, 0)
 layout_mode = 2
 
 [node name="N" type="TextureRect" parent="TitleHBoxContainer"]
@@ -362,7 +385,7 @@ texture = ExtResource("6_lqj4m")
 expand_mode = 2
 
 [node name="NSpacer" type="Control" parent="TitleHBoxContainer"]
-custom_minimum_size = Vector2(18.5186, 0)
+custom_minimum_size = Vector2(1500, 0)
 layout_mode = 2
 
 [node name="A2" type="TextureRect" parent="TitleHBoxContainer"]
@@ -371,7 +394,7 @@ texture = ExtResource("2_y8gts")
 expand_mode = 2
 
 [node name="A2Spacer" type="Control" parent="TitleHBoxContainer"]
-custom_minimum_size = Vector2(50.6039, 0)
+custom_minimum_size = Vector2(1500, 0)
 layout_mode = 2
 
 [node name="R2" type="TextureRect" parent="TitleHBoxContainer"]
@@ -380,7 +403,7 @@ texture = ExtResource("4_y2eml")
 expand_mode = 2
 
 [node name="R2Spacer" type="Control" parent="TitleHBoxContainer"]
-custom_minimum_size = Vector2(93.75, 0)
+custom_minimum_size = Vector2(1500, 0)
 layout_mode = 2
 
 [node name="U" type="TextureRect" parent="TitleHBoxContainer"]
@@ -389,7 +412,7 @@ texture = ExtResource("7_qtamk")
 expand_mode = 2
 
 [node name="USpacer" type="Control" parent="TitleHBoxContainer"]
-custom_minimum_size = Vector2(142.89, 0)
+custom_minimum_size = Vector2(1500, 0)
 layout_mode = 2
 
 [node name="S" type="TextureRect" parent="TitleHBoxContainer"]
@@ -398,7 +421,7 @@ texture = ExtResource("8_0rvjk")
 expand_mode = 2
 
 [node name="SSpacer" type="Control" parent="TitleHBoxContainer"]
-custom_minimum_size = Vector2(194.4, 0)
+custom_minimum_size = Vector2(1500, 0)
 layout_mode = 2
 
 [node name="H" type="TextureRect" parent="TitleHBoxContainer"]

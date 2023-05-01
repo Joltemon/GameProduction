@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfcvbhiopq6s7"]
+[gd_scene load_steps=13 format=3 uid="uid://dfcvbhiopq6s7"]
 
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu/MainMenu.cs" id="1_fxmxj"]
 [ext_resource type="PackedScene" uid="uid://cf502xlespxje" path="res://Scenes/UI/MainMenu/Title/title.tscn" id="2_cs62r"]
 [ext_resource type="Shader" path="res://Scenes/UI/MainMenu/MainMenuBlur.gdshader" id="3_g5kg3"]
 [ext_resource type="PackedScene" uid="uid://c1ic84gxqno7q" path="res://Scenes/UI/MainMenu/MenuButton/MenuButton.tscn" id="4_2xk3y"]
+[ext_resource type="PackedScene" uid="uid://32rdxh7lbnyk" path="res://Scenes/UI/MainMenu/Pages/pages.tscn" id="5_5wdyk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsg02"]
 shader = ExtResource("3_g5kg3")
@@ -180,10 +181,13 @@ offset_bottom = -16.0
 grow_vertical = 0
 Text = "Quit"
 
+[node name="Pages" parent="UI" instance=ExtResource("5_5wdyk")]
+layout_mode = 1
+
 [node name="World" type="Node3D" parent="."]
 
 [node name="Camera" type="Camera3D" parent="World"]
-transform = Transform3D(-0.866026, -0.25, 0.433013, 0, 0.866025, 0.5, -0.5, 0.433013, -0.75, 10, 12, -11)
+transform = Transform3D(-0.81085, -0.292628, 0.506845, 0, 0.866025, 0.5, -0.585255, 0.405425, -0.702216, 10, 12, -11)
 
 [node name="Animation" type="AnimationPlayer" parent="World/Camera"]
 root_node = NodePath("../../..")
