@@ -20,7 +20,7 @@ public partial class WeaponHolder : Node3D
 	public override void _Input(InputEvent inputEvent)
 	{
 		// Shooting the gun
-		if (inputEvent.IsActionPressed("PrimaryFire") && Weapon?.Ammunition > 0)
+		if (inputEvent.IsActionPressed("PrimaryFire") && (Weapon?.CanFire()??true))
 		{
 			if (AimRaycast!.IsColliding() && Mathf.Abs(GlobalPosition.DistanceTo(AimRaycast.GetCollisionPoint())) <= 1)
 				CloseRangePrimaryFire();

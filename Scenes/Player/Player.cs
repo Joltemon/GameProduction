@@ -117,6 +117,8 @@ public partial class Player : RigidBody3D
 			moveDir *= Mathf.Clamp(1 - controlReduction, 0, 1);
 
 			LinearDamp = 0;
+
+			ApplyAirDrag(delta);
 		}
 		
 		ApplyCentralForce(moveDir);
