@@ -29,7 +29,7 @@ class Savedata
 		return result;
 	}
 
-	public static void Set(string name, Variant value)
+	public static void Set(string name, Variant value, bool update = false)
 	{
 		if (SettingsData.ContainsKey(name))
 		{
@@ -39,6 +39,8 @@ class Savedata
 		{
 			SettingsData.Add(name, value);
 		}
+
+		if (update) Save();
 	}
 
 	public static void Save()
