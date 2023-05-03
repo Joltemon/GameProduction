@@ -1,9 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://w5vg4bxk8ywg"]
+[gd_scene load_steps=9 format=3 uid="uid://w5vg4bxk8ywg"]
 
 [ext_resource type="ArrayMesh" uid="uid://1eqp0a3ugb4b" path="res://Assets/Models/Castle/bridge.obj" id="2_cuip1"]
 [ext_resource type="PackedScene" uid="uid://bfm8d47igl6nx" path="res://Scenes/Player/Player.tscn" id="2_lhsi4"]
+[ext_resource type="PackedScene" uid="uid://d02nh7tmph2lx" path="res://Scenes/Maps/Castle/castle_segment.tscn" id="3_hu1wl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7m0vv"]
+sky_top_color = Color(0.384314, 0.454902, 0.54902, 1)
+
+[sub_resource type="Sky" id="Sky_6xprn"]
+sky_material = SubResource("ProceduralSkyMaterial_7m0vv")
+process_mode = 1
 
 [sub_resource type="Environment" id="Environment_teq1p"]
+background_mode = 2
+sky = SubResource("Sky_6xprn")
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0184
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7jp7a"]
 
@@ -15,17 +27,45 @@
 environment = SubResource("Environment_teq1p")
 camera_attributes = SubResource("CameraAttributesPractical_7jp7a")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
+[node name="Sun" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 44.47, 25, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_lhsi4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81644, 0)
 
-[node name="Bridge" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.94143, 0, 0, 0, 1, 0, 0, 0, 2.48728, -9.64094, 0, 0)
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.03113, 0, 0, 0, 1, 0, 0, 0, 2.5, 40.47, 0, 0)
 mesh = ExtResource("2_cuip1")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bridge"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bridge/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_rtbc6")
+
+[node name="Floor2" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(-1, 0, -1.09278e-07, 0, 1, 0, 6.99382e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("2_cuip1")
+skeleton = NodePath("../..")
+
+[node name="CastleSegment" parent="." instance=ExtResource("3_hu1wl")]
+
+[node name="CastleSegment2" parent="CastleSegment" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 0, -30)
+
+[node name="CastleSegment3" parent="CastleSegment" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
+
+[node name="CastleSegment4" parent="CastleSegment" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8147e-06, 0, -90)
+
+[node name="CastleSegment2" parent="." instance=ExtResource("3_hu1wl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, 10.4)
+
+[node name="CastleSegment2" parent="CastleSegment2" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 0, -30)
+
+[node name="CastleSegment3" parent="CastleSegment2" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
+
+[node name="CastleSegment4" parent="CastleSegment2" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8147e-06, 0, -90)

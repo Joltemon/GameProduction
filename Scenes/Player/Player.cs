@@ -61,6 +61,17 @@ public partial class Player : RigidBody3D
 			Camera!.Fov = Mathf.Lerp(Camera.Fov, DefaultFov, 0.2f);
 			LookSensitivity = 1;
 		}
+		
+		if (Input.IsActionPressed("PixelateUp"))
+		{
+			if (OS.HasFeature("editor"))
+				GetNode<ColorRect>("HUD/PixelationLayer").Material.Set("shader_parameter/pix", (int)GetNode<ColorRect>("HUD/PixelationLayer").Material.Get("shader_parameter/pix")+1);
+		}
+		if (Input.IsActionPressed("PixelateDown"))
+		{
+			if (OS.HasFeature("editor"))
+				GetNode<ColorRect>("HUD/PixelationLayer").Material.Set("shader_parameter/pix", (int)GetNode<ColorRect>("HUD/PixelationLayer").Material.Get("shader_parameter/pix")-1);
+		}
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -204,6 +215,11 @@ public partial class Player : RigidBody3D
 		{
 			if (OS.HasFeature("editor"))
 				WeaponHolder?.SetAmmunition(10);
+		}
+		else if (inputEvent.IsActionPressed("Pixelate"))
+		{
+			if (OS.HasFeature("editor"))
+				GetNode<ColorRect>("HUD/PixelationLayer").Visible = !GetNode<ColorRect>("HUD/PixelationLayer").Visible;
 		}
 	}
 
