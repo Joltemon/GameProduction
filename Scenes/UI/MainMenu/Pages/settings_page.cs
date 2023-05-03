@@ -26,4 +26,8 @@ public partial class settings_page : Control
 			GetTree().ChangeSceneToFile(MainMenu);
 		}
 	}
+
+	void ApplySettings() {
+		
+	}
 }

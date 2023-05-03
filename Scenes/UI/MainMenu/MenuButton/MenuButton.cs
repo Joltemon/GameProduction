@@ -9,7 +9,7 @@ public partial class MenuButton : Control
 
 	[ExportGroup("Components")]
 	[Export] Button? Button;
-	[Export] ColorRect? BlackOverlay;
+	[Export] TextureRect? Overlay;
 
 	bool MouseOver;
 	bool HasBeenPressed;
@@ -35,18 +35,22 @@ public partial class MenuButton : Control
 	async void OnPressed()
 	{
 		HasBeenPressed = true;
+		if (Button != null)
+			Button.Position = Vector2.Zero;
 		var windowSize = DisplayServer.WindowGetSize();
-		var positionOffset = Size / 2;
+		var positionOffset = Size/2;
 
-		var finalScale = windowSize / positionOffset;
+		var finalScale = windowSize / Size; 
 
 		var tween = GetTree().CreateTween().SetParallel().SetTrans(Tween.TransitionType.Cubic);
+
+		Vector2 newPosition = (windowSize/2) - positionOffset; //new Vector2((windowSize.X / 2), Size.Y/2 - Size);
 		
-		tween.TweenProperty(this, "position", windowSize / 2 - positionOffset, 0.5f);
+		tween.TweenProperty(this, "position", newPosition, 0.5f);
 		tween.TweenProperty(this, "scale", finalScale, 0.5f).SetEase(Tween.EaseType.In);
 		
-		if (BlackOverlay != null)
-			tween.TweenProperty(BlackOverlay, "color", new Color(0, 0, 0, 1), 0.5f);
+		if (Overlay != null)
+			tween.TweenProperty(Overlay, "modulate", new Color(1, 1, 1, 1), 0.5f);
 		
 		await ToSignal(tween, "finished");
 		EmitSignal("Pressed");

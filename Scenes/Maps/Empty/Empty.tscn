@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://c55xt0y7lo04a"]
+[gd_scene load_steps=55 format=3 uid="uid://cs85v43ogww0y"]
 
 [ext_resource type="PackedScene" uid="uid://bfm8d47igl6nx" path="res://Scenes/Player/Player.tscn" id="1_8o8po"]
 [ext_resource type="Texture2D" uid="uid://dnooxfupsybki" path="res://Assets/Textures/Dark/texture_08.png" id="2_ybkiv"]
@@ -292,7 +292,7 @@ transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_hgoml")
 
 [node name="BigBlock9" type="MeshInstance3D" parent="Objects"]
-transform = Transform3D(4.02712, 0, 3.09828e-06, 0, 0.788808, 0, -2.90426e-06, 0, 5.01144, 19.8226, 12.0473, -27.1189)
+transform = Transform3D(4.02712, 0, 3.09828e-06, 0, 0.788808, 0, -2.90426e-06, 0, 5.01144, 19.8226, 11.4509, -27.1189)
 material_override = SubResource("StandardMaterial3D_mfflp")
 mesh = SubResource("BoxMesh_m05c6")
 metadata/_edit_group_ = true
@@ -316,7 +316,7 @@ transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_hgoml")
 
 [node name="BigBlock10" type="MeshInstance3D" parent="Objects"]
-transform = Transform3D(5.16109, 0, 2.59763e-06, 0, 0.788808, 0, -3.72205e-06, 0, 4.20165, 24.5353, 13.4161, -22.7316)
+transform = Transform3D(5.16109, 0, 2.59763e-06, 0, 0.788808, 0, -3.72205e-06, 0, 4.20165, 24.5353, 13.1717, -22.7316)
 material_override = SubResource("StandardMaterial3D_kwfp6")
 mesh = SubResource("BoxMesh_m05c6")
 metadata/_edit_group_ = true
@@ -328,7 +328,7 @@ transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_hgoml")
 
 [node name="BigBlock11" type="MeshInstance3D" parent="Objects"]
-transform = Transform3D(-4.02712, 0, -3.3706e-06, 0, 0.788808, 0, 3.25632e-06, 0, -4.77649, 29.121, 15.0615, -27.1885)
+transform = Transform3D(-4.02712, 0, -3.3706e-06, 0, 0.788808, 0, 3.25632e-06, 0, -4.77649, 29.121, 14.8439, -27.1885)
 material_override = SubResource("StandardMaterial3D_tr3bt")
 mesh = SubResource("BoxMesh_m05c6")
 metadata/_edit_group_ = true
@@ -336,6 +336,18 @@ metadata/_edit_group_ = true
 [node name="Collider" type="StaticBody3D" parent="Objects/BigBlock11"]
 
 [node name="Shape" type="CollisionShape3D" parent="Objects/BigBlock11/Collider"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_hgoml")
+
+[node name="BigBlock14" type="MeshInstance3D" parent="Objects"]
+transform = Transform3D(-4.02712, 0, -3.3706e-06, 0, 0.788808, 0, 3.25632e-06, 0, -4.77649, 25.0834, 16.5231, -31.8856)
+material_override = SubResource("StandardMaterial3D_tr3bt")
+mesh = SubResource("BoxMesh_m05c6")
+metadata/_edit_group_ = true
+
+[node name="Collider" type="StaticBody3D" parent="Objects/BigBlock14"]
+
+[node name="Shape" type="CollisionShape3D" parent="Objects/BigBlock14/Collider"]
 transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_hgoml")
 
