@@ -34,6 +34,21 @@ public partial class WeaponHolder : Node3D
 		}
 	}
 
+	public void AddAmmunition(int amount)
+	{
+		if (Weapon != null)
+			Weapon.Ammunition += amount;
+	}
+
+	public void SetAmmunition(int amount)
+	{
+		if (Weapon != null)
+		{
+			Weapon.Ammunition = amount;
+			OnAmmunitionUpdated(Weapon.Ammunition);
+		}
+	}
+
 	public override void _Process(double delta)
 	{
 		if (WeaponOffset != null)
