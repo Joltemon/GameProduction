@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c0jpqsxkvwqnv"]
+[gd_scene load_steps=19 format=3 uid="uid://c0jpqsxkvwqnv"]
 
 [ext_resource type="PackedScene" uid="uid://bfm8d47igl6nx" path="res://Scenes/Player/Player.tscn" id="1_r1yjt"]
 [ext_resource type="PackedScene" uid="uid://cpxujabsfk112" path="res://Assets/Models/City/large_buildingD.glb" id="2_e5wb7"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://cdnccrntfqcxf" path="res://Assets/Models/City/large_buildingG.glb" id="8_83jlh"]
 [ext_resource type="PackedScene" uid="uid://bn8rkig6exq7i" path="res://Assets/Models/Roads/road_intersection.glb" id="9_gky6r"]
 [ext_resource type="PackedScene" uid="uid://binokhx7kfxm7" path="res://Assets/Models/Roads/road_roundabout.glb" id="10_00gpf"]
+[ext_resource type="PackedScene" uid="uid://cotpw6u1huy7v" path="res://Assets/Models/Roads/road_straight.glb" id="11_q4qdv"]
+[ext_resource type="PackedScene" uid="uid://c62ulcueppuof" path="res://Assets/Models/Roads/road_end.glb" id="12_pnsa4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8eok3"]
 sky_top_color = Color(1, 0.45098, 0.309804, 1)
@@ -45,7 +47,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_r1yjt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8132, 1.35984, 38.27)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.936476, 1.35984, 28.9308)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_rn126")
@@ -95,7 +97,16 @@ transform = Transform3D(9.83027e-08, 0, -8.24349, 0, 8.24349, 0, 8.24349, 0, 9.8
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0.112728, 0, 47.1884)
 
 [node name="road_intersection" parent="." instance=ExtResource("9_gky6r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98473, 0, 30.8226)
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -7.45011, 0, 4.881)
 
 [node name="road_roundabout" parent="." instance=ExtResource("10_00gpf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97995, 0, 28.8281)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -36.07, 0, -9.37526)
+
+[node name="road_straight" parent="." instance=ExtResource("11_q4qdv")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -7.45011, 0, 14.876)
+
+[node name="road_straight2" parent="." instance=ExtResource("11_q4qdv")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -7.45011, 0, 24.8274)
+
+[node name="road_end" parent="." instance=ExtResource("12_pnsa4")]
+transform = Transform3D(-4.37114e-07, 0, -10, 0, 10, 0, 10, 0, -4.37114e-07, 7.57412, 0, 34.8047)
