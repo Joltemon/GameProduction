@@ -9,6 +9,8 @@ public partial class settings_page : Control
 	float HSVValue;
 	[Export] float speed; 
 
+	[Export] PackedScene? MainMenu;
+
 	public override void _Process(double delta)
 	{
 		HSVValue += (float)delta*speed;
@@ -16,6 +18,12 @@ public partial class settings_page : Control
 		ControlsTitle?.Set("theme_override_colors/font_outline_color", Color.FromHsv(HSVValue, 1, 1, 1));
 		if (HSVValue >= 1) {
 			HSVValue = 0;
+		}
+	}
+
+	void BackButtonPressed() {
+		if (MainMenu != null) {
+			GetTree().ChangeSceneToPacked(MainMenu);
 		}
 	}
 }
