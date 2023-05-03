@@ -16,8 +16,9 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("AmmoLabel")]
 script = ExtResource("1_st6v0")
+AmmoLabel = NodePath("EnergyCrystal/Label")
 
 [node name="PixelationLayer" type="ColorRect" parent="."]
 visible = false

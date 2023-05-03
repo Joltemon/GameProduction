@@ -15,6 +15,7 @@ radius = 3.0
 [node name="EnergyCrystal" instance=ExtResource("1_6jcv6")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 script = ExtResource("2_nlbss")
+AmmoAmount = 10
 
 [node name="Object_4" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_0" index="0"]
 material_override = SubResource("StandardMaterial3D_pk6uj")
@@ -25,4 +26,4 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
 shape = SubResource("SphereShape3D_p7luc")
 
-[connection signal="body_entered" from="Area3D" to="." method="playerEnter"]
+[connection signal="body_entered" from="Area3D" to="." method="PlayerEnter"]

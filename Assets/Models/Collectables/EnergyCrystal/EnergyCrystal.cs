@@ -10,6 +10,7 @@ public partial class EnergyCrystal : Node3D
 		if (body is Player player)
 		{
 			player.WeaponHolder?.AddAmmunition(AmmoAmount);
+			QueueFree();
 		}
 	}
 
