@@ -31,7 +31,5 @@ public partial class SettingsPage : Control
 		}
 	}
 
-	void ApplySettings() {
-		Savedata.Save();
-	}
+    void ApplySettings() => Savedata.Save();
 }

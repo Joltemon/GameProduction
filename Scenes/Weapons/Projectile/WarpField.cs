@@ -36,9 +36,6 @@ public partial class WarpField : Area3D
 		}
 	}
 
-	// reduce the difference between close knockback (e.g. 0.8 and 0.9 distance shouldn't cause a great difference in propulsion)
-	float AdjustedFalloff(float x)
-	{
-		return -Mathf.Pow(x - 1, 4) + 1;
-	}
+    // reduce the difference between close knockback (e.g. 0.8 and 0.9 distance shouldn't cause a great difference in propulsion)
+    float AdjustedFalloff(float x) => -Mathf.Pow(x - 1, 4) + 1;
 }
