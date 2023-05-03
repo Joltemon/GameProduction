@@ -159,5 +159,3 @@ script = ExtResource("3_8qmuj")
 TrackingCamera = NodePath("../../../Head/Camera")
 
 [node name="HUD" parent="." instance=ExtResource("4_uemel")]
-
-[connection signal="AmmunitionUpdated" from="Head/Camera/WeaponHolder" to="HUD" method="AmmunitionUpdated"]

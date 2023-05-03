@@ -200,4 +200,10 @@ public partial class Player : RigidBody3D
 			Flying = !Flying;
 		}
 	}
+
+	public void pickUpAmmo()
+	{
+		// hi frens how you doin
+		// look at me i'm actually doing work
+	}
 }
