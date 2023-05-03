@@ -54,6 +54,7 @@ script = ExtResource("1_p487x")
 SettingsTitle = NodePath("SettingsPanel/SettingsTitle")
 ControlsTitle = NodePath("ControlsPanel/ControlsTitle")
 speed = 0.1
+MainMenu = "res://Scenes/UI/MainMenu/MainMenu.tscn"
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1

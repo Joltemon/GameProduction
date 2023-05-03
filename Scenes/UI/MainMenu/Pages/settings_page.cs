@@ -9,7 +9,7 @@ public partial class settings_page : Control
 	float HSVValue;
 	[Export] float speed; 
 
-	[Export] PackedScene? MainMenu;
+	[Export(PropertyHint.File, "*.tscn,*.scn")] string? MainMenu; 
 
 	public override void _Process(double delta)
 	{
@@ -23,7 +23,7 @@ public partial class settings_page : Control
 
 	void BackButtonPressed() {
 		if (MainMenu != null) {
-			GetTree().ChangeSceneToPacked(MainMenu);
+			GetTree().ChangeSceneToFile(MainMenu);
 		}
 	}
 }

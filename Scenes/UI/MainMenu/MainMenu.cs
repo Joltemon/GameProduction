@@ -4,7 +4,7 @@ using System;
 public partial class MainMenu : Node
 {	
 
-	[Export] PackedScene? SettingsPage;
+	[Export(PropertyHint.File, "*.tscn,*.scn")] string? SettingsPage; 
 
 	void StartGame()
 	{
@@ -18,7 +18,7 @@ public partial class MainMenu : Node
 
 	void SettingsPressed() {
 		if (SettingsPage != null) {
-			GetTree().ChangeSceneToPacked(SettingsPage);
+			GetTree().ChangeSceneToFile(SettingsPage);
 		}
 	}
 }
