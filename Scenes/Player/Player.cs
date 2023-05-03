@@ -28,7 +28,7 @@ public partial class Player : RigidBody3D
 	[Export] AnimationPlayer? MoveAnim;
 	[Export] ShapeCast3D? FloorDetector;
 	[Export] CollisionShape3D? Collider;
-	[Export] WeaponHolder? WeaponHolder;
+	[Export] public WeaponHolder? WeaponHolder;
 
 	public override void _Ready()
 	{
@@ -221,11 +221,5 @@ public partial class Player : RigidBody3D
 			if (OS.HasFeature("editor"))
 				GetNode<ColorRect>("HUD/PixelationLayer").Visible = !GetNode<ColorRect>("HUD/PixelationLayer").Visible;
 		}
-	}
-
-	public void pickUpAmmo()
-	{
-		// hi frens how you doin
-		// look at me i'm actually doing work
 	}
 }

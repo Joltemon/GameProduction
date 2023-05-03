@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1ic84gxqno7q"]
+[gd_scene load_steps=7 format=3 uid="uid://bglm530iuirb7"]
 
 [ext_resource type="FontFile" uid="uid://dyqcx0nfi1g2n" path="res://Assets/Fonts/SourceCodePro-BoldItalic.ttf" id="1_y1eor"]
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu/MenuButton/MenuButton.cs" id="2_npxms"]
-[ext_resource type="Texture2D" uid="uid://c6a4ini0u0vvm" path="res://Assets/Icons/test.PNG" id="3_fn6oq"]
+[ext_resource type="Texture2D" uid="uid://c6a4ini0u0vvm" path="res://Assets/Button Backgrounds/SettingsButtonIMG.PNG" id="3_ok7iq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f54qu"]
 bg_color = Color(0.156863, 0.156863, 0.156863, 1)
@@ -64,7 +64,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(128, 32)
 mouse_filter = 2
-texture = ExtResource("3_fn6oq")
+texture = ExtResource("3_ok7iq")
 expand_mode = 1
 
 [connection signal="mouse_entered" from="Button" to="." method="OnMouseEnter"]

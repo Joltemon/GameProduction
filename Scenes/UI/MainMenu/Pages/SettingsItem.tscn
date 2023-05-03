@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://blyutcx8hodut"]
 
-[ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="1_3422q"]
+[ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="1_fdt08"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bitq"]
 bg_color = Color(0, 0.678431, 0.929412, 0.466667)
@@ -10,7 +10,7 @@ corner_radius_bottom_right = 11
 corner_radius_bottom_left = 11
 
 [sub_resource type="Theme" id="Theme_f3il2"]
-default_font = ExtResource("1_3422q")
+default_font = ExtResource("1_fdt08")
 default_font_size = 21
 
 [node name="Tips" type="Panel"]
