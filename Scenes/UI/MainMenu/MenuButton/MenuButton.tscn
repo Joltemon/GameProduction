@@ -32,6 +32,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 256.0
 offset_bottom = 64.0
+pivot_offset = Vector2(128, 32)
 script = ExtResource("2_npxms")
 HoverOffset = Vector2(20, 0)
 Button = NodePath("Button")

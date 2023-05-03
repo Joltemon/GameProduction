@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4gl27k01abkm"]
+[gd_scene load_steps=18 format=3 uid="uid://d4gl27k01abkm"]
 
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/settings_page.cs" id="1_p487x"]
 [ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="2_tqosp"]
 [ext_resource type="PackedScene" uid="uid://blyutcx8hodut" path="res://Scenes/UI/MainMenu/Pages/settingsitem.tscn" id="3_02q2n"]
 [ext_resource type="PackedScene" uid="uid://tj7dpujpykwd" path="res://Scenes/UI/MainMenu/Pages/key_panel.tscn" id="4_gbead"]
+[ext_resource type="Texture2D" uid="uid://d21sicjaf81cf" path="res://Assets/Icons/logout.png" id="5_wxd7v"]
+[ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="6_k1d6d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8bpp"]
 bg_color = Color(0.152941, 0.152941, 0.152941, 1)
@@ -11,6 +13,27 @@ corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ab1ly"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vyuty"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5c08"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_em3ub"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_74ypi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6jtw0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vcvss"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4dn3"]
 
 [sub_resource type="Animation" id="Animation_lwwnd"]
 resource_name = "Show"
@@ -31,6 +54,7 @@ script = ExtResource("1_p487x")
 SettingsTitle = NodePath("SettingsPanel/SettingsTitle")
 ControlsTitle = NodePath("ControlsPanel/ControlsTitle")
 speed = 0.1
+MainMenu = "res://Scenes/UI/MainMenu/MainMenu.tscn"
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -77,6 +101,9 @@ layout_mode = 1
 offset_top = -176.0
 offset_bottom = -120.0
 
+[node name="CheckButton" parent="SettingsPanel/Fullscreen" index="0"]
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ab1ly")
+
 [node name="Label" parent="SettingsPanel/Fullscreen" index="1"]
 text = "Fullscreen"
 
@@ -84,6 +111,9 @@ text = "Fullscreen"
 layout_mode = 1
 offset_top = -96.0
 offset_bottom = -40.0
+
+[node name="CheckButton" parent="SettingsPanel/Tips" index="0"]
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vyuty")
 
 [node name="Pixelate" parent="SettingsPanel" instance=ExtResource("3_02q2n")]
 layout_mode = 1
@@ -148,20 +178,97 @@ text = "Controls
 "
 horizontal_alignment = 1
 
-[node name="KeyPanel" parent="ControlsPanel" instance=ExtResource("4_gbead")]
+[node name="ShootKeyPanel" parent="ControlsPanel" instance=ExtResource("4_gbead")]
 layout_mode = 1
 offset_left = -176.0
-offset_top = -184.0
+offset_top = -176.0
 offset_right = 176.0
-offset_bottom = -128.0
-grow_horizontal = 1
-grow_vertical = 1
+offset_bottom = -120.0
+
+[node name="Label" parent="ControlsPanel/ShootKeyPanel" index="0"]
+text = "Shoot"
+
+[node name="Key" parent="ControlsPanel/ShootKeyPanel" index="1"]
+offset_left = -182.0
+offset_top = -19.0
+offset_bottom = 47.0
+text = "Left-Click"
+
+[node name="JumpKeyPanel" parent="ControlsPanel" instance=ExtResource("4_gbead")]
+layout_mode = 1
+offset_left = -176.0
+offset_top = -96.0
+offset_right = 176.0
+offset_bottom = -40.0
+
+[node name="Label" parent="ControlsPanel/JumpKeyPanel" index="0"]
+text = "Jump"
+
+[node name="Key" parent="ControlsPanel/JumpKeyPanel" index="1"]
+text = "Spacebar"
+
+[node name="BackButton" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 127.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n5c08")
+
+[node name="Button" type="Button" parent="BackButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_em3ub")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_74ypi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6jtw0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vcvss")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v4dn3")
+
+[node name="BackIcon" type="TextureRect" parent="BackButton"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -14.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("5_wxd7v")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BackButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -20.0
+offset_right = 104.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_k1d6d")
+theme_override_font_sizes/font_size = 24
+text = "Back"
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_o45ru")
 }
 
+[connection signal="pressed" from="BackButton/Button" to="." method="BackButtonPressed"]
+
 [editable path="SettingsPanel/Fullscreen"]
 [editable path="SettingsPanel/Tips"]
 [editable path="SettingsPanel/Pixelate"]
+[editable path="ControlsPanel/ShootKeyPanel"]
+[editable path="ControlsPanel/JumpKeyPanel"]

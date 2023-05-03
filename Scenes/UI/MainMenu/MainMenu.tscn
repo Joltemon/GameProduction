@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dfcvbhiopq6s7"]
+[gd_scene load_steps=12 format=3 uid="uid://dfcvbhiopq6s7"]
 
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu/MainMenu.cs" id="1_fxmxj"]
-[ext_resource type="PackedScene" uid="uid://cf502xlespxje" path="res://Scenes/UI/MainMenu/Title/title.tscn" id="2_cs62r"]
+[ext_resource type="PackedScene" uid="uid://doq53hm1rrb3s" path="res://Scenes/UI/MainMenu/Title/title.tscn" id="2_cs62r"]
 [ext_resource type="Shader" path="res://Scenes/UI/MainMenu/MainMenuBlur.gdshader" id="3_g5kg3"]
 [ext_resource type="PackedScene" uid="uid://c1ic84gxqno7q" path="res://Scenes/UI/MainMenu/MenuButton/MenuButton.tscn" id="4_2xk3y"]
-[ext_resource type="PackedScene" uid="uid://32rdxh7lbnyk" path="res://Scenes/UI/MainMenu/Pages/pages.tscn" id="5_5wdyk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsg02"]
 shader = ExtResource("3_g5kg3")
@@ -73,6 +72,7 @@ _data = {
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_fxmxj")
+SettingsPage = "res://Scenes/UI/MainMenu/Pages/settings_page.tscn"
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -181,9 +181,6 @@ offset_bottom = -16.0
 grow_vertical = 0
 Text = "Quit"
 
-[node name="Pages" parent="UI" instance=ExtResource("5_5wdyk")]
-layout_mode = 1
-
 [node name="World" type="Node3D" parent="."]
 
 [node name="Camera" type="Camera3D" parent="World"]
@@ -199,4 +196,5 @@ libraries = {
 mesh = SubResource("BoxMesh_mn28o")
 
 [connection signal="Pressed" from="UI/Buttons/StartButton" to="." method="StartGame"]
+[connection signal="Pressed" from="UI/Buttons/SettingsButton" to="." method="SettingsPressed"]
 [connection signal="Pressed" from="UI/Buttons/QuitButton" to="." method="Quit"]

@@ -28,6 +28,7 @@ public partial class Player : RigidBody3D
 	[Export] AnimationPlayer? MoveAnim;
 	[Export] ShapeCast3D? FloorDetector;
 	[Export] CollisionShape3D? Collider;
+	[Export] WeaponHolder? WeaponHolder;
 
 	public override void _Ready()
 	{
@@ -190,14 +191,19 @@ public partial class Player : RigidBody3D
 			newRotation.Y -= Mathf.DegToRad(mouseMovement.X * LookSpeed);
 			Camera!.Rotation = newRotation;
 		}
+		else if (inputEvent.IsActionPressed("MoveFly"))
+		{
+			Flying = !Flying;
+		}
 		else if (inputEvent.IsActionPressed("Pause"))
 		{
 			if (OS.HasFeature("editor"))
 				GetTree().Quit();
 		}
-		else if (inputEvent.IsActionPressed("MoveFly"))
+		else if (inputEvent.IsActionPressed("Reload"))
 		{
-			Flying = !Flying;
+			if (OS.HasFeature("editor"))
+				WeaponHolder?.SetAmmunition(10);
 		}
 	}
 
