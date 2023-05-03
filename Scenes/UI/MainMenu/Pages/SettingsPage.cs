@@ -21,6 +21,10 @@ public partial class SettingsPage : Control
 		}
 	}
 
+	public override void _Ready() {
+		Savedata.Load();
+	}
+
 	void BackButtonPressed() {
 		if (MainMenu != null) {
 			GetTree().ChangeSceneToFile(MainMenu);
@@ -28,6 +32,6 @@ public partial class SettingsPage : Control
 	}
 
 	void ApplySettings() {
-		
+		Savedata.Save();
 	}
 }

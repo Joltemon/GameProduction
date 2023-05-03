@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://tj7dpujpykwd"]
+[gd_scene load_steps=5 format=3 uid="uid://dke0sfeucw6h1"]
 
 [ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="1_urev3"]
 [ext_resource type="FontFile" uid="uid://cxv5oa85st6dv" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="2_dwmd3"]
@@ -49,12 +49,12 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -40.0
-offset_top = -20.0
+offset_top = -17.0
 offset_right = -1.0
-offset_bottom = 46.0
+offset_bottom = 49.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.482353, 0.862745, 1, 1)
 theme_override_fonts/font = ExtResource("2_dwmd3")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 28
 text = "H"

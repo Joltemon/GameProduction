@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://bsbl5qaq53xp"]
+[gd_scene load_steps=25 format=3 uid="uid://dxgrefm6ujgag"]
 
 [ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="1_lema4"]
 [ext_resource type="PackedScene" uid="uid://blyutcx8hodut" path="res://Scenes/UI/MainMenu/Pages/settingsitem.tscn" id="2_knah1"]
+[ext_resource type="PackedScene" uid="uid://dke0sfeucw6h1" path="res://Scenes/UI/MainMenu/Pages/KeyPanel.tscn" id="3_uhmih"]
 [ext_resource type="Texture2D" uid="uid://d21sicjaf81cf" path="res://Assets/Icons/logout.png" id="3_wiegq"]
 [ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="4_a2pyl"]
 [ext_resource type="FontFile" uid="uid://cxv5oa85st6dv" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="5_k7syb"]
@@ -190,6 +191,29 @@ text = "Controls
 "
 horizontal_alignment = 1
 
+[node name="ShootPanel" parent="ControlsPanel" instance=ExtResource("3_uhmih")]
+layout_mode = 1
+offset_top = -176.0
+offset_bottom = -120.0
+
+[node name="Label" parent="ControlsPanel/ShootPanel" index="0"]
+text = "SHoot"
+
+[node name="Key" parent="ControlsPanel/ShootPanel" index="1"]
+text = "left-click"
+
+[node name="JumpPanel" parent="ControlsPanel" instance=ExtResource("3_uhmih")]
+layout_mode = 1
+offset_top = -96.0
+offset_bottom = -40.0
+
+[node name="Label" parent="ControlsPanel/JumpPanel" index="0"]
+text = "jump
+"
+
+[node name="Key" parent="ControlsPanel/JumpPanel" index="1"]
+text = "spacebar"
+
 [node name="BackButtonPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 2
@@ -311,3 +335,5 @@ libraries = {
 [editable path="SettingsPanel/Fullscreen"]
 [editable path="SettingsPanel/Tips"]
 [editable path="SettingsPanel/Pixelate"]
+[editable path="ControlsPanel/ShootPanel"]
+[editable path="ControlsPanel/JumpPanel"]

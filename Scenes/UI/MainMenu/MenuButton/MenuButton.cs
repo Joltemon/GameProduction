@@ -10,6 +10,7 @@ public partial class MenuButton : Control
 	[ExportGroup("Components")]
 	[Export] Button? Button;
 	[Export] TextureRect? Overlay;
+	[Export] Texture2D? OverlayTexture;
 
 	bool MouseOver;
 	bool HasBeenPressed;
@@ -17,6 +18,7 @@ public partial class MenuButton : Control
 	public override void _Ready()
 	{
 		if (Button != null) Button.Text = Text;
+		if (Overlay != null) Overlay.Texture = OverlayTexture;
 	}
 	
 	public override void _Process(double delta)
