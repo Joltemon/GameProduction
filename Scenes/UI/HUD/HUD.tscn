@@ -1,15 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://phk6uejxvcxk"]
+[gd_scene load_steps=7 format=3 uid="uid://phk6uejxvcxk"]
 
+[ext_resource type="Shader" uid="uid://jx8m6uyfkcvj" path="res://Assets/Shaders/Pixelate.tres" id="1_1myrr"]
 [ext_resource type="Texture2D" uid="uid://dgskw8uqnqfoa" path="res://Assets/Icons/uhhh.png" id="1_4m20x"]
 [ext_resource type="Script" path="res://Scenes/UI/HUD/HUD.cs" id="1_st6v0"]
 [ext_resource type="Texture2D" uid="uid://c1ejuro6jb3dj" path="res://Assets/Icons/uhhhhhhhhhhhhhhhhhh2.png" id="2_owcf5"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hcf8d"]
+shader = ExtResource("1_1myrr")
+shader_parameter/pix = 128.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un8lr"]
 bg_color = Color(0, 0.294118, 1, 0.584314)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("AmmoLabel")]
 script = ExtResource("1_st6v0")
 AmmoLabel = NodePath("EnergyCrystal/Label")
+
+[node name="PixelationLayer" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_hcf8d")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(9, 5.0625)
 
 [node name="boringreticle" type="ColorRect" parent="."]
 anchors_preset = 8
@@ -29,36 +48,42 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 16.0
-offset_top = -104.0
-offset_right = 48.0
-offset_bottom = -19.0
+offset_top = -64.0
+offset_right = 40.0
+offset_bottom = -16.0
 grow_vertical = 0
 texture = ExtResource("1_4m20x")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="ProgressBar" type="ProgressBar" parent="BottleIcon"]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 56.0
-offset_right = 287.0
-offset_bottom = 83.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -32.0
+offset_right = 240.0
+offset_bottom = -8.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 14
 theme_override_styles/fill = SubResource("StyleBoxFlat_un8lr")
+step = 1.0
 value = 50.0
 
 [node name="EnergyCrystal" type="TextureRect" parent="."]
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 56.0
-offset_bottom = 71.748
+offset_right = 48.0
+offset_bottom = 64.0
 texture = ExtResource("2_owcf5")
-expand_mode = 5
+expand_mode = 1
+stretch_mode = 4
 
 [node name="Label" type="Label" parent="EnergyCrystal"]
 layout_mode = 0
 offset_left = 56.0
-offset_top = 8.0
-offset_right = 96.0
-offset_bottom = 53.0
+offset_right = 120.0
+offset_bottom = 48.0
 theme_override_font_sizes/font_size = 30
 text = "0"

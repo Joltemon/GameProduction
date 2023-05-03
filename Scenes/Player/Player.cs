@@ -4,17 +4,17 @@ using System;
 public partial class Player : RigidBody3D
 {
 	[ExportCategory("Movement")]
-	[Export] public float MoveSpeed;
-	[Export] public float AirMoveSpeed;
-	[Export] public float FlyMoveSpeed;
-	[Export] public float LookSpeed;
-	[Export] public float JumpStrength;
-	[Export] public float GroundDrag;
-	[Export] public float AirDrag;
-	[Export] public float Gravity;
-	[Export] public float SprintMultiplier;
-	[Export] public float CrouchStrength;
-	[Export] public float MaxAirSpeed;
+	[Export] float MoveSpeed;
+	[Export] float AirMoveSpeed;
+	[Export] float FlyMoveSpeed;
+	[Export] float LookSpeed;
+	[Export] float JumpStrength;
+	[Export] float GroundDrag;
+	[Export] float AirDrag;
+	[Export] float Gravity;
+	[Export] float SprintMultiplier;
+	[Export] float CrouchStrength;
+	[Export] float MaxAirSpeed;
 
 	public bool Flying = false;
 	float LookSensitivity = 1;
@@ -66,8 +66,6 @@ public partial class Player : RigidBody3D
 	{
 		float sprintAdjustment = 1;
 		bool isGrounded = FloorDetector!.IsColliding();
-
-		Vector2 inputDir = Input.GetVector("MoveLeft", "MoveRight", "MoveForward", "MoveBackward").Rotated(-Camera!.Rotation.Y);
 		
 		// Crouching
 		if (Input.IsActionPressed("MoveCrouch"))
@@ -80,18 +78,19 @@ public partial class Player : RigidBody3D
 		}
 
 		if (Flying)
-			MoveFly(inputDir, isGrounded, sprintAdjustment, (float)delta);
+			MoveFly(isGrounded, sprintAdjustment, (float)delta);
 		else
-			Move(inputDir, isGrounded, sprintAdjustment, (float)delta);
+			Move(isGrounded, sprintAdjustment, (float)delta);
 	}
 
 	bool IsCurrentlyJumping;
-	void Move(Vector2 inputDir, bool isGrounded, float speed, float delta)
+	void Move(bool isGrounded, float speed, float delta)
 	{
 		GravityScale = Gravity;
 		var CurrentVelocity = LinearVelocity.Length();
 
 		// Walking
+		Vector2 inputDir = Input.GetVector("MoveLeft", "MoveRight", "MoveForward", "MoveBackward").Rotated(-Camera!.Rotation.Y);
 		Vector3 moveDir = new Vector3(inputDir.X, 0, inputDir.Y) * speed * delta * 180;
 		
 		// Apply movement speed
@@ -117,6 +116,8 @@ public partial class Player : RigidBody3D
 			moveDir *= Mathf.Clamp(1 - controlReduction, 0, 1);
 
 			LinearDamp = 0;
+
+			ApplyAirDrag(delta);
 		}
 		
 		ApplyCentralForce(moveDir);
@@ -149,16 +150,18 @@ public partial class Player : RigidBody3D
 		}
 	}
 
-	void MoveFly(Vector2 inputDir, bool isGrounded, float speed, float delta)
+	void MoveFly(bool isGrounded, float speed, float delta)
 	{
 		GravityScale = 0;
 
 		// Flying
-		Vector3 moveDir = new Vector3(inputDir.X, 0, inputDir.Y).Rotated(Vector3.Right!, Camera!.Rotation.X) * speed * delta * 180;
-		
-		// Apply movement speed
-		moveDir *= isGrounded ? MoveSpeed : MoveSpeed;
-		
+		Vector2 inputDir = Input.GetVector("MoveLeft", "MoveRight", "MoveForward", "MoveBackward");
+		Vector3 moveDir = new Vector3(inputDir.X, 0, inputDir.Y);
+		moveDir = moveDir.Rotated(Vector3.Right, Camera!.Rotation.X);
+		moveDir = moveDir.Rotated(Vector3.Up, Camera!.Rotation.Y);
+
+		moveDir *= FlyMoveSpeed * speed * delta * 180;
+
 		ApplyCentralForce(moveDir);
 
 		// Apply ground drag

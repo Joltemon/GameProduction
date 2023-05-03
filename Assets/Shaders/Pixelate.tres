@@ -2,13 +2,13 @@
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_sx347"]
 output_port_for_preview = 0
-input_name = "uv"
+input_name = "screen_uv"
 
 [sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_qluc1"]
 output_port_for_preview = 0
 parameter_name = "pix"
 hint = 2
-min = 16.0
+min = 64.0
 max = 512.0
 step = 2.0
 default_value_enabled = true
@@ -39,14 +39,14 @@ source = 1
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
-uniform float pix : hint_range(16, 512, 2) = 16;
+uniform float pix : hint_range(64, 512, 2) = 16;
 uniform sampler2D screen_tex_frg_7 : hint_screen_texture;
 
 
 
 void fragment() {
 // Input:2
-	vec2 n_out2p0 = UV;
+	vec2 n_out2p0 = SCREEN_UV;
 
 
 // FloatParameter:3
@@ -76,7 +76,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-87.5176, -15.982)
+graph_offset = Vector2(-351.928, 89.5446)
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(2080, 200)

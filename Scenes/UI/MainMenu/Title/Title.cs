@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class title : Control
+public partial class Title : Control
 {
 
 	AnimationPlayer? TitleAnimation;
