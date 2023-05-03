@@ -10,5 +10,8 @@ if you disagree you're wrong! >:(
 
 so true
 
+====== style guide ======
+just kidding
+i cannot be bothered
 
 ![screenshot of development](https://github.com/Joltemon/GameProduction/blob/main/dev_screenshot.png)
