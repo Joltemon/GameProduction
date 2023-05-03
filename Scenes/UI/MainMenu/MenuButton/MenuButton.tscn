@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1ic84gxqno7q"]
+[gd_scene load_steps=7 format=3 uid="uid://c1ic84gxqno7q"]
 
 [ext_resource type="FontFile" uid="uid://dyqcx0nfi1g2n" path="res://Assets/Fonts/SourceCodePro-BoldItalic.ttf" id="1_y1eor"]
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu/MenuButton/MenuButton.cs" id="2_npxms"]
+[ext_resource type="Texture2D" uid="uid://c6a4ini0u0vvm" path="res://Assets/Icons/test.PNG" id="3_fn6oq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f54qu"]
 bg_color = Color(0.156863, 0.156863, 0.156863, 1)
@@ -27,7 +28,7 @@ corner_radius_bottom_left = 26
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ylyyh"]
 
-[node name="MenuButton" type="Control" node_paths=PackedStringArray("Button", "BlackOverlay")]
+[node name="MenuButton" type="Control" node_paths=PackedStringArray("Button", "Overlay")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 256.0
@@ -36,7 +37,7 @@ pivot_offset = Vector2(128, 32)
 script = ExtResource("2_npxms")
 HoverOffset = Vector2(20, 0)
 Button = NodePath("Button")
-BlackOverlay = NodePath("Button/BlackOverlay")
+Overlay = NodePath("Button/Overlay")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -53,15 +54,18 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_f54qu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tm8hh")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ylyyh")
 
-[node name="BlackOverlay" type="ColorRect" parent="Button"]
+[node name="Overlay" type="TextureRect" parent="Button"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(128, 32)
 mouse_filter = 2
-color = Color(0, 0, 0, 0)
+texture = ExtResource("3_fn6oq")
+expand_mode = 1
 
 [connection signal="mouse_entered" from="Button" to="." method="OnMouseEnter"]
 [connection signal="mouse_exited" from="Button" to="." method="OnMouseExit"]
