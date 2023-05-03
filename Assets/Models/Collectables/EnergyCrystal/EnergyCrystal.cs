@@ -3,12 +3,13 @@ using System;
 
 public partial class EnergyCrystal : Node3D
 {
-	public void playerEnter(Node3D Body)
+	[Export] int AmmoAmount;
+
+	public void PlayerEnter(Node3D body)
 	{
-		if (Body is Player player)
+		if (body is Player player)
 		{
-			player.pickUpAmmo();
-			GD.Print("goodbye");
+			player.WeaponHolder?.AddAmmunition(AmmoAmount);
 		}
 	}
 
@@ -21,8 +22,6 @@ public partial class EnergyCrystal : Node3D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-
 		
 	}
-
 }

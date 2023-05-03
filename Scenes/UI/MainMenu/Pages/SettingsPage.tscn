@@ -1,13 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://d4gl27k01abkm"]
+[gd_scene load_steps=24 format=3 uid="uid://bsbl5qaq53xp"]
 
-[ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/settings_page.cs" id="1_p487x"]
-[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="2_tqosp"]
-[ext_resource type="PackedScene" uid="uid://blyutcx8hodut" path="res://Scenes/UI/MainMenu/Pages/settingsitem.tscn" id="3_02q2n"]
-[ext_resource type="PackedScene" uid="uid://tj7dpujpykwd" path="res://Scenes/UI/MainMenu/Pages/key_panel.tscn" id="4_gbead"]
-[ext_resource type="Texture2D" uid="uid://d21sicjaf81cf" path="res://Assets/Icons/logout.png" id="5_wxd7v"]
-[ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="6_k1d6d"]
-[ext_resource type="FontFile" uid="uid://cxv5oa85st6dv" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="7_y8qgw"]
-[ext_resource type="Texture2D" uid="uid://c6tm4n50mka4x" path="res://Assets/Icons/check.png" id="8_g414d"]
+[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="1_lema4"]
+[ext_resource type="PackedScene" uid="uid://blyutcx8hodut" path="res://Scenes/UI/MainMenu/Pages/settingsitem.tscn" id="2_knah1"]
+[ext_resource type="Texture2D" uid="uid://d21sicjaf81cf" path="res://Assets/Icons/logout.png" id="3_wiegq"]
+[ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="4_a2pyl"]
+[ext_resource type="FontFile" uid="uid://cxv5oa85st6dv" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="5_k7syb"]
+[ext_resource type="Texture2D" uid="uid://c6tm4n50mka4x" path="res://Assets/Icons/check.png" id="6_hmpe3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8bpp"]
 bg_color = Color(0.152941, 0.152941, 0.152941, 1)
@@ -62,18 +60,13 @@ _data = {
 "Show": SubResource("Animation_lwwnd")
 }
 
-[node name="Settings Page" type="Control" node_paths=PackedStringArray("SettingsTitle", "ControlsTitle")]
+[node name="SettingsPage" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_p487x")
-SettingsTitle = NodePath("SettingsPanel/SettingsTitle")
-ControlsTitle = NodePath("ControlsPanel/ControlsTitle")
-speed = 0.1
-MainMenu = "res://Scenes/UI/MainMenu/MainMenu.tscn"
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -107,7 +100,7 @@ offset_right = -28.0
 offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_tqosp")
+theme = ExtResource("1_lema4")
 theme_override_colors/font_color = Color(0, 0.313726, 0.972549, 1)
 theme_override_colors/font_outline_color = Color(0.564706, 0.560784, 0.784314, 1)
 theme_override_constants/outline_size = 6
@@ -115,7 +108,7 @@ theme_override_font_sizes/font_size = 63
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="Fullscreen" parent="SettingsPanel" instance=ExtResource("3_02q2n")]
+[node name="Fullscreen" parent="SettingsPanel" instance=ExtResource("2_knah1")]
 layout_mode = 1
 offset_top = -176.0
 offset_bottom = -120.0
@@ -126,7 +119,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ab1ly")
 [node name="Label" parent="SettingsPanel/Fullscreen" index="1"]
 text = "Fullscreen"
 
-[node name="Tips" parent="SettingsPanel" instance=ExtResource("3_02q2n")]
+[node name="Tips" parent="SettingsPanel" instance=ExtResource("2_knah1")]
 layout_mode = 1
 offset_top = -96.0
 offset_bottom = -40.0
@@ -134,7 +127,7 @@ offset_bottom = -40.0
 [node name="CheckButton" parent="SettingsPanel/Tips" index="0"]
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vyuty")
 
-[node name="Pixelate" parent="SettingsPanel" instance=ExtResource("3_02q2n")]
+[node name="Pixelate" parent="SettingsPanel" instance=ExtResource("2_knah1")]
 layout_mode = 1
 offset_top = -16.0
 offset_bottom = 40.0
@@ -188,7 +181,7 @@ offset_right = -28.0
 offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_tqosp")
+theme = ExtResource("1_lema4")
 theme_override_colors/font_color = Color(0, 0.313726, 0.972549, 1)
 theme_override_colors/font_outline_color = Color(0.564706, 0.560784, 0.784314, 1)
 theme_override_constants/outline_size = 6
@@ -196,35 +189,6 @@ theme_override_font_sizes/font_size = 63
 text = "Controls
 "
 horizontal_alignment = 1
-
-[node name="ShootKeyPanel" parent="ControlsPanel" instance=ExtResource("4_gbead")]
-layout_mode = 1
-offset_left = -176.0
-offset_top = -176.0
-offset_right = 176.0
-offset_bottom = -120.0
-
-[node name="Label" parent="ControlsPanel/ShootKeyPanel" index="0"]
-text = "Shoot"
-
-[node name="Key" parent="ControlsPanel/ShootKeyPanel" index="1"]
-offset_left = -182.0
-offset_top = -19.0
-offset_bottom = 47.0
-text = "Left-Click"
-
-[node name="JumpKeyPanel" parent="ControlsPanel" instance=ExtResource("4_gbead")]
-layout_mode = 1
-offset_left = -176.0
-offset_top = -96.0
-offset_right = 176.0
-offset_bottom = -40.0
-
-[node name="Label" parent="ControlsPanel/JumpKeyPanel" index="0"]
-text = "Jump"
-
-[node name="Key" parent="ControlsPanel/JumpKeyPanel" index="1"]
-text = "Spacebar"
 
 [node name="BackButtonPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -261,7 +225,7 @@ offset_top = -14.0
 offset_bottom = 12.0
 grow_horizontal = 0
 grow_vertical = 2
-texture = ExtResource("5_wxd7v")
+texture = ExtResource("3_wiegq")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="BackButtonPanel"]
@@ -274,7 +238,7 @@ offset_top = -20.0
 offset_right = 104.0
 offset_bottom = 20.0
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_k1d6d")
+theme_override_fonts/font = ExtResource("4_a2pyl")
 theme_override_font_sizes/font_size = 24
 text = "Back"
 vertical_alignment = 1
@@ -317,7 +281,7 @@ offset_top = -10.0
 offset_right = 65.0
 offset_bottom = 13.0
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("7_y8qgw")
+theme_override_fonts/font = ExtResource("5_k7syb")
 theme_override_font_sizes/font_size = 19
 text = "Apply"
 
@@ -333,7 +297,7 @@ offset_top = -16.0
 offset_bottom = 14.0
 grow_horizontal = 0
 grow_vertical = 2
-texture = ExtResource("8_g414d")
+texture = ExtResource("6_hmpe3")
 expand_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -347,5 +311,3 @@ libraries = {
 [editable path="SettingsPanel/Fullscreen"]
 [editable path="SettingsPanel/Tips"]
 [editable path="SettingsPanel/Pixelate"]
-[editable path="ControlsPanel/ShootKeyPanel"]
-[editable path="ControlsPanel/JumpKeyPanel"]

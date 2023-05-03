@@ -1,19 +1,19 @@
 using Godot;
 using System;
 
-public partial class settings_page : Control
+public partial class SettingsPage : Control
 {
 
 	[Export] Label? SettingsTitle;
 	[Export] Label? ControlsTitle;
 	float HSVValue;
-	[Export] float speed; 
+	[Export] float Speed;
 
 	[Export(PropertyHint.File, "*.tscn,*.scn")] string? MainMenu; 
 
 	public override void _Process(double delta)
 	{
-		HSVValue += (float)delta*speed;
+		HSVValue += (float)delta*Speed;
 		SettingsTitle?.Set("theme_override_colors/font_outline_color", Color.FromHsv(HSVValue, 1, 1, 1));
 		ControlsTitle?.Set("theme_override_colors/font_outline_color", Color.FromHsv(HSVValue, 1, 1, 1));
 		if (HSVValue >= 1) {
