@@ -21,6 +21,10 @@ config/icon="res://Assets/Icons/sprint_icon.svg"
 
 project/assembly_name="Adrenarush"
 
+[editor]
+
+naming/scene_name_casing=1
+
 [input]
 
 MoveForward={

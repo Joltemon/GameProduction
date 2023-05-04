@@ -155,6 +155,7 @@ material = SubResource("StandardMaterial3D_jyeu6")
 [node name="EmptyMap" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_8o8po")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_k1b1x")
