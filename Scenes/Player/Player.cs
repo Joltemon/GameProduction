@@ -140,9 +140,9 @@ public partial class Player : RigidBody3D
 			MoveAnim.Play("Walk");
 			MoveAnim.SpeedScale = CurrentVelocity / 8;
 		}
-		else if (MoveAnim != null)
+		else
 		{
-			MoveAnim.Stop();
+			MoveAnim?.Stop();
 		}
 
 		// Jumping
@@ -168,7 +168,7 @@ public partial class Player : RigidBody3D
 
 		// Flying
 		Vector2 inputDir = Input.GetVector("MoveLeft", "MoveRight", "MoveForward", "MoveBackward");
-		Vector3 moveDir = new Vector3(inputDir.X, 0, inputDir.Y);
+		Vector3 moveDir = new(inputDir.X, 0, inputDir.Y);
 		moveDir = moveDir.Rotated(Vector3.Right, Camera!.Rotation.X);
 		moveDir = moveDir.Rotated(Vector3.Up, Camera!.Rotation.Y);
 
