@@ -29,6 +29,7 @@ public partial class Player : RigidBody3D
 	[Export] ShapeCast3D? FloorDetector;
 	[Export] CollisionShape3D? Collider;
 	[Export] public WeaponHolder? WeaponHolder;
+	[Export] HUD? Hud;
 
 	public override void _Ready()
 	{
@@ -78,6 +79,7 @@ public partial class Player : RigidBody3D
 	{
 		float sprintAdjustment = 1;
 		bool isGrounded = FloorDetector!.IsColliding();
+		var currentVelocity = LinearVelocity.Length();
 		
 		// Crouching
 		if (Input.IsActionPressed("MoveCrouch"))
@@ -88,18 +90,21 @@ public partial class Player : RigidBody3D
 		{
 			sprintAdjustment = SprintMultiplier;
 		}
+		if (Hud != null) 
+		{
+			Hud.UpdateSpeedEffects(currentVelocity);
+		}
 
 		if (Flying)
 			MoveFly(isGrounded, sprintAdjustment, (float)delta);
 		else
-			Move(isGrounded, sprintAdjustment, (float)delta);
+			Move(currentVelocity, isGrounded, sprintAdjustment, (float)delta);
 	}
 
 	bool IsCurrentlyJumping;
-	void Move(bool isGrounded, float speed, float delta)
+	void Move(float currentVelocity, bool isGrounded, float speed, float delta)
 	{
 		GravityScale = Gravity;
-		var CurrentVelocity = LinearVelocity.Length();
 
 		// Walking
 		Vector2 inputDir = Input.GetVector("MoveLeft", "MoveRight", "MoveForward", "MoveBackward").Rotated(-Camera!.Rotation.Y);
@@ -122,7 +127,7 @@ public partial class Player : RigidBody3D
 			var relativeMoveAngle = (Mathf.Abs(velocityDirection) - Mathf.Abs(moveDirDirection));
 
 
-			var controlReduction = Mathf.Clamp(CurrentVelocity, 0, MaxAirSpeed) / MaxAirSpeed; // scale AirMoveSpeed based on how fast the player is going, 0 to 1
+			var controlReduction = Mathf.Clamp(currentVelocity, 0, MaxAirSpeed) / MaxAirSpeed; // scale AirMoveSpeed based on how fast the player is going, 0 to 1
 			controlReduction *= 1 - Mathf.Abs(relativeMoveAngle / Mathf.Pi); // scale again based on the direction the player is trying to move, going back easier than going forwards
 
 			moveDir *= Mathf.Clamp(1 - controlReduction, 0, 1);
@@ -135,10 +140,10 @@ public partial class Player : RigidBody3D
 		ApplyCentralForce(moveDir);
 
 		// Head bob
-		if (MoveAnim != null && isGrounded && CurrentVelocity > 0)
+		if (MoveAnim != null && isGrounded && currentVelocity > 0)
 		{
 			MoveAnim.Play("Walk");
-			MoveAnim.SpeedScale = CurrentVelocity / 8;
+			MoveAnim.SpeedScale = currentVelocity / 8;
 		}
 		else
 		{
