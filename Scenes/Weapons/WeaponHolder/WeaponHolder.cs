@@ -91,7 +91,7 @@ public partial class WeaponHolder : Node3D
 		Weapon.PrimaryFire();
 	}
 
-	public void OnFired() 
+	public void OnFired()
 	{
 		EmitSignal("Fired");
 		var launchDirection = ToGlobal(new Vector3(0,0,-1)).DirectionTo(GlobalPosition);

@@ -4,10 +4,10 @@ using System;
 public partial class HUD : CanvasLayer
 {
 	[Export] Label? AmmoLabel;
-
+	[Export] ProgressBar? SprintBar;
 	[Export] GpuParticles2D? sprintingParticle;
 
-	void AmmunitionUpdated(int ammo)
+	void UpdateAmmunition(int ammo)
 	{
 		if (AmmoLabel != null)
 			AmmoLabel.Text = ammo.ToString();
@@ -24,6 +24,10 @@ public partial class HUD : CanvasLayer
 		{
 			sprintingParticle.Emitting = false;
 		}
-		
+	}
+
+	public void UpdateSprint(float sprint)
+	{
+		SprintBar!.Value = sprint;
 	}
 }

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://phk6uejxvcxk"]
+[gd_scene load_steps=9 format=3 uid="uid://phk6uejxvcxk"]
 
 [ext_resource type="Shader" uid="uid://jx8m6uyfkcvj" path="res://Assets/Shaders/Pixelate.tres" id="1_1myrr"]
 [ext_resource type="Texture2D" uid="uid://dgskw8uqnqfoa" path="res://Assets/Icons/uhhh.png" id="1_4m20x"]
 [ext_resource type="Script" path="res://Scenes/UI/HUD/HUD.cs" id="1_st6v0"]
 [ext_resource type="Texture2D" uid="uid://c1ejuro6jb3dj" path="res://Assets/Icons/uhhhhhhhhhhhhhhhhhh2.png" id="2_owcf5"]
+[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="2_xso2i"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3fphl"]
 emission_shape = 2
@@ -52,9 +53,52 @@ speed_scale = 4.88
 trail_enabled = true
 trail_lifetime = 0.1
 
-[node name="PixelationLayer" type="ColorRect" parent="."]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un8lr"]
+bg_color = Color(0, 0.294118, 1, 0.584314)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("AmmoLabel", "SprintBar", "sprintingParticle")]
+script = ExtResource("1_st6v0")
+AmmoLabel = NodePath("HUD/EnergyCrystal/Label")
+SprintBar = NodePath("HUD/BottleIcon/ProgressBar")
+sprintingParticle = NodePath("HUD/ParticleControl/GPUParticles2D")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_xso2i")
+
+[node name="ParticleControl" type="Control" parent="HUD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="HUD/ParticleControl"]
+scale = Vector2(5.76, 3.32)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_3fphl")
+lifetime = 2.5
+speed_scale = 4.88
+trail_enabled = true
+trail_lifetime = 0.1
+
+[node name="PixelationLayer" type="ColorRect" parent="HUD"]
 visible = false
 material = SubResource("ShaderMaterial_hcf8d")
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -62,7 +106,8 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(9, 5.0625)
 
-[node name="boringreticle" type="ColorRect" parent="."]
+[node name="boringreticle" type="ColorRect" parent="HUD"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -75,7 +120,8 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BottleIcon" type="TextureRect" parent="."]
+[node name="BottleIcon" type="TextureRect" parent="HUD"]
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -88,7 +134,7 @@ texture = ExtResource("1_4m20x")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ProgressBar" type="ProgressBar" parent="BottleIcon"]
+[node name="ProgressBar" type="ProgressBar" parent="HUD/BottleIcon"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -103,7 +149,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_un8lr")
 step = 1.0
 value = 50.0
 
-[node name="EnergyCrystal" type="TextureRect" parent="."]
+[node name="EnergyCrystal" type="TextureRect" parent="HUD"]
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 48.0
@@ -112,10 +158,26 @@ texture = ExtResource("2_owcf5")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="EnergyCrystal"]
+[node name="Label" type="Label" parent="HUD/EnergyCrystal"]
 layout_mode = 0
 offset_left = 56.0
 offset_right = 120.0
 offset_bottom = 48.0
 theme_override_font_sizes/font_size = 30
 text = "0"
+vertical_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.0
+offset_top = 24.0
+offset_right = 192.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "0:00"
+horizontal_alignment = 1
+vertical_alignment = 1

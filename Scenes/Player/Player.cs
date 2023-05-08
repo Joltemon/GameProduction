@@ -15,10 +15,12 @@ public partial class Player : RigidBody3D
 	[Export] float SprintMultiplier;
 	[Export] float CrouchStrength;
 	[Export] float MaxAirSpeed;
+	[Export] float SprintDepletionRate;
 
 	public bool Flying = false;
 	float LookSensitivity = 1;
-
+	public float SprintEnergy = 100;
+	
 	[ExportGroup("CameraOptions")]
 	[Export] public float DefaultFov = 75;
 	[Export] public float ZoomedFov = 30;
@@ -86,9 +88,12 @@ public partial class Player : RigidBody3D
 		{
 			sprintAdjustment = 0.2f;
 		}
-		else if (Input.IsActionPressed("MoveSprint"))
+		else if (Input.IsActionPressed("MoveSprint") && SprintEnergy > 0)
 		{
 			sprintAdjustment = SprintMultiplier;
+			SprintEnergy -= (float)delta * SprintDepletionRate;
+			SprintEnergy = Mathf.Clamp(SprintEnergy, 0, 100);
+			Hud?.UpdateSprint(SprintEnergy);
 		}
 		
 		var cameraDir = Camera!.Transform.Basis.Z;
@@ -125,10 +130,11 @@ public partial class Player : RigidBody3D
 
 			LinearDamp = GroundDrag;
 		}
-		else
+		else // Air movement
 		{
 			moveDir *= AirMoveSpeed;
 
+			// Limit speed
 			// Angle calculation
 			var moveDirDirection = new Vector2(moveDir.X, moveDir.Z).Angle();
 			var velocityDirection = new Vector2(LinearVelocity.X, LinearVelocity.Z).Angle();
@@ -144,6 +150,9 @@ public partial class Player : RigidBody3D
 
 			ApplyAirDrag(delta);
 		}
+
+		var friction = inputDir.IsZeroApprox() ? 1 : 0;
+		PhysicsMaterialOverride.Set("friction", friction);
 
 		ApplyCentralForce(moveDir);
 
@@ -232,7 +241,7 @@ public partial class Player : RigidBody3D
 		else if (inputEvent.IsActionPressed("Pixelate"))
 		{
 			if (OS.HasFeature("editor"))
-				GetNode<ColorRect>("HUD/PixelationLayer").Visible = !GetNode<ColorRect>("HUD/PixelationLayer").Visible;
+				GetNode<ColorRect>("HUD/HUD/PixelationLayer").Visible = !GetNode<ColorRect>("HUD/HUD/PixelationLayer").Visible;
 		}
 	}
 }

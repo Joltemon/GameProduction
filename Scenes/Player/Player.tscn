@@ -82,9 +82,10 @@ JumpStrength = 32.0
 GroundDrag = 10.0
 AirDrag = 0.5
 Gravity = 2.0
-SprintMultiplier = 1.5
+SprintMultiplier = 2.0
 CrouchStrength = 0.5
 MaxAirSpeed = 20.0
+SprintDepletionRate = 10.0
 Camera = NodePath("Head/Camera")
 MoveAnim = NodePath("Head/Animation")
 FloorDetector = NodePath("Collider/FloorDetector")
@@ -160,4 +161,4 @@ TrackingCamera = NodePath("../../../Head/Camera")
 
 [node name="HUD" parent="." instance=ExtResource("4_uemel")]
 
-[connection signal="AmmunitionUpdated" from="Head/Camera/WeaponHolder" to="HUD" method="AmmunitionUpdated"]
+[connection signal="AmmunitionUpdated" from="Head/Camera/WeaponHolder" to="HUD" method="UpdateAmmunition"]
