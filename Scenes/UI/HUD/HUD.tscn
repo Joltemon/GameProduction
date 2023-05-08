@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://phk6uejxvcxk"]
+[gd_scene load_steps=7 format=3 uid="uid://phk6uejxvcxk"]
 
 [ext_resource type="Shader" uid="uid://jx8m6uyfkcvj" path="res://Assets/Shaders/Pixelate.tres" id="1_1myrr"]
 [ext_resource type="Texture2D" uid="uid://dgskw8uqnqfoa" path="res://Assets/Icons/uhhh.png" id="1_4m20x"]
@@ -16,22 +16,9 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3fphl"]
-emission_shape = 2
-emission_sphere_radius = 71.84
-particle_flag_disable_z = true
-gravity = Vector3(0, 0, 0)
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-linear_accel_min = 1.0
-linear_accel_max = 1.0
-radial_accel_min = 100.0
-radial_accel_max = 100.0
-
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("AmmoLabel", "sprintingParticle")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("AmmoLabel")]
 script = ExtResource("1_st6v0")
 AmmoLabel = NodePath("EnergyCrystal/Label")
-sprintingParticle = NodePath("ParticleControl/GPUParticles2D")
 
 [node name="PixelationLayer" type="ColorRect" parent="."]
 visible = false
@@ -100,23 +87,3 @@ offset_right = 120.0
 offset_bottom = 48.0
 theme_override_font_sizes/font_size = 30
 text = "0"
-
-[node name="ParticleControl" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="ParticleControl"]
-scale = Vector2(5.76, 3.32)
-emitting = false
-amount = 20
-process_material = SubResource("ParticleProcessMaterial_3fphl")
-lifetime = 2.5
-speed_scale = 4.88
-trail_enabled = true
-trail_lifetime = 0.1

@@ -65,7 +65,7 @@ _data = {
 "Walk": SubResource("Animation_oa6pa")
 }
 
-[node name="Player" type="RigidBody3D" node_paths=PackedStringArray("Camera", "MoveAnim", "FloorDetector", "Collider", "WeaponHolder", "Hud")]
+[node name="Player" type="RigidBody3D" node_paths=PackedStringArray("Camera", "MoveAnim", "FloorDetector", "Collider", "WeaponHolder")]
 collision_layer = 2
 mass = 3.0
 physics_material_override = SubResource("PhysicsMaterial_jbb0a")
@@ -90,7 +90,6 @@ MoveAnim = NodePath("Head/Animation")
 FloorDetector = NodePath("Collider/FloorDetector")
 Collider = NodePath("Collider")
 WeaponHolder = NodePath("Head/Camera/WeaponHolder")
-Hud = NodePath("HUD")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_a7e0n")
@@ -126,7 +125,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Camera" type="Camera3D" parent="Head"]
 cull_mask = 1048573
-current = true
 
 [node name="WeaponHolder" parent="Head/Camera" node_paths=PackedStringArray("Player") instance=ExtResource("2_5mgoj")]
 Player = NodePath("../../..")
