@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf50mtnmtu78d"]
+
+[ext_resource type="PackedScene" uid="uid://brqw5dpjc8shc" path="res://Assets/Models/Roads/road_slantHigh.glb" id="1_nefut"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mj1yo"]
+points = PackedVector3Array(-0.5, 0, -0.5, -0.5, 0.52, -0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0.52, 0.5, 0.5, 0.019953, -0.5, 0.5, 0, 0.5, 0.5, 0.019953, 0.5)
+
+[node name="road_slantHigh" instance=ExtResource("1_nefut")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
+shape = SubResource("ConvexPolygonShape3D_mj1yo")
