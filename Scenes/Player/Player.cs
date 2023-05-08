@@ -18,7 +18,7 @@ public partial class Player : RigidBody3D
 
 	public bool Flying = false;
 	float LookSensitivity = 1;
-	
+
 	[ExportGroup("CameraOptions")]
 	[Export] public float DefaultFov = 75;
 	[Export] public float ZoomedFov = 30;
@@ -61,7 +61,7 @@ public partial class Player : RigidBody3D
 			Camera!.Fov = Mathf.Lerp(Camera.Fov, DefaultFov, 0.2f);
 			LookSensitivity = 1;
 		}
-		
+
 		if (Input.IsActionPressed("PixelateUp"))
 		{
 			if (OS.HasFeature("editor"))
@@ -78,7 +78,7 @@ public partial class Player : RigidBody3D
 	{
 		float sprintAdjustment = 1;
 		bool isGrounded = FloorDetector!.IsColliding();
-		
+
 		// Crouching
 		if (Input.IsActionPressed("MoveCrouch"))
 		{
@@ -102,9 +102,9 @@ public partial class Player : RigidBody3D
 		var CurrentVelocity = LinearVelocity.Length();
 
 		// Walking
-		Vector2 inputDir = Input.GetVector("MoveLeft", "MoveRight", "MoveForward", "MoveBackward").Rotated(-Camera!.Rotation.Y);
+		Vector2 inputDir = Input.GetVector("MoveLeft", "MoveRight", "MoveForward", "MoveBackward").Rotated(-Camera!.GlobalRotation.Y);
 		Vector3 moveDir = new Vector3(inputDir.X, 0, inputDir.Y) * speed * delta * 180;
-		
+
 		// Apply movement speed
 		if (isGrounded)
 		{
@@ -131,7 +131,7 @@ public partial class Player : RigidBody3D
 
 			ApplyAirDrag(delta);
 		}
-		
+
 		ApplyCentralForce(moveDir);
 
 		// Head bob
@@ -169,8 +169,8 @@ public partial class Player : RigidBody3D
 		// Flying
 		Vector2 inputDir = Input.GetVector("MoveLeft", "MoveRight", "MoveForward", "MoveBackward");
 		Vector3 moveDir = new(inputDir.X, 0, inputDir.Y);
-		moveDir = moveDir.Rotated(Vector3.Right, Camera!.Rotation.X);
-		moveDir = moveDir.Rotated(Vector3.Up, Camera!.Rotation.Y);
+		moveDir = moveDir.Rotated(Vector3.Right, Camera!.GlobalRotation.X);
+		moveDir = moveDir.Rotated(Vector3.Up, Camera!.GlobalRotation.Y);
 
 		moveDir *= FlyMoveSpeed * speed * delta * 180;
 
@@ -188,7 +188,7 @@ public partial class Player : RigidBody3D
 		newVelocity.Z *= (float)(1 - delta * AirDrag);
 		LinearVelocity = newVelocity;
 	}
-	
+
 	public override void _Input(InputEvent inputEvent)
 	{
 		// Mouse Look
@@ -196,11 +196,11 @@ public partial class Player : RigidBody3D
 		{
 			var mouseMovement = mouseEvent.Relative * LookSensitivity;
 
-			Vector3 newRotation = Camera!.Rotation;
+			Vector3 newRotation = Camera!.GlobalRotation;
 			newRotation.X -= Mathf.DegToRad(mouseMovement.Y * LookSpeed);
 			newRotation.X = Mathf.Clamp(newRotation.X, -Mathf.Pi/2, Mathf.Pi/2);
 			newRotation.Y -= Mathf.DegToRad(mouseMovement.X * LookSpeed);
-			Camera!.Rotation = newRotation;
+			Camera!.GlobalRotation = newRotation;
 		}
 		else if (inputEvent.IsActionPressed("MoveFly"))
 		{
