@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://biftq86ske6xg"]
+
+[ext_resource type="ArrayMesh" uid="uid://duyn2k4g6ncqc" path="res://Assets/Models/Castle/wall.obj" id="4_7rdv2"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1t5jm"]
+points = PackedVector3Array(-5.21583e-13, 0, -10, 10, 0, -10, -5.21583e-13, 0, 0, -5.21583e-13, 13.1, -10, 10, 0, 0, 10, 13.1, -10, -5.21583e-13, 12.6499, 0, -5.21583e-13, 13.1, -2.5, 10, 12.6499, 0, 10, 13.1, -2.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_m8vxs"]
+points = PackedVector3Array(-5.21583e-13, 0, -10, 10, 0, -10, -5.21583e-13, 0, 0, -5.21583e-13, 13.1, -10, 10, 0, 0, 10, 13.1, -10, -5.21583e-13, 12.6499, 0, -5.21583e-13, 13.1, -2.5, 10, 12.6499, 0, 10, 13.1, -2.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vwipf"]
+points = PackedVector3Array(-5.21583e-13, 0, -10, 10, 0, -10, -5.21583e-13, 0, 0, -5.21583e-13, 13.1, -10, 10, 0, 0, 10, 13.1, -10, -5.21583e-13, 12.6499, 0, -5.21583e-13, 13.1, -2.5, 10, 12.6499, 0, 10, 13.1, -2.5)
+
+[node name="CastleSegment" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, -20.4)
+
+[node name="WallRight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+mesh = ExtResource("4_7rdv2")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="StaticBody3D" parent="WallRight"]
+
+[node name="Shape" type="CollisionShape3D" parent="WallRight/Collider"]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_1t5jm")
+
+[node name="WallMid" type="MeshInstance3D" parent="."]
+mesh = ExtResource("4_7rdv2")
+skeleton = NodePath("../WallRight")
+
+[node name="Collider" type="StaticBody3D" parent="WallMid"]
+
+[node name="Shape" type="CollisionShape3D" parent="WallMid/Collider"]
+shape = SubResource("ConvexPolygonShape3D_m8vxs")
+
+[node name="WallLeft" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 6)
+mesh = ExtResource("4_7rdv2")
+skeleton = NodePath("../WallRight")
+
+[node name="Collider" type="StaticBody3D" parent="WallLeft"]
+
+[node name="Shape" type="CollisionShape3D" parent="WallLeft/Collider"]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_vwipf")
