@@ -90,6 +90,14 @@ public partial class Player : RigidBody3D
 		{
 			sprintAdjustment = SprintMultiplier;
 		}
+		
+		var cameraDir = Camera!.Transform.Basis.Z;
+		var moveDirDirection = new Vector2(Camera.Rotation.X, Camera.Rotation.Z).Angle();
+		var velocityDirection = new Vector2(LinearVelocity.X, LinearVelocity.Z).Angle();
+		var relativeMoveAngle = (Mathf.Abs(moveDirDirection) - Mathf.Abs(velocityDirection));
+
+		GD.Print(relativeMoveAngle);
+		// GD.Print(LinearVelocity < Camera!.Transform.Basis.Z);
 		if (Hud != null) 
 		{
 			Hud.UpdateSpeedEffects(currentVelocity);
