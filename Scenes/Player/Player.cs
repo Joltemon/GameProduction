@@ -25,7 +25,7 @@ public partial class Player : RigidBody3D
 	public Boolean StopwatchRunning = true;
 	float currentCoyoteTime;
 	public float SprintEnergy = 100;
-	
+
 	[ExportGroup("CameraOptions")]
 	[Export] public float DefaultFov = 75;
 	[Export] public float ZoomedFov = 30;
@@ -77,12 +77,12 @@ public partial class Player : RigidBody3D
 		if (Input.IsActionPressed("PixelateUp"))
 		{
 			if (OS.HasFeature("editor"))
-				GetNode<ColorRect>("HUD/PixelationLayer").Material.Set("shader_parameter/pix", (int)GetNode<ColorRect>("HUD/PixelationLayer").Material.Get("shader_parameter/pix")+1);
+				GetNode<ColorRect>("HUD/HUD/PixelationLayer").Material.Set("shader_parameter/pix", (int)GetNode<ColorRect>("HUD/HUD/PixelationLayer").Material.Get("shader_parameter/pix")+1);
 		}
 		if (Input.IsActionPressed("PixelateDown"))
 		{
 			if (OS.HasFeature("editor"))
-				GetNode<ColorRect>("HUD/PixelationLayer").Material.Set("shader_parameter/pix", (int)GetNode<ColorRect>("HUD/PixelationLayer").Material.Get("shader_parameter/pix")-1);
+				GetNode<ColorRect>("HUD/HUD/PixelationLayer").Material.Set("shader_parameter/pix", (int)GetNode<ColorRect>("HUD/HUD/PixelationLayer").Material.Get("shader_parameter/pix")-1);
 		}
 
 		UpdateTimer(delta);
@@ -93,7 +93,7 @@ public partial class Player : RigidBody3D
 		float sprintAdjustment = 1;
 		bool isGrounded = FloorDetector!.IsColliding();
 		var currentVelocity = LinearVelocity.Length();
-		
+
 		// Crouching
 		if (Input.IsActionPressed("MoveCrouch"))
 		{
@@ -103,6 +103,12 @@ public partial class Player : RigidBody3D
 		{
 			sprintAdjustment = SprintMultiplier;
 		}
+
+		// Get correct direction to apply speed lines when going forwards
+		var cameraDir = Camera!.Transform.Basis.Z;
+		var moveDirDirection = new Vector2(Camera.Rotation.X, Camera.Rotation.Z).Angle();
+		var velocityDirection = new Vector2(LinearVelocity.X, LinearVelocity.Z).Angle();
+		var relativeMoveAngle = (Mathf.Abs(moveDirDirection) - Mathf.Abs(velocityDirection));
 		
 
 		
@@ -183,7 +189,7 @@ public partial class Player : RigidBody3D
 		// Jumping
 		var jumpPressed = Input.IsActionPressed("MoveJump");
 		var isOnFloor = FloorDetector!.IsColliding();
-		
+
 		if (isOnFloor)
 			currentCoyoteTime = CoyoteTime;
 		else
@@ -226,7 +232,7 @@ public partial class Player : RigidBody3D
 
 	void UpdateTimer(double delta)
 	{
-		if (StopwatchRunning == true) 
+		if (StopwatchRunning == true)
 		{
 			Stopwatch += delta;
 		}

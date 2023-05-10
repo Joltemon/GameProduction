@@ -17,6 +17,10 @@ boot_splash/bg_color=Color(0.568627, 0.568627, 0.568627, 1)
 boot_splash/image="res://Assets/Icons/unity bad.png"
 config/icon="res://Assets/Icons/sprint_icon.svg"
 
+[autoload]
+
+CyclopsAutoload="*res://addons/cyclops_level_builder/cyclops_global_scene.tscn"
+
 [dotnet]
 
 project/assembly_name="Adrenarush"
@@ -24,6 +28,10 @@ project/assembly_name="Adrenarush"
 [editor]
 
 naming/scene_name_casing=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/cyclops_level_builder/plugin.cfg")
 
 [input]
 

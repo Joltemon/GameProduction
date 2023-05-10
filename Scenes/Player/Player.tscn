@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bfm8d47igl6nx"]
+[gd_scene load_steps=21 format=3 uid="uid://c5stgguw5utpr"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.cs" id="1_1q63t"]
 [ext_resource type="PackedScene" uid="uid://c1je4btt0vci8" path="res://Scenes/Weapons/WeaponHolder/WeaponHolder.tscn" id="2_5mgoj"]
 [ext_resource type="Script" path="res://Scenes/Player/Scripts/OverlayCamera.cs" id="3_8qmuj"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Outline.gdshader" id="3_lxey2"]
 [ext_resource type="PackedScene" uid="uid://phk6uejxvcxk" path="res://Scenes/UI/HUD/HUD.tscn" id="4_uemel"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jbb0a"]
@@ -34,6 +35,19 @@ height = 0.01
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_2hkth"]
 exposure_multiplier = 10.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_hslsf"]
+size = Vector2(3, 3)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_74rfd"]
+render_priority = 0
+shader = ExtResource("3_lxey2")
+shader_parameter/shadows_enabled = true
+shader_parameter/highlights_enabled = true
+shader_parameter/shadow_strength = 0.4
+shader_parameter/highlight_strength = 0.1
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_oa6pa"]
 resource_name = "Walk"
@@ -160,6 +174,12 @@ Player = NodePath("../../..")
 
 [node name="AimRaycast" type="RayCast3D" parent="Head/Camera"]
 target_position = Vector3(0, 0, -10)
+
+[node name="PostProcesser" type="MeshInstance3D" parent="Head/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.06)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_hslsf")
+surface_material_override/0 = SubResource("ShaderMaterial_74rfd")
 
 [node name="Animation" type="AnimationPlayer" parent="Head"]
 libraries = {
