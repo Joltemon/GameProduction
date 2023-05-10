@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://c55p3v7yhlrct"]
+[gd_scene load_steps=59 format=3 uid="uid://0522i5r8q41e"]
 
 [ext_resource type="PackedScene" uid="uid://bfm8d47igl6nx" path="res://Scenes/Player/Player.tscn" id="1_8o8po"]
 [ext_resource type="Texture2D" uid="uid://dnooxfupsybki" path="res://Assets/Textures/Dark/texture_08.png" id="2_ybkiv"]
@@ -143,6 +143,16 @@ albedo_texture = ExtResource("4_qvlya")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d3rcp"]
 albedo_texture = ExtResource("4_qvlya")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mipx1"]
+albedo_color = Color(1, 0.25098, 0.25098, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tu7jm"]
+material = SubResource("StandardMaterial3D_mipx1")
+size = Vector3(1, 10, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lcdi8"]
+size = Vector3(1, 10, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hj5si"]
 albedo_texture = ExtResource("5_18xqu")
@@ -446,6 +456,17 @@ metadata/_edit_group_ = true
 
 [node name="Shape" type="CollisionShape3D" parent="Objects/Block5/Collider"]
 shape = SubResource("BoxShape3D_hgoml")
+
+[node name="Block7" type="MeshInstance3D" parent="Objects"]
+transform = Transform3D(2.16506, 0, -1.25, 0, 2.5, 0, 1.25, 0, 2.16506, -37.8894, 12.7, -11)
+material_override = SubResource("StandardMaterial3D_d3rcp")
+mesh = SubResource("BoxMesh_tu7jm")
+metadata/_edit_group_ = true
+
+[node name="Collider" type="StaticBody3D" parent="Objects/Block7"]
+
+[node name="Shape" type="CollisionShape3D" parent="Objects/Block7/Collider"]
+shape = SubResource("BoxShape3D_lcdi8")
 
 [node name="Block6" type="MeshInstance3D" parent="Objects"]
 transform = Transform3D(4.33013, 0, -2.5, 0, 5, 0, 2.5, 0, 4.33013, 10, 2.75, 0)

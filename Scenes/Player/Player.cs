@@ -191,6 +191,8 @@ public partial class Player : RigidBody3D
 		else
 			currentCoyoteTime -= delta;
 
+		currentCoyoteTime = Mathf.Clamp(currentCoyoteTime, 0, CoyoteTime);
+
 		var canJump = currentCoyoteTime > 0;
 
 		if (jumpPressed && canJump && !IsCurrentlyJumping)
@@ -229,7 +231,6 @@ public partial class Player : RigidBody3D
 		if (StopwatchRunning == true) 
 		{
 			Stopwatch += delta;
-			Hud?.UpdateTimer(Stopwatch);
 		}
 	}
 

@@ -54,6 +54,7 @@ public partial class HUD : CanvasLayer
 		if (Player == null) return;
 
 		if (SprintBar != null) SprintBar.Value = Mathf.Lerp(SprintBar.Value, Player.SprintEnergy, 8 * (float)delta);
+		UpdateTimer(Player.Stopwatch);
 	}
 
 	void Finished() {
