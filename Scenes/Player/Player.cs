@@ -22,6 +22,7 @@ public partial class Player : RigidBody3D
 	float LookSensitivity = 1;
 	float FovIncrease;
 	public double Stopwatch;
+	public Boolean StopwatchRunning = true;
 	float currentCoyoteTime;
 	public float SprintEnergy = 100;
 	
@@ -37,6 +38,8 @@ public partial class Player : RigidBody3D
 	[Export] public WeaponHolder? WeaponHolder;
 	[Export] HUD? Hud;
 	[Export] AnimationPlayer? Animation;
+
+	[Signal] public delegate void FinishedEventHandler();
 
 	public override void _Ready()
 	{
@@ -223,8 +226,11 @@ public partial class Player : RigidBody3D
 
 	void UpdateTimer(double delta)
 	{
-		Stopwatch += delta;
-		Hud?.UpdateTimer(Stopwatch);
+		if (StopwatchRunning == true) 
+		{
+			Stopwatch += delta;
+			Hud?.UpdateTimer(Stopwatch);
+		}
 	}
 
 	// Apply drag to all axes but Y, to leave gravity acceleration intact

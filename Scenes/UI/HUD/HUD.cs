@@ -6,7 +6,7 @@ public partial class HUD : CanvasLayer
 	[Export] Player? Player;
 	[Export] Control? Root;
 	[Export] Label? AmmoLabel;
-	[Export] Label? TimerLabel;
+	[Export] public Label? TimerLabel;
 	[Export] ProgressBar? SprintBar;
 	[Export] GpuParticles2D? SprintingParticle;
 	[Export] AnimationPlayer? Animation;
@@ -54,5 +54,9 @@ public partial class HUD : CanvasLayer
 		if (Player == null) return;
 
 		if (SprintBar != null) SprintBar.Value = Mathf.Lerp(SprintBar.Value, Player.SprintEnergy, 8 * (float)delta);
+	}
+
+	void Finished() {
+		TimerLabel?.Set("theme_override_colors/font_color", Color.Color8(0, 232, 0));
 	}
 }

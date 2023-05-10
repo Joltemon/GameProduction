@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://c55p3v7yhlrct"]
+[gd_scene load_steps=56 format=3 uid="uid://c55p3v7yhlrct"]
 
 [ext_resource type="PackedScene" uid="uid://bfm8d47igl6nx" path="res://Scenes/Player/Player.tscn" id="1_8o8po"]
 [ext_resource type="Texture2D" uid="uid://dnooxfupsybki" path="res://Assets/Textures/Dark/texture_08.png" id="2_ybkiv"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://owgjyt08scr4" path="res://Assets/Textures/Orange/texture_09.png" id="5_18xqu"]
 [ext_resource type="Texture2D" uid="uid://bgpyk5bv64ebv" path="res://Assets/Textures/Light/texture_07.png" id="6_py3rj"]
 [ext_resource type="Texture2D" uid="uid://5c0fu2d5le87" path="res://Assets/Textures/Purple/texture_09.png" id="7_sjiq6"]
+[ext_resource type="PackedScene" uid="uid://bqn3604romco1" path="res://Scenes/MapComponents/EndPoint.tscn" id="10_hx1b6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d2xdq"]
 sky_top_color = Color(0.192157, 0.2, 0.54902, 1)
@@ -468,3 +469,6 @@ transform = Transform3D(1.39501, -1.43316, 0, 1.43316, 1.39501, 0, 0, 0, 2, 25.4
 
 [node name="EnergyCrystal" parent="." instance=ExtResource("5_8x2ae")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.03682, 0.236523, -20.7224)
+
+[node name="End Point" parent="." instance=ExtResource("10_hx1b6")]
+transform = Transform3D(8.68267, 0, 0, 0, 2.59076, 0, 0, 0, 4.94621, 29.8239, 25.7142, 41.5912)

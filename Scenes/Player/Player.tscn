@@ -195,4 +195,5 @@ libraries = {
 "": SubResource("AnimationLibrary_wle61")
 }
 
+[connection signal="Finished" from="." to="HUD" method="Finished"]
 [connection signal="AmmunitionUpdated" from="Head/Camera/WeaponHolder" to="HUD" method="UpdateAmmunition"]
