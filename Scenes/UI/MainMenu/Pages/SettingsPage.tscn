@@ -59,7 +59,7 @@ _data = {
 "Show": SubResource("Animation_lwwnd")
 }
 
-[node name="SettingsPage" type="Control" node_paths=PackedStringArray("SettingsTitle", "ControlsTitle")]
+[node name="SettingsPage" type="Control" node_paths=PackedStringArray("SettingsPanel", "SettingsTitle", "ControlsTitle")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,6 +67,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5yn8b")
+SettingsPanel = NodePath("SettingsPanel")
 SettingsTitle = NodePath("SettingsPanel/SettingsTitle")
 ControlsTitle = NodePath("ControlsPanel/ControlsTitle")
 Speed = 0.5
@@ -112,7 +113,7 @@ theme_override_font_sizes/font_size = 63
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="CheckBoxSetting" parent="SettingsPanel" instance=ExtResource("3_ycb7b")]
+[node name="FullScreen" parent="SettingsPanel" instance=ExtResource("3_ycb7b")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -126,44 +127,8 @@ offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" parent="SettingsPanel/CheckBoxSetting" index="1"]
-text = "Fullscreen
-"
-
-[node name="CheckBoxSetting2" parent="SettingsPanel" instance=ExtResource("3_ycb7b")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -176.0
-offset_top = -96.0
-offset_right = 176.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" parent="SettingsPanel/CheckBoxSetting2" index="1"]
-text = "Tips
-"
-
-[node name="SliderSetting" parent="SettingsPanel" instance=ExtResource("4_g7c2n")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -176.0
-offset_top = -16.0
-offset_right = 176.0
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" parent="SettingsPanel/SliderSetting" index="0"]
-text = "pixelate"
+[node name="Label" parent="SettingsPanel/FullScreen" index="1"]
+text = "Fullscreen"
 
 [node name="ControlsPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -302,21 +267,21 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_o24bu")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_5wgpc")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8gf5n")
 
-[node name="Label" type="Label" parent="ApplyPanel"]
+[node name="Label" type="Label" parent="ApplyPanel/Button"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 8.0
-offset_top = -10.0
-offset_right = 65.0
-offset_bottom = 13.0
+offset_top = -11.0
+offset_right = 76.0
+offset_bottom = 14.0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("5_k7syb")
 theme_override_font_sizes/font_size = 19
 text = "Apply"
 
-[node name="TextureRect" type="TextureRect" parent="ApplyPanel"]
+[node name="TextureRect" type="TextureRect" parent="ApplyPanel/Button"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -328,6 +293,7 @@ offset_top = -16.0
 offset_bottom = 14.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("6_hmpe3")
 expand_mode = 1
 
@@ -339,8 +305,6 @@ libraries = {
 [connection signal="pressed" from="BackButtonPanel/Button" to="." method="BackButtonPressed"]
 [connection signal="pressed" from="ApplyPanel/Button" to="." method="ApplySettings"]
 
-[editable path="SettingsPanel/CheckBoxSetting"]
-[editable path="SettingsPanel/CheckBoxSetting2"]
-[editable path="SettingsPanel/SliderSetting"]
+[editable path="SettingsPanel/FullScreen"]
 [editable path="ControlsPanel/ShootPanel"]
 [editable path="ControlsPanel/JumpPanel"]

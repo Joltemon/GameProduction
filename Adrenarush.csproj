@@ -25,6 +25,7 @@
     <IlcDisableUnhandledExceptionExperience>true</IlcDisableUnhandledExceptionExperience>
     <EnableUnsafeBinaryFormatterSerialization>false</EnableUnsafeBinaryFormatterSerialization>
     <EnableUnsafeUTF7Encoding>false</EnableUnsafeUTF7Encoding>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
   <ItemGroup>
     <TrimmerRootDescriptor Include="Linker.xml" />

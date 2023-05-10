@@ -3,7 +3,7 @@ using System;
 
 public partial class SettingsPage : Control
 {
-
+	[Export] Control? SettingsPanel;
 	[Export] Label? SettingsTitle;
 	[Export] Label? ControlsTitle;
 	float HSVValue;
@@ -32,5 +32,33 @@ public partial class SettingsPage : Control
 		}
 	}
 
-	void ApplySettings() => Savedata.Save();
+	void LoadSettings()
+	{
+		if (SettingsPanel == null) return;
+
+		Savedata.Load();
+
+		foreach (var item in SettingsPanel.GetChildren())
+		{
+			if (item is ISettingsItem settingsItem)
+			{
+				settingsItem.SetValue(Savedata.Get(settingsItem.GetName()));
+			}
+		}
+	}
+
+    void ApplySettings()
+	{
+		if (SettingsPanel == null) return;
+
+		foreach (var item in SettingsPanel.GetChildren())
+		{
+			if (item is ISettingsItem settingsItem)
+			{
+				Savedata.Set(settingsItem.GetName(), settingsItem.GetValue());
+			}
+		}
+
+		Savedata.Save();
+	}
 }

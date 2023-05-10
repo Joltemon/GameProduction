@@ -107,8 +107,6 @@ _data = {
 collision_layer = 2
 mass = 3.0
 physics_material_override = SubResource("PhysicsMaterial_jbb0a")
-max_contacts_reported = 1
-contact_monitor = true
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_1q63t")
@@ -140,6 +138,7 @@ shape = SubResource("CapsuleShape3D_a7e0n")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
 shape = SubResource("SphereShape3D_q3eb4")
 target_position = Vector3(0, 0, 0)
+max_results = 8
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_ptkde")
