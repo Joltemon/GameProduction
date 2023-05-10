@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://dbmvk2b05c1nl"]
+
+[ext_resource type="PackedScene" uid="uid://bpo5nkspnul0y" path="res://Assets/Models/RetroUrban/Scenes/Grass.tscn" id="1_lkhd7"]
+[ext_resource type="PackedScene" uid="uid://d3sqfjt334kt1" path="res://Assets/Models/RetroUrban/Scenes/RoadAsphaltCenter.tscn" id="1_rc6h2"]
+[ext_resource type="PackedScene" uid="uid://c1u2eayqqnrye" path="res://Assets/Models/RetroUrban/Scenes/DetailBarrierTypeA.tscn" id="2_ho6ee"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cqh80"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_5damu"]
+sky_material = SubResource("ProceduralSkyMaterial_cqh80")
+
+[sub_resource type="Environment" id="Environment_uygyn"]
+background_mode = 2
+sky = SubResource("Sky_5damu")
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_albedo = Color(0.741176, 0.490196, 0.462745, 1)
+
+[sub_resource type="FogMaterial" id="FogMaterial_y24vk"]
+density = 0.05
+albedo = Color(0.603922, 0.317647, 0.286275, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_juhlm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2u0f0"]
+albedo_color = Color(0.286275, 0.231373, 0.207843, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5gbaa"]
+material = SubResource("StandardMaterial3D_2u0f0")
+size = Vector2(1000, 1000)
+
+[node name="Urban" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uygyn")
+
+[node name="Sun" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 13, 0)
+light_color = Color(1, 0.847059, 0.776471, 1)
+shadow_enabled = true
+
+[node name="FogVolume" type="FogVolume" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+size = Vector3(88, 2, 50)
+material = SubResource("FogMaterial_y24vk")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape3D_juhlm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+mesh = SubResource("PlaneMesh_5gbaa")
+
+[node name="grass" parent="." instance=ExtResource("1_lkhd7")]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -0.005, 0)
+
+[node name="detailBarrier_typeA" parent="." instance=ExtResource("2_ho6ee")]
+
+[node name="Road" type="Node3D" parent="."]
+
+[node name="roadAsphalt_center" parent="Road" instance=ExtResource("1_rc6h2")]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)

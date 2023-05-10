@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://pducdeyki048"]
-
-[ext_resource type="PackedScene" uid="uid://dy6gvctilt7wg" path="res://Assets/Models/Collectables/Bottle/scene.gltf" id="1_t7s2k"]
-
-[node name="scene" instance=ExtResource("1_t7s2k")]

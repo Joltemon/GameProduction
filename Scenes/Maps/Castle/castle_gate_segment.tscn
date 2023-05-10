@@ -78,7 +78,7 @@ mesh = ExtResource("6_7yv20")
 skeleton = NodePath("../..")
 
 [node name="WallRight" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, -6)
 mesh = ExtResource("4_nyv5y")
 skeleton = NodePath("../..")
 
@@ -89,6 +89,7 @@ transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_1t5jm")
 
 [node name="WallMid" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
 mesh = ExtResource("4_nyv5y")
 skeleton = NodePath("../WallRight")
 
@@ -98,7 +99,7 @@ skeleton = NodePath("../WallRight")
 shape = SubResource("ConvexPolygonShape3D_m8vxs")
 
 [node name="WallLeft" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 6)
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0.1, 0, 6)
 mesh = ExtResource("4_nyv5y")
 skeleton = NodePath("../WallRight")
 

@@ -14,11 +14,12 @@ public partial class SettingsPage : Control
 	public override void _Process(double delta)
 	{
 		HSVValue += (float)delta*Speed;
+
+		if (HSVValue >= 1)
+			HSVValue = 0;
+
 		SettingsTitle?.Set("theme_override_colors/font_outline_color", Color.FromHsv(HSVValue, 1, 1, 1));
 		ControlsTitle?.Set("theme_override_colors/font_outline_color", Color.FromHsv(HSVValue, 1, 1, 1));
-		if (HSVValue >= 1) {
-			HSVValue = 0;
-		}
 	}
 
 	public override void _Ready() {

@@ -16,9 +16,13 @@ public partial class Player : RigidBody3D
 	[Export] float CrouchStrength;
 	[Export] float MaxAirSpeed;
 	[Export] float SprintDepletionRate;
+	[Export] float CoyoteTime;
 
 	public bool Flying = false;
 	float LookSensitivity = 1;
+	float FovIncrease;
+	public double Stopwatch;
+	float currentCoyoteTime;
 	public float SprintEnergy = 100;
 	
 	[ExportGroup("CameraOptions")]
@@ -32,10 +36,12 @@ public partial class Player : RigidBody3D
 	[Export] CollisionShape3D? Collider;
 	[Export] public WeaponHolder? WeaponHolder;
 	[Export] HUD? Hud;
+	[Export] AnimationPlayer? Animation;
 
 	public override void _Ready()
 	{
 		Input.MouseMode = Input.MouseModeEnum.Captured;
+		Animation?.Play("Start");
 	}
 
 	public override void _Process(double delta)
@@ -45,11 +51,11 @@ public partial class Player : RigidBody3D
 		{
 			if (Input.IsActionPressed("MoveCrouch"))
 			{
-				Camera.Position = Camera.Position.Lerp(Vector3.Down * CrouchStrength, 16 * (float)delta);
+				Camera.Position = Camera.Position.Lerp(Vector3.Down * CrouchStrength, 8 * (float)delta);
 			}
 			else
 			{
-				Camera.Position = Camera.Position.Lerp(Vector3.Zero, 16 * (float)delta);
+				Camera.Position = Camera.Position.Lerp(Vector3.Zero, 8 * (float)delta);
 			}
 		}
 
@@ -61,7 +67,7 @@ public partial class Player : RigidBody3D
 		}
 		else
 		{
-			Camera!.Fov = Mathf.Lerp(Camera.Fov, DefaultFov, 0.2f);
+			Camera!.Fov = Mathf.Lerp(Camera.Fov, DefaultFov + FovIncrease, 0.2f);
 			LookSensitivity = 1;
 		}
 
@@ -75,6 +81,8 @@ public partial class Player : RigidBody3D
 			if (OS.HasFeature("editor"))
 				GetNode<ColorRect>("HUD/PixelationLayer").Material.Set("shader_parameter/pix", (int)GetNode<ColorRect>("HUD/PixelationLayer").Material.Get("shader_parameter/pix")-1);
 		}
+
+		UpdateTimer(delta);
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -91,22 +99,20 @@ public partial class Player : RigidBody3D
 		else if (Input.IsActionPressed("MoveSprint") && SprintEnergy > 0)
 		{
 			sprintAdjustment = SprintMultiplier;
-			SprintEnergy -= (float)delta * SprintDepletionRate;
-			SprintEnergy = Mathf.Clamp(SprintEnergy, 0, 100);
-			Hud?.UpdateSprint(SprintEnergy);
 		}
 		
+		// Get correct direction to apply speed lines when going forwards
 		var cameraDir = Camera!.Transform.Basis.Z;
 		var moveDirDirection = new Vector2(Camera.Rotation.X, Camera.Rotation.Z).Angle();
 		var velocityDirection = new Vector2(LinearVelocity.X, LinearVelocity.Z).Angle();
 		var relativeMoveAngle = (Mathf.Abs(moveDirDirection) - Mathf.Abs(velocityDirection));
 
-		GD.Print(relativeMoveAngle);
+		// GD.Print(relativeMoveAngle);
 		// GD.Print(LinearVelocity < Camera!.Transform.Basis.Z);
-		if (Hud != null) 
-		{
-			Hud.UpdateSpeedEffects(currentVelocity);
-		}
+
+		// Apply speed lines and fov increase at higher speeds
+		Hud?.UpdateSpeedEffects(currentVelocity);
+		FovIncrease = Mathf.Clamp(currentVelocity, 0, 20); //Mathf.Clamp(currentVelocity - 5, 0, 20);
 
 		if (Flying)
 			MoveFly(isGrounded, sprintAdjustment, (float)delta);
@@ -122,6 +128,12 @@ public partial class Player : RigidBody3D
 		// Walking
 		Vector2 inputDir = Input.GetVector("MoveLeft", "MoveRight", "MoveForward", "MoveBackward").Rotated(-Camera!.GlobalRotation.Y);
 		Vector3 moveDir = new Vector3(inputDir.X, 0, inputDir.Y) * speed * delta * 180;
+
+		if (speed > 1 && inputDir != Vector2.Zero)
+		{
+			SprintEnergy -= (float)delta * SprintDepletionRate;
+			SprintEnergy = Mathf.Clamp(SprintEnergy, 0, 100);
+		}
 
 		// Apply movement speed
 		if (isGrounded)
@@ -152,7 +164,7 @@ public partial class Player : RigidBody3D
 		}
 
 		var friction = inputDir.IsZeroApprox() ? 1 : 0;
-		PhysicsMaterialOverride.Set("friction", friction);
+		PhysicsMaterialOverride.Friction = friction;
 
 		ApplyCentralForce(moveDir);
 
@@ -170,8 +182,15 @@ public partial class Player : RigidBody3D
 		// Jumping
 		var jumpPressed = Input.IsActionPressed("MoveJump");
 		var isOnFloor = FloorDetector!.IsColliding();
+		
+		if (isOnFloor)
+			currentCoyoteTime = CoyoteTime;
+		else
+			currentCoyoteTime -= delta;
 
-		if (jumpPressed && isOnFloor && !IsCurrentlyJumping)
+		var canJump = currentCoyoteTime > 0;
+
+		if (jumpPressed && canJump && !IsCurrentlyJumping)
 		{
 			// Jumping
 			IsCurrentlyJumping = true;
@@ -200,6 +219,12 @@ public partial class Player : RigidBody3D
 
 		// Apply ground drag
 		LinearDamp = 15;
+	}
+
+	void UpdateTimer(double delta)
+	{
+		Stopwatch += delta;
+		Hud?.UpdateTimer(Stopwatch);
 	}
 
 	// Apply drag to all axes but Y, to leave gravity acceleration intact

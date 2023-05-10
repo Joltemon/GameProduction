@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpo5nkspnul0y"]
+
+[ext_resource type="PackedScene" uid="uid://bmwa050pia3yv" path="res://Assets/Models/RetroUrban/grass.glb" id="1_j0odb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mvccy"]
+load_path = "res://.godot/imported/grass_grass.png-29a9e456eb047aa79cbbb7af3a5a089f.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbixn"]
+resource_name = "grass"
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("CompressedTexture2D_mvccy")
+metallic = 0.35
+emission_enabled = true
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 1
+
+[node name="grass" instance=ExtResource("1_j0odb")]
+
+[node name="grass2" parent="tmpParent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_fbixn")

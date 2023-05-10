@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://phk6uejxvcxk"]
+[gd_scene load_steps=11 format=3 uid="uid://phk6uejxvcxk"]
 
 [ext_resource type="Shader" uid="uid://jx8m6uyfkcvj" path="res://Assets/Shaders/Pixelate.tres" id="1_1myrr"]
 [ext_resource type="Texture2D" uid="uid://dgskw8uqnqfoa" path="res://Assets/Icons/uhhh.png" id="1_4m20x"]
@@ -8,7 +8,7 @@
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3fphl"]
 emission_shape = 2
-emission_sphere_radius = 71.84
+emission_sphere_radius = 70.0
 particle_flag_disable_z = true
 gravity = Vector3(0, 0, 0)
 orbit_velocity_min = 0.0
@@ -17,6 +17,8 @@ linear_accel_min = 1.0
 linear_accel_max = 1.0
 radial_accel_min = 100.0
 radial_accel_max = 100.0
+scale_max = 5.0
+color = Color(1, 1, 1, 0.392157)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hcf8d"]
 shader = ExtResource("1_1myrr")
@@ -29,42 +31,35 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("AmmoLabel", "sprintingParticle")]
+[sub_resource type="Animation" id="Animation_u3kwk"]
+resource_name = "Show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(1.3, 1.3), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_htar3"]
+_data = {
+"Show": SubResource("Animation_u3kwk")
+}
+
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("Root", "AmmoLabel", "TimerLabel", "SprintBar", "SprintingParticle", "Animation")]
 script = ExtResource("1_st6v0")
-AmmoLabel = NodePath("EnergyCrystal/Label")
-
-[node name="ParticleControl" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="ParticleControl"]
-scale = Vector2(5.76, 3.32)
-emitting = false
-amount = 20
-process_material = SubResource("ParticleProcessMaterial_3fphl")
-lifetime = 2.5
-speed_scale = 4.88
-trail_enabled = true
-trail_lifetime = 0.1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un8lr"]
-bg_color = Color(0, 0.294118, 1, 0.584314)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("AmmoLabel", "SprintBar", "sprintingParticle")]
-script = ExtResource("1_st6v0")
+Root = NodePath("HUD")
 AmmoLabel = NodePath("HUD/EnergyCrystal/Label")
+TimerLabel = NodePath("HUD/TimerLabel")
 SprintBar = NodePath("HUD/BottleIcon/ProgressBar")
-sprintingParticle = NodePath("HUD/ParticleControl/GPUParticles2D")
+SprintingParticle = NodePath("HUD/ParticleControl/GPUParticles2D")
+Animation = NodePath("AnimationPlayer")
+SpeedLimit = 16.0
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
@@ -73,6 +68,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(576, 324)
 theme = ExtResource("2_xso2i")
 
 [node name="ParticleControl" type="Control" parent="HUD"]
@@ -147,9 +143,11 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 14
 theme_override_styles/fill = SubResource("StyleBoxFlat_un8lr")
 step = 1.0
-value = 50.0
+value = 100.0
+show_percentage = false
 
 [node name="EnergyCrystal" type="TextureRect" parent="HUD"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 48.0
@@ -172,12 +170,16 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -192.0
+offset_left = -64.0
 offset_top = 24.0
 offset_right = 192.0
 offset_bottom = 88.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
-text = "0:00"
-horizontal_alignment = 1
+text = "0:00:00"
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_htar3")
+}

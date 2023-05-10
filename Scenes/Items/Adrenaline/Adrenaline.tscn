@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://pducdeyki048"]
+
+[ext_resource type="PackedScene" uid="uid://dy6gvctilt7wg" path="res://Assets/Models/Collectables/Bottle/scene.gltf" id="1_t7s2k"]
+[ext_resource type="Script" path="res://Scenes/Items/Adrenaline/Adrenaline.cs" id="2_plyv3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o8sh5"]
+radius = 0.3
+
+[node name="scene" instance=ExtResource("1_t7s2k")]
+script = ExtResource("2_plyv3")
+Energy = 20
+
+[node name="Water_bottle_01_RGB_texture_0" parent="Sketchfab_model/d29a4dae1ebb4be29545fb45126e257b_fbx/RootNode/Water_bottle_01" index="0"]
+transform = Transform3D(1.7, -3.97047e-23, -3.97047e-23, 3.97047e-23, 1.7, -3.97047e-23, 3.97047e-23, 3.97047e-23, 1.7, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("SphereShape3D_o8sh5")
+
+[connection signal="body_entered" from="Area3D" to="." method="PlayerEnter"]

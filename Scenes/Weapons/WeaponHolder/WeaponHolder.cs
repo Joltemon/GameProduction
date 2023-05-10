@@ -15,8 +15,6 @@ public partial class WeaponHolder : Node3D
 	[Signal] public delegate void FiredEventHandler();
 	[Signal] public delegate void AmmunitionUpdatedEventHandler(int ammunition);
 
-	Vector2 mouseVelocity;
-
 	public override void _Input(InputEvent inputEvent)
 	{
 		// Shooting the gun
@@ -26,11 +24,6 @@ public partial class WeaponHolder : Node3D
 				CloseRangePrimaryFire();
 			else
 				StandardPrimaryFire();
-		}
-
-		if (inputEvent is InputEventMouseMotion mouseEvent)
-		{
-			mouseVelocity = mouseEvent.Relative;
 		}
 	}
 
@@ -58,9 +51,10 @@ public partial class WeaponHolder : Node3D
 		{
 			// Look swaying
 			var targetRotation = new Vector3();
-			targetRotation.X += mouseVelocity.Y / 256;
-			targetRotation.Y += mouseVelocity.X / 256;
-			WeaponOffset.Rotation = WeaponOffset.Rotation.Lerp(targetRotation, 0.2f);
+			var mouseVelocity = Input.GetLastMouseVelocity();
+			targetRotation.X = Mathf.DegToRad(mouseVelocity.Y / 128);
+			targetRotation.Y = Mathf.DegToRad(mouseVelocity.X / 128);
+			WeaponOffset.Rotation = WeaponOffset.Rotation.Lerp(targetRotation, 0.1f);
 		}
 	}
 
