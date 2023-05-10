@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://chip7xppsxals"]
+
+[ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/SettingsItem/SliderSetting.cs" id="1_cb8n5"]
+[ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="2_86ui2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bitq"]
+bg_color = Color(0, 0.678431, 0.929412, 0.466667)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="Theme" id="Theme_f3il2"]
+default_font = ExtResource("2_86ui2")
+default_font_size = 21
+
+[node name="SliderSetting" type="Panel"]
+offset_right = 352.0
+offset_bottom = 56.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2bitq")
+script = ExtResource("1_cb8n5")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -14.0
+offset_right = 74.0
+offset_bottom = 14.0
+grow_vertical = 2
+theme = SubResource("Theme_f3il2")
+text = "Setting"
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -8.0
+offset_right = -16.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+min_value = 14.0
+max_value = 512.0
+value = 14.0

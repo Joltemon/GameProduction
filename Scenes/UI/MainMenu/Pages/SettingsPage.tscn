@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cmknivkt0f42j"]
+[gd_scene load_steps=25 format=3 uid="uid://dxgrefm6ujgag"]
 
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/SettingsPage.cs" id="1_5yn8b"]
 [ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="1_lema4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d21sicjaf81cf" path="res://Assets/Icons/logout.png" id="3_wiegq"]
 [ext_resource type="PackedScene" uid="uid://uy52uihn1w4a" path="res://Scenes/UI/MainMenu/Pages/SettingsItem/CheckBoxSetting.tscn" id="3_ycb7b"]
 [ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="4_a2pyl"]
+[ext_resource type="PackedScene" uid="uid://chip7xppsxals" path="res://Scenes/UI/MainMenu/Pages/SettingsItem/SliderSetting.tscn" id="4_g7c2n"]
 [ext_resource type="FontFile" uid="uid://cxv5oa85st6dv" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="5_k7syb"]
 [ext_resource type="Texture2D" uid="uid://c6tm4n50mka4x" path="res://Assets/Icons/check.png" id="6_hmpe3"]
 
@@ -124,6 +125,45 @@ offset_right = 176.0
 offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" parent="SettingsPanel/CheckBoxSetting" index="1"]
+text = "Fullscreen
+"
+
+[node name="CheckBoxSetting2" parent="SettingsPanel" instance=ExtResource("3_ycb7b")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -96.0
+offset_right = 176.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" parent="SettingsPanel/CheckBoxSetting2" index="1"]
+text = "Tips
+"
+
+[node name="SliderSetting" parent="SettingsPanel" instance=ExtResource("4_g7c2n")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -16.0
+offset_right = 176.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" parent="SettingsPanel/SliderSetting" index="0"]
+text = "pixelate"
 
 [node name="ControlsPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -299,5 +339,8 @@ libraries = {
 [connection signal="pressed" from="BackButtonPanel/Button" to="." method="BackButtonPressed"]
 [connection signal="pressed" from="ApplyPanel/Button" to="." method="ApplySettings"]
 
+[editable path="SettingsPanel/CheckBoxSetting"]
+[editable path="SettingsPanel/CheckBoxSetting2"]
+[editable path="SettingsPanel/SliderSetting"]
 [editable path="ControlsPanel/ShootPanel"]
 [editable path="ControlsPanel/JumpPanel"]

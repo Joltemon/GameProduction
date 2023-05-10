@@ -19,7 +19,7 @@ public partial class HUD : CanvasLayer
 			AmmoLabel.Text = ammo.ToString();
 	}
 
-	public void UpdateSpeedEffects(float currentSpeed) 
+	public void UpdateSpeedEffects(float currentSpeed, float dotValue) 
 	{
 		if (SprintingParticle == null) return;
 
@@ -27,7 +27,7 @@ public partial class HUD : CanvasLayer
 		{
 			SprintingParticle.Emitting = true;
 		}
-		else if (currentSpeed < SpeedLimit)
+		else if (currentSpeed < SpeedLimit || dotValue <= 0)
 		{
 			SprintingParticle.Emitting = false;
 		}

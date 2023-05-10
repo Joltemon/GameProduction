@@ -104,18 +104,16 @@ public partial class Player : RigidBody3D
 			sprintAdjustment = SprintMultiplier;
 		}
 		
-		// Get correct direction to apply speed lines when going forwards
-		var cameraDir = Camera!.Transform.Basis.Z;
-		var moveDirDirection = new Vector2(Camera.Rotation.X, Camera.Rotation.Z).Angle();
-		var velocityDirection = new Vector2(LinearVelocity.X, LinearVelocity.Z).Angle();
-		var relativeMoveAngle = (Mathf.Abs(moveDirDirection) - Mathf.Abs(velocityDirection));
 
-		// GD.Print(relativeMoveAngle);
-		// GD.Print(LinearVelocity < Camera!.Transform.Basis.Z);
+		
+
+
 
 		// Apply speed lines and fov increase at higher speeds
-		Hud?.UpdateSpeedEffects(currentVelocity);
 		FovIncrease = Mathf.Clamp(currentVelocity, 0, 20); //Mathf.Clamp(currentVelocity - 5, 0, 20);
+		Hud?.UpdateSpeedEffects(currentVelocity, (LinearVelocity.Normalized().Dot(-Camera!.GlobalTransform.Basis.Z)));
+		// if (LinearVelocity.Normalized().Dot(-Camera!.GlobalTransform.Basis.Z) > 0) {
+		// }
 
 		if (Flying)
 			MoveFly(isGrounded, sprintAdjustment, (float)delta);
