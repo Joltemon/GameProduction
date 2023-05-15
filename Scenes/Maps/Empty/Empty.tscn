@@ -167,8 +167,6 @@ material = SubResource("StandardMaterial3D_jyeu6")
 
 [node name="Player" parent="." instance=ExtResource("1_8o8po")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0)
-SprintDepletionRate = 0.0
-CoyoteTime = 0.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_k1b1x")
@@ -495,3 +493,5 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.03682, 0.236523, -20.
 
 [node name="End Point" parent="." instance=ExtResource("10_hx1b6")]
 transform = Transform3D(8.68267, 0, 0, 0, 2.59076, 0, 0, 0, 4.94621, 29.8239, 25.7142, 41.5912)
+
+[connection signal="Finished" from="Player" to="Player/HUD" method="Finished" flags=18]

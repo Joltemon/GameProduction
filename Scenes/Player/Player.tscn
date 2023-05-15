@@ -11,8 +11,8 @@ friction = 0.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a7e0n"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_q3eb4"]
-radius = 0.45
+[sub_resource type="SphereShape3D" id="SphereShape3D_8yh13"]
+radius = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5jp3"]
 albedo_color = Color(0.164706, 0.164706, 0.164706, 1)
@@ -134,11 +134,12 @@ Animation = NodePath("Animation")
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_a7e0n")
 
-[node name="FloorDetector" type="ShapeCast3D" parent="Collider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
-shape = SubResource("SphereShape3D_q3eb4")
-target_position = Vector3(0, 0, 0)
-max_results = 8
+[node name="FloorDetector" type="Area3D" parent="Collider"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collider/FloorDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.85, 0)
+shape = SubResource("SphereShape3D_8yh13")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_ptkde")

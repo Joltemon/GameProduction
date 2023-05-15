@@ -33,7 +33,7 @@ public partial class Player : RigidBody3D
 	[ExportGroup("Player Components")]
 	[Export] Camera3D? Camera;
 	[Export] AnimationPlayer? MoveAnim;
-	[Export] ShapeCast3D? FloorDetector;
+	[Export] Area3D? FloorDetector;
 	[Export] CollisionShape3D? Collider;
 	[Export] public WeaponHolder? WeaponHolder;
 	[Export] HUD? Hud;
@@ -95,7 +95,7 @@ public partial class Player : RigidBody3D
 	public override void _PhysicsProcess(double delta)
 	{
 		float sprintAdjustment = 1;
-		bool isGrounded = FloorDetector!.IsColliding();
+		bool isGrounded = FloorDetector!.HasOverlappingBodies();
 		var currentVelocity = LinearVelocity.Length();
 
 		// Crouching
@@ -192,14 +192,12 @@ public partial class Player : RigidBody3D
 
 		// Jumping
 		var jumpPressed = Input.IsActionPressed("MoveJump");
-		var isOnFloor = FloorDetector!.IsColliding();
+		var isOnFloor = FloorDetector!.HasOverlappingBodies();
 
-		if (isOnFloor)
+		if (isOnFloor && !IsCurrentlyJumping)
 			currentCoyoteTime = CoyoteTime;
 		else
 			currentCoyoteTime -= delta;
-
-		// GD.Print(isOnFloor);
 
 		currentCoyoteTime = Mathf.Clamp(currentCoyoteTime, 0, CoyoteTime);
 
@@ -209,6 +207,7 @@ public partial class Player : RigidBody3D
 		{
 			// Jumping
 			IsCurrentlyJumping = true;
+			currentCoyoteTime = 0;
 			ApplyCentralImpulse(Vector3.Up * JumpStrength);
 		}
 		else if (isOnFloor && IsCurrentlyJumping)
