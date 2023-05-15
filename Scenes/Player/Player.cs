@@ -44,12 +44,11 @@ public partial class Player : RigidBody3D
 	public override void _Ready()
 	{
 		Input.MouseMode = Input.MouseModeEnum.Captured;
-
-		Savedata.Load();
-		if (Savedata.Get<bool>("FullScreen", false))
-			DisplayServer.WindowSetMode(DisplayServer.WindowMode.ExclusiveFullscreen);
-		
 		Animation?.Play("Start");
+
+		// Savedata.Load();
+		// if (Savedata.Get<bool>("FullScreen", false))
+		// 	DisplayServer.WindowSetMode(DisplayServer.WindowMode.ExclusiveFullscreen);
 	}
 
 	public override void _Process(double delta)
@@ -200,7 +199,7 @@ public partial class Player : RigidBody3D
 		else
 			currentCoyoteTime -= delta;
 
-		GD.Print(isOnFloor);
+		// GD.Print(isOnFloor);
 
 		currentCoyoteTime = Mathf.Clamp(currentCoyoteTime, 0, CoyoteTime);
 
