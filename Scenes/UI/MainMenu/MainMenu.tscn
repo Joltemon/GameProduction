@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://dfcvbhiopq6s7"]
 
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu/MainMenu.cs" id="1_fxmxj"]
-[ext_resource type="PackedScene" uid="uid://doq53hm1rrb3s" path="res://Scenes/UI/MainMenu/Title/Title.tscn" id="2_cs62r"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/MainMenu/Title/Title.tscn" id="2_cs62r"]
 [ext_resource type="Shader" path="res://Scenes/UI/MainMenu/MainMenuBlur.gdshader" id="3_g5kg3"]
 [ext_resource type="PackedScene" uid="uid://bglm530iuirb7" path="res://Scenes/UI/MainMenu/MenuButton/MenuButton.tscn" id="4_2xk3y"]
 [ext_resource type="Texture2D" uid="uid://c6a4ini0u0vvm" path="res://Assets/Button Backgrounds/SettingsButtonIMG.PNG" id="6_ulm5v"]
@@ -87,6 +87,7 @@ _data = {
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_fxmxj")
 SettingsPage = "res://Scenes/UI/MainMenu/Pages/SettingsPage.tscn"
+CreditsPage = "res://Scenes/UI/MainMenu/Pages/CreditsPage.tscn"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uy4hu")
@@ -215,4 +216,5 @@ mesh = SubResource("BoxMesh_mn28o")
 
 [connection signal="Pressed" from="UI/Buttons/StartButton" to="." method="StartGame"]
 [connection signal="Pressed" from="UI/Buttons/SettingsButton" to="." method="SettingsPressed"]
+[connection signal="Pressed" from="UI/Buttons/CreditsButton" to="." method="CreditsPressed"]
 [connection signal="Pressed" from="UI/Buttons/QuitButton" to="." method="Quit"]

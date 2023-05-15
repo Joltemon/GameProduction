@@ -1,0 +1,201 @@
+[gd_scene load_steps=13 format=3 uid="uid://bplymclic6bkw"]
+
+[ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/CreditsPage.cs" id="1_0alne"]
+[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="2_i6ayd"]
+[ext_resource type="Texture2D" uid="uid://d21sicjaf81cf" path="res://Assets/Icons/logout.png" id="3_u5twr"]
+[ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="4_8u6vb"]
+[ext_resource type="Texture2D" uid="uid://bdrvfq6f4jvjc" path="res://Assets/Icons/pfpplaceholder.png" id="5_nal3s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cigf"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugemh"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pjw0k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqiu7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e2k36"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fwlud"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_15om1"]
+
+[node name="CreditsPage" type="Control" node_paths=PackedStringArray("CreditsPanel", "CreditsTitle")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0alne")
+CreditsPanel = NodePath("CreditsPanel")
+CreditsTitle = NodePath("CreditsPanel/CreditsTitle")
+Speed = 0.5
+MainMenu = "res://Scenes/UI/MainMenu/MainMenu.tscn"
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235294, 0.235294, 0.235294, 1)
+
+[node name="CreditsPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = 56.0
+offset_right = 456.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5cigf")
+
+[node name="CreditsTitle" type="Label" parent="CreditsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 36.0
+offset_top = 16.0
+offset_right = -28.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_i6ayd")
+theme_override_colors/font_color = Color(0, 0.313726, 0.972549, 1)
+theme_override_colors/font_outline_color = Color(0.564706, 0.560784, 0.784314, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 63
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="BackButtonPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 280.0
+offset_right = 63.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ugemh")
+
+[node name="Button" type="Button" parent="BackButtonPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pjw0k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vqiu7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e2k36")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fwlud")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_15om1")
+
+[node name="BackIcon" type="TextureRect" parent="BackButtonPanel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -14.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_u5twr")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BackButtonPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -20.0
+offset_right = 104.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_8u6vb")
+theme_override_font_sizes/font_size = 24
+text = "Back"
+vertical_alignment = 1
+
+[node name="Section" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -148.0
+offset_right = -136.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Section"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -44.0
+offset_right = -8.0
+offset_bottom = 44.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("5_nal3s")
+expand_mode = 1
+
+[node name="CreditorTitle" type="Label" parent="Section"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -44.0
+offset_right = 104.0
+offset_bottom = -12.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+text = "Creditor
+"
+
+[node name="Label" type="Label" parent="Section"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -11.0
+offset_right = 152.0
+offset_bottom = 44.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 15
+text = "Info"
+
+[connection signal="pressed" from="BackButtonPanel/Button" to="." method="BackButtonPressed"]
