@@ -10,3 +10,7 @@ A fast paced first person game focused around movement and speed. The player is 
 
 Please use the official C# style guide where possible, but with tabs instead of spaces for indentation.
 Node and Scene names should follow `PascalCase` rather than the Godot default of `snake_case` (this has been changed in project settings).
+
+# Notes
+
+Please don't edit any of the player's values it will break everything
