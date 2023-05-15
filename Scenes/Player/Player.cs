@@ -46,9 +46,9 @@ public partial class Player : RigidBody3D
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		Animation?.Play("Start");
 
-		// Savedata.Load();
-		// if (Savedata.Get<bool>("FullScreen", false))
-		// 	DisplayServer.WindowSetMode(DisplayServer.WindowMode.ExclusiveFullscreen);
+		Savedata.Load();
+		if (Savedata.Get<bool>("FullScreen", false))
+			DisplayServer.WindowSetMode(DisplayServer.WindowMode.ExclusiveFullscreen);
 	}
 
 	public override void _Process(double delta)

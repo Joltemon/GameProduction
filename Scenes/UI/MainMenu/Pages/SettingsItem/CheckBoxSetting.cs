@@ -3,7 +3,7 @@ using System;
 
 public partial class CheckBoxSetting : Panel, ISettingsItem
 {
-	[Export] CheckBox? CheckBox;
+	[Export] CheckButton? CheckBox;
 
 	public string GetName() => Name;
 
