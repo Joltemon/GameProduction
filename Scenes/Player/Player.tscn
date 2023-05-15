@@ -121,6 +121,8 @@ Gravity = 2.0
 SprintMultiplier = 2.0
 CrouchStrength = 0.5
 MaxAirSpeed = 20.0
+SprintDepletionRate = 10.0
+CoyoteTime = 0.15
 Camera = NodePath("Head/Camera")
 MoveAnim = NodePath("Head/Animation")
 FloorDetector = NodePath("Collider/FloorDetector")
@@ -212,4 +214,5 @@ libraries = {
 "": SubResource("AnimationLibrary_wle61")
 }
 
+[connection signal="Finished" from="." to="HUD" method="Finished"]
 [connection signal="AmmunitionUpdated" from="Head/Camera/WeaponHolder" to="HUD" method="UpdateAmmunition"]
