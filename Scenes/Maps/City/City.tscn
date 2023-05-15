@@ -55,6 +55,8 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_r1yjt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.936476, 1.35984, 28.9308)
+SprintDepletionRate = 0.0
+CoyoteTime = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.2078, 0, -133.104)
@@ -229,3 +231,66 @@ transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -10
 
 [node name="road_slantHigh8" parent="." instance=ExtResource("15_4onf1")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -88.548, 5, -92)
+
+[node name="road_bridge3" parent="." instance=ExtResource("19_xe41m")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -97, -0.197473, -84.5)
+
+[node name="road_bridge4" parent="." instance=ExtResource("19_xe41m")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -107, -0.197473, -84.5)
+
+[node name="road_straight13" parent="." instance=ExtResource("11_q4qdv")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -57.5, 0, -104.5)
+
+[node name="road_straight14" parent="." instance=ExtResource("11_q4qdv")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -57.5, 0, -114.5)
+
+[node name="road_curve13" parent="." instance=ExtResource("13_66h7g")]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, -55, 0, -121.5)
+
+[node name="road_curve14" parent="." instance=ExtResource("13_66h7g")]
+transform = Transform3D(1.19249e-07, 0, -10, 0, 10, 0, 10, 0, 1.19249e-07, -67, 0, -129)
+
+[node name="road_straight15" parent="." instance=ExtResource("11_q4qdv")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -87, 0, -94.5)
+
+[node name="road_straight16" parent="." instance=ExtResource("11_q4qdv")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -87, 0, -104.5)
+
+[node name="road_straight17" parent="." instance=ExtResource("11_q4qdv")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -87, 0, -114.5)
+
+[node name="road_straight19" parent="." instance=ExtResource("11_q4qdv")]
+transform = Transform3D(10, 0, 1.13687e-13, 0, 10, 0, -1.13687e-13, 0, 10, -99, 0, -52)
+
+[node name="road_straight20" parent="." instance=ExtResource("11_q4qdv")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -87, 0, -74.5)
+
+[node name="road_curve15" parent="." instance=ExtResource("13_66h7g")]
+transform = Transform3D(10, 0, 1.74846e-06, 0, 10, 0, -1.74846e-06, 0, 10, -143.5, 0, -77)
+
+[node name="road_curve16" parent="." instance=ExtResource("13_66h7g")]
+transform = Transform3D(-9.93477e-07, 0, 10, 0, 10, 0, -10, 0, -9.93477e-07, -92, 0, -49.5)
+
+[node name="road_slantHigh9" parent="." instance=ExtResource("15_4onf1")]
+transform = Transform3D(-10, 0, 8.74228e-07, 0, 10, 0, -8.74228e-07, 0, -10, -128.5, 0, -57)
+
+[node name="road_curve17" parent="." instance=ExtResource("13_66h7g")]
+transform = Transform3D(-2.18557e-06, 0, 10, 0, 10, 0, -10, 0, -2.18557e-06, -111, 5, -69.5)
+
+[node name="road_bridge5" parent="." instance=ExtResource("19_xe41m")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -126, 0, -64.5)
+
+[node name="road_curve18" parent="." instance=ExtResource("13_66h7g")]
+transform = Transform3D(10, 0, 1.74846e-06, 0, 10, 0, -1.74846e-06, 0, 10, -113.5, 0, -57)
+
+[node name="road_straight21" parent="." instance=ExtResource("11_q4qdv")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -87, 0, -64.5)
+
+[node name="road_curve19" parent="." instance=ExtResource("13_66h7g")]
+transform = Transform3D(1.31134e-06, 0, -10, 0, 10, 0, 10, 0, 1.31134e-06, -136, 0, -89.5)
+
+[node name="road_curve20" parent="." instance=ExtResource("13_66h7g")]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, -123.5, 0, -82)
+
+[node name="road_straight18" parent="." instance=ExtResource("11_q4qdv")]
+transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -126, 0, -74.5)
