@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvqx0mmf5vaex"]
+
+[ext_resource type="PackedScene" uid="uid://cotpw6u1huy7v" path="res://Assets/Models/Roads/road_straight.glb" id="1_vw3cq"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w1xft"]
+points = PackedVector3Array(-0.5, 0, -0.5, -0.5, 0.02, -0.5, 0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0.02, 0.5, 0.5, 0.02, -0.5, 0.5, 0, 0.5, 0.5, 0.02, 0.5)
+
+[node name="road_straight" instance=ExtResource("1_vw3cq")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tmpParent" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tmpParent/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_w1xft")

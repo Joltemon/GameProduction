@@ -8,6 +8,7 @@ points = PackedVector3Array(-1, 0, -1, -0.982968, 0, -0.739037, -1, 0.02, -1, 0,
 [node name="road_curve" instance=ExtResource("1_8205q")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
