@@ -59,7 +59,6 @@ TimerLabel = NodePath("HUD/TimerLabel")
 SprintBar = NodePath("HUD/BottleIcon/ProgressBar")
 SprintingParticle = NodePath("HUD/ParticleControl/GPUParticles2D")
 Animation = NodePath("AnimationPlayer")
-SpeedLimit = 16.0
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3

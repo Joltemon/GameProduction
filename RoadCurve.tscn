@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://crgp1pqjorrlr"]
+
+[ext_resource type="PackedScene" uid="uid://c5exo6l6xbjp7" path="res://Assets/Models/Roads/road_curve.glb" id="1_8205q"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ttq5t"]
+points = PackedVector3Array(-1, 0, -1, -0.982968, 0, -0.739037, -1, 0.02, -1, 0, 0, -1, -0.982968, 0.02, -0.739037, -0.931872, 0, -0.482381, 0, 0.02, -1, 1, 0, 0, -0.931872, 0.02, -0.482381, -0.847886, 0, -0.23473, 1, 0.02, 0, 1, 0, 1, -0.847886, 0.02, -0.23473, -0.732185, 0, 0, 1, 0.02, 1, 0.738841, 0, 0.982772, -0.732185, 0.02, 0, -0.586727, 0, 0.217502, 0.738841, 0.02, 0.982772, 0.482185, 0, 0.931676, -0.586727, 0.02, 0.217502, -0.414252, 0, 0.414056, 0.482185, 0.02, 0.931676, 0.234534, 0, 0.84769, -0.414252, 0.02, 0.414056, -0.217698, 0, 0.586531, 0.234534, 0.02, 0.84769, 0, 0, 0.731989, -0.217698, 0.02, 0.586531, 0, 0.02, 0.731989)
+
+[node name="road_curve" instance=ExtResource("1_8205q")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
+shape = SubResource("ConvexPolygonShape3D_ttq5t")
