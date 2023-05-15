@@ -103,7 +103,7 @@ _data = {
 "Start": SubResource("Animation_2aq47")
 }
 
-[node name="Player" type="RigidBody3D" node_paths=PackedStringArray("Camera", "MoveAnim", "FloorDetector", "Collider", "WeaponHolder", "Hud", "Animation")]
+[node name="Player" type="RigidBody3D" node_paths=PackedStringArray("Camera", "MoveAnim", "FloorDetector", "Collider", "WeaponHolder", "Hud")]
 collision_layer = 2
 mass = 3.0
 physics_material_override = SubResource("PhysicsMaterial_jbb0a")
@@ -121,15 +121,12 @@ Gravity = 2.0
 SprintMultiplier = 2.0
 CrouchStrength = 0.5
 MaxAirSpeed = 20.0
-SprintDepletionRate = 10.0
-CoyoteTime = 0.15
 Camera = NodePath("Head/Camera")
 MoveAnim = NodePath("Head/Animation")
 FloorDetector = NodePath("Collider/FloorDetector")
 Collider = NodePath("Collider")
 WeaponHolder = NodePath("Head/Camera/WeaponHolder")
 Hud = NodePath("HUD")
-Animation = NodePath("Animation")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_a7e0n")
@@ -206,13 +203,11 @@ current = true
 script = ExtResource("3_8qmuj")
 TrackingCamera = NodePath("../../../Head/Camera")
 
-[node name="HUD" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("4_uemel")]
-Player = NodePath("..")
+[node name="HUD" parent="." instance=ExtResource("4_uemel")]
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_wle61")
 }
 
-[connection signal="Finished" from="." to="HUD" method="Finished"]
 [connection signal="AmmunitionUpdated" from="Head/Camera/WeaponHolder" to="HUD" method="UpdateAmmunition"]
