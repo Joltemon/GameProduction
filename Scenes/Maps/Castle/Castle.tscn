@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://w5vg4bxk8ywg"]
+[gd_scene load_steps=19 format=3 uid="uid://w5vg4bxk8ywg"]
 
 [ext_resource type="Texture2D" uid="uid://bskc17spmg4eh" path="res://Assets/Textures/Sky/CastleSky.jpg" id="1_ykwrd"]
 [ext_resource type="ArrayMesh" uid="uid://1eqp0a3ugb4b" path="res://Assets/Models/Castle/bridge.obj" id="2_cuip1"]
@@ -7,9 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d02nh7tmph2lx" path="res://Scenes/Maps/Castle/castle_segment.tscn" id="3_hu1wl"]
 [ext_resource type="PackedScene" uid="uid://biftq86ske6xg" path="res://Scenes/Maps/Castle/castle_end_segment.tscn" id="4_i68hq"]
 [ext_resource type="PackedScene" uid="uid://cbq7dihrec7y7" path="res://Scenes/Maps/Castle/castle_gate_segment.tscn" id="5_6hnvq"]
-[ext_resource type="Script" path="res://addons/cyclops_level_builder/nodes/cyclops_blocks.gd" id="8_540rp"]
-[ext_resource type="Script" path="res://addons/cyclops_level_builder/nodes/cyclops_convex_block.gd" id="9_v6cjb"]
-[ext_resource type="Script" path="res://addons/cyclops_level_builder/resources/convex_block_data.gd" id="10_e8tn3"]
+[ext_resource type="PackedScene" uid="uid://csmrehdav17jr" path="res://Scenes/Maps/Castle/castle_corner_segment.tscn" id="8_gj6qp"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bbnps"]
 panorama = ExtResource("1_ykwrd")
@@ -49,86 +47,6 @@ subdivide_depth = 16
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rtbc6"]
 
-[sub_resource type="Resource" id="Resource_ph1ay"]
-script = ExtResource("10_e8tn3")
-selected = false
-active = false
-collsion = true
-vertex_points = PackedVector3Array(130, -2, -11, 162, -2, -20, 203, -2, -103, 130, -2, -20, 133.5, 12, -11, 133.5, 12, -20, 203, 12, -103, 162, 12, -20)
-vertex_selected = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0)
-active_vertex = -1
-edge_vertex_indices = PackedInt32Array(0, 1, 1, 2, 2, 3, 3, 0, 0, 4, 4, 1, 5, 4, 3, 5, 6, 3, 2, 6, 7, 4, 5, 6, 6, 7, 1, 7)
-edge_selected = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0)
-active_edge = -1
-edge_face_indices = PackedInt32Array(0, 1, 0, 6, 0, 3, 0, 2, 1, 2, 1, 7, 2, 4, 2, 5, 3, 5, 3, 6, 4, 7, 4, 5, 4, 6, 6, 7)
-face_vertex_count = PackedInt32Array(4, 3, 4, 3, 4, 3, 4, 3)
-face_vertex_indices = PackedInt32Array(0, 1, 2, 3, 0, 4, 1, 5, 4, 0, 3, 6, 3, 2, 7, 4, 5, 6, 5, 3, 6, 1, 7, 6, 2, 7, 1, 4)
-face_material_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1, -1, -1)
-face_uv_transform = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
-face_selected = PackedByteArray(0, 1, 0, 0, 0, 0, 1, 1)
-active_face = -1
-face_ids = PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7)
-
-[sub_resource type="Resource" id="Resource_7rtfh"]
-script = ExtResource("10_e8tn3")
-selected = false
-active = false
-collsion = true
-vertex_points = PackedVector3Array(100, -2, -11, 100, -2, -20, 100, 12, -20, 100, 12, -11, 133.5, 12, -20, 133.5, 12, -11, 130, -2, -20, 130, -2, -11)
-vertex_selected = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0)
-active_vertex = -1
-edge_vertex_indices = PackedInt32Array(0, 1, 1, 2, 2, 3, 3, 0, 4, 5, 5, 3, 2, 4, 6, 4, 1, 6, 7, 0, 5, 7, 6, 7)
-edge_selected = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-active_edge = -1
-edge_face_indices = PackedInt32Array(0, 5, 0, 2, 0, 1, 0, 3, 1, 4, 1, 3, 1, 2, 2, 4, 2, 5, 3, 5, 3, 4, 4, 5)
-face_vertex_count = PackedInt32Array(4, 4, 4, 4, 4, 4)
-face_vertex_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 3, 2, 6, 4, 2, 1, 7, 0, 3, 5, 7, 5, 4, 6, 7, 6, 1, 0)
-face_material_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1)
-face_uv_transform = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
-face_selected = PackedByteArray(0, 0, 0, 0, 0, 0)
-active_face = -1
-face_ids = PackedInt32Array(0, 1, 2, 3, 4, 5)
-
-[sub_resource type="Resource" id="Resource_5ctbh"]
-script = ExtResource("10_e8tn3")
-selected = false
-active = false
-collsion = true
-vertex_points = PackedVector3Array(228, -2, 20, 228, 12, 20, 228, 12, 11, 228, -2, 11, 130, 12, 11, 130, -2, 11, 130, 12, 20, 130, -2, 20)
-vertex_selected = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0)
-active_vertex = -1
-edge_vertex_indices = PackedInt32Array(0, 1, 1, 2, 2, 3, 3, 0, 4, 5, 5, 3, 2, 4, 6, 4, 1, 6, 7, 0, 5, 7, 6, 7)
-edge_selected = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-active_edge = -1
-edge_face_indices = PackedInt32Array(0, 5, 0, 2, 0, 1, 0, 3, 1, 4, 1, 3, 1, 2, 2, 4, 2, 5, 3, 5, 3, 4, 4, 5)
-face_vertex_count = PackedInt32Array(4, 4, 4, 4, 4, 4)
-face_vertex_indices = PackedInt32Array(0, 1, 2, 3, 4, 5, 3, 2, 6, 4, 2, 1, 7, 0, 3, 5, 7, 5, 4, 6, 7, 6, 1, 0)
-face_material_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1)
-face_uv_transform = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
-face_selected = PackedByteArray(0, 0, 0, 0, 0, 0)
-active_face = -1
-face_ids = PackedInt32Array(0, 1, 2, 3, 4, 5)
-
-[sub_resource type="Resource" id="Resource_7mt31"]
-script = ExtResource("10_e8tn3")
-selected = false
-active = false
-collsion = true
-vertex_points = PackedVector3Array(229, 13, -16, 231, 13, -91, 231, 9.53674e-07, -91, 229, 9.53674e-07, -16, 199, 9.53674e-07, -15, 211, 9.53674e-07, -44, 211, 13, -44, 199, 13, -15)
-vertex_selected = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0)
-active_vertex = -1
-edge_vertex_indices = PackedInt32Array(0, 1, 1, 2, 2, 3, 3, 0, 4, 3, 2, 5, 5, 4, 6, 5, 1, 6, 4, 7, 7, 0, 6, 7)
-edge_selected = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-active_edge = -1
-edge_face_indices = PackedInt32Array(0, 5, 0, 2, 0, 1, 0, 3, 1, 3, 1, 2, 1, 4, 2, 4, 2, 5, 3, 4, 3, 5, 4, 5)
-face_vertex_count = PackedInt32Array(4, 4, 4, 4, 4, 4)
-face_vertex_indices = PackedInt32Array(0, 1, 2, 3, 4, 3, 2, 5, 6, 5, 2, 1, 0, 3, 4, 7, 6, 7, 4, 5, 0, 7, 6, 1)
-face_material_indices = PackedInt32Array(-1, -1, -1, -1, -1, -1)
-face_uv_transform = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
-face_selected = PackedByteArray(0, 0, 0, 0, 0, 0)
-active_face = -1
-face_ids = PackedInt32Array(0, 1, 2, 3, 4, 5)
-
 [node name="Castle" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -147,64 +65,165 @@ skeleton = NodePath("../..")
 [node name="Player" parent="." instance=ExtResource("2_lhsi4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.86279, 18.0874, -1.60395)
 
-[node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(6.03113, 0, 0, 0, 1, 0, 0, 0, 2.5, 40.47, 0, 0)
-mesh = ExtResource("2_cuip1")
+[node name="Floor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.47, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-shape = SubResource("WorldBoundaryShape3D_rtbc6")
-
-[node name="Floor2" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(-1, 0, -1.09278e-07, 0, 1, 0, 6.99382e-08, 0, -1, 0, 0, 0)
+[node name="Floor1" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(6.024, 0, 0, 0, 1, 0, 0, 0, 2.5, 0, 0, 0)
 mesh = ExtResource("2_cuip1")
 skeleton = NodePath("../..")
 
-[node name="CastleSegment" parent="." instance=ExtResource("3_hu1wl")]
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor/Floor1"]
 
-[node name="CastleSegment2" parent="CastleSegment" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 0, -30)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Floor1/StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_rtbc6")
 
-[node name="CastleSegment3" parent="CastleSegment" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
+[node name="Floor2" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(-6.024, 0, -3.77489e-07, 0, 1, 0, 9.09599e-07, 0, -2.5, 0, 0, 0)
+mesh = ExtResource("2_cuip1")
+skeleton = NodePath("../..")
 
-[node name="CastleSegment4" parent="CastleSegment" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8147e-06, 0, -90)
+[node name="Floor3" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(-6.024, 0, -3.77489e-07, 0, 1, 0, 9.09599e-07, 0, -2.5, 120, 0, 0)
+mesh = ExtResource("2_cuip1")
+skeleton = NodePath("../..")
 
-[node name="CastleSegment2" parent="." instance=ExtResource("3_hu1wl")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, 10.4)
+[node name="Floor4" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(3.89008, 0, 1.90884, 0, 1, 0, -4.59955, 0, 1.61441, 101.174, -0.2, -3.505)
+mesh = ExtResource("2_cuip1")
+skeleton = NodePath("../..")
 
-[node name="CastleSegment2" parent="CastleSegment2" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 0, -30)
+[node name="Floor5" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(6.024, 0, 0, 0, 1, 0, 0, 0, 2.5, 120, 0, 0)
+mesh = ExtResource("2_cuip1")
+skeleton = NodePath("../..")
 
-[node name="CastleSegment3" parent="CastleSegment2" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
+[node name="Floor6" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(0.503246, 0, 0.864143, 0, 1, 0, -0.864143, 0, 0.503246, 122.769, -0.3, -6.86568)
+mesh = ExtResource("2_cuip1")
+skeleton = NodePath("../..")
 
-[node name="CastleSegment4" parent="CastleSegment2" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8147e-06, 0, -90)
+[node name="Floor7" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(-6.024, 0, -2.18557e-07, 0, 1, 0, 5.26635e-07, 0, -2.5, 240, 0, 0)
+mesh = ExtResource("2_cuip1")
+skeleton = NodePath("../..")
 
-[node name="CastleSegment3" parent="." instance=ExtResource("4_i68hq")]
+[node name="Floor8" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(6.024, 0, 0, 0, 1, 0, 0, 0, 2.5, 240, 0, 0)
+mesh = ExtResource("2_cuip1")
+skeleton = NodePath("../..")
+
+[node name="Floor9" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(-3.85602, 0, -1.92071, 0, 1, 0, 4.62814, 0, -1.60027, 178.581, -0.2, -95.6758)
+mesh = ExtResource("2_cuip1")
+skeleton = NodePath("../..")
+
+[node name="CastleSegmentEnd" parent="." instance=ExtResource("4_i68hq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 5.267)
 
-[node name="CastleSegment4" parent="." instance=ExtResource("5_6hnvq")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 115, 0, 10.39)
+[node name="CastleSegmentLeft" parent="." instance=ExtResource("3_hu1wl")]
 
-[node name="CyclopsBlocks" type="Node3D" parent="."]
-script = ExtResource("8_540rp")
+[node name="CastleSegment2" parent="CastleSegmentLeft" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 0, -30)
 
-[node name="Block_0" type="Node" parent="CyclopsBlocks"]
-script = ExtResource("9_v6cjb")
-block_data = SubResource("Resource_ph1ay")
+[node name="CastleSegment3" parent="CastleSegmentLeft" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
 
-[node name="Block_1" type="Node" parent="CyclopsBlocks"]
-script = ExtResource("9_v6cjb")
-block_data = SubResource("Resource_7rtfh")
+[node name="CastleSegment4" parent="CastleSegmentLeft" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8147e-06, 0, -90)
 
-[node name="Block_2" type="Node" parent="CyclopsBlocks"]
-script = ExtResource("9_v6cjb")
-block_data = SubResource("Resource_5ctbh")
+[node name="CastleSegment5" parent="CastleSegmentLeft" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.72205e-06, 0, -120)
 
-[node name="Block_3" type="Node" parent="CyclopsBlocks"]
-script = ExtResource("9_v6cjb")
-block_data = SubResource("Resource_7mt31")
+[node name="CastleSegmentCorner" parent="CastleSegmentLeft" instance=ExtResource("8_gj6qp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.382553, 0, -142.165)
+
+[node name="CastleSegment6" parent="CastleSegmentLeft" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(-0.643389, 0, -0.765539, 0, 1, 0, 0.765539, 0, -0.643389, -3.94024, 0, -150.909)
+
+[node name="CastleSegment7" parent="CastleSegmentLeft" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(-0.643389, 0, -0.765539, 0, 1, 0, 0.765539, 0, -0.643389, -23.6717, 0, -167.484)
+
+[node name="WallRight" parent="CastleSegmentLeft/CastleSegment7" index="1"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.0106201, 0, -1.4912)
+
+[node name="CastleSegment8" parent="CastleSegmentLeft" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(-0.643389, 0, -0.765539, 0, 1, 0, 0.765539, 0, -0.643389, -46.9022, 0, -186.992)
+
+[node name="CastleSegment9" parent="CastleSegmentLeft" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(-0.643389, 0, -0.765539, 0, 1, 0, 0.765539, 0, -0.643389, -70.3578, 0, -206.717)
+
+[node name="CastleSegmentRight" parent="." instance=ExtResource("3_hu1wl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, 10.4)
+
+[node name="CastleSegment2" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 0, -30)
+
+[node name="CastleSegment3" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
+
+[node name="CastleSegment4" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8147e-06, 0, -90)
+
+[node name="CastleSegmentGate" parent="CastleSegmentRight" instance=ExtResource("5_6hnvq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -120)
+
+[node name="CastleSegment5" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -150)
+
+[node name="CastleSegment6" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -180)
+
+[node name="CastleSegment7" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -210)
+
+[node name="CastleSegment8" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -240)
+
+[node name="CastleSegment9" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -270)
+
+[node name="CastleSegment10" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -300)
+
+[node name="CastleSegment11" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -330)
+
+[node name="CastleSegmentMid" parent="." instance=ExtResource("3_hu1wl")]
+transform = Transform3D(-0.765539, 0, 0.643389, 0, 1, 0, -0.643389, 0, -0.765539, 186.053, 0, -24.4656)
+
+[node name="CastleSegmentCorner" parent="CastleSegmentMid" instance=ExtResource("8_gj6qp")]
+transform = Transform3D(-0.765539, 0, -0.643389, 0, 1, 0, 0.643389, 0, -0.765539, 5.04333, 0, -10.5483)
+
+[node name="CastleSegment2" parent="CastleSegmentMid" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, 0.642788, -10.9257, 0, -9.21257)
+
+[node name="CastleSegment3" parent="CastleSegmentMid" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, 0.642788, -34.4093, 0, 10.5242)
+
+[node name="CastleSegment4" parent="CastleSegmentMid" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, 0.642788, -57.7231, 0, 30.1181)
+
+[node name="CastleSegment5" parent="CastleSegmentMid" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, 0.642788, -81.185, 0, 49.8364)
+
+[node name="CastleSegment6" parent="CastleSegmentMid" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, 0.642788, -104.627, 0, 69.5376)
+
+[node name="CastleSegmentEnd" parent="CastleSegmentMid" instance=ExtResource("4_i68hq")]
+transform = Transform3D(0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, 0.642788, -123.023, 0, 84.9985)
+
+[node name="WallRight" parent="CastleSegmentMid/CastleSegmentEnd" index="0"]
+visible = false
+skeleton = NodePath("../../..")
+
+[node name="CastleSegment7" parent="CastleSegmentMid" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(1, 0, -0.000611037, 0, 1, 0, 0.000611037, 0, 1, -0.0111237, -0.0396395, 30.5267)
+
+[node name="CastleSegment8" parent="CastleSegmentMid" instance=ExtResource("3_hu1wl")]
+transform = Transform3D(0.999915, 0, 0.0130545, 0, 1, 0, -0.0130545, 0, 0.999915, 0.171341, -0.0396399, 60.8781)
+
+[connection signal="Finished" from="Player" to="Player/HUD" method="Finished" flags=18]
+
+[editable path="CastleSegmentLeft/CastleSegment7"]
+[editable path="CastleSegmentMid/CastleSegmentEnd"]
