@@ -93,7 +93,6 @@ trail_enabled = true
 trail_lifetime = 0.1
 
 [node name="PixelationLayer" type="ColorRect" parent="HUD"]
-visible = false
 material = SubResource("ShaderMaterial_hcf8d")
 layout_mode = 1
 anchors_preset = 15

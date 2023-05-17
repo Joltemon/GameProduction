@@ -14,11 +14,12 @@ corner_radius_bottom_left = 11
 default_font = ExtResource("2_86ui2")
 default_font_size = 21
 
-[node name="SliderSetting" type="Panel"]
+[node name="SliderSetting" type="Panel" node_paths=PackedStringArray("Slider")]
 offset_right = 352.0
 offset_bottom = 56.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2bitq")
 script = ExtResource("1_cb8n5")
+Slider = NodePath("HSlider")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

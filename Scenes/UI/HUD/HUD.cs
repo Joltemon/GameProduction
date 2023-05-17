@@ -48,13 +48,15 @@ public partial class HUD : CanvasLayer
 	{
 		Savedata.Load();
 		double pixelationAmount = Savedata.Get<double>("Pixelation", 0);
+		
+		if (PixelationLayer != null)
+		{
+			PixelationLayer.Material.Set("shader_parameter/pix", pixelationAmount);
+
+			PixelationLayer.Visible = pixelationAmount > 0;
+		}
 
 		Animation?.Play("Show");
-		
-		PixelationLayer?.Material.Set("shader_parameter/pix", pixelationAmount);
-
-		GD.Print(pixelationAmount);
-
 	}
 
 	public override void _Process(double delta) {

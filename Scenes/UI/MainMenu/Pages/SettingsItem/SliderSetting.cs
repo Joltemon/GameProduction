@@ -7,7 +7,7 @@ public partial class SliderSetting : Panel, ISettingsItem
 
 	public Variant GetValue()
 	{
-		return Slider?.Value ?? 14;
+		return Slider?.Value ?? 0;
 	}
 
 	public string GetName() => Name;
