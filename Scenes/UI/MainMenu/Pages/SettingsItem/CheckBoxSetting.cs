@@ -12,9 +12,9 @@ public partial class CheckBoxSetting : Panel, ISettingsItem
 		return CheckBox?.ButtonPressed ?? false;
 	}
 
-	public void SetValue(Variant result)
+	public void SetValue(object? value)
 	{
-		if (CheckBox != null)
-			CheckBox.ButtonPressed = result.As<bool>();
+		if (CheckBox != null && value != null)
+			CheckBox.ButtonPressed = (bool)value;
 	}
 }

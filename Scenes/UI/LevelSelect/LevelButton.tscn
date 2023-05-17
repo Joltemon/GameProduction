@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3lh3jika2tmx"]
+
+[ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="1_eaeod"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0ni7"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.219608, 0.298039, 0.490196, 1)
+border_blend = true
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="LevelButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("1_eaeod")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_i0ni7")
+text = "01"

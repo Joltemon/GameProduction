@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1ejuro6jb3dj"
-path="res://.godot/imported/uhhhhhhhhhhhhhhhhhh2.png-cc0ae62769ea3c10743ff4cd7a411f93.ctex"
+path="res://.godot/imported/EnergyCrystal.png-e464418ebcd4a80de557f7779b630944.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Icons/uhhhhhhhhhhhhhhhhhh2.png"
-dest_files=["res://.godot/imported/uhhhhhhhhhhhhhhhhhh2.png-cc0ae62769ea3c10743ff4cd7a411f93.ctex"]
+source_file="res://Assets/Icons/EnergyCrystal.png"
+dest_files=["res://.godot/imported/EnergyCrystal.png-e464418ebcd4a80de557f7779b630944.ctex"]
 
 [params]
 

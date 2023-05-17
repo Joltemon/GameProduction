@@ -1,8 +1,9 @@
+using System;
 using Godot;
 
 interface ISettingsItem
 {
 	public string GetName();
 	public Variant GetValue();
-	public void SetValue(Variant value);
+	public void SetValue(object? value);
 }

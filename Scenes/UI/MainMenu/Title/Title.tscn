@@ -269,7 +269,7 @@ scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 1048, 40)
 width = 2.5
-default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
+default_color = Color(0, 0, 0, 0.505882)
 
 [node name="Line2D2" type="Line2D" parent="Lines"]
 position = Vector2(152.118, 30.3291)
@@ -277,7 +277,7 @@ scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
 width = 2.5
-default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
+default_color = Color(0, 0, 0, 0.505882)
 
 [node name="Line2D3" type="Line2D" parent="Lines"]
 position = Vector2(-483.66, 43.3291)
@@ -285,7 +285,7 @@ scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
 width = 2.5
-default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
+default_color = Color(0, 0, 0, 0.505882)
 
 [node name="Line2D4" type="Line2D" parent="Lines"]
 position = Vector2(763.236, 56.3291)
@@ -293,7 +293,7 @@ scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
 width = 2.5
-default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
+default_color = Color(0, 0, 0, 0.505882)
 
 [node name="Line2D5" type="Line2D" parent="Lines"]
 position = Vector2(-1160, 69.3291)
@@ -301,7 +301,7 @@ scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
 width = 2.5
-default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
+default_color = Color(0, 0, 0, 0.505882)
 
 [node name="Line2D6" type="Line2D" parent="Lines"]
 position = Vector2(1040, 82.3291)
@@ -309,7 +309,7 @@ scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
 width = 2.5
-default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
+default_color = Color(0, 0, 0, 0.505882)
 
 [node name="Line2D7" type="Line2D" parent="Lines"]
 position = Vector2(-1160, 95.329)
@@ -317,7 +317,7 @@ scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
 width = 2.5
-default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
+default_color = Color(0, 0, 0, 0.505882)
 
 [node name="Line2D8" type="Line2D" parent="Lines"]
 position = Vector2(1040, 108.329)
@@ -325,7 +325,7 @@ scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
 width = 2.5
-default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
+default_color = Color(0, 0, 0, 0.505882)
 
 [node name="Line2D9" type="Line2D" parent="Lines"]
 position = Vector2(-1160, 120)
@@ -333,7 +333,7 @@ scale = Vector2(1.1193, 1)
 skew = 0.657989
 points = PackedVector2Array(136, 40, 145.754, 40, 1048, 40)
 width = 2.5
-default_color = Color(0.415686, 0.505882, 0.654902, 0.505882)
+default_color = Color(0, 0, 0, 0.505882)
 
 [node name="TitleHBoxContainer" type="HBoxContainer" parent="."]
 modulate = Color(1, 1, 1, 0.466667)

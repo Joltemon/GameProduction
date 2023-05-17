@@ -1,11 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://dxgrefm6ujgag"]
+[gd_scene load_steps=19 format=3 uid="uid://dxgrefm6ujgag"]
 
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/SettingsPage.cs" id="1_5yn8b"]
 [ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="1_lema4"]
 [ext_resource type="PackedScene" uid="uid://dke0sfeucw6h1" path="res://Scenes/UI/MainMenu/Pages/KeyPanel.tscn" id="3_uhmih"]
 [ext_resource type="Texture2D" uid="uid://d21sicjaf81cf" path="res://Assets/Icons/logout.png" id="3_wiegq"]
 [ext_resource type="PackedScene" uid="uid://uy52uihn1w4a" path="res://Scenes/UI/MainMenu/Pages/SettingsItem/CheckBoxSetting.tscn" id="3_ycb7b"]
-[ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="4_a2pyl"]
 [ext_resource type="PackedScene" uid="uid://chip7xppsxals" path="res://Scenes/UI/MainMenu/Pages/SettingsItem/SliderSetting.tscn" id="4_toe0h"]
 [ext_resource type="FontFile" uid="uid://cxv5oa85st6dv" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="5_k7syb"]
 [ext_resource type="Texture2D" uid="uid://c6tm4n50mka4x" path="res://Assets/Icons/check.png" id="6_hmpe3"]
@@ -17,39 +16,49 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5c08"]
-bg_color = Color(0.152941, 0.152941, 0.152941, 1)
-corner_radius_top_left = 14
-corner_radius_top_right = 14
-corner_radius_bottom_right = 14
-corner_radius_bottom_left = 14
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_em3ub"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_74ypi"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6jtw0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vcvss"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4dn3"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qsye"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkqos"]
 bg_color = Color(0, 0.678431, 0.929412, 0.466667)
 corner_radius_top_left = 11
 corner_radius_top_right = 11
 corner_radius_bottom_right = 11
 corner_radius_bottom_left = 11
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y3ndi"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0qrr"]
+bg_color = Color(0, 0.486275, 0.670588, 0.466667)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_csnbj"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o24bu"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5wgpc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgdwo"]
+bg_color = Color(0.494118, 0.819608, 1, 0.466667)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8gf5n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdgn0"]
+bg_color = Color(0.678431, 0.678431, 0.678431, 0.466667)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ectct"]
+bg_color = Color(0.588235, 0.588235, 0.588235, 0.466667)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2w6t"]
+bg_color = Color(0.862745, 0.862745, 0.862745, 0.466667)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
 
 [sub_resource type="Animation" id="Animation_lwwnd"]
 resource_name = "Show"
@@ -90,7 +99,7 @@ anchor_bottom = 1.0
 offset_left = 120.0
 offset_top = 56.0
 offset_right = -72.0
-offset_bottom = -48.0
+offset_bottom = -88.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_w8bpp")
@@ -153,9 +162,9 @@ anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 88.0
+offset_left = 72.0
 offset_top = 56.0
-offset_right = -104.0
+offset_right = -120.0
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -207,124 +216,55 @@ offset_left = -171.0
 offset_right = -11.0
 text = "spacebar"
 
-[node name="BackButtonPanel" type="Panel" parent="."]
+[node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 127.0
+offset_left = 160.0
+offset_top = -64.0
+offset_right = 288.0
+offset_bottom = -24.0
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_n5c08")
-
-[node name="Button" type="Button" parent="BackButtonPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_em3ub")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_74ypi")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_6jtw0")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_vcvss")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_v4dn3")
-
-[node name="BackIcon" type="TextureRect" parent="BackButtonPanel"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = -14.0
-offset_bottom = 12.0
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("3_wiegq")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="BackButtonPanel"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 8.0
-offset_top = -20.0
-offset_right = 104.0
-offset_bottom = 20.0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_a2pyl")
-theme_override_font_sizes/font_size = 24
-text = "Back"
-vertical_alignment = 1
-
-[node name="ApplyPanel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -48.0
-offset_top = -96.0
-offset_right = 64.0
-offset_bottom = -56.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_2qsye")
-
-[node name="Button" type="Button" parent="ApplyPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_y3ndi")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_csnbj")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_o24bu")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_5wgpc")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8gf5n")
-
-[node name="Label" type="Label" parent="ApplyPanel/Button"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 8.0
-offset_top = -11.0
-offset_right = 76.0
-offset_bottom = 14.0
-grow_vertical = 2
 theme_override_fonts/font = ExtResource("5_k7syb")
-theme_override_font_sizes/font_size = 19
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_mkqos")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x0qrr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lgdwo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8gf5n")
 text = "Apply"
+icon = ExtResource("6_hmpe3")
+icon_alignment = 2
+expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="ApplyPanel/Button"]
+[node name="BackButton" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -16.0
-offset_bottom = 14.0
-grow_horizontal = 0
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("6_hmpe3")
-expand_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -64.0
+offset_right = 144.0
+offset_bottom = -24.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_k7syb")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_tdgn0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ectct")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d2w6t")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8gf5n")
+text = "Back"
+icon = ExtResource("3_wiegq")
+icon_alignment = 2
+expand_icon = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_o45ru")
 }
 
-[connection signal="pressed" from="BackButtonPanel/Button" to="." method="BackButtonPressed"]
-[connection signal="pressed" from="ApplyPanel/Button" to="." method="ApplySettings"]
+[connection signal="pressed" from="Button" to="." method="ApplySettings"]
+[connection signal="pressed" from="BackButton" to="." method="ApplySettings"]
 
 [editable path="SettingsPanel/FullScreen"]
 [editable path="SettingsPanel/Pixelation"]

@@ -23,7 +23,7 @@ public partial class SettingsPage : Control
 	}
 
 	public override void _Ready() {
-		Savedata.Load();
+		LoadSettings();
 	}
 
 	void BackButtonPressed() {

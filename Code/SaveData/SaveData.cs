@@ -37,13 +37,13 @@ class Savedata
 		return result;
 	}
 
-	public static Variant Get(string name, Variant defaultValue = new Variant())
+	public static object? Get(string name, object? defaultValue = null)
 	{
-		Variant result;
+		object? result;
 
 		if (SettingsData?.ContainsKey(name) ?? false)
 		{
-			result = (Variant)SettingsData[name];
+			result = SettingsData[name];
 		}
 		else
 		{

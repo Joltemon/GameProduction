@@ -12,9 +12,9 @@ public partial class SliderSetting : Panel, ISettingsItem
 
 	public string GetName() => Name;
 
-	public void SetValue(Variant value)
+	public void SetValue(object? value)
 	{
-		if (Slider != null)
-			Slider.Value = value.As<float>();
+		if (Slider != null && value != null)
+			Slider.Value = (double)value;
 	}
 }
