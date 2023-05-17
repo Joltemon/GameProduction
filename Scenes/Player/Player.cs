@@ -87,17 +87,6 @@ public partial class Player : RigidBody3D
 			LookSensitivity = 1;
 		}
 
-		if (Input.IsActionPressed("PixelateUp"))
-		{
-			if (OS.HasFeature("editor"))
-				GetNode<ColorRect>("HUD/HUD/PixelationLayer").Material.Set("shader_parameter/pix", (int)GetNode<ColorRect>("HUD/HUD/PixelationLayer").Material.Get("shader_parameter/pix")+1);
-		}
-		if (Input.IsActionPressed("PixelateDown"))
-		{
-			if (OS.HasFeature("editor"))
-				GetNode<ColorRect>("HUD/HUD/PixelationLayer").Material.Set("shader_parameter/pix", (int)GetNode<ColorRect>("HUD/HUD/PixelationLayer").Material.Get("shader_parameter/pix")-1);
-		}
-
 		UpdateTimer(delta);
 	}
 

@@ -11,6 +11,8 @@ public partial class HUD : CanvasLayer
 	[Export] GpuParticles2D? SprintingParticle;
 	[Export] AnimationPlayer? Animation;
 
+	[Export] ColorRect? PixelationLayer;
+
 	[Export] float SpeedLimit;
 
 	void UpdateAmmunition(int ammo)
@@ -44,7 +46,14 @@ public partial class HUD : CanvasLayer
 
 	public override void _Ready()
 	{
+		float pixelationAmount = Savedata.Get<float>("Pixelation", 0);
+
 		Animation?.Play("Show");
+		
+		PixelationLayer?.Material.Set("shader_parameter/pix", pixelationAmount);
+
+		GD.Print(pixelationAmount);
+
 	}
 
 	public override void _Process(double delta) {

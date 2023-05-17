@@ -46,6 +46,3 @@ offset_right = -16.0
 offset_bottom = 8.0
 grow_horizontal = 0
 grow_vertical = 2
-min_value = 14.0
-max_value = 512.0
-value = 14.0

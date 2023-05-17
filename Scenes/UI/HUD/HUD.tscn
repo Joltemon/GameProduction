@@ -51,7 +51,7 @@ _data = {
 "Show": SubResource("Animation_u3kwk")
 }
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("Root", "AmmoLabel", "TimerLabel", "SprintBar", "SprintingParticle", "Animation")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("Root", "AmmoLabel", "TimerLabel", "SprintBar", "SprintingParticle", "Animation", "PixelationLayer")]
 script = ExtResource("1_st6v0")
 Root = NodePath("HUD")
 AmmoLabel = NodePath("HUD/EnergyCrystal/Label")
@@ -59,6 +59,7 @@ TimerLabel = NodePath("HUD/TimerLabel")
 SprintBar = NodePath("HUD/BottleIcon/ProgressBar")
 SprintingParticle = NodePath("HUD/ParticleControl/GPUParticles2D")
 Animation = NodePath("AnimationPlayer")
+PixelationLayer = NodePath("HUD/PixelationLayer")
 SpeedLimit = 16.0
 
 [node name="HUD" type="Control" parent="."]
