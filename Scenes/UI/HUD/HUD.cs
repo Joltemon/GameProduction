@@ -46,7 +46,8 @@ public partial class HUD : CanvasLayer
 
 	public override void _Ready()
 	{
-		float pixelationAmount = Savedata.Get<float>("Pixelation", 0);
+		Savedata.Load();
+		double pixelationAmount = Savedata.Get<double>("Pixelation", 0);
 
 		Animation?.Play("Show");
 		
