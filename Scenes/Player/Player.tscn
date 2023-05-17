@@ -167,6 +167,7 @@ mesh = SubResource("CylinderMesh_m4s1w")
 [node name="Camera" type="Camera3D" parent="Head"]
 cull_mask = 1048573
 attributes = SubResource("CameraAttributesPractical_2hkth")
+current = true
 fov = 150.0
 
 [node name="WeaponHolder" parent="Head/Camera" node_paths=PackedStringArray("Player") instance=ExtResource("2_5mgoj")]
@@ -177,6 +178,7 @@ target_position = Vector3(0, 0, -10)
 
 [node name="PostProcesser" type="MeshInstance3D" parent="Head/Camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.06)
+visible = false
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_hslsf")
 surface_material_override/0 = SubResource("ShaderMaterial_74rfd")

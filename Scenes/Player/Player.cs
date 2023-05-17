@@ -24,7 +24,16 @@ public partial class Player : RigidBody3D
 	public double Stopwatch;
 	public Boolean StopwatchRunning = true;
 	float currentCoyoteTime;
-	public float SprintEnergy = 100;
+	float sprintEnergy = 100;
+	public float SprintEnergy
+	{
+		get => sprintEnergy;
+		set
+		{
+			sprintEnergy = value;
+			Hud?.UpdateSprint(value);
+		}
+	}
 
 	[ExportGroup("CameraOptions")]
 	[Export] public float DefaultFov = 75;
@@ -142,8 +151,9 @@ public partial class Player : RigidBody3D
 
 		if (speed > 1 && inputDir != Vector2.Zero)
 		{
-			SprintEnergy -= (float)delta * SprintDepletionRate;
-			SprintEnergy = Mathf.Clamp(SprintEnergy, 0, 100);
+			sprintEnergy -= (float)delta * SprintDepletionRate;
+			sprintEnergy = Mathf.Clamp(SprintEnergy, 0, 100);
+			Hud?.UpdateSprint(sprintEnergy, false);
 		}
 
 		// Apply movement speed
