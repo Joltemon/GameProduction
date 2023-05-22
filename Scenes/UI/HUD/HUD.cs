@@ -10,6 +10,7 @@ public partial class HUD : CanvasLayer
 	[Export] ProgressBar? SprintBar;
 	[Export] GpuParticles2D? SprintingParticle;
 	[Export] AnimationPlayer? Animation;
+	[Export] Control? PauseMenu;
 
 	[Export] ColorRect? PixelationLayer;
 
