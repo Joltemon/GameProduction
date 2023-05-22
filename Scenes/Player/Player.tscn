@@ -123,7 +123,6 @@ CrouchStrength = 0.5
 MaxAirSpeed = 20.0
 SprintDepletionRate = 10.0
 CoyoteTime = 0.15
-CrouchSlideBoost = 20.0
 Camera = NodePath("Head/Camera")
 MoveAnim = NodePath("Head/Animation")
 FloorDetector = NodePath("Collider/FloorDetector")
@@ -168,7 +167,6 @@ mesh = SubResource("CylinderMesh_m4s1w")
 [node name="Camera" type="Camera3D" parent="Head"]
 cull_mask = 1048573
 attributes = SubResource("CameraAttributesPractical_2hkth")
-current = true
 fov = 150.0
 
 [node name="WeaponHolder" parent="Head/Camera" node_paths=PackedStringArray("Player") instance=ExtResource("2_5mgoj")]

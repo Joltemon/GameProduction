@@ -575,13 +575,81 @@ transform = Transform3D(1.82329, 0, -1.58824, 0, 3, 0, 2.38235, 0, 1.21553, -162
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.748024, 0.599077, -72.9986)
 
 [node name="scene2" parent="." instance=ExtResource("30_0rq3m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.5886, 0.771935, -24.4783)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -77.5886, 0.771935, -24.4783)
 
 [node name="scene3" parent="." instance=ExtResource("30_0rq3m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8656, 1.02317, -112.296)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 19.8656, 1.02317, -112.296)
 
 [node name="scene4" parent="." instance=ExtResource("30_0rq3m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.19739, 0.645279, -78.8156)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 4.19739, 0.645279, -78.8156)
 
 [node name="scene5" parent="." instance=ExtResource("30_0rq3m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.39, 8.71621, 4.91625)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -44.39, 8.71621, 4.91625)
+
+[node name="scene6" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -79.2211, 0.645277, -100.449)
+
+[node name="scene7" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -79.2211, 0.645277, -78.6743)
+
+[node name="scene8" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -79.2211, 5.84603, -83.7307)
+
+[node name="scene9" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -96.1356, 11.6941, -84.3696)
+
+[node name="scene10" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -118.516, 1.02649, -184.178)
+
+[node name="scene11" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -118.516, 2.30475, -191.053)
+
+[node name="scene12" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -118.516, 4.95708, -198.178)
+
+[node name="scene13" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -118.516, 8.13698, -204.342)
+
+[node name="scene14" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -118.516, 11.8292, -212.284)
+
+[node name="scene15" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -118.516, 15.1927, -218.069)
+
+[node name="scene16" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -118.516, 18.8703, -226.045)
+
+[node name="scene17" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -118.516, 8.13698, -262.513)
+
+[node name="scene18" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -118.516, 8.13698, -272.186)
+
+[node name="scene19" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -118.516, 8.13698, -280.978)
+
+[node name="scene20" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -118.516, 8.13698, -288.672)
+
+[node name="scene21" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -118.516, 8.13698, -298.39)
+
+[node name="scene22" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -118.516, 8.13698, -335.452)
+
+[node name="scene23" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -118.516, 9.45865, -369.171)
+
+[node name="scene24" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -118.516, 12.3363, -395.644)
+
+[node name="scene25" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -123.972, 16.5217, -424.655)
+
+[node name="scene26" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -111.263, 21.2186, -445.914)
+
+[node name="scene27" parent="." instance=ExtResource("30_0rq3m")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -117.603, 25.1409, -464.214)
+
+[connection signal="Finished" from="Player" to="Player/HUD" method="Finished" flags=18]
