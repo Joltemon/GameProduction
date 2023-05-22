@@ -24,7 +24,7 @@ public partial class Player : RigidBody3D
 	float FovIncrease;
 	public double Stopwatch;
 	public Boolean StopwatchRunning = true;
-	float currentCoyoteTime;
+	float CurrentCoyoteTime;
 	float sprintEnergy = 100;
 	public float SprintEnergy
 	{
@@ -169,6 +169,8 @@ public partial class Player : RigidBody3D
 				
 				var friction = inputDir.IsZeroApprox() ? 1 : 0;
 				PhysicsMaterialOverride.Friction = friction;
+
+				HandleJump(delta);
 			}
 		}
 		else // Air movement
@@ -203,25 +205,28 @@ public partial class Player : RigidBody3D
 		{
 			MoveAnim?.Stop();
 		}
+	}
 
+	void HandleJump(float delta)
+	{
 		// Jumping
 		var jumpPressed = Input.IsActionPressed("MoveJump");
 		var isOnFloor = FloorDetector!.HasOverlappingBodies();
 
 		if (isOnFloor && !IsCurrentlyJumping)
-			currentCoyoteTime = CoyoteTime;
+			CurrentCoyoteTime = CoyoteTime;
 		else
-			currentCoyoteTime -= delta;
+			CurrentCoyoteTime -= delta;
 
-		currentCoyoteTime = Mathf.Clamp(currentCoyoteTime, 0, CoyoteTime);
+		CurrentCoyoteTime = Mathf.Clamp(CurrentCoyoteTime, 0, CoyoteTime);
 
-		var canJump = currentCoyoteTime > 0;
+		var canJump = CurrentCoyoteTime > 0;
 
 		if (jumpPressed && canJump && !IsCurrentlyJumping)
 		{
 			// Jumping
 			IsCurrentlyJumping = true;
-			currentCoyoteTime = 0;
+			CurrentCoyoteTime = 0;
 			ApplyCentralImpulse(Vector3.Up * JumpStrength);
 		}
 		else if (isOnFloor && IsCurrentlyJumping)
@@ -291,12 +296,10 @@ public partial class Player : RigidBody3D
 		else if (inputEvent.IsActionPressed("Reload"))
 		{
 			if (OS.HasFeature("editor"))
+			{
 				WeaponHolder?.SetAmmunition(10);
-		}
-		else if (inputEvent.IsActionPressed("Pixelate"))
-		{
-			if (OS.HasFeature("editor"))
-				GetNode<ColorRect>("HUD/HUD/PixelationLayer").Visible = !GetNode<ColorRect>("HUD/HUD/PixelationLayer").Visible;
+				SprintEnergy = 100;
+			}
 		}
 	}
 }
