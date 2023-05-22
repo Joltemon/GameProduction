@@ -17,6 +17,7 @@ public partial class Player : RigidBody3D
 	[Export] float MaxAirSpeed;
 	[Export] float SprintDepletionRate;
 	[Export] float CoyoteTime;
+	[Export] float CrouchSlideBoost;
 
 	public bool Flying = false;
 	float LookSensitivity = 1;
@@ -96,12 +97,8 @@ public partial class Player : RigidBody3D
 		bool isGrounded = FloorDetector!.HasOverlappingBodies();
 		var currentVelocity = LinearVelocity.Length();
 
-		// Crouching
-		if (Input.IsActionPressed("MoveCrouch"))
-		{
-			sprintAdjustment = 0.2f;
-		}
-		else if (Input.IsActionPressed("MoveSprint") && SprintEnergy > 0)
+		// Sprinting
+		if (Input.IsActionPressed("MoveSprint") && SprintEnergy > 0)
 		{
 			sprintAdjustment = SprintMultiplier;
 		}
@@ -112,16 +109,10 @@ public partial class Player : RigidBody3D
 		var velocityDirection = new Vector2(LinearVelocity.X, LinearVelocity.Z).Angle();
 		var relativeMoveAngle = (Mathf.Abs(moveDirDirection) - Mathf.Abs(velocityDirection));
 		
-
-		
-
-
-
 		// Apply speed lines and fov increase at higher speeds
-		FovIncrease = Mathf.Clamp(currentVelocity, 0, 20); //Mathf.Clamp(currentVelocity - 5, 0, 20);
+		FovIncrease = Mathf.Clamp(currentVelocity, 0, 20);
 		Hud?.UpdateSpeedEffects(currentVelocity, (LinearVelocity.Normalized().Dot(-Camera!.GlobalTransform.Basis.Z)));
-		// if (LinearVelocity.Normalized().Dot(-Camera!.GlobalTransform.Basis.Z) > 0) {
-		// }
+
 
 		if (Flying)
 			MoveFly(isGrounded, sprintAdjustment, (float)delta);
@@ -130,9 +121,18 @@ public partial class Player : RigidBody3D
 	}
 
 	bool IsCurrentlyJumping;
+	bool IsCurrentlyCrouchSliding;
 	void Move(float currentVelocity, bool isGrounded, float speed, float delta)
 	{
 		GravityScale = Gravity;
+
+		// Crouching
+		var crouching = false;
+		if (Input.IsActionPressed("MoveCrouch"))
+		{
+			crouching = true;
+			speed = 0.2f;
+		}
 
 		// Walking
 		Vector2 inputDir = Input.GetVector("MoveLeft", "MoveRight", "MoveForward", "MoveBackward").Rotated(-Camera!.GlobalRotation.Y);
@@ -146,11 +146,30 @@ public partial class Player : RigidBody3D
 		}
 
 		// Apply movement speed
+		var isCrouchSliding = crouching && currentVelocity >= 5;
+
 		if (isGrounded)
 		{
-			moveDir *= MoveSpeed;
+			if (isCrouchSliding)
+			{
+				LinearDamp = 1;
+				
+				if (!IsCurrentlyCrouchSliding)
+				{
+					ApplyCentralImpulse(moveDir * CrouchSlideBoost); // Add boost when first crouch sliding
+					IsCurrentlyCrouchSliding = true;
+				}
+			}
+			else
+			{
+				IsCurrentlyCrouchSliding = false;
 
-			LinearDamp = GroundDrag;
+				moveDir *= MoveSpeed;
+				LinearDamp = GroundDrag;
+				
+				var friction = inputDir.IsZeroApprox() ? 1 : 0;
+				PhysicsMaterialOverride.Friction = friction;
+			}
 		}
 		else // Air movement
 		{
@@ -162,7 +181,6 @@ public partial class Player : RigidBody3D
 			var velocityDirection = new Vector2(LinearVelocity.X, LinearVelocity.Z).Angle();
 			var relativeMoveAngle = (Mathf.Abs(velocityDirection) - Mathf.Abs(moveDirDirection));
 
-
 			var controlReduction = Mathf.Clamp(currentVelocity, 0, MaxAirSpeed) / MaxAirSpeed; // scale AirMoveSpeed based on how fast the player is going, 0 to 1
 			controlReduction *= 1 - Mathf.Abs(relativeMoveAngle / Mathf.Pi); // scale again based on the direction the player is trying to move, going back easier than going forwards
 
@@ -173,13 +191,10 @@ public partial class Player : RigidBody3D
 			ApplyAirDrag(delta);
 		}
 
-		var friction = inputDir.IsZeroApprox() ? 1 : 0;
-		PhysicsMaterialOverride.Friction = friction;
-
 		ApplyCentralForce(moveDir);
 
 		// Head bob
-		if (MoveAnim != null && isGrounded && currentVelocity > 0)
+		if (MoveAnim != null && isGrounded && currentVelocity > 0 && !isCrouchSliding)
 		{
 			MoveAnim.Play("Walk");
 			MoveAnim.SpeedScale = currentVelocity / 8;
