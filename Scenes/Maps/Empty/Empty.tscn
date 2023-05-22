@@ -493,5 +493,3 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.03682, 0.236523, -20.
 
 [node name="End Point" parent="." instance=ExtResource("10_hx1b6")]
 transform = Transform3D(8.68267, 0, 0, 0, 2.59076, 0, 0, 0, 4.94621, 29.8239, 25.7142, 41.5912)
-
-[connection signal="Finished" from="Player" to="Player/HUD" method="Finished" flags=18]
