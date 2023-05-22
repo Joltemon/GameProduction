@@ -1,0 +1,11 @@
+Model Information:
+* title:	portal
+* source:	https://sketchfab.com/3d-models/portal-a98bdbfc895e4b73b282c846ce5947e6
+* author:	iwannachillll (https://sketchfab.com/iwannachillll)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "portal" (https://sketchfab.com/3d-models/portal-a98bdbfc895e4b73b282c846ce5947e6) by iwannachillll (https://sketchfab.com/iwannachillll) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
