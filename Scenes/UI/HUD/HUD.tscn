@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://phk6uejxvcxk"]
+[gd_scene load_steps=12 format=3 uid="uid://phk6uejxvcxk"]
 
 [ext_resource type="Shader" uid="uid://jx8m6uyfkcvj" path="res://Assets/Shaders/Pixelate.tres" id="1_1myrr"]
 [ext_resource type="Texture2D" uid="uid://dgskw8uqnqfoa" path="res://Assets/Icons/uhhh.png" id="1_4m20x"]
 [ext_resource type="Script" path="res://Scenes/UI/HUD/HUD.cs" id="1_st6v0"]
 [ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="2_xso2i"]
 [ext_resource type="Texture2D" uid="uid://c1ejuro6jb3dj" path="res://Assets/Icons/EnergyCrystal.png" id="5_whyg1"]
+[ext_resource type="PackedScene" uid="uid://p8hsy7i7ewlg" path="res://Scenes/UI/PauseMenu/PauseMenu.tscn" id="6_ue4vv"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3fphl"]
 emission_shape = 2
@@ -51,7 +52,7 @@ _data = {
 "Show": SubResource("Animation_u3kwk")
 }
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("Root", "AmmoLabel", "TimerLabel", "SprintBar", "SprintingParticle", "Animation", "PixelationLayer")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("Root", "AmmoLabel", "TimerLabel", "SprintBar", "SprintingParticle", "Animation", "PauseMenu", "PixelationLayer")]
 script = ExtResource("1_st6v0")
 Root = NodePath("HUD")
 AmmoLabel = NodePath("HUD/EnergyCrystal/Label")
@@ -59,6 +60,7 @@ TimerLabel = NodePath("HUD/TimerLabel")
 SprintBar = NodePath("HUD/BottleIcon/ProgressBar")
 SprintingParticle = NodePath("HUD/ParticleControl/GPUParticles2D")
 Animation = NodePath("AnimationPlayer")
+PauseMenu = NodePath("PauseMenu")
 PixelationLayer = NodePath("HUD/PixelationLayer")
 SpeedLimit = 16.0
 
@@ -87,7 +89,7 @@ scale = Vector2(5.76, 3.32)
 emitting = false
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_3fphl")
-lifetime = 2.5
+lifetime = 5.0
 speed_scale = 4.88
 trail_enabled = true
 trail_lifetime = 0.1
@@ -185,3 +187,6 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_htar3")
 }
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_ue4vv")]
+visible = false

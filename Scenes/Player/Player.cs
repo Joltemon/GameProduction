@@ -288,11 +288,6 @@ public partial class Player : RigidBody3D
 		{
 			Flying = !Flying;
 		}
-		else if (inputEvent.IsActionPressed("Pause"))
-		{
-			if (OS.HasFeature("editor"))
-				GetTree().Quit();
-		}
 		else if (inputEvent.IsActionPressed("Reload"))
 		{
 			if (OS.HasFeature("editor"))
