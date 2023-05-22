@@ -268,15 +268,13 @@ public partial class Player : RigidBody3D
 		{
 			Flying = !Flying;
 		}
-		else if (inputEvent.IsActionPressed("Pause"))
-		{
-			if (OS.HasFeature("editor"))
-				GetTree().Quit();
-		}
 		else if (inputEvent.IsActionPressed("Reload"))
 		{
 			if (OS.HasFeature("editor"))
+			{
 				WeaponHolder?.SetAmmunition(10);
+				sprintEnergy = 100;
+			}
 		}
 		else if (inputEvent.IsActionPressed("Pixelate"))
 		{

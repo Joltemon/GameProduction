@@ -1,14 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://p8hsy7i7ewlg"]
+[gd_scene load_steps=5 format=3 uid="uid://p8hsy7i7ewlg"]
 
+[ext_resource type="Script" path="res://Scenes/UI/PauseMenu/PauseMenu.cs" id="1_a2ro8"]
 [ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="1_tm56r"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bitq"]
+bg_color = Color(0, 0.678431, 0.929412, 0.466667)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgdwo"]
+bg_color = Color(0.494118, 0.819608, 1, 0.466667)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
 [node name="PauseMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_a2ro8")
+MainMenu = "res://Scenes/UI/MainMenu/MainMenu.tscn"
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -34,3 +52,45 @@ theme_override_font_sizes/font_size = 48
 text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 192.0
+offset_top = -144.0
+offset_right = -128.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_tm56r")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_2bitq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2bitq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lgdwo")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2bitq")
+text = "Resume"
+
+[node name="MainMenuButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 168.0
+offset_top = -136.0
+offset_right = -152.0
+offset_bottom = -64.0
+theme_override_fonts/font = ExtResource("1_tm56r")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_2bitq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2bitq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lgdwo")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2bitq")
+text = "Main Menu"
+
+[connection signal="pressed" from="ResumeButton" to="." method="ResumeButtonPressed"]
+[connection signal="pressed" from="MainMenuButton" to="." method="MainMenuButtonPressed"]

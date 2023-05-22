@@ -103,9 +103,12 @@ grow_vertical = 2
 [node name="Title" parent="UI" instance=ExtResource("2_cs62r")]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-offset_right = -464.0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_right = 576.0
 offset_bottom = 128.0
+grow_horizontal = 2
 
 [node name="Backgrounds" type="Control" parent="UI"]
 layout_mode = 1
