@@ -2,16 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://c5stgguw5utpr" path="res://Scenes/Player/Player.tscn" id="1_r1yjt"]
 [ext_resource type="PackedScene" uid="uid://cs6vix6ik3j8o" path="res://Scenes/Maps/City/large_building_a.tscn" id="6_4tw5v"]
+[ext_resource type="PackedScene" uid="uid://dmb6orawdgix6" path="res://Assets/Models/Cars/Ambulance.tscn" id="9_5sywd"]
 [ext_resource type="PackedScene" uid="uid://bn8rkig6exq7i" path="res://Assets/Models/Roads/road_intersection.glb" id="9_gky6r"]
 [ext_resource type="PackedScene" uid="uid://binokhx7kfxm7" path="res://Assets/Models/Roads/road_roundabout.glb" id="10_00gpf"]
+[ext_resource type="PackedScene" uid="uid://cilytuwae1cus" path="res://Assets/Models/Cars/Sedan.tscn" id="10_cpw3r"]
 [ext_resource type="PackedScene" uid="uid://cotpw6u1huy7v" path="res://Assets/Models/Roads/road_straight.glb" id="11_q4qdv"]
+[ext_resource type="PackedScene" uid="uid://i3vvbm2p5cos" path="res://Assets/Models/Cars/Firetruck.tscn" id="11_r2sdr"]
 [ext_resource type="PackedScene" uid="uid://c62ulcueppuof" path="res://Assets/Models/Roads/road_end.glb" id="12_pnsa4"]
+[ext_resource type="PackedScene" uid="uid://msgssfevv8uy" path="res://Assets/Models/Cars/Police.tscn" id="12_ucj5k"]
 [ext_resource type="PackedScene" uid="uid://c5exo6l6xbjp7" path="res://Assets/Models/Roads/road_curve.glb" id="13_66h7g"]
-[ext_resource type="PackedScene" uid="uid://bu62jylca4qm" path="res://Assets/Models/Cars/ambulance.glb" id="15_3xqdv"]
 [ext_resource type="PackedScene" uid="uid://cf50mtnmtu78d" path="res://Assets/Models/City/Roads/RoadSlantHigh.tscn" id="15_4onf1"]
-[ext_resource type="PackedScene" uid="uid://cseqd1ntnlh70" path="res://Assets/Models/Cars/sedan.glb" id="16_ylbys"]
-[ext_resource type="PackedScene" uid="uid://pjk31q4a1ma8" path="res://Assets/Models/Cars/firetruck.glb" id="17_qa56o"]
-[ext_resource type="PackedScene" uid="uid://11sa072nabel" path="res://Assets/Models/Cars/police.glb" id="18_vky8c"]
 [ext_resource type="PackedScene" path="res://Assets/Models/City/Roads/RoadBridge.tscn" id="19_fwe7a"]
 [ext_resource type="PackedScene" uid="uid://bvx280aoqes3o" path="res://Assets/Models/Roads/road_bridge.glb" id="19_xe41m"]
 [ext_resource type="PackedScene" path="res://Assets/Models/City/Roads/RoadCurve.tscn" id="20_s62g5"]
@@ -40,7 +40,11 @@ sky_material = SubResource("ProceduralSkyMaterial_8eok3")
 background_mode = 2
 sky = SubResource("Sky_227wc")
 tonemap_mode = 2
+ssao_enabled = true
+ssil_enabled = true
 glow_enabled = true
+volumetric_fog_density = 0.01
+adjustment_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m516r"]
 albedo_color = Color(0.215686, 0.215686, 0.215686, 1)
@@ -174,19 +178,19 @@ transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -57
 [node name="road_straight12" parent="." instance=ExtResource("11_q4qdv")]
 transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -57.5, 0, -45)
 
-[node name="ambulance" parent="." instance=ExtResource("15_3xqdv")]
+[node name="ambulance3" parent="." instance=ExtResource("9_5sywd")]
 transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0, 0, -5)
 
-[node name="sedan" parent="." instance=ExtResource("16_ylbys")]
+[node name="sedan2" parent="." instance=ExtResource("10_cpw3r")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -44.5033, 5, 4.42723)
 
-[node name="firetruck" parent="." instance=ExtResource("17_qa56o")]
+[node name="firetruck2" parent="." instance=ExtResource("11_r2sdr")]
 transform = Transform3D(-1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, -1.41421, -3, 0, -82)
 
-[node name="police" parent="." instance=ExtResource("18_vky8c")]
+[node name="police2" parent="." instance=ExtResource("12_ucj5k")]
 transform = Transform3D(-1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, -1.41421, 1.78496, 0, -86.7262)
 
-[node name="ambulance2" parent="." instance=ExtResource("15_3xqdv")]
+[node name="ambulance" parent="." instance=ExtResource("9_5sywd")]
 transform = Transform3D(-1, 0, 1.73205, 0, 2, 0, -1.73205, 0, -1, 7, 0, -91)
 
 [node name="road_bridge2" parent="." instance=ExtResource("19_fwe7a")]
@@ -1333,5 +1337,3 @@ transform = Transform3D(10, 0, 5.68434e-14, 0, 10, 0, -5.68434e-14, 0, 10, -63.7
 
 [node name="large_buildingE12" parent="." instance=ExtResource("26_vr2xl")]
 transform = Transform3D(10, 0, 5.68434e-14, 0, 10, 0, -5.68434e-14, 0, 10, -76.7562, 20, 17.2562)
-
-[connection signal="Finished" from="Player" to="Player/HUD" method="Finished" flags=18]
