@@ -55,6 +55,8 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ylyyh")
 
 [node name="Overlay" type="ColorRect" parent="Button"]
 modulate = Color(1, 1, 1, 0)
+z_index = 1
+z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

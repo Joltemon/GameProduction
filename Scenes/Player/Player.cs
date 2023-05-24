@@ -190,6 +190,8 @@ public partial class Player : RigidBody3D
 
 			ApplyAirDrag(delta);
 
+			PhysicsMaterialOverride.Friction = 0; // Set friction to 0 in air
+
 			// Push the player down when crouching in the air
 			if (crouching)
 			{
@@ -218,7 +220,7 @@ public partial class Player : RigidBody3D
 	{
 		// Jumping
 		var jumpPressed = Input.IsActionPressed("MoveJump");
-		var isOnFloor = FloorDetector!.IsColliding();
+		var isOnFloor = FloorDetector!.IsColliding() && FloorDetector.GetCollisionNormal(0).Y > 0.4;
 
 		if (isOnFloor && !IsCurrentlyJumping)
 		{
@@ -233,11 +235,16 @@ public partial class Player : RigidBody3D
 
 		var canJump = CurrentCoyoteTime > 0;
 
-		if (jumpPressed && canJump && !IsCurrentlyJumping && LinearVelocity.Y >= -1)
+		if (jumpPressed && canJump && !IsCurrentlyJumping)
 		{
 			// Jumping
 			IsCurrentlyJumping = true;
 			CurrentCoyoteTime = 0;
+
+			if (LinearVelocity.Y < 0)
+			{
+				LinearVelocity *= new Vector3(1, 0, 1);
+			}
 			
 			if (crouching)
 			{

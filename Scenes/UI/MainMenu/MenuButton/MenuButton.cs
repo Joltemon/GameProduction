@@ -40,9 +40,9 @@ public partial class MenuButton : Control
 		if (Button != null)
 			Button.Position = Vector2.Zero;
 		var windowSize = DisplayServer.WindowGetSize();
-		var positionOffset = Size/2;
+		var positionOffset = Size / 2;
 
-		var finalScale = windowSize / Size; 
+		var finalScale = windowSize / Size;
 
 		var tween = GetTree().CreateTween().SetParallel().SetTrans(Tween.TransitionType.Cubic);
 
