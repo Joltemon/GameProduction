@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cluoqsk08s7uw"]
 
-[ext_resource type="PackedScene" uid="uid://bamodlv01xscd" path="res://Assets/Models/Collectables/EnergyCrystal/scene.gltf" id="1_6jcv6"]
-[ext_resource type="Script" path="res://Scenes/Items/EnergyCrystal/EnergyCrystal.cs" id="2_nlbss"]
+[ext_resource type="PackedScene" uid="uid://bamodlv01xscd" path="res://Assets/Models/Collectables/EnergyCrystal/scene.gltf" id="1_q13vn"]
+[ext_resource type="Script" path="res://Scenes/Items/EnergyCrystal/EnergyCrystal.cs" id="2_1s6sl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pk6uj"]
 albedo_color = Color(0.588235, 0.588235, 0.588235, 1)
@@ -46,9 +46,9 @@ _data = {
 "FloatingAnimation": SubResource("Animation_jdy61")
 }
 
-[node name="EnergyCrystal" node_paths=PackedStringArray("FloatingAnimation") instance=ExtResource("1_6jcv6")]
+[node name="EnergyCrystal" node_paths=PackedStringArray("FloatingAnimation") instance=ExtResource("1_q13vn")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-script = ExtResource("2_nlbss")
+script = ExtResource("2_1s6sl")
 AmmoAmount = 10
 FloatingAnimation = NodePath("AnimationPlayer")
 

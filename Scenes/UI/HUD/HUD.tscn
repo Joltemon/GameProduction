@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://phk6uejxvcxk"]
 
-[ext_resource type="Shader" uid="uid://jx8m6uyfkcvj" path="res://Assets/Shaders/Pixelate.tres" id="1_1myrr"]
-[ext_resource type="Texture2D" uid="uid://dgskw8uqnqfoa" path="res://Assets/Icons/uhhh.png" id="1_4m20x"]
-[ext_resource type="Script" path="res://Scenes/UI/HUD/HUD.cs" id="1_st6v0"]
-[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="2_xso2i"]
-[ext_resource type="Texture2D" uid="uid://c1ejuro6jb3dj" path="res://Assets/Icons/EnergyCrystal.png" id="5_whyg1"]
-[ext_resource type="PackedScene" uid="uid://p8hsy7i7ewlg" path="res://Scenes/UI/PauseMenu/PauseMenu.tscn" id="6_ue4vv"]
+[ext_resource type="Script" path="res://Scenes/UI/HUD/HUD.cs" id="1_oplpe"]
+[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="2_vu8ip"]
+[ext_resource type="Shader" uid="uid://jx8m6uyfkcvj" path="res://Assets/Shaders/Pixelate.tres" id="3_v6vd1"]
+[ext_resource type="Texture2D" uid="uid://dgskw8uqnqfoa" path="res://Assets/Icons/uhhh.png" id="4_y3dis"]
+[ext_resource type="Texture2D" uid="uid://c1ejuro6jb3dj" path="res://Assets/Icons/EnergyCrystal.png" id="5_fijkh"]
+[ext_resource type="PackedScene" uid="uid://p8hsy7i7ewlg" path="res://Scenes/UI/PauseMenu/PauseMenu.tscn" id="6_d2tkl"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3fphl"]
 emission_shape = 2
@@ -22,7 +22,7 @@ scale_max = 5.0
 color = Color(1, 1, 1, 0.392157)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hcf8d"]
-shader = ExtResource("1_1myrr")
+shader = ExtResource("3_v6vd1")
 shader_parameter/pix = 128.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un8lr"]
@@ -53,7 +53,7 @@ _data = {
 }
 
 [node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("Root", "AmmoLabel", "TimerLabel", "SprintBar", "SprintingParticle", "Animation", "PauseMenu", "PixelationLayer")]
-script = ExtResource("1_st6v0")
+script = ExtResource("1_oplpe")
 Root = NodePath("HUD")
 AmmoLabel = NodePath("HUD/EnergyCrystal/Label")
 TimerLabel = NodePath("HUD/TimerLabel")
@@ -72,7 +72,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(576, 324)
-theme = ExtResource("2_xso2i")
+theme = ExtResource("2_vu8ip")
 
 [node name="ParticleControl" type="Control" parent="HUD"]
 layout_mode = 1
@@ -129,7 +129,7 @@ offset_top = -64.0
 offset_right = 40.0
 offset_bottom = -16.0
 grow_vertical = 0
-texture = ExtResource("1_4m20x")
+texture = ExtResource("4_y3dis")
 expand_mode = 1
 stretch_mode = 5
 
@@ -155,7 +155,7 @@ offset_left = 16.0
 offset_top = 16.0
 offset_right = 48.0
 offset_bottom = 64.0
-texture = ExtResource("5_whyg1")
+texture = ExtResource("5_fijkh")
 expand_mode = 1
 stretch_mode = 4
 
@@ -188,5 +188,5 @@ libraries = {
 "": SubResource("AnimationLibrary_htar3")
 }
 
-[node name="PauseMenu" parent="." instance=ExtResource("6_ue4vv")]
+[node name="PauseMenu" parent="." instance=ExtResource("6_d2tkl")]
 visible = false

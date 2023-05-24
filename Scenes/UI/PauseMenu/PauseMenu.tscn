@@ -1,10 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://p8hsy7i7ewlg"]
+[gd_scene load_steps=7 format=3 uid="uid://p8hsy7i7ewlg"]
 
-[ext_resource type="Script" path="res://Scenes/UI/PauseMenu/PauseMenu.cs" id="1_a2ro8"]
-[ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="1_tm56r"]
+[ext_resource type="Script" path="res://Scenes/UI/PauseMenu/PauseMenu.cs" id="1_m2r1d"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Blur.gdshader" id="2_4p1ij"]
+[ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="3_pxxcf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tkc2d"]
+shader = ExtResource("2_4p1ij")
+shader_parameter/strength = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bitq"]
-bg_color = Color(0, 0.678431, 0.929412, 0.466667)
+bg_color = Color(0, 0.572549, 0.784314, 0.466667)
 corner_radius_top_left = 11
 corner_radius_top_right = 11
 corner_radius_bottom_right = 11
@@ -25,10 +30,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_a2ro8")
+script = ExtResource("1_m2r1d")
 MainMenu = "res://Scenes/UI/MainMenu/MainMenu.tscn"
 
 [node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_tkc2d")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,7 +53,7 @@ offset_top = 48.0
 offset_right = 192.0
 offset_bottom = 128.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_tm56r")
+theme_override_fonts/font = ExtResource("3_pxxcf")
 theme_override_font_sizes/font_size = 48
 text = "Paused"
 horizontal_alignment = 1
@@ -65,7 +71,7 @@ offset_right = -128.0
 offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("1_tm56r")
+theme_override_fonts/font = ExtResource("3_pxxcf")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_2bitq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2bitq")
@@ -84,7 +90,7 @@ offset_left = 168.0
 offset_top = -136.0
 offset_right = -152.0
 offset_bottom = -64.0
-theme_override_fonts/font = ExtResource("1_tm56r")
+theme_override_fonts/font = ExtResource("3_pxxcf")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_2bitq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2bitq")

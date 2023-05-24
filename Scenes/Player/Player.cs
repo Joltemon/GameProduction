@@ -43,7 +43,7 @@ public partial class Player : RigidBody3D
 	[ExportGroup("Player Components")]
 	[Export] Camera3D? Camera;
 	[Export] AnimationPlayer? MoveAnim;
-	[Export] Area3D? FloorDetector;
+	[Export] ShapeCast3D? FloorDetector;
 	[Export] CollisionShape3D? Collider;
 	[Export] public WeaponHolder? WeaponHolder;
 	[Export] HUD? Hud;
@@ -94,7 +94,7 @@ public partial class Player : RigidBody3D
 	public override void _PhysicsProcess(double delta)
 	{
 		float sprintAdjustment = 1;
-		bool isGrounded = FloorDetector!.HasOverlappingBodies();
+		bool isGrounded = FloorDetector!.IsColliding();
 		var currentVelocity = LinearVelocity.Length();
 
 		// Sprinting
@@ -120,7 +120,6 @@ public partial class Player : RigidBody3D
 			Move(currentVelocity, isGrounded, sprintAdjustment, (float)delta);
 	}
 
-	bool IsCurrentlyJumping;
 	bool IsCurrentlyCrouchSliding;
 	void Move(float currentVelocity, bool isGrounded, float speed, float delta)
 	{
@@ -152,7 +151,7 @@ public partial class Player : RigidBody3D
 		{
 			if (isCrouchSliding)
 			{
-				LinearDamp = 1;
+				LinearDamp = 0.8f;
 				
 				if (!IsCurrentlyCrouchSliding)
 				{
@@ -169,8 +168,6 @@ public partial class Player : RigidBody3D
 				
 				var friction = inputDir.IsZeroApprox() ? 1 : 0;
 				PhysicsMaterialOverride.Friction = friction;
-
-				HandleJump(delta);
 			}
 		}
 		else // Air movement
@@ -178,22 +175,31 @@ public partial class Player : RigidBody3D
 			moveDir *= AirMoveSpeed;
 
 			// Limit speed
-			// Angle calculation
+			// Angle calculation, desired movement direction relative to their current movement direction
 			var moveDirDirection = new Vector2(moveDir.X, moveDir.Z).Angle();
 			var velocityDirection = new Vector2(LinearVelocity.X, LinearVelocity.Z).Angle();
 			var relativeMoveAngle = (Mathf.Abs(velocityDirection) - Mathf.Abs(moveDirDirection));
 
-			var controlReduction = Mathf.Clamp(currentVelocity, 0, MaxAirSpeed) / MaxAirSpeed; // scale AirMoveSpeed based on how fast the player is going, 0 to 1
+			var controlReduction = Mathf.Clamp(currentVelocity, 0, MaxAirSpeed) / MaxAirSpeed; // scale speed based on how fast the player is going, 0 to 1
 			controlReduction *= 1 - Mathf.Abs(relativeMoveAngle / Mathf.Pi); // scale again based on the direction the player is trying to move, going back easier than going forwards
+			// controlReduction = Mathf.Pow(controlReduction, 2); // adjusts controlreduction to be more generous when moving slowly
 
 			moveDir *= Mathf.Clamp(1 - controlReduction, 0, 1);
 
 			LinearDamp = 0;
 
 			ApplyAirDrag(delta);
+
+			// Push the player down when crouching in the air
+			if (crouching)
+			{
+				ApplyCentralForce(Vector3.Down * CrouchSlideBoost);
+			}
 		}
 
 		ApplyCentralForce(moveDir);
+
+		HandleJump(delta, crouching);
 
 		// Head bob
 		if (MoveAnim != null && isGrounded && currentVelocity > 0 && !isCrouchSliding)
@@ -207,31 +213,44 @@ public partial class Player : RigidBody3D
 		}
 	}
 
-	void HandleJump(float delta)
+	bool IsCurrentlyJumping;
+	void HandleJump(float delta, bool crouching)
 	{
 		// Jumping
 		var jumpPressed = Input.IsActionPressed("MoveJump");
-		var isOnFloor = FloorDetector!.HasOverlappingBodies();
+		var isOnFloor = FloorDetector!.IsColliding();
 
 		if (isOnFloor && !IsCurrentlyJumping)
+		{
 			CurrentCoyoteTime = CoyoteTime;
+		}
 		else
+		{
 			CurrentCoyoteTime -= delta;
+		}
 
 		CurrentCoyoteTime = Mathf.Clamp(CurrentCoyoteTime, 0, CoyoteTime);
 
 		var canJump = CurrentCoyoteTime > 0;
 
-		if (jumpPressed && canJump && !IsCurrentlyJumping)
+		if (jumpPressed && canJump && !IsCurrentlyJumping && LinearVelocity.Y >= -1)
 		{
 			// Jumping
 			IsCurrentlyJumping = true;
 			CurrentCoyoteTime = 0;
-			ApplyCentralImpulse(Vector3.Up * JumpStrength);
+			
+			if (crouching)
+			{
+				ApplyCentralImpulse(Vector3.Up * JumpStrength / 2);
+			}
+			else
+			{
+				ApplyCentralImpulse(Vector3.Up * JumpStrength);
+			}
 		}
-		else if (isOnFloor && IsCurrentlyJumping)
+		else if ((!isOnFloor && IsCurrentlyJumping) || !jumpPressed)
 		{
-			// Just landed
+			// In the air
 			IsCurrentlyJumping = false;
 		}
 	}

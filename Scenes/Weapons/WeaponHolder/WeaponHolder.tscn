@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c1je4btt0vci8"]
 
-[ext_resource type="Script" path="res://Scenes/Weapons/WeaponHolder/WeaponHolder.cs" id="1_jojs7"]
-[ext_resource type="PackedScene" uid="uid://2sph37pnblar" path="res://Scenes/Weapons/Propulsor/Propulsor.tscn" id="2_onpxo"]
+[ext_resource type="Script" path="res://Scenes/Weapons/WeaponHolder/WeaponHolder.cs" id="1_xvcfl"]
+[ext_resource type="PackedScene" uid="uid://2sph37pnblar" path="res://Scenes/Weapons/Propulsor/Propulsor.tscn" id="2_xww0w"]
 
 [sub_resource type="Animation" id="Animation_6q0al"]
 resource_name = "Fire"
@@ -37,7 +37,7 @@ _data = {
 }
 
 [node name="WeaponHolder" type="Node3D" node_paths=PackedStringArray("Weapon", "WeaponOffset", "AimRaycast", "AnimationPlayer")]
-script = ExtResource("1_jojs7")
+script = ExtResource("1_xvcfl")
 Weapon = NodePath("WeaponOffset/Propulsor")
 WeaponOffset = NodePath("WeaponOffset")
 AimRaycast = NodePath("RayCast")
@@ -48,7 +48,7 @@ HorizontalRecoil = 10.0
 [node name="WeaponOffset" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.3, 0.05)
 
-[node name="Propulsor" parent="WeaponOffset" instance=ExtResource("2_onpxo")]
+[node name="Propulsor" parent="WeaponOffset" instance=ExtResource("2_xww0w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6)
 
 [node name="Model" parent="WeaponOffset/Propulsor" index="1"]

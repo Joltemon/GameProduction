@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://2sph37pnblar"]
 
-[ext_resource type="Script" path="res://Scenes/Weapons/Propulsor/Propulsor.cs" id="1_ap5w0"]
-[ext_resource type="PackedScene" uid="uid://oqp8xiwqab1k" path="res://Scenes/Weapons/Projectile/Projectile.tscn" id="2_ahycn"]
-[ext_resource type="PackedScene" uid="uid://cssoysrg27fh8" path="res://Assets/Models/QBlasters/AR_2.gltf" id="2_v12pu"]
+[ext_resource type="Script" path="res://Scenes/Weapons/Propulsor/Propulsor.cs" id="1_8ma6v"]
+[ext_resource type="PackedScene" uid="uid://oqp8xiwqab1k" path="res://Scenes/Weapons/Projectile/Projectile.tscn" id="2_h7blf"]
+[ext_resource type="PackedScene" uid="uid://cssoysrg27fh8" path="res://Assets/Models/QBlasters/AR_2.gltf" id="3_xhi2c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0gble"]
 resource_name = "Black"
@@ -33,16 +33,16 @@ albedo_color = Color(0.486275, 0.145098, 0.137255, 1)
 roughness = 0.7
 
 [node name="Propulsor" type="Node3D" node_paths=PackedStringArray("Tip", "CooldownTimer")]
-script = ExtResource("1_ap5w0")
+script = ExtResource("1_8ma6v")
 Ammunition = 5
-Projectile = ExtResource("2_ahycn")
+Projectile = ExtResource("2_h7blf")
 Tip = NodePath("Tip")
 CooldownTimer = NodePath("Cooldown")
 
 [node name="Tip" type="Node3D" parent="."]
 transform = Transform3D(-2.62268e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.62268e-08, -1.31134e-08, 0.198, -0.3)
 
-[node name="Model" parent="." instance=ExtResource("2_v12pu")]
+[node name="Model" parent="." instance=ExtResource("3_xhi2c")]
 transform = Transform3D(-2.62268e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.62268e-08, 0, 0, 0)
 
 [node name="AR_22" parent="Model" index="0"]
@@ -53,7 +53,6 @@ surface_material_override/2 = SubResource("StandardMaterial3D_ribur")
 surface_material_override/3 = SubResource("StandardMaterial3D_hyv6a")
 
 [node name="Cooldown" type="Timer" parent="."]
-wait_time = 0.2
 one_shot = true
 
 [editable path="Model"]
