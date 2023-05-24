@@ -216,6 +216,19 @@ offset_left = -171.0
 offset_right = -11.0
 text = "spacebar"
 
+[node name="RestartPanel" parent="ControlsPanel" instance=ExtResource("3_uhmih")]
+layout_mode = 1
+offset_top = -16.0
+offset_bottom = 40.0
+
+[node name="Label" parent="ControlsPanel/RestartPanel" index="0"]
+text = "restart"
+
+[node name="Key" parent="ControlsPanel/RestartPanel" index="1"]
+offset_left = -171.0
+offset_right = -11.0
+text = "        ~ "
+
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -276,3 +289,4 @@ libraries = {
 [editable path="SettingsPanel/Pixelation"]
 [editable path="ControlsPanel/ShootPanel"]
 [editable path="ControlsPanel/JumpPanel"]
+[editable path="ControlsPanel/RestartPanel"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://p8hsy7i7ewlg"]
+[gd_scene load_steps=11 format=3 uid="uid://p8hsy7i7ewlg"]
 
 [ext_resource type="Script" path="res://Scenes/UI/PauseMenu/PauseMenu.cs" id="1_m2r1d"]
 [ext_resource type="Shader" path="res://Assets/Shaders/Blur.gdshader" id="2_4p1ij"]
@@ -17,6 +17,34 @@ corner_radius_bottom_left = 11
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgdwo"]
 bg_color = Color(0.494118, 0.819608, 1, 0.466667)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtwsh"]
+bg_color = Color(0.909804, 0.129412, 0.0705882, 0.466667)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbe1t"]
+bg_color = Color(0.541176, 0.0509804, 0.0196078, 0.466667)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56jpp"]
+bg_color = Color(0.909804, 0.129412, 0.0705882, 0.466667)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqblx"]
+bg_color = Color(0.909804, 0.129412, 0.0705882, 0.466667)
 corner_radius_top_left = 11
 corner_radius_top_right = 11
 corner_radius_bottom_right = 11
@@ -87,9 +115,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 168.0
-offset_top = -136.0
+offset_top = -144.0
 offset_right = -152.0
-offset_bottom = -64.0
+offset_bottom = -72.0
 theme_override_fonts/font = ExtResource("3_pxxcf")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_2bitq")
@@ -98,5 +126,25 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_lgdwo")
 theme_override_styles/focus = SubResource("StyleBoxFlat_2bitq")
 text = "Main Menu"
 
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51
+anchor_top = 1.0
+anchor_right = 0.51
+anchor_bottom = 1.0
+offset_left = -67.5201
+offset_top = -136.0
+offset_right = 68.4799
+offset_bottom = -80.0
+theme_override_fonts/font = ExtResource("3_pxxcf")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_dtwsh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vbe1t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_56jpp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_dqblx")
+text = "Restart"
+
 [connection signal="pressed" from="ResumeButton" to="." method="ResumeButtonPressed"]
 [connection signal="pressed" from="MainMenuButton" to="." method="MainMenuButtonPressed"]
+[connection signal="pressed" from="RestartButton" to="." method="RestartButtonPressed"]
