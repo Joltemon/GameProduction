@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5364smmu1y8c"]
+
+[ext_resource type="Texture2D" uid="uid://bdrvfq6f4jvjc" path="res://Assets/Icons/pfpplaceholder.png" id="1_2ugyf"]
+[ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/LevelsItems/LevelSection.cs" id="1_gdjw8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1twe"]
+bg_color = Color(0.792157, 0.792157, 0.792157, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cywje"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5c0y"]
+bg_color = Color(0, 0, 0, 0.176471)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edew8"]
+bg_color = Color(0, 0, 0, 0.364706)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_po2f4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wms76"]
+
+[node name="LevelSection" type="Panel"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(200, 180)
+offset_left = -96.0
+offset_top = -96.0
+offset_right = 104.0
+offset_bottom = 84.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_s1twe")
+script = ExtResource("1_gdjw8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -55.0
+offset_right = 91.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2ugyf")
+expand_mode = 1
+
+[node name="CreditorTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -101.0
+offset_top = 1.0
+offset_right = 101.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 22
+text = "Name"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cywje")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y5c0y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_edew8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_po2f4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wms76")
+
+[connection signal="pressed" from="Button" to="." method="LevelPressed"]
