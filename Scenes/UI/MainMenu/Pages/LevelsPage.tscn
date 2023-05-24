@@ -1,0 +1,180 @@
+[gd_scene load_steps=12 format=3 uid="uid://2ovnxqf16kqc"]
+
+[ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/LevelsPage.cs" id="1_8lhgr"]
+[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="1_kb8v4"]
+[ext_resource type="PackedScene" uid="uid://c5364smmu1y8c" path="res://Scenes/UI/MainMenu/Pages/LevelsItems/LevelSection.tscn" id="2_0at82"]
+[ext_resource type="Texture2D" uid="uid://d21sicjaf81cf" path="res://Assets/Icons/logout.png" id="3_prv0i"]
+[ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="4_wpe2o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb174"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_707je"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_upfml"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_facve"]
+bg_color = Color(0.0313726, 0.0313726, 0.0313726, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wicih"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jj5pg"]
+
+[node name="LevelsPage" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8lhgr")
+MainMenuPage = "res://Scenes/UI/MainMenu/MainMenu.tscn"
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235294, 0.235294, 0.235294, 1)
+
+[node name="LevelsPanel" type="Panel" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = 56.0
+offset_right = -120.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bb174")
+
+[node name="GridContainer" type="GridContainer" parent="LevelsPanel"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_left = 16.0
+offset_top = 96.0
+offset_right = 897.0
+offset_bottom = 519.0
+columns = 4
+
+[node name="City" parent="LevelsPanel/GridContainer" instance=ExtResource("2_0at82")]
+layout_mode = 2
+size_flags_vertical = 4
+Level = "res://Scenes/Maps/City/City.tscn"
+
+[node name="CreditorTitle" parent="LevelsPanel/GridContainer/City" index="1"]
+text = "Pink City idk"
+
+[node name="Demo Level" parent="LevelsPanel/GridContainer" instance=ExtResource("2_0at82")]
+layout_mode = 2
+size_flags_vertical = 4
+Level = "res://Scenes/Maps/Empty/Empty.tscn"
+
+[node name="CreditorTitle" parent="LevelsPanel/GridContainer/Demo Level" index="1"]
+text = "Demo
+"
+
+[node name="LevelsTitle" type="Label" parent="LevelsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 36.0
+offset_top = 16.0
+offset_right = -28.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kb8v4")
+theme_override_colors/font_color = Color(0, 0.313726, 0.972549, 1)
+theme_override_colors/font_outline_color = Color(0.564706, 0.560784, 0.784314, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 63
+text = "Level Selection"
+horizontal_alignment = 1
+
+[node name="BackButtonPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -44.0
+offset_right = 63.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_707je")
+
+[node name="Button" type="Button" parent="BackButtonPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_upfml")
+theme_override_styles/hover = SubResource("StyleBoxFlat_facve")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wicih")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jj5pg")
+
+[node name="BackIcon" type="TextureRect" parent="BackButtonPanel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -14.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_prv0i")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="BackButtonPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -20.0
+offset_right = 104.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_wpe2o")
+theme_override_font_sizes/font_size = 24
+text = "Back"
+vertical_alignment = 1
+
+[connection signal="pressed" from="BackButtonPanel/Button" to="." method="BackButtonPressed"]
+
+[editable path="LevelsPanel/GridContainer/City"]
+[editable path="LevelsPanel/GridContainer/Demo Level"]
