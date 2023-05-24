@@ -1,7 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://pducdeyki048"]
+[gd_scene load_steps=8 format=3 uid="uid://pducdeyki048"]
 
 [ext_resource type="PackedScene" uid="uid://dy6gvctilt7wg" path="res://Assets/Models/Collectables/Bottle/scene.gltf" id="1_d52gm"]
 [ext_resource type="Script" path="res://Scenes/Items/Adrenaline/Adrenaline.cs" id="2_kqedr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fq523"]
+albedo_color = Color(0, 0.239216, 1, 1)
+emission_enabled = true
+emission = Color(0, 0, 1, 1)
+emission_energy_multiplier = 6.52
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_o8sh5"]
 radius = 0.3
@@ -52,6 +58,9 @@ FloatingAnimation = NodePath("AnimationPlayer")
 
 [node name="Sketchfab_model" parent="." index="0"]
 transform = Transform3D(-0.00916932, 0.010383, 4.53854e-10, 0, -6.055e-10, 0.0138521, 0.010383, 0.00916935, 4.00802e-10, 0, 0.117689, 0)
+
+[node name="Water_bottle_01_RGB_texture_0" parent="Sketchfab_model/d29a4dae1ebb4be29545fb45126e257bfbx/RootNode/Water_bottle_01" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fq523")
 
 [node name="Area3D" type="Area3D" parent="." index="1"]
 collision_mask = 2
