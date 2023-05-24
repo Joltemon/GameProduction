@@ -123,6 +123,7 @@ CrouchStrength = 0.5
 MaxAirSpeed = 20.0
 SprintDepletionRate = 10.0
 CoyoteTime = 0.2
+CrouchSlideBoost = 30.0
 Camera = NodePath("Head/Camera")
 MoveAnim = NodePath("Head/Animation")
 FloorDetector = NodePath("Collider/FloorDetector")
