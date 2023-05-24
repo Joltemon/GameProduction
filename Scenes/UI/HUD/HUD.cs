@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 public partial class HUD : CanvasLayer
 {
@@ -11,6 +12,10 @@ public partial class HUD : CanvasLayer
 	[Export] GpuParticles2D? SprintingParticle;
 	[Export] AnimationPlayer? Animation;
 	[Export] Control? PauseMenu;
+
+	[Export] TextureProgressBar? RestartProgressBar;
+	Boolean ProgressBarPressed;
+	double ProgressBarProgress = 0;
 
 	[Export] ColorRect? PixelationLayer;
 
@@ -67,6 +72,18 @@ public partial class HUD : CanvasLayer
 		if (Player == null) return;
 
 		UpdateTimer(Player.Stopwatch);
+
+		if (Input.IsActionPressed("RestartLevel")) 
+		{
+			RestartProgressBarPressed(delta);
+		}
+		else
+		{
+			RestartProgressBarReleased(delta);
+		}
+
+		ProgressBarProgress = Mathf.Clamp(ProgressBarProgress, 0, 100);
+		RestartProgressBar!.Value = ProgressBarProgress;
 	}
 
 	public void UpdateSprint(float value, bool animate = true)
@@ -85,5 +102,26 @@ public partial class HUD : CanvasLayer
 
 	void Finished() {
 		TimerLabel?.Set("theme_override_colors/font_color", Color.Color8(0, 232, 0));
+	}
+
+	public void RestartProgressBarPressed(double delta) 
+	{
+		ProgressBarProgress += delta * 200.0;
+		
+		// if the progres bar is full it restarts
+		if (ProgressBarProgress >= 100) 
+		{
+			Input.MouseMode = Input.MouseModeEnum.Captured;
+			Visible = false;
+			GetTree().Paused = false;
+			RestartProgressBar!.Value = 0;
+			GetTree().ReloadCurrentScene();
+		}
+	}
+
+	public void RestartProgressBarReleased(double delta) 
+	{
+		// await Task.Delay(100);
+		ProgressBarProgress -= delta * 250.0;
 	}
 }

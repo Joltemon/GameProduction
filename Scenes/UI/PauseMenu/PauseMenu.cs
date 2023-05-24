@@ -21,6 +21,14 @@ public partial class PauseMenu : Control
 		}
 	}
 
+	void RestartButtonPressed()
+	{
+		Input.MouseMode = Input.MouseModeEnum.Captured;
+		Visible = false;
+		GetTree().Paused = false;
+		GetTree().ReloadCurrentScene();
+	}
+
 
 	public override void _Input(InputEvent inputEvent)
 	{
