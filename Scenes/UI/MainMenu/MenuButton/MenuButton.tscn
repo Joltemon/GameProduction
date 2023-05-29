@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bglm530iuirb7"]
 
-[ext_resource type="FontFile" uid="uid://dyqcx0nfi1g2n" path="res://Assets/Fonts/SourceCodePro-BoldItalic.ttf" id="1_y1eor"]
-[ext_resource type="Script" path="res://Scenes/UI/MainMenu/MenuButton/MenuButton.cs" id="2_npxms"]
+[ext_resource type="Script" path="res://Scenes/UI/MainMenu/MenuButton/MenuButton.cs" id="1_05nnj"]
+[ext_resource type="FontFile" uid="uid://dyqcx0nfi1g2n" path="res://Assets/Fonts/SourceCodePro-BoldItalic.ttf" id="2_kf3kj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f54qu"]
 bg_color = Color(0.156863, 0.156863, 0.156863, 1)
@@ -33,7 +33,7 @@ anchors_preset = 0
 offset_right = 256.0
 offset_bottom = 64.0
 pivot_offset = Vector2(128, 32)
-script = ExtResource("2_npxms")
+script = ExtResource("1_05nnj")
 HoverOffset = Vector2(20, 0)
 Button = NodePath("Button")
 Overlay = NodePath("Button/Overlay")
@@ -46,7 +46,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(128, 32)
-theme_override_fonts/font = ExtResource("1_y1eor")
+theme_override_fonts/font = ExtResource("2_kf3kj")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_f54qu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_f54qu")
