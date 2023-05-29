@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://2ovnxqf16kqc"]
+[gd_scene load_steps=15 format=3 uid="uid://2ovnxqf16kqc"]
 
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/LevelsPage.cs" id="1_ju748"]
 [ext_resource type="PackedScene" uid="uid://c5364smmu1y8c" path="res://Scenes/UI/MainMenu/Pages/LevelsItems/LevelSection.tscn" id="2_8kgn1"]
@@ -38,7 +38,7 @@ corner_radius_bottom_left = 11
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jj5pg"]
 
-[node name="LevelsPage" type="Control"]
+[node name="LevelsPage" type="Control" node_paths=PackedStringArray("Galaxy")]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 15
@@ -48,6 +48,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ju748")
 MainMenuPage = "res://Scenes/UI/MainMenu/MainMenu.tscn"
+Galaxy = NodePath("Galaxy")
+
+[node name="Galaxy" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -198.0
+offset_top = -144.0
+offset_right = 196.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ob1rl")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -56,7 +72,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.235294, 0.235294, 0.235294, 1)
+color = Color(0, 0, 0, 0.121569)
 
 [node name="LevelsPanel" type="Panel" parent="."]
 clip_contents = true
