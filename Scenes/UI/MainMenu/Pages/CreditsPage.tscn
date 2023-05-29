@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://bplymclic6bkw"]
 
-[ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/CreditsPage.cs" id="1_0alne"]
-[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="2_i6ayd"]
-[ext_resource type="Texture2D" uid="uid://d21sicjaf81cf" path="res://Assets/Icons/logout.png" id="3_u5twr"]
-[ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="4_8u6vb"]
-[ext_resource type="PackedScene" uid="uid://buy74qtmg3cln" path="res://Scenes/UI/CreditsPage/Section.tscn" id="5_tqiy0"]
-[ext_resource type="Texture2D" uid="uid://hojhj4msab7x" path="res://Assets/Icons/flaticon.jpg" id="6_8jk4a"]
+[ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/CreditsPage.cs" id="1_2w50i"]
+[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="2_ukbpv"]
+[ext_resource type="PackedScene" uid="uid://buy74qtmg3cln" path="res://Scenes/UI/CreditsPage/Section.tscn" id="3_vc013"]
+[ext_resource type="Texture2D" uid="uid://hojhj4msab7x" path="res://Assets/Icons/flaticon.jpg" id="4_s3svf"]
+[ext_resource type="Texture2D" uid="uid://d21sicjaf81cf" path="res://Assets/Icons/logout.png" id="5_8gsq8"]
+[ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="6_jop3q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cigf"]
 bg_color = Color(0.152941, 0.152941, 0.152941, 1)
@@ -46,7 +46,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0alne")
+script = ExtResource("1_2w50i")
 CreditsPanel = NodePath("CreditsPanel")
 CreditsTitle = NodePath("CreditsPanel/CreditsTitle")
 Speed = 0.5
@@ -84,7 +84,7 @@ offset_right = -28.0
 offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_i6ayd")
+theme = ExtResource("2_ukbpv")
 theme_override_colors/font_color = Color(0, 0.313726, 0.972549, 1)
 theme_override_colors/font_outline_color = Color(0.564706, 0.560784, 0.784314, 1)
 theme_override_constants/outline_size = 6
@@ -92,7 +92,7 @@ theme_override_font_sizes/font_size = 63
 text = "Credits"
 horizontal_alignment = 1
 
-[node name="Section" parent="CreditsPanel" instance=ExtResource("5_tqiy0")]
+[node name="Section" parent="CreditsPanel" instance=ExtResource("3_vc013")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.079
@@ -107,7 +107,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="TextureRect" parent="CreditsPanel/Section" index="0"]
-texture = ExtResource("6_8jk4a")
+texture = ExtResource("4_s3svf")
 
 [node name="CreditorTitle" parent="CreditsPanel/Section" index="1"]
 offset_top = -56.0
@@ -162,7 +162,7 @@ offset_top = -14.0
 offset_bottom = 12.0
 grow_horizontal = 0
 grow_vertical = 2
-texture = ExtResource("3_u5twr")
+texture = ExtResource("5_8gsq8")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="BackButtonPanel"]
@@ -175,7 +175,7 @@ offset_top = -20.0
 offset_right = 104.0
 offset_bottom = 20.0
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_8u6vb")
+theme_override_fonts/font = ExtResource("6_jop3q")
 theme_override_font_sizes/font_size = 24
 text = "Back"
 vertical_alignment = 1

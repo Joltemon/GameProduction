@@ -49,6 +49,10 @@ public partial class Player : RigidBody3D
 	[Export] HUD? Hud;
 	[Export] AnimationPlayer? Animation;
 
+	[Export] float ExtraSpeedMaxTime;
+	double ExtraSpeedTimer;
+	Boolean ExtraSpeedChange = false;
+
 	[Signal] public delegate void FinishedEventHandler();
 
 	public override void _Ready()
@@ -89,6 +93,36 @@ public partial class Player : RigidBody3D
 		}
 
 		UpdateTimer(delta);
+		
+
+		if (ExtraSpeedTimer > 0) 
+		{
+			ExtraSpeedTimer -= delta * 200.0;
+			Hud!.ExtraSpeedBar!.Value = ExtraSpeedTimer;
+			if (ExtraSpeedChange == false)
+			{
+				ExtraSpeedChange = true;
+				UpdateSpeed(2f);
+				Hud.SprintingParticle!.ProcessMaterial.Set("process_material/color", Color.Color8(242, 0, 247));
+				// CHANGE THE COLOR
+				// CHANGE THE COLOR
+				// CHANGE THE COLOR
+				// CHANGE THE COLOR
+				// CHANGE THE COLOR
+				// CHANGE THE COLOR
+				// CHANGE THE COLOR
+			}
+		}
+		else 
+		{
+			Hud!.ExtraSpeedBar!.Visible = false;
+			if (ExtraSpeedChange == true)
+			{
+				ExtraSpeedChange = false;
+				UpdateSpeed(0.5f);
+				Hud.SprintingParticle!.ProcessMaterial.Set("process_material/color", Color.Color8(255, 255, 255));
+			}
+		}
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -322,5 +356,19 @@ public partial class Player : RigidBody3D
 				SprintEnergy = 100;
 			}
 		}
+	}
+
+	
+	public void ExtraSpeedBoost() {
+		ExtraSpeedTimer = ExtraSpeedMaxTime*100;
+		Hud!.ExtraSpeedBar!.MaxValue = ExtraSpeedTimer;
+		Hud!.ExtraSpeedBar!.Visible = true;
+	}
+
+	void UpdateSpeed(float num) 
+	{
+		MoveSpeed = MoveSpeed*num;
+		AirMoveSpeed = AirMoveSpeed*num;
+		FlyMoveSpeed = FlyMoveSpeed*num;
 	}
 }
