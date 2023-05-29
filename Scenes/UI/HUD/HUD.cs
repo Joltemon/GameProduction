@@ -9,13 +9,15 @@ public partial class HUD : CanvasLayer
 	[Export] Label? AmmoLabel;
 	[Export] public Label? TimerLabel;
 	[Export] ProgressBar? SprintBar;
-	[Export] GpuParticles2D? SprintingParticle;
+	[Export] public GpuParticles2D? SprintingParticle;
 	[Export] AnimationPlayer? Animation;
 	[Export] Control? PauseMenu;
 
 	[Export] TextureProgressBar? RestartProgressBar;
 	Boolean ProgressBarPressed;
 	double ProgressBarProgress = 0;
+
+	[Export] public TextureProgressBar? ExtraSpeedBar;
 
 	[Export] ColorRect? PixelationLayer;
 

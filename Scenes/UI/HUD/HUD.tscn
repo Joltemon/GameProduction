@@ -1,12 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://phk6uejxvcxk"]
+[gd_scene load_steps=15 format=3 uid="uid://phk6uejxvcxk"]
 
-[ext_resource type="Script" path="res://Scenes/UI/HUD/HUD.cs" id="1_1rixs"]
-[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="2_1kkww"]
-[ext_resource type="Shader" uid="uid://jx8m6uyfkcvj" path="res://Assets/Shaders/Pixelate.tres" id="3_d7tfw"]
-[ext_resource type="Texture2D" uid="uid://dgskw8uqnqfoa" path="res://Assets/Icons/uhhh.png" id="4_5oxrl"]
-[ext_resource type="Texture2D" uid="uid://c1ejuro6jb3dj" path="res://Assets/Icons/EnergyCrystal.png" id="5_vf12a"]
-[ext_resource type="Texture2D" uid="uid://c3248lhgwo4gc" path="res://Assets/Icons/undercirc.png" id="6_qndko"]
-[ext_resource type="PackedScene" uid="uid://p8hsy7i7ewlg" path="res://Scenes/UI/PauseMenu/PauseMenu.tscn" id="7_3osa5"]
+[ext_resource type="Script" path="res://Scenes/UI/HUD/HUD.cs" id="1_qe7xn"]
+[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="2_sod4d"]
+[ext_resource type="Shader" uid="uid://jx8m6uyfkcvj" path="res://Assets/Shaders/Pixelate.tres" id="3_657do"]
+[ext_resource type="Texture2D" uid="uid://dgskw8uqnqfoa" path="res://Assets/Icons/uhhh.png" id="4_l8ch0"]
+[ext_resource type="Texture2D" uid="uid://c1ejuro6jb3dj" path="res://Assets/Icons/EnergyCrystal.png" id="5_foytx"]
+[ext_resource type="Texture2D" uid="uid://c3248lhgwo4gc" path="res://Assets/Icons/undercirc.png" id="6_5hf4n"]
+[ext_resource type="PackedScene" uid="uid://p8hsy7i7ewlg" path="res://Scenes/UI/PauseMenu/PauseMenu.tscn" id="7_0yrdj"]
+[ext_resource type="Texture2D" uid="uid://d0qcoffmyswt8" path="res://Assets/Icons/unnamedbarunder.png" id="7_4vkgh"]
+[ext_resource type="Texture2D" uid="uid://bc4wujglln0br" path="res://Assets/Icons/unnamedbar.png" id="8_f6bsa"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3fphl"]
 emission_shape = 2
@@ -20,10 +22,9 @@ linear_accel_max = 1.0
 radial_accel_min = 100.0
 radial_accel_max = 100.0
 scale_max = 5.0
-color = Color(1, 1, 1, 0.392157)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hcf8d"]
-shader = ExtResource("3_d7tfw")
+shader = ExtResource("3_657do")
 shader_parameter/pix = 128.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un8lr"]
@@ -53,8 +54,8 @@ _data = {
 "Show": SubResource("Animation_u3kwk")
 }
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("Root", "AmmoLabel", "TimerLabel", "SprintBar", "SprintingParticle", "Animation", "PauseMenu", "RestartProgressBar", "PixelationLayer")]
-script = ExtResource("1_1rixs")
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("Root", "AmmoLabel", "TimerLabel", "SprintBar", "SprintingParticle", "Animation", "PauseMenu", "RestartProgressBar", "ExtraSpeedBar", "PixelationLayer")]
+script = ExtResource("1_qe7xn")
 Root = NodePath("HUD")
 AmmoLabel = NodePath("HUD/EnergyCrystal/Label")
 TimerLabel = NodePath("HUD/TimerLabel")
@@ -63,6 +64,7 @@ SprintingParticle = NodePath("HUD/ParticleControl/GPUParticles2D")
 Animation = NodePath("AnimationPlayer")
 PauseMenu = NodePath("PauseMenu")
 RestartProgressBar = NodePath("HUD/RestartProgressBar")
+ExtraSpeedBar = NodePath("HUD/ExtraSpeedProgressBar")
 PixelationLayer = NodePath("HUD/PixelationLayer")
 SpeedLimit = 16.0
 
@@ -74,7 +76,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(576, 324)
-theme = ExtResource("2_1kkww")
+theme = ExtResource("2_sod4d")
 
 [node name="ParticleControl" type="Control" parent="HUD"]
 layout_mode = 1
@@ -131,7 +133,7 @@ offset_top = -64.0
 offset_right = 40.0
 offset_bottom = -16.0
 grow_vertical = 0
-texture = ExtResource("4_5oxrl")
+texture = ExtResource("4_l8ch0")
 expand_mode = 1
 stretch_mode = 5
 
@@ -157,7 +159,7 @@ offset_left = 16.0
 offset_top = 16.0
 offset_right = 48.0
 offset_bottom = 64.0
-texture = ExtResource("5_vf12a")
+texture = ExtResource("5_foytx")
 expand_mode = 1
 stretch_mode = 4
 
@@ -200,12 +202,30 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
 fill_mode = 4
-texture_progress = ExtResource("6_qndko")
+texture_progress = ExtResource("6_5hf4n")
+
+[node name="ExtraSpeedProgressBar" type="TextureProgressBar" parent="HUD"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -204.0
+offset_top = -47.0
+offset_right = 1844.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+value = 25.0
+texture_under = ExtResource("7_4vkgh")
+texture_progress = ExtResource("8_f6bsa")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_htar3")
 }
 
-[node name="PauseMenu" parent="." instance=ExtResource("7_3osa5")]
+[node name="PauseMenu" parent="." instance=ExtResource("7_0yrdj")]
 visible = false

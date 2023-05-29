@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c5364smmu1y8c"]
 
-[ext_resource type="Texture2D" uid="uid://bdrvfq6f4jvjc" path="res://Assets/Icons/pfpplaceholder.png" id="1_2ugyf"]
-[ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/LevelsItems/LevelSection.cs" id="1_gdjw8"]
+[ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/LevelsItems/LevelSection.cs" id="1_m7jvr"]
+[ext_resource type="Texture2D" uid="uid://bdrvfq6f4jvjc" path="res://Assets/Icons/pfpplaceholder.png" id="2_bxkhc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s1twe"]
 bg_color = Color(0.792157, 0.792157, 0.792157, 1)
@@ -30,7 +30,7 @@ offset_top = -96.0
 offset_right = 104.0
 offset_bottom = 84.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_s1twe")
-script = ExtResource("1_gdjw8")
+script = ExtResource("1_m7jvr")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -45,7 +45,7 @@ offset_right = 91.0
 offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_2ugyf")
+texture = ExtResource("2_bxkhc")
 expand_mode = 1
 
 [node name="CreditorTitle" type="Label" parent="."]
