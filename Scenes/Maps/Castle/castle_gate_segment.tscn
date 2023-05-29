@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://cbq7dihrec7y7"]
 
-[ext_resource type="ArrayMesh" uid="uid://doptfnj6l0l2x" path="res://Assets/Models/Castle/towerSquareArch.obj" id="1_8lav8"]
-[ext_resource type="ArrayMesh" uid="uid://dd82qchveaxpj" path="res://Assets/Models/Castle/towerSquareMidWindows.obj" id="2_2q7uy"]
-[ext_resource type="ArrayMesh" uid="uid://1gea0oajqa16" path="res://Assets/Models/Castle/towerSquareTop.obj" id="3_bf0l8"]
-[ext_resource type="ArrayMesh" uid="uid://duyn2k4g6ncqc" path="res://Assets/Models/Castle/wall.obj" id="4_nyv5y"]
-[ext_resource type="ArrayMesh" uid="uid://kur8rln47trv" path="res://Assets/Models/Castle/metalGate.obj" id="5_obc67"]
-[ext_resource type="ArrayMesh" uid="uid://1eqp0a3ugb4b" path="res://Assets/Models/Castle/bridge.obj" id="6_7yv20"]
+[ext_resource type="ArrayMesh" uid="uid://doptfnj6l0l2x" path="res://Assets/Models/Castle/towerSquareArch.obj" id="1_xawc5"]
+[ext_resource type="ArrayMesh" uid="uid://dd82qchveaxpj" path="res://Assets/Models/Castle/towerSquareMidWindows.obj" id="2_xujn8"]
+[ext_resource type="ArrayMesh" uid="uid://1gea0oajqa16" path="res://Assets/Models/Castle/towerSquareTop.obj" id="3_usawn"]
+[ext_resource type="ArrayMesh" uid="uid://kur8rln47trv" path="res://Assets/Models/Castle/metalGate.obj" id="4_ymi1s"]
+[ext_resource type="ArrayMesh" uid="uid://1eqp0a3ugb4b" path="res://Assets/Models/Castle/bridge.obj" id="5_i0gov"]
+[ext_resource type="ArrayMesh" uid="uid://duyn2k4g6ncqc" path="res://Assets/Models/Castle/wall.obj" id="6_82xwe"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ngejh"]
 points = PackedVector3Array(-10, 0.999902, -1.80478e-15, -9.65055, 0, 0.349452, -10, 0.999902, 10, -10, 3, -1.80478e-15, 0, 0.999902, -1.80478e-15, -9.65055, 0, 9.64957, -0.35043, 0, 0.349452, -10, 3, 10, 0, 0.999902, 10, 0, 3, -1.80478e-15, -0.35043, 0, 9.64957, 0, 3, 10)
@@ -33,16 +33,16 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0,
 
 [node name="TowerSquareArch" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.699999, 0, 5)
-mesh = ExtResource("1_8lav8")
+mesh = ExtResource("1_xawc5")
 
 [node name="TowerSquareMidWindows" type="MeshInstance3D" parent="TowerSquareArch"]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 9.53674e-07, 10, 0)
-mesh = ExtResource("2_2q7uy")
+mesh = ExtResource("2_xujn8")
 skeleton = NodePath("")
 
 [node name="TowerSquareTop" type="MeshInstance3D" parent="TowerSquareArch/TowerSquareMidWindows"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -0.699999)
-mesh = ExtResource("3_bf0l8")
+mesh = ExtResource("3_usawn")
 skeleton = NodePath("../../../..")
 
 [node name="Collider" type="StaticBody3D" parent="TowerSquareArch/TowerSquareMidWindows/TowerSquareTop"]
@@ -64,7 +64,7 @@ shape = SubResource("ConcavePolygonShape3D_4n2ch")
 
 [node name="MetalGate" type="MeshInstance3D" parent="TowerSquareArch"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.7, 0.7, 1.3)
-mesh = ExtResource("5_obc67")
+mesh = ExtResource("4_ymi1s")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="TowerSquareArch/MetalGate"]
@@ -74,12 +74,12 @@ shape = SubResource("ConvexPolygonShape3D_0bxak")
 
 [node name="Bridge" type="MeshInstance3D" parent="TowerSquareArch"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.5, 0, -0.699999)
-mesh = ExtResource("6_7yv20")
+mesh = ExtResource("5_i0gov")
 skeleton = NodePath("../..")
 
 [node name="WallRight" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, -6)
-mesh = ExtResource("4_nyv5y")
+mesh = ExtResource("6_82xwe")
 skeleton = NodePath("../..")
 
 [node name="Collider" type="StaticBody3D" parent="WallRight"]
@@ -90,7 +90,7 @@ shape = SubResource("ConvexPolygonShape3D_1t5jm")
 
 [node name="WallMid" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
-mesh = ExtResource("4_nyv5y")
+mesh = ExtResource("6_82xwe")
 skeleton = NodePath("../WallRight")
 
 [node name="Collider" type="StaticBody3D" parent="WallMid"]
@@ -100,7 +100,7 @@ shape = SubResource("ConvexPolygonShape3D_m8vxs")
 
 [node name="WallLeft" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0.1, 0, 6)
-mesh = ExtResource("4_nyv5y")
+mesh = ExtResource("6_82xwe")
 skeleton = NodePath("../WallRight")
 
 [node name="Collider" type="StaticBody3D" parent="WallLeft"]

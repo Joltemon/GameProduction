@@ -1,19 +1,67 @@
-[gd_scene load_steps=19 format=3 uid="uid://w5vg4bxk8ywg"]
+[gd_scene load_steps=20 format=3 uid="uid://w5vg4bxk8ywg"]
 
-[ext_resource type="Texture2D" uid="uid://bskc17spmg4eh" path="res://Assets/Textures/Sky/CastleSky.jpg" id="1_ykwrd"]
-[ext_resource type="ArrayMesh" uid="uid://1eqp0a3ugb4b" path="res://Assets/Models/Castle/bridge.obj" id="2_cuip1"]
-[ext_resource type="PackedScene" uid="uid://c5stgguw5utpr" path="res://Scenes/Player/Player.tscn" id="2_lhsi4"]
-[ext_resource type="Shader" path="res://Assets/Shaders/VertexDisplacement.gdshader" id="2_qe8yo"]
-[ext_resource type="PackedScene" uid="uid://d02nh7tmph2lx" path="res://Scenes/Maps/Castle/castle_segment.tscn" id="3_hu1wl"]
-[ext_resource type="PackedScene" uid="uid://biftq86ske6xg" path="res://Scenes/Maps/Castle/castle_end_segment.tscn" id="4_i68hq"]
-[ext_resource type="PackedScene" uid="uid://cbq7dihrec7y7" path="res://Scenes/Maps/Castle/castle_gate_segment.tscn" id="5_6hnvq"]
-[ext_resource type="PackedScene" uid="uid://csmrehdav17jr" path="res://Scenes/Maps/Castle/castle_corner_segment.tscn" id="8_gj6qp"]
+[ext_resource type="Shader" path="res://Assets/Shaders/CastleSky.gdshader" id="1_0boua"]
+[ext_resource type="PackedScene" uid="uid://c5stgguw5utpr" path="res://Scenes/Player/Player.tscn" id="3_ip3gq"]
+[ext_resource type="ArrayMesh" uid="uid://1eqp0a3ugb4b" path="res://Assets/Models/Castle/bridge.obj" id="4_ec652"]
+[ext_resource type="PackedScene" uid="uid://biftq86ske6xg" path="res://Scenes/Maps/Castle/castle_end_segment.tscn" id="5_4gym2"]
+[ext_resource type="PackedScene" uid="uid://d02nh7tmph2lx" path="res://Scenes/Maps/Castle/castle_segment.tscn" id="6_sl3la"]
+[ext_resource type="PackedScene" uid="uid://csmrehdav17jr" path="res://Scenes/Maps/Castle/castle_corner_segment.tscn" id="7_tame7"]
+[ext_resource type="PackedScene" uid="uid://cbq7dihrec7y7" path="res://Scenes/Maps/Castle/castle_gate_segment.tscn" id="8_wlheu"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bbnps"]
-panorama = ExtResource("1_ykwrd")
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l3vxd"]
+noise_type = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s1kwv"]
+in_3d_space = true
+seamless = true
+noise = SubResource("FastNoiseLite_l3vxd")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_o11ex"]
+noise_type = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_m2xyo"]
+seamless = true
+noise = SubResource("FastNoiseLite_o11ex")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ttmu4"]
+noise_type = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_icjit"]
+seamless = true
+noise = SubResource("FastNoiseLite_ttmu4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dyy1t"]
+shader = ExtResource("1_0boua")
+shader_parameter/day_bottom_color = Color(0.215686, 0.74902, 1, 1)
+shader_parameter/day_top_color = Color(0.25098, 0.407843, 1, 1)
+shader_parameter/sunset_bottom_color = Color(0.215686, 0.74902, 1, 1)
+shader_parameter/sunset_top_color = Color(0.25098, 0.407843, 1, 1)
+shader_parameter/night_bottom_color = Color(0.215686, 0.74902, 1, 1)
+shader_parameter/night_top_color = Color(0.25098, 0.407843, 1, 1)
+shader_parameter/horizon_color_day = Color(0.25098, 0.407843, 1, 1)
+shader_parameter/horizon_color_sunset = Color(0.25098, 0.407843, 1, 1)
+shader_parameter/horizon_color_night = Color(0.25098, 0.407843, 1, 1)
+shader_parameter/horizon_falloff = 0.0
+shader_parameter/sun_col = Color(1, 1, 0.639216, 1)
+shader_parameter/sun_size = 0.403
+shader_parameter/sun_blur = 0.12
+shader_parameter/moon_col = Color(1, 1, 0.639216, 1)
+shader_parameter/moon_size = 0.403
+shader_parameter/moon_crescent_offset = 0.12
+shader_parameter/clouds_main_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_edge_color = Color(0.929412, 0.929412, 0.929412, 1)
+shader_parameter/clouds_speed = 0.03
+shader_parameter/clouds_scale = 0.4
+shader_parameter/clouds_cutoff = 0.05
+shader_parameter/clouds_fuzziness = 0.26
+shader_parameter/stars_cutoff = null
+shader_parameter/stars_speed = 0.017
+shader_parameter/clouds_texture = SubResource("NoiseTexture2D_icjit")
+shader_parameter/clouds_distort_texture = SubResource("NoiseTexture2D_s1kwv")
+shader_parameter/clouds_noise_texture = SubResource("NoiseTexture2D_m2xyo")
 
 [sub_resource type="Sky" id="Sky_6xprn"]
-sky_material = SubResource("PanoramaSkyMaterial_bbnps")
+sky_material = SubResource("ShaderMaterial_dyy1t")
 process_mode = 1
 
 [sub_resource type="Environment" id="Environment_teq1p"]
@@ -24,26 +72,10 @@ volumetric_fog_density = 0.0184
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7jp7a"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_6b6ui"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ewjac"]
-height = 1024
-noise = SubResource("FastNoiseLite_6b6ui")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ltp0"]
-render_priority = 0
-shader = ExtResource("2_qe8yo")
-shader_parameter/height_scale = 0.5
-shader_parameter/displacement = SubResource("NoiseTexture2D_ewjac")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mmj54"]
-albedo_color = Color(0.054902, 0.537255, 0.152941, 1)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_hjlem"]
-material = SubResource("StandardMaterial3D_mmj54")
 size = Vector2(2000, 2000)
-subdivide_width = 16
-subdivide_depth = 16
+subdivide_width = 128
+subdivide_depth = 128
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rtbc6"]
 
@@ -55,175 +87,221 @@ camera_attributes = SubResource("CameraAttributesPractical_7jp7a")
 
 [node name="Sun" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 44.47, 25, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.32671, 0)
-material_override = SubResource("ShaderMaterial_8ltp0")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 mesh = SubResource("PlaneMesh_hjlem")
-skeleton = NodePath("../..")
 
-[node name="Player" parent="." instance=ExtResource("2_lhsi4")]
+[node name="Player" parent="." instance=ExtResource("3_ip3gq")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.86279, 18.0874, -1.60395)
 
-[node name="Floor" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.47, 0, 0)
+[node name="StarterHallway" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.32671, 0)
 
-[node name="Floor1" type="MeshInstance3D" parent="Floor"]
+[node name="Floor" type="Node3D" parent="StarterHallway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.47, 6.32671, 0)
+
+[node name="Floor1" type="MeshInstance3D" parent="StarterHallway/Floor"]
 transform = Transform3D(6.024, 0, 0, 0, 1, 0, 0, 0, 2.5, 0, 0, 0)
-mesh = ExtResource("2_cuip1")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor/Floor1"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Floor1/StaticBody3D"]
-shape = SubResource("WorldBoundaryShape3D_rtbc6")
-
-[node name="Floor2" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(-6.024, 0, -3.77489e-07, 0, 1, 0, 9.09599e-07, 0, -2.5, 0, 0, 0)
-mesh = ExtResource("2_cuip1")
-skeleton = NodePath("../..")
-
-[node name="Floor3" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(-6.024, 0, -3.77489e-07, 0, 1, 0, 9.09599e-07, 0, -2.5, 120, 0, 0)
-mesh = ExtResource("2_cuip1")
-skeleton = NodePath("../..")
-
-[node name="Floor4" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(3.89008, 0, 1.90884, 0, 1, 0, -4.59955, 0, 1.61441, 101.174, -0.2, -3.505)
-mesh = ExtResource("2_cuip1")
-skeleton = NodePath("../..")
-
-[node name="Floor5" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(6.024, 0, 0, 0, 1, 0, 0, 0, 2.5, 120, 0, 0)
-mesh = ExtResource("2_cuip1")
-skeleton = NodePath("../..")
-
-[node name="Floor6" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(0.503246, 0, 0.864143, 0, 1, 0, -0.864143, 0, 0.503246, 122.769, -0.3, -6.86568)
-mesh = ExtResource("2_cuip1")
-skeleton = NodePath("../..")
-
-[node name="Floor7" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(-6.024, 0, -2.18557e-07, 0, 1, 0, 5.26635e-07, 0, -2.5, 240, 0, 0)
-mesh = ExtResource("2_cuip1")
-skeleton = NodePath("../..")
-
-[node name="Floor8" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(6.024, 0, 0, 0, 1, 0, 0, 0, 2.5, 240, 0, 0)
-mesh = ExtResource("2_cuip1")
-skeleton = NodePath("../..")
-
-[node name="Floor9" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(-3.85602, 0, -1.92071, 0, 1, 0, 4.62814, 0, -1.60027, 178.581, -0.2, -95.6758)
-mesh = ExtResource("2_cuip1")
-skeleton = NodePath("../..")
-
-[node name="CastleSegmentEnd" parent="." instance=ExtResource("4_i68hq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 5.267)
-
-[node name="CastleSegmentLeft" parent="." instance=ExtResource("3_hu1wl")]
-
-[node name="CastleSegment2" parent="CastleSegmentLeft" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 0, -30)
-
-[node name="CastleSegment3" parent="CastleSegmentLeft" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
-
-[node name="CastleSegment4" parent="CastleSegmentLeft" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8147e-06, 0, -90)
-
-[node name="CastleSegment5" parent="CastleSegmentLeft" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.72205e-06, 0, -120)
-
-[node name="CastleSegmentCorner" parent="CastleSegmentLeft" instance=ExtResource("8_gj6qp")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.382553, 0, -142.165)
-
-[node name="CastleSegment6" parent="CastleSegmentLeft" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(-0.643389, 0, -0.765539, 0, 1, 0, 0.765539, 0, -0.643389, -3.94024, 0, -150.909)
-
-[node name="CastleSegment7" parent="CastleSegmentLeft" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(-0.643389, 0, -0.765539, 0, 1, 0, 0.765539, 0, -0.643389, -23.6717, 0, -167.484)
-
-[node name="WallRight" parent="CastleSegmentLeft/CastleSegment7" index="1"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.0106201, 0, -1.4912)
-
-[node name="CastleSegment8" parent="CastleSegmentLeft" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(-0.643389, 0, -0.765539, 0, 1, 0, 0.765539, 0, -0.643389, -46.9022, 0, -186.992)
-
-[node name="CastleSegment9" parent="CastleSegmentLeft" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(-0.643389, 0, -0.765539, 0, 1, 0, 0.765539, 0, -0.643389, -70.3578, 0, -206.717)
-
-[node name="CastleSegmentRight" parent="." instance=ExtResource("3_hu1wl")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, 10.4)
-
-[node name="CastleSegment2" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 0, -30)
-
-[node name="CastleSegment3" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
-
-[node name="CastleSegment4" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8147e-06, 0, -90)
-
-[node name="CastleSegmentGate" parent="CastleSegmentRight" instance=ExtResource("5_6hnvq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -120)
-
-[node name="CastleSegment5" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -150)
-
-[node name="CastleSegment6" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -180)
-
-[node name="CastleSegment7" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -210)
-
-[node name="CastleSegment8" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -240)
-
-[node name="CastleSegment9" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -270)
-
-[node name="CastleSegment10" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -300)
-
-[node name="CastleSegment11" parent="CastleSegmentRight" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -330)
-
-[node name="CastleSegmentMid" parent="." instance=ExtResource("3_hu1wl")]
-transform = Transform3D(-0.765539, 0, 0.643389, 0, 1, 0, -0.643389, 0, -0.765539, 186.053, 0, -24.4656)
-
-[node name="CastleSegmentCorner" parent="CastleSegmentMid" instance=ExtResource("8_gj6qp")]
-transform = Transform3D(-0.765539, 0, -0.643389, 0, 1, 0, 0.643389, 0, -0.765539, 5.04333, 0, -10.5483)
-
-[node name="CastleSegment2" parent="CastleSegmentMid" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, 0.642788, -10.9257, 0, -9.21257)
-
-[node name="CastleSegment3" parent="CastleSegmentMid" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, 0.642788, -34.4093, 0, 10.5242)
-
-[node name="CastleSegment4" parent="CastleSegmentMid" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, 0.642788, -57.7231, 0, 30.1181)
-
-[node name="CastleSegment5" parent="CastleSegmentMid" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, 0.642788, -81.185, 0, 49.8364)
-
-[node name="CastleSegment6" parent="CastleSegmentMid" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, 0.642788, -104.627, 0, 69.5376)
-
-[node name="CastleSegmentEnd" parent="CastleSegmentMid" instance=ExtResource("4_i68hq")]
-transform = Transform3D(0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, 0.642788, -123.023, 0, 84.9985)
-
-[node name="WallRight" parent="CastleSegmentMid/CastleSegmentEnd" index="0"]
-visible = false
+mesh = ExtResource("4_ec652")
 skeleton = NodePath("../../..")
 
-[node name="CastleSegment7" parent="CastleSegmentMid" instance=ExtResource("3_hu1wl")]
+[node name="StaticBody3D" type="StaticBody3D" parent="StarterHallway/Floor/Floor1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StarterHallway/Floor/Floor1/StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_rtbc6")
+
+[node name="Floor2" type="MeshInstance3D" parent="StarterHallway/Floor"]
+transform = Transform3D(-6.024, 0, -3.77489e-07, 0, 1, 0, 9.09599e-07, 0, -2.5, 0, 0, 0)
+mesh = ExtResource("4_ec652")
+skeleton = NodePath("../../..")
+
+[node name="Floor3" type="MeshInstance3D" parent="StarterHallway/Floor"]
+transform = Transform3D(-6.024, 0, -3.77489e-07, 0, 1, 0, 9.09599e-07, 0, -2.5, 120, 0, 0)
+mesh = ExtResource("4_ec652")
+skeleton = NodePath("../../..")
+
+[node name="Floor4" type="MeshInstance3D" parent="StarterHallway/Floor"]
+transform = Transform3D(3.89008, 0, 1.90884, 0, 1, 0, -4.59955, 0, 1.61441, 101.174, -0.2, -3.505)
+mesh = ExtResource("4_ec652")
+skeleton = NodePath("../../..")
+
+[node name="Floor5" type="MeshInstance3D" parent="StarterHallway/Floor"]
+transform = Transform3D(6.024, 0, 0, 0, 1, 0, 0, 0, 2.5, 120, 0, 0)
+mesh = ExtResource("4_ec652")
+skeleton = NodePath("../../..")
+
+[node name="Floor6" type="MeshInstance3D" parent="StarterHallway/Floor"]
+transform = Transform3D(0.503246, 0, 0.864143, 0, 1, 0, -0.864143, 0, 0.503246, 122.769, -0.3, -6.86568)
+mesh = ExtResource("4_ec652")
+skeleton = NodePath("../../..")
+
+[node name="Floor7" type="MeshInstance3D" parent="StarterHallway/Floor"]
+transform = Transform3D(-6.024, 0, -2.18557e-07, 0, 1, 0, 5.26635e-07, 0, -2.5, 240, 0, 0)
+mesh = ExtResource("4_ec652")
+skeleton = NodePath("../../..")
+
+[node name="Floor8" type="MeshInstance3D" parent="StarterHallway/Floor"]
+transform = Transform3D(6.024, 0, 0, 0, 1, 0, 0, 0, 2.5, 240, 0, 0)
+mesh = ExtResource("4_ec652")
+skeleton = NodePath("../../..")
+
+[node name="Floor9" type="MeshInstance3D" parent="StarterHallway/Floor"]
+transform = Transform3D(-3.85602, 0, -1.92071, 0, 1, 0, 4.62814, 0, -1.60027, 178.581, -0.2, -95.676)
+mesh = ExtResource("4_ec652")
+skeleton = NodePath("../../..")
+
+[node name="Floor11" type="MeshInstance3D" parent="StarterHallway/Floor"]
+transform = Transform3D(-3.85602, 0, -1.92071, 0, 1, 0, 4.62814, 0, -1.60027, 191.184, -0.2, -110.658)
+mesh = ExtResource("4_ec652")
+skeleton = NodePath("../../..")
+
+[node name="Floor10" type="MeshInstance3D" parent="StarterHallway/Floor"]
+transform = Transform3D(-2.96514, 0, -3.43712e-07, 0, 1, 0, 2.59221e-07, 0, -3.93161, 213.084, 0, -100.741)
+mesh = ExtResource("4_ec652")
+skeleton = NodePath("../../..")
+
+[node name="CastleSegmentEnd" parent="StarterHallway" instance=ExtResource("5_4gym2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9222, 6.32668, 4.66611)
+
+[node name="CastleSegmentLeft" parent="StarterHallway" instance=ExtResource("6_sl3la")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 6.32671, -20.4)
+
+[node name="CastleSegment2" parent="StarterHallway/CastleSegmentLeft" instance=ExtResource("6_sl3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 0, -30)
+
+[node name="CastleSegment3" parent="StarterHallway/CastleSegmentLeft" instance=ExtResource("6_sl3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
+
+[node name="CastleSegment4" parent="StarterHallway/CastleSegmentLeft" instance=ExtResource("6_sl3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8147e-06, 0, -90)
+
+[node name="CastleSegment5" parent="StarterHallway/CastleSegmentLeft" instance=ExtResource("6_sl3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.72205e-06, 0, -120)
+
+[node name="CastleSegmentCorner" parent="StarterHallway/CastleSegmentLeft" instance=ExtResource("7_tame7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.382553, 0, -142.165)
+
+[node name="CastleSegment6" parent="StarterHallway/CastleSegmentLeft" instance=ExtResource("6_sl3la")]
+transform = Transform3D(-0.643389, 0, -0.765539, 0, 1, 0, 0.765539, 0, -0.643389, -3.94024, 0, -150.909)
+
+[node name="CastleSegment7" parent="StarterHallway/CastleSegmentLeft" instance=ExtResource("6_sl3la")]
+transform = Transform3D(-0.643389, 0, -0.765539, 0, 1, 0, 0.765539, 0, -0.643389, -23.6717, 0, -167.484)
+
+[node name="WallRight" parent="StarterHallway/CastleSegmentLeft/CastleSegment7" index="1"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.0106201, 0, -1.4912)
+
+[node name="CastleSegment8" parent="StarterHallway/CastleSegmentLeft" instance=ExtResource("6_sl3la")]
+transform = Transform3D(-0.643389, 0, -0.765539, 0, 1, 0, 0.765539, 0, -0.643389, -46.9022, 0, -186.992)
+
+[node name="CastleSegment9" parent="StarterHallway/CastleSegmentLeft" instance=ExtResource("6_sl3la")]
+transform = Transform3D(-0.643389, 0, -0.765539, 0, 1, 0, 0.765539, 0, -0.643389, -70.3578, 0, -206.717)
+
+[node name="CastleSegmentEnd" parent="StarterHallway/CastleSegmentLeft" instance=ExtResource("5_4gym2")]
+transform = Transform3D(-0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, -0.642788, -93.9048, -3.8147e-05, -226.402)
+
+[node name="CastleSegmentCorner2" parent="StarterHallway/CastleSegmentLeft" instance=ExtResource("7_tame7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -106.89, 0, -231.426)
+
+[node name="CastleSegment10" parent="StarterHallway/CastleSegmentLeft" instance=ExtResource("6_sl3la")]
+transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -1, -96.6356, 0, -243.52)
+
+[node name="CastleSegmentRight" parent="StarterHallway" instance=ExtResource("6_sl3la")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 6.32671, 10.4)
+
+[node name="CastleSegment2" parent="StarterHallway/CastleSegmentRight" instance=ExtResource("6_sl3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90735e-06, 0, -30)
+
+[node name="CastleSegment3" parent="StarterHallway/CastleSegmentRight" instance=ExtResource("6_sl3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -60)
+
+[node name="CastleSegment4" parent="StarterHallway/CastleSegmentRight" instance=ExtResource("6_sl3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8147e-06, 0, -90)
+
+[node name="CastleSegmentGate" parent="StarterHallway/CastleSegmentRight" instance=ExtResource("8_wlheu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -120)
+
+[node name="CastleSegment5" parent="StarterHallway/CastleSegmentRight" instance=ExtResource("6_sl3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -150)
+
+[node name="CastleSegment6" parent="StarterHallway/CastleSegmentRight" instance=ExtResource("6_sl3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -180)
+
+[node name="CastleSegment7" parent="StarterHallway/CastleSegmentRight" instance=ExtResource("6_sl3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -210)
+
+[node name="CastleSegment8" parent="StarterHallway/CastleSegmentRight" instance=ExtResource("6_sl3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -240)
+
+[node name="CastleSegment9" parent="StarterHallway/CastleSegmentRight" instance=ExtResource("6_sl3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -270)
+
+[node name="CastleSegment10" parent="StarterHallway/CastleSegmentRight" instance=ExtResource("6_sl3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -300)
+
+[node name="CastleSegment11" parent="StarterHallway/CastleSegmentRight" instance=ExtResource("6_sl3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -330)
+
+[node name="CastleSegmentMid" parent="StarterHallway" instance=ExtResource("6_sl3la")]
+transform = Transform3D(-0.765539, 0, 0.643389, 0, 1, 0, -0.643389, 0, -0.765539, 186.053, 6.32671, -24.4656)
+
+[node name="CastleSegmentCorner" parent="StarterHallway/CastleSegmentMid" instance=ExtResource("7_tame7")]
+transform = Transform3D(-0.765539, 0, -0.643389, 0, 1, 0, 0.643389, 0, -0.765539, 5.04333, 0, -10.5483)
+
+[node name="CastleSegment2" parent="StarterHallway/CastleSegmentMid" instance=ExtResource("6_sl3la")]
+transform = Transform3D(0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, 0.642788, -10.9257, 0, -9.21257)
+
+[node name="CastleSegment3" parent="StarterHallway/CastleSegmentMid" instance=ExtResource("6_sl3la")]
+transform = Transform3D(0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, 0.642788, -34.4093, 0, 10.5242)
+
+[node name="CastleSegment4" parent="StarterHallway/CastleSegmentMid" instance=ExtResource("6_sl3la")]
+transform = Transform3D(0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, 0.642788, -57.7231, 0, 30.1181)
+
+[node name="CastleSegment5" parent="StarterHallway/CastleSegmentMid" instance=ExtResource("6_sl3la")]
+transform = Transform3D(0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, 0.642788, -81.185, 0, 49.8364)
+
+[node name="CastleSegment6" parent="StarterHallway/CastleSegmentMid" instance=ExtResource("6_sl3la")]
+transform = Transform3D(0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, 0.642788, -104.627, 0, 69.5376)
+
+[node name="CastleSegmentEnd" parent="StarterHallway/CastleSegmentMid" instance=ExtResource("5_4gym2")]
+transform = Transform3D(0.642788, 0, -0.766045, 0, 1, 0, 0.766045, 0, 0.642788, -123.023, 0, 84.9985)
+
+[node name="WallRight" parent="StarterHallway/CastleSegmentMid/CastleSegmentEnd" index="0"]
+visible = false
+skeleton = NodePath("../../../..")
+
+[node name="CastleSegment7" parent="StarterHallway/CastleSegmentMid" instance=ExtResource("6_sl3la")]
 transform = Transform3D(1, 0, -0.000611037, 0, 1, 0, 0.000611037, 0, 1, -0.0111237, -0.0396395, 30.5267)
 
-[node name="CastleSegment8" parent="CastleSegmentMid" instance=ExtResource("3_hu1wl")]
-transform = Transform3D(0.999915, 0, 0.0130545, 0, 1, 0, -0.0130545, 0, 0.999915, 0.171341, -0.0396399, 60.8781)
+[node name="CastleSegmentEnd2" parent="StarterHallway/CastleSegmentMid" instance=ExtResource("5_4gym2")]
+transform = Transform3D(0.999922, 0, 0.0122153, 0, 1, 0, -0.0122153, 0, 0.999922, 0.181427, -3.8147e-05, 60.2195)
+
+[node name="CastleSegmentCorner2" parent="StarterHallway/CastleSegmentMid" instance=ExtResource("7_tame7")]
+transform = Transform3D(-0.765539, 0, -0.643389, 0, 1, 0, 0.643389, 0, -0.765539, 5.36436, 0, 74.7157)
+
+[node name="CastleSegment8" parent="StarterHallway/CastleSegmentMid" instance=ExtResource("6_sl3la")]
+transform = Transform3D(0.633257, 0, -0.773939, 0, 1, 0, 0.773939, 0, 0.633257, -7.87349, -0.0396395, 72.0634)
+
+[node name="WallRight" parent="StarterHallway/CastleSegmentMid/CastleSegment8" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026474, 0, -3.98764)
+
+[node name="MainRoom" type="Node3D" parent="."]
+
+[node name="CastleSegmentCorner" parent="MainRoom" instance=ExtResource("7_tame7")]
+transform = Transform3D(-4.80825e-08, 0, 1.1, 0, 1, 0, -1.1, 0, -4.80825e-08, 335.974, 0, -20.971)
+
+[node name="CastleSegmentCorner2" parent="MainRoom" instance=ExtResource("7_tame7")]
+transform = Transform3D(-4.80825e-08, 0, 1.1, 0, 1, 0, -1.1, 0, -4.80825e-08, 335.974, 0, 9.93899)
+
+[node name="CastleSegment11" parent="MainRoom" instance=ExtResource("6_sl3la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 336.476, 0, 32.7484)
+
+[node name="CastleSegment12" parent="MainRoom" instance=ExtResource("6_sl3la")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 346.358, 0, -33.1807)
 
 [connection signal="Finished" from="Player" to="Player/HUD" method="Finished" flags=18]
 
-[editable path="CastleSegmentLeft/CastleSegment7"]
-[editable path="CastleSegmentMid/CastleSegmentEnd"]
+[editable path="StarterHallway/CastleSegmentLeft/CastleSegment7"]
+[editable path="StarterHallway/CastleSegmentMid/CastleSegmentEnd"]
+[editable path="StarterHallway/CastleSegmentMid/CastleSegment8"]

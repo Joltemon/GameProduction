@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://biftq86ske6xg"]
 
-[ext_resource type="ArrayMesh" uid="uid://duyn2k4g6ncqc" path="res://Assets/Models/Castle/wall.obj" id="4_7rdv2"]
+[ext_resource type="ArrayMesh" uid="uid://duyn2k4g6ncqc" path="res://Assets/Models/Castle/wall.obj" id="1_vowwb"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1t5jm"]
 points = PackedVector3Array(-5.21583e-13, 0, -10, 10, 0, -10, -5.21583e-13, 0, 0, -5.21583e-13, 13.1, -10, 10, 0, 0, 10, 13.1, -10, -5.21583e-13, 12.6499, 0, -5.21583e-13, 13.1, -2.5, 10, 12.6499, 0, 10, 13.1, -2.5)
@@ -16,7 +16,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0,
 
 [node name="WallRight" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
-mesh = ExtResource("4_7rdv2")
+mesh = ExtResource("1_vowwb")
 skeleton = NodePath("../..")
 
 [node name="Collider" type="StaticBody3D" parent="WallRight"]
@@ -26,7 +26,7 @@ transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_1t5jm")
 
 [node name="WallMid" type="MeshInstance3D" parent="."]
-mesh = ExtResource("4_7rdv2")
+mesh = ExtResource("1_vowwb")
 skeleton = NodePath("../WallRight")
 
 [node name="Collider" type="StaticBody3D" parent="WallMid"]
@@ -36,7 +36,7 @@ shape = SubResource("ConvexPolygonShape3D_m8vxs")
 
 [node name="WallLeft" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 6)
-mesh = ExtResource("4_7rdv2")
+mesh = ExtResource("1_vowwb")
 skeleton = NodePath("../WallRight")
 
 [node name="Collider" type="StaticBody3D" parent="WallLeft"]

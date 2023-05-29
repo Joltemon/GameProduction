@@ -1,15 +1,15 @@
 [gd_scene load_steps=59 format=3 uid="uid://0522i5r8q41e"]
 
-[ext_resource type="PackedScene" uid="uid://c5stgguw5utpr" path="res://Scenes/Player/Player.tscn" id="1_cwhvs"]
-[ext_resource type="Texture2D" uid="uid://dnooxfupsybki" path="res://Assets/Textures/Dark/texture_08.png" id="2_6sd8h"]
-[ext_resource type="Texture2D" uid="uid://dt2iv4c1eyv1f" path="res://Assets/Textures/Green/texture_09.png" id="3_123np"]
-[ext_resource type="Texture2D" uid="uid://bxs71de6j0425" path="res://Assets/Textures/Red/texture_09.png" id="4_y48cp"]
-[ext_resource type="Texture2D" uid="uid://owgjyt08scr4" path="res://Assets/Textures/Orange/texture_09.png" id="5_2x0iy"]
-[ext_resource type="Texture2D" uid="uid://bgpyk5bv64ebv" path="res://Assets/Textures/Light/texture_07.png" id="6_rt5gw"]
-[ext_resource type="Texture2D" uid="uid://5c0fu2d5le87" path="res://Assets/Textures/Purple/texture_09.png" id="7_ii11s"]
-[ext_resource type="PackedScene" uid="uid://pducdeyki048" path="res://Scenes/Items/Adrenaline/Adrenaline.tscn" id="8_iaxhl"]
-[ext_resource type="PackedScene" uid="uid://cluoqsk08s7uw" path="res://Scenes/Items/EnergyCrystal/EnergyCrystal.tscn" id="9_2etl1"]
-[ext_resource type="PackedScene" uid="uid://bqn3604romco1" path="res://Scenes/MapComponents/EndPoint.tscn" id="10_c080h"]
+[ext_resource type="PackedScene" uid="uid://c5stgguw5utpr" path="res://Scenes/Player/Player.tscn" id="1_di1p6"]
+[ext_resource type="Texture2D" uid="uid://dnooxfupsybki" path="res://Assets/Textures/Dark/texture_08.png" id="2_pddpb"]
+[ext_resource type="Texture2D" uid="uid://dt2iv4c1eyv1f" path="res://Assets/Textures/Green/texture_09.png" id="3_nlnky"]
+[ext_resource type="Texture2D" uid="uid://bxs71de6j0425" path="res://Assets/Textures/Red/texture_09.png" id="4_731g3"]
+[ext_resource type="Texture2D" uid="uid://owgjyt08scr4" path="res://Assets/Textures/Orange/texture_09.png" id="5_68ktl"]
+[ext_resource type="Texture2D" uid="uid://bgpyk5bv64ebv" path="res://Assets/Textures/Light/texture_07.png" id="6_cc6de"]
+[ext_resource type="Texture2D" uid="uid://5c0fu2d5le87" path="res://Assets/Textures/Purple/texture_09.png" id="7_88f40"]
+[ext_resource type="PackedScene" uid="uid://pducdeyki048" path="res://Scenes/Items/Adrenaline/Adrenaline.tscn" id="8_aacax"]
+[ext_resource type="PackedScene" uid="uid://cluoqsk08s7uw" path="res://Scenes/Items/EnergyCrystal/EnergyCrystal.tscn" id="9_k6w33"]
+[ext_resource type="PackedScene" uid="uid://bqn3604romco1" path="res://Scenes/MapComponents/EndPoint.tscn" id="10_nb2xb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d2xdq"]
 sky_top_color = Color(0.192157, 0.2, 0.54902, 1)
@@ -28,7 +28,7 @@ sky = SubResource("Sky_obeso")
 tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8wau"]
-albedo_texture = ExtResource("2_6sd8h")
+albedo_texture = ExtResource("2_pddpb")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4lhem"]
 albedo_color = Color(0.054902, 0.0588235, 0.156863, 1)
@@ -40,7 +40,7 @@ size = Vector3(100, 0.5, 100)
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_xgt3q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7pcjc"]
-albedo_texture = ExtResource("3_123np")
+albedo_texture = ExtResource("3_nlnky")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hi55o"]
 albedo_color = Color(0.184314, 1, 0.164706, 1)
@@ -53,7 +53,7 @@ size = Vector3(20, 2, 10)
 points = PackedVector3Array(-10, -1, -5, -10, -1, 5, 0, 1, -5, 10, -1, -5, 10, -1, 5, 0, 1, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80c8a"]
-albedo_texture = ExtResource("4_y48cp")
+albedo_texture = ExtResource("4_731g3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kon7d"]
 albedo_color = Color(1, 0.25098, 0.25098, 1)
@@ -70,13 +70,13 @@ albedo_color = Color(1, 0.207843, 0.945098, 1)
 material = SubResource("StandardMaterial3D_b71da")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_na2et"]
-albedo_texture = ExtResource("4_y48cp")
+albedo_texture = ExtResource("4_731g3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hcykd"]
-albedo_texture = ExtResource("4_y48cp")
+albedo_texture = ExtResource("4_731g3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avxf0"]
-albedo_texture = ExtResource("5_2x0iy")
+albedo_texture = ExtResource("5_68ktl")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3rwa"]
 albedo_color = Color(0, 0.662745, 0.592157, 1)
@@ -85,19 +85,19 @@ albedo_color = Color(0, 0.662745, 0.592157, 1)
 material = SubResource("StandardMaterial3D_b3rwa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12yii"]
-albedo_texture = ExtResource("5_2x0iy")
+albedo_texture = ExtResource("5_68ktl")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_famju"]
-albedo_texture = ExtResource("5_2x0iy")
+albedo_texture = ExtResource("5_68ktl")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_366u5"]
-albedo_texture = ExtResource("5_2x0iy")
+albedo_texture = ExtResource("5_68ktl")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfflp"]
-albedo_texture = ExtResource("5_2x0iy")
+albedo_texture = ExtResource("5_68ktl")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aa86e"]
-albedo_texture = ExtResource("5_2x0iy")
+albedo_texture = ExtResource("5_68ktl")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cta8i"]
 albedo_color = Color(0.682353, 0.556863, 0.188235, 1)
@@ -106,13 +106,13 @@ albedo_color = Color(0.682353, 0.556863, 0.188235, 1)
 material = SubResource("StandardMaterial3D_cta8i")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kwfp6"]
-albedo_texture = ExtResource("5_2x0iy")
+albedo_texture = ExtResource("5_68ktl")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tr3bt"]
-albedo_texture = ExtResource("5_2x0iy")
+albedo_texture = ExtResource("5_68ktl")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hkuqa"]
-albedo_texture = ExtResource("6_rt5gw")
+albedo_texture = ExtResource("6_cc6de")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hlbqt"]
 albedo_color = Color(0.682353, 0.631373, 0.682353, 1)
@@ -121,28 +121,28 @@ albedo_color = Color(0.682353, 0.631373, 0.682353, 1)
 material = SubResource("StandardMaterial3D_hlbqt")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1371a"]
-albedo_texture = ExtResource("6_rt5gw")
+albedo_texture = ExtResource("6_cc6de")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3d5pf"]
-albedo_texture = ExtResource("6_rt5gw")
+albedo_texture = ExtResource("6_cc6de")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egr8f"]
-albedo_texture = ExtResource("6_rt5gw")
+albedo_texture = ExtResource("6_cc6de")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ptibq"]
-albedo_texture = ExtResource("7_ii11s")
+albedo_texture = ExtResource("7_88f40")
 
 [sub_resource type="BoxMesh" id="BoxMesh_fj225"]
 material = SubResource("StandardMaterial3D_b71da")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wd0ba"]
-albedo_texture = ExtResource("4_y48cp")
+albedo_texture = ExtResource("4_731g3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypgw0"]
-albedo_texture = ExtResource("4_y48cp")
+albedo_texture = ExtResource("4_731g3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d3rcp"]
-albedo_texture = ExtResource("4_y48cp")
+albedo_texture = ExtResource("4_731g3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mipx1"]
 albedo_color = Color(1, 0.25098, 0.25098, 1)
@@ -155,7 +155,7 @@ size = Vector3(1, 10, 5)
 size = Vector3(1, 10, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hj5si"]
-albedo_texture = ExtResource("5_2x0iy")
+albedo_texture = ExtResource("5_68ktl")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyeu6"]
 albedo_color = Color(0.243137, 0.160784, 1, 1)
@@ -165,7 +165,7 @@ material = SubResource("StandardMaterial3D_jyeu6")
 
 [node name="EmptyMap" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_cwhvs")]
+[node name="Player" parent="." instance=ExtResource("1_di1p6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -479,17 +479,19 @@ metadata/_edit_group_ = true
 [node name="Shape" type="CollisionShape3D" parent="Objects/Block6/Collider"]
 shape = SubResource("BoxShape3D_hgoml")
 
-[node name="scene" parent="." instance=ExtResource("8_iaxhl")]
+[node name="scene" parent="." instance=ExtResource("8_aacax")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57214, 0.24925, -3.31611)
 
-[node name="Crystal" parent="." instance=ExtResource("9_2etl1")]
+[node name="Crystal" parent="." instance=ExtResource("9_k6w33")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 24.1703, 18.1639, -27.1357)
 
-[node name="scene2" parent="." instance=ExtResource("8_iaxhl")]
+[node name="scene2" parent="." instance=ExtResource("8_aacax")]
 transform = Transform3D(1.39501, -1.43316, 0, 1.43316, 1.39501, 0, 0, 0, 2, 25.4918, 18.553, -28.1397)
 
-[node name="EnergyCrystal" parent="." instance=ExtResource("9_2etl1")]
+[node name="EnergyCrystal" parent="." instance=ExtResource("9_k6w33")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.03682, 0.236523, -20.7224)
 
-[node name="End Point" parent="." instance=ExtResource("10_c080h")]
+[node name="End Point" parent="." instance=ExtResource("10_nb2xb")]
 transform = Transform3D(8.68267, 0, 0, 0, 2.59076, 0, 0, 0, 4.94621, 29.8239, 25.7142, 41.5912)
+
+[connection signal="Finished" from="Player" to="Player/HUD" method="Finished" flags=18]
