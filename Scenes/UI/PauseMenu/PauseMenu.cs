@@ -4,7 +4,8 @@ using System;
 public partial class PauseMenu : Control
 {
 
-	[Export(PropertyHint.File, "*.tscn,*.scn")] string? MainMenu; 
+	[Export(PropertyHint.File, "*.tscn,*.scn")] string? MainMenu;
+	[Signal] public delegate void ResetEventHandler();
 
 	void ResumeButtonPressed() 
 	{
@@ -26,7 +27,7 @@ public partial class PauseMenu : Control
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		Visible = false;
 		GetTree().Paused = false;
-		GetTree().ReloadCurrentScene();
+		EmitSignal("Reset");
 	}
 
 

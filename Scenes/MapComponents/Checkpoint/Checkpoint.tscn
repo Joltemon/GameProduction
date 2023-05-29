@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyuvev6t4tvf8"]
+
+[ext_resource type="Script" path="res://Scenes/MapComponents/Checkpoint/Checkpoint.cs" id="1_t3r8d"]
+
+[node name="Checkpoint" type="Area3D"]
+script = ExtResource("1_t3r8d")
+
+[connection signal="body_entered" from="." to="." method="CheckpointEntered"]

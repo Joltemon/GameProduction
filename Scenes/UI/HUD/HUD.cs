@@ -23,6 +23,8 @@ public partial class HUD : CanvasLayer
 
 	[Export] float SpeedLimit;
 
+	[Signal] public delegate void CheckpointEventHandler();
+
 	void UpdateAmmunition(int ammo)
 	{
 		if (AmmoLabel != null)
@@ -77,11 +79,11 @@ public partial class HUD : CanvasLayer
 
 		if (Input.IsActionPressed("RestartLevel")) 
 		{
-			RestartProgressBarPressed(delta);
+			RestartPressed(delta);
 		}
 		else
 		{
-			RestartProgressBarReleased(delta);
+			RestartReleased(delta);
 		}
 
 		ProgressBarProgress = Mathf.Clamp(ProgressBarProgress, 0, 100);
@@ -106,22 +108,26 @@ public partial class HUD : CanvasLayer
 		TimerLabel?.Set("theme_override_colors/font_color", Color.Color8(0, 232, 0));
 	}
 
-	public void RestartProgressBarPressed(double delta) 
+	public void RestartPressed(double delta)
 	{
 		ProgressBarProgress += delta * 200.0;
 		
 		// if the progres bar is full it restarts
 		if (ProgressBarProgress >= 100) 
 		{
-			Input.MouseMode = Input.MouseModeEnum.Captured;
-			Visible = false;
-			GetTree().Paused = false;
-			RestartProgressBar!.Value = 0;
-			GetTree().ReloadCurrentScene();
+			ResetToCheckpoint();
 		}
 	}
 
-	public void RestartProgressBarReleased(double delta) 
+	public void ResetToCheckpoint()
+	{
+		Input.MouseMode = Input.MouseModeEnum.Captured;
+		GetTree().Paused = false;
+		ProgressBarProgress = 0;
+		EmitSignal("Checkpoint");
+	}
+
+	public void RestartReleased(double delta) 
 	{
 		// await Task.Delay(100);
 		ProgressBarProgress -= delta * 250.0;

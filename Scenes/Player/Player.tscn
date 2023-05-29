@@ -34,7 +34,7 @@ bottom_radius = 0.01
 height = 0.01
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_2hkth"]
-exposure_multiplier = 10.0
+exposure_multiplier = 5.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_hslsf"]
 size = Vector2(3, 3)
@@ -83,7 +83,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(0.2, 1),
 "update": 0,
-"values": [10.0, 1.0]
+"values": [5.0, 1.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -162,6 +162,7 @@ transform = Transform3D(1.578, 0, 0, 0, -6.89768e-08, 1.578, 0, -1.578, -6.89768
 mesh = SubResource("CylinderMesh_m4s1w")
 
 [node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Camera" type="Camera3D" parent="Head"]
 cull_mask = 1048573
@@ -216,3 +217,4 @@ libraries = {
 
 [connection signal="Finished" from="." to="HUD" method="Finished"]
 [connection signal="AmmunitionUpdated" from="Head/Camera/WeaponHolder" to="HUD" method="UpdateAmmunition"]
+[connection signal="Checkpoint" from="HUD" to="." method="GoToCheckpoint"]

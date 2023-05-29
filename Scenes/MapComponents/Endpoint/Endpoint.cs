@@ -1,9 +1,8 @@
 using Godot;
 using System;
 
-public partial class EndPoint : Node3D
+public partial class Endpoint : Node3D
 {
-
 	public void EndPointEntered(Node3D node) 
 	{
 		if (node is Player player) 

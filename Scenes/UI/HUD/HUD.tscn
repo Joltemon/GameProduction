@@ -229,3 +229,5 @@ libraries = {
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_0yrdj")]
 visible = false
+
+[connection signal="Reset" from="PauseMenu" to="." method="ResetToCheckpoint"]

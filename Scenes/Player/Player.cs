@@ -26,6 +26,8 @@ public partial class Player : RigidBody3D
 	public Boolean StopwatchRunning = true;
 	float CurrentCoyoteTime;
 	float sprintEnergy = 100;
+	public Vector3 LastCheckpoint = Vector3.Zero;
+	public int LastCheckpointValue;
 	public float SprintEnergy
 	{
 		get => sprintEnergy;
@@ -59,6 +61,7 @@ public partial class Player : RigidBody3D
 	{
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		Animation?.Play("Start");
+		LastCheckpoint = GlobalPosition;
 
 		Savedata.Load();
 		if (Savedata.Get<bool>("FullScreen", false))
@@ -329,6 +332,25 @@ public partial class Player : RigidBody3D
 		newVelocity.X *= (float)(1 - delta * AirDrag);
 		newVelocity.Z *= (float)(1 - delta * AirDrag);
 		LinearVelocity = newVelocity;
+	}
+
+	async void GoToCheckpoint()
+	{
+		LinearVelocity = Vector3.Zero;
+
+		Animation?.Stop();
+		Animation?.Play("Start");
+		Freeze = true;
+		await ToSignal(GetTree(), "process_frame");
+		if (LastCheckpoint != null)
+			GlobalPosition = LastCheckpoint;
+		else
+			GlobalPosition = Vector3.Zero;
+		
+		GlobalRotation = Vector3.Zero;
+		Camera!.GlobalRotation = Vector3.Zero;
+		
+		Freeze = false;
 	}
 
 	public override void _Input(InputEvent inputEvent)
