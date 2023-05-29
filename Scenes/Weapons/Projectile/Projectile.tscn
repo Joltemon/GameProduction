@@ -1,31 +1,48 @@
-[gd_scene load_steps=7 format=3 uid="uid://oqp8xiwqab1k"]
+[gd_scene load_steps=13 format=3 uid="uid://oqp8xiwqab1k"]
 
 [ext_resource type="Script" path="res://Scenes/Weapons/Projectile/Projectile.cs" id="1_ddvfs"]
-[ext_resource type="Shader" path="res://Scenes/Weapons/Projectile/Projectile.gdshader" id="2_3nbl0"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yctgn"]
-render_priority = 0
-shader = ExtResource("2_3nbl0")
-shader_parameter/Color = Color(0.411765, 0.596078, 1, 1)
-shader_parameter/Transparency = 0.7
-
-[sub_resource type="SphereMesh" id="SphereMesh_cie0s"]
-material = SubResource("ShaderMaterial_yctgn")
-radius = 0.1
-height = 0.2
+[ext_resource type="Shader" path="res://Assets/Shaders/fire.gdshader" id="2_kchg4"]
+[ext_resource type="Texture2D" uid="uid://xp8din1y2bjr" path="res://Assets/Shaders/Fire/HoleNoise.png" id="3_d23pf"]
+[ext_resource type="Texture2D" uid="uid://cr7c1vrygs0ci" path="res://Assets/Shaders/Fire/FireMask.png" id="4_ijco2"]
+[ext_resource type="Texture2D" uid="uid://c8yi6jar2jv6e" path="res://Assets/Shaders/Fire/BlueFireGradient.tres" id="5_v2xmf"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2tuna"]
 radius = 0.1
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3hgdo"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6peo3"]
+render_priority = 0
+shader = ExtResource("2_kchg4")
+shader_parameter/emission_intensity = 2.0
+shader_parameter/time_scale = 3.0
+shader_parameter/texture_scale = Vector2(1, 1)
+shader_parameter/edge_softness = 0.1
+shader_parameter/noise_texture = ExtResource("3_d23pf")
+shader_parameter/texture_mask = ExtResource("4_ijco2")
+
+[sub_resource type="Curve" id="Curve_qcwtn"]
+_data = [Vector2(0, 0), 0.0, 2.8, 0, 0, Vector2(0.597403, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_b6wek"]
+width = 128
+curve = SubResource("Curve_qcwtn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pt078"]
+lifetime_randomness = 0.81
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_b6wek")
+color_ramp = ExtResource("5_v2xmf")
+
+[sub_resource type="QuadMesh" id="QuadMesh_usn1t"]
+size = Vector2(0.5, 0.5)
+
 [node name="Projectile" type="CharacterBody3D"]
 collision_layer = 0
 script = ExtResource("1_ddvfs")
 Speed = 60.0
-
-[node name="Mesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_cie0s")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_2tuna")
@@ -37,5 +54,14 @@ autostart = true
 [node name="Particles" type="GPUParticles3D" parent="."]
 trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_3hgdo")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_6peo3")
+cast_shadow = 0
+amount = 50
+randomness = 0.74
+draw_order = 1
+process_material = SubResource("ParticleProcessMaterial_pt078")
+draw_pass_1 = SubResource("QuadMesh_usn1t")
 
 [connection signal="timeout" from="DestroyTimer" to="." method="OnTimeout"]
