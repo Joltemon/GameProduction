@@ -105,15 +105,8 @@ public partial class Player : RigidBody3D
 			if (ExtraSpeedChange == false)
 			{
 				ExtraSpeedChange = true;
-				UpdateSpeed(2f);
-				Hud.SprintingParticle!.ProcessMaterial.Set("process_material/color", Color.Color8(242, 0, 247));
-				// CHANGE THE COLOR
-				// CHANGE THE COLOR
-				// CHANGE THE COLOR
-				// CHANGE THE COLOR
-				// CHANGE THE COLOR
-				// CHANGE THE COLOR
-				// CHANGE THE COLOR
+				UpdateSpeed(1.5f);
+				Hud.SprintingParticle!.ProcessMaterial.Set("color", new Color(0.949f, 0, 0.968f, 1));
 			}
 		}
 		else 
@@ -122,8 +115,8 @@ public partial class Player : RigidBody3D
 			if (ExtraSpeedChange == true)
 			{
 				ExtraSpeedChange = false;
-				UpdateSpeed(0.5f);
-				Hud.SprintingParticle!.ProcessMaterial.Set("process_material/color", Color.Color8(255, 255, 255));
+				UpdateSpeed(0.75f);
+				Hud.SprintingParticle!.ProcessMaterial.Set("color", Color.Color8(255, 255, 255));
 			}
 		}
 	}

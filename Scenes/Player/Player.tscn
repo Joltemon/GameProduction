@@ -130,6 +130,7 @@ Collider = NodePath("Collider")
 WeaponHolder = NodePath("Head/Camera/WeaponHolder")
 Hud = NodePath("HUD")
 Animation = NodePath("Animation")
+ExtraSpeedMaxTime = 13.0
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_a7e0n")

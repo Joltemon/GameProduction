@@ -43,6 +43,8 @@ public partial class HUD : CanvasLayer
 		{
 			SprintingParticle.Emitting = false;
 		}
+		
+		// SprintingParticle.Amount = Mathf.RoundToInt(currentSpeed) + 20;
 	}
 
 	public void UpdateTimer(double seconds)

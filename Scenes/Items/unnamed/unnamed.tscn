@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bvxansvqn0pdq"]
 
-[ext_resource type="PackedScene" uid="uid://bamodlv01xscd" path="res://Assets/Models/Collectables/EnergyCrystal/scene.gltf" id="1_fhll7"]
-[ext_resource type="Script" path="res://Scenes/Items/unnamed/unnamed.cs" id="2_0b0uw"]
+[ext_resource type="PackedScene" uid="uid://bamodlv01xscd" path="res://Assets/Models/Collectables/EnergyCrystal/scene.gltf" id="1_55d72"]
+[ext_resource type="Script" path="res://Scenes/Items/unnamed/unnamed.cs" id="2_1xu86"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pk6uj"]
 albedo_color = Color(0.145098, 0.705882, 0.215686, 1)
@@ -46,9 +46,9 @@ _data = {
 "FloatingAnimation": SubResource("Animation_jdy61")
 }
 
-[node name="unnamed" node_paths=PackedStringArray("FloatingAnimation") instance=ExtResource("1_fhll7")]
+[node name="unnamed" node_paths=PackedStringArray("FloatingAnimation") instance=ExtResource("1_55d72")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-script = ExtResource("2_0b0uw")
+script = ExtResource("2_1xu86")
 FloatingAnimation = NodePath("AnimationPlayer")
 
 [node name="Object_4" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_0" index="0"]

@@ -91,7 +91,7 @@ grow_vertical = 2
 [node name="GPUParticles2D" type="GPUParticles2D" parent="HUD/ParticleControl"]
 scale = Vector2(5.76, 3.32)
 emitting = false
-amount = 20
+amount = 28
 process_material = SubResource("ParticleProcessMaterial_3fphl")
 lifetime = 5.0
 speed_scale = 4.88
