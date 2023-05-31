@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class EnergyCrystal : Node3D
+public partial class EnergyCrystal : Item
 {
 	[Export] int AmmoAmount;
 	[Export] AnimationPlayer? FloatingAnimation;

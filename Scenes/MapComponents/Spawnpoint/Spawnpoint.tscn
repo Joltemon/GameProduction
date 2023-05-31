@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://08mhrjk2i2eo"]
+
+[ext_resource type="Script" path="res://Scenes/MapComponents/Spawnpoint/Spawnpoint.cs" id="1_g5pce"]
+[ext_resource type="PackedScene" uid="uid://c5stgguw5utpr" path="res://Scenes/Player/Player.tscn" id="2_6vp32"]
+
+[node name="Spawnpoint" type="Node3D"]
+script = ExtResource("1_g5pce")
+Player = ExtResource("2_6vp32")

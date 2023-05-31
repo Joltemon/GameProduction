@@ -335,11 +335,7 @@ public partial class Player : RigidBody3D
 		Animation?.Play("Start");
 		Freeze = true;
 		await ToSignal(GetTree(), "process_frame");
-		if (LastCheckpoint != null)
-			GlobalPosition = LastCheckpoint;
-		else
-			GlobalPosition = Vector3.Zero;
-		
+		GlobalPosition = LastCheckpoint;		
 		GlobalRotation = Vector3.Zero;
 		Camera!.GlobalRotation = Vector3.Zero;
 		
