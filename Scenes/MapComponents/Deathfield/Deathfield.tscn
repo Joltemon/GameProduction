@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci0b8habhsgxt"]
+
+[ext_resource type="Script" path="res://Scenes/MapComponents/Deathfield/Deathfield.cs" id="1_a8ml3"]
+
+[node name="Deathfield" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_a8ml3")
+
+[connection signal="body_entered" from="." to="." method="DeathfieldEntered"]
