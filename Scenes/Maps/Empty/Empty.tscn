@@ -175,9 +175,6 @@ material = SubResource("StandardMaterial3D_jyeu6")
 [sub_resource type="BoxShape3D" id="BoxShape3D_mhcw2"]
 size = Vector3(8.91081, 3.10762, 5.039)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mhcw2"]
-size = Vector3(8.91081, 3.10762, 5.039)
-
 [node name="EmptyMap" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_0j2l3")]
@@ -538,7 +535,3 @@ shape = SubResource("BoxShape3D_mhcw2")
 
 [node name="unnamed" parent="." instance=ExtResource("11_vx3tg")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.1458, 0.282895, -7.29737)
-
-[connection signal="Finished" from="Player" to="Player/HUD" method="Finished" flags=18]
-
-[connection signal="Finished" from="Player" to="Player/HUD" method="Finished" flags=18]
