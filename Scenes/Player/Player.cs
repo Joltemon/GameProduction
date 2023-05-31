@@ -334,7 +334,7 @@ public partial class Player : RigidBody3D
 		LinearVelocity = newVelocity;
 	}
 
-	async void GoToCheckpoint()
+	public async void GoToCheckpoint()
 	{
 		LinearVelocity = Vector3.Zero;
 

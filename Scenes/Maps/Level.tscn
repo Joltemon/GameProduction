@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://hlgvlk1n4qc3"]
+
+[ext_resource type="Script" path="res://Scenes/Maps/Level.cs" id="1_pd0bs"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_pd0bs")

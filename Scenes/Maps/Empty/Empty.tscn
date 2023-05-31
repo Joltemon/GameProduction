@@ -1,16 +1,18 @@
-[gd_scene load_steps=60 format=3 uid="uid://0522i5r8q41e"]
+[gd_scene load_steps=65 format=3 uid="uid://0522i5r8q41e"]
 
-[ext_resource type="PackedScene" uid="uid://c5stgguw5utpr" path="res://Scenes/Player/Player.tscn" id="1_0j2l3"]
-[ext_resource type="Texture2D" uid="uid://dnooxfupsybki" path="res://Assets/Textures/Dark/texture_08.png" id="2_3rfyf"]
-[ext_resource type="Texture2D" uid="uid://dt2iv4c1eyv1f" path="res://Assets/Textures/Green/texture_09.png" id="3_0f4bh"]
-[ext_resource type="Texture2D" uid="uid://bxs71de6j0425" path="res://Assets/Textures/Red/texture_09.png" id="4_e5xxr"]
-[ext_resource type="Texture2D" uid="uid://owgjyt08scr4" path="res://Assets/Textures/Orange/texture_09.png" id="5_rn6b7"]
-[ext_resource type="Texture2D" uid="uid://bgpyk5bv64ebv" path="res://Assets/Textures/Light/texture_07.png" id="6_gb8sp"]
-[ext_resource type="Texture2D" uid="uid://5c0fu2d5le87" path="res://Assets/Textures/Purple/texture_09.png" id="7_cbdaj"]
-[ext_resource type="PackedScene" uid="uid://pducdeyki048" path="res://Scenes/Items/Adrenaline/Adrenaline.tscn" id="8_myqm3"]
-[ext_resource type="PackedScene" uid="uid://cluoqsk08s7uw" path="res://Scenes/Items/EnergyCrystal/EnergyCrystal.tscn" id="9_f3d5t"]
-[ext_resource type="PackedScene" uid="uid://bqn3604romco1" path="res://Scenes/MapComponents/Endpoint/Endpoint.tscn" id="10_kf25w"]
-[ext_resource type="PackedScene" uid="uid://bvxansvqn0pdq" path="res://Scenes/Items/unnamed/unnamed.tscn" id="11_vx3tg"]
+[ext_resource type="PackedScene" uid="uid://c5stgguw5utpr" path="res://Scenes/Player/Player.tscn" id="1_62bly"]
+[ext_resource type="Texture2D" uid="uid://dnooxfupsybki" path="res://Assets/Textures/Dark/texture_08.png" id="2_j63v0"]
+[ext_resource type="Texture2D" uid="uid://dt2iv4c1eyv1f" path="res://Assets/Textures/Green/texture_09.png" id="3_autqx"]
+[ext_resource type="Texture2D" uid="uid://bxs71de6j0425" path="res://Assets/Textures/Red/texture_09.png" id="4_xr0ur"]
+[ext_resource type="PackedScene" uid="uid://ci0b8habhsgxt" path="res://Scenes/MapComponents/Deathfield/Deathfield.tscn" id="5_71f0o"]
+[ext_resource type="Texture2D" uid="uid://owgjyt08scr4" path="res://Assets/Textures/Orange/texture_09.png" id="5_nshlf"]
+[ext_resource type="Texture2D" uid="uid://bgpyk5bv64ebv" path="res://Assets/Textures/Light/texture_07.png" id="6_hcwct"]
+[ext_resource type="Texture2D" uid="uid://5c0fu2d5le87" path="res://Assets/Textures/Purple/texture_09.png" id="7_3em48"]
+[ext_resource type="PackedScene" uid="uid://pducdeyki048" path="res://Scenes/Items/Adrenaline/Adrenaline.tscn" id="8_fv8uy"]
+[ext_resource type="PackedScene" uid="uid://cluoqsk08s7uw" path="res://Scenes/Items/EnergyCrystal/EnergyCrystal.tscn" id="9_ebltn"]
+[ext_resource type="PackedScene" uid="uid://cyuvev6t4tvf8" path="res://Scenes/MapComponents/Checkpoint/Checkpoint.tscn" id="9_skmfi"]
+[ext_resource type="PackedScene" uid="uid://bqn3604romco1" path="res://Scenes/MapComponents/Endpoint/Endpoint.tscn" id="10_8i5gu"]
+[ext_resource type="PackedScene" uid="uid://bvxansvqn0pdq" path="res://Scenes/Items/unnamed/unnamed.tscn" id="11_g684h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d2xdq"]
 sky_top_color = Color(0.192157, 0.2, 0.54902, 1)
@@ -76,6 +78,9 @@ albedo_texture = ExtResource("4_e5xxr")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hcykd"]
 albedo_texture = ExtResource("4_e5xxr")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pwaqk"]
+size = Vector3(0.896748, 1, 0.917226)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avxf0"]
 albedo_texture = ExtResource("5_rn6b7")
 
@@ -139,6 +144,9 @@ material = SubResource("StandardMaterial3D_b71da")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wd0ba"]
 albedo_texture = ExtResource("4_e5xxr")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_sb8iy"]
+size = Vector3(0.864251, 0.323273, 0.87538)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypgw0"]
 albedo_texture = ExtResource("4_e5xxr")
 
@@ -163,6 +171,9 @@ albedo_color = Color(0.243137, 0.160784, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fpvsv"]
 material = SubResource("StandardMaterial3D_jyeu6")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mhcw2"]
+size = Vector3(8.91081, 3.10762, 5.039)
 
 [node name="EmptyMap" type="Node3D"]
 
@@ -254,6 +265,24 @@ metadata/_edit_group_ = true
 [node name="Shape" type="CollisionShape3D" parent="Objects/BigBlock/Collider"]
 transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_hgoml")
+
+[node name="BigBlock18" type="MeshInstance3D" parent="Objects"]
+transform = Transform3D(4.66979, 0, 3.82217, 0, 0.788808, 0, -4.6809, 0, 3.8131, -43.0844, 0.644404, -43.2992)
+material_override = SubResource("StandardMaterial3D_hcykd")
+mesh = SubResource("BoxMesh_oexsu")
+metadata/_edit_group_ = true
+
+[node name="Collider" type="StaticBody3D" parent="Objects/BigBlock18"]
+
+[node name="Shape" type="CollisionShape3D" parent="Objects/BigBlock18/Collider"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_hgoml")
+
+[node name="Deathfield" parent="Objects/BigBlock18" instance=ExtResource("5_71f0o")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/BigBlock18/Deathfield"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, 0, 0, 1, 0, 1.00797, 0)
+shape = SubResource("BoxShape3D_pwaqk")
 
 [node name="BigBlock5" type="MeshInstance3D" parent="Objects"]
 transform = Transform3D(4.02712, 0, 3.09828e-06, 0, 0.788808, 0, -2.90426e-06, 0, 5.01144, 19.8226, 5.06727, -27.1189)
@@ -435,6 +464,12 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_hgoml")
 
+[node name="Checkpoint" parent="Objects/BigBlock3" instance=ExtResource("9_skmfi")]
+
+[node name="Shape" type="CollisionShape3D" parent="Objects/BigBlock3/Checkpoint"]
+transform = Transform3D(1, 0, 6.0536e-08, 0, 0.999999, 0, 5.96046e-08, 0, 1, 0, 0.648155, 0)
+shape = SubResource("BoxShape3D_sb8iy")
+
 [node name="BigBlock4" type="MeshInstance3D" parent="Objects"]
 transform = Transform3D(0.0384929, 0, -5.38867, 0, 17.957, 0, 5.00063, 0, 0.0414798, 24.4523, 9.14043, -27.1307)
 material_override = SubResource("StandardMaterial3D_ypgw0")
@@ -492,8 +527,13 @@ transform = Transform3D(1.39501, -1.43316, 0, 1.43316, 1.39501, 0, 0, 0, 2, 25.4
 [node name="EnergyCrystal" parent="." instance=ExtResource("9_f3d5t")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.03682, 0.236523, -20.7224)
 
-[node name="End Point" parent="." instance=ExtResource("10_kf25w")]
-transform = Transform3D(8.68267, 0, 0, 0, 2.59076, 0, 0, 0, 4.94621, 29.8239, 25.7142, 41.5912)
+[node name="End Point" parent="." instance=ExtResource("10_8i5gu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8239, 25.7142, 41.5912)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="End Point"]
+shape = SubResource("BoxShape3D_mhcw2")
 
 [node name="unnamed" parent="." instance=ExtResource("11_vx3tg")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.1458, 0.282895, -7.29737)
+
+[connection signal="Finished" from="Player" to="Player/HUD" method="Finished" flags=18]
