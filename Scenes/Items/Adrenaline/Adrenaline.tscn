@@ -52,7 +52,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sketchfab_model:position")
+tracks/0/path = NodePath("Water_bottle_01/Water_bottle_01_RGB_texture_0:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -64,7 +64,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sketchfab_model:rotation")
+tracks/1/path = NodePath("Water_bottle_01/Water_bottle_01_RGB_texture_0:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -83,9 +83,10 @@ _data = {
 "RESET": SubResource("Animation_erwt1")
 }
 
-[node name="Adrenaline" instance=ExtResource("1_a5hps")]
+[node name="Adrenaline" node_paths=PackedStringArray("FloatingAnimation") instance=ExtResource("1_a5hps")]
 script = ExtResource("2_kqedr")
 Energy = 0
+FloatingAnimation = NodePath("AnimationPlayer")
 
 [node name="Water_bottle_01" type="Node3D" parent="." index="0"]
 transform = Transform3D(-0.02, -2.44929e-18, 1.74846e-09, -2.44929e-18, 0.02, -2.44929e-18, -1.74846e-09, -2.44929e-18, -0.02, 0, 0, 0)
