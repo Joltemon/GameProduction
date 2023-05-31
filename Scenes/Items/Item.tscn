@@ -1,17 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://chy6ib5hbyi44"]
 
-[sub_resource type="CSharpScript" id="CSharpScript_hrtcc"]
-script/source = "using Godot;
-using System;
-
-public partial class Item : Area3D
-{
-	
-}
-"
+[ext_resource type="Script" path="res://Scenes/Items/Item.cs" id="1_sy5bx"]
 
 [node name="Item" type="Area3D"]
 collision_mask = 2
-script = SubResource("CSharpScript_hrtcc")
+script = ExtResource("1_sy5bx")
 
 [connection signal="body_entered" from="." to="." method="PlayerEnter"]
