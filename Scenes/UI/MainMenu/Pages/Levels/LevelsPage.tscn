@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://2ovnxqf16kqc"]
 
-[ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/LevelsPage.cs" id="1_go33b"]
+[ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/Levels/LevelsPage.cs" id="1_go33b"]
 [ext_resource type="PackedScene" uid="uid://c5364smmu1y8c" path="res://Scenes/UI/MainMenu/Pages/LevelsItems/LevelSection.tscn" id="2_u1gj5"]
 [ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="3_bmvyu"]
 [ext_resource type="Texture2D" uid="uid://d21sicjaf81cf" path="res://Assets/Icons/logout.png" id="4_e4cma"]

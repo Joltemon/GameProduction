@@ -7,8 +7,6 @@ using System.Collections.Generic;
 class Savedata
 {
 	static TomlTable SettingsData = new();
-
-	public static bool Loaded;
 	
 	public static void Load()
 	{

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class unnamed : Node3D
+public partial class BoostCrystal : Item
 {
 	[Export] AnimationPlayer? FloatingAnimation;
 

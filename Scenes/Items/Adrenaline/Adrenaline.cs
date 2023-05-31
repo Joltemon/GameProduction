@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Adrenaline : Node3D
+public partial class Adrenaline : Item
 {
 	[Export] int Energy;
 	[Export] AnimationPlayer? FloatingAnimation;

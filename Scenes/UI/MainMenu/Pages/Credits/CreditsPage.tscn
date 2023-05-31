@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bplymclic6bkw"]
 
-[ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/CreditsPage.cs" id="1_2w50i"]
+[ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/Credits/CreditsPage.cs" id="1_2w50i"]
 [ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="2_ukbpv"]
 [ext_resource type="PackedScene" uid="uid://buy74qtmg3cln" path="res://Scenes/UI/CreditsPage/Section.tscn" id="3_vc013"]
 [ext_resource type="Texture2D" uid="uid://hojhj4msab7x" path="res://Assets/Icons/flaticon.jpg" id="4_s3svf"]
