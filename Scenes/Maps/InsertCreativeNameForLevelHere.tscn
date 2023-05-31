@@ -1,11 +1,16 @@
-[gd_scene load_steps=21 format=3 uid="uid://c480nilt0hht8"]
+[gd_scene load_steps=33 format=3 uid="uid://c480nilt0hht8"]
 
 [ext_resource type="PackedScene" uid="uid://c5stgguw5utpr" path="res://Scenes/Player/Player.tscn" id="1_kwx4p"]
 [ext_resource type="Shader" path="res://Assets/Shaders/fire.gdshader" id="2_oywnb"]
 [ext_resource type="Texture2D" uid="uid://xp8din1y2bjr" path="res://Assets/Shaders/Fire/HoleNoise.png" id="3_x6731"]
 [ext_resource type="Texture2D" uid="uid://cr7c1vrygs0ci" path="res://Assets/Shaders/Fire/FireMask.png" id="4_dn4vi"]
 [ext_resource type="Texture2D" uid="uid://c8yi6jar2jv6e" path="res://Assets/Shaders/Fire/BlueFireGradient.tres" id="5_k7t1i"]
-[ext_resource type="Texture2D" uid="uid://du13li7n836ha" path="res://Assets/Textures/Green/texture_10.png" id="6_67v3v"]
+[ext_resource type="Texture2D" uid="uid://owgjyt08scr4" path="res://Assets/Textures/Orange/texture_09.png" id="6_gxhws"]
+[ext_resource type="Texture2D" uid="uid://5c0fu2d5le87" path="res://Assets/Textures/Purple/texture_09.png" id="7_ug03w"]
+[ext_resource type="Texture2D" uid="uid://bxs71de6j0425" path="res://Assets/Textures/Red/texture_09.png" id="8_3db2m"]
+[ext_resource type="Texture2D" uid="uid://dt2iv4c1eyv1f" path="res://Assets/Textures/Green/texture_09.png" id="9_nnb47"]
+[ext_resource type="Texture2D" uid="uid://b8pjor6shpoge" path="res://Assets/Textures/Dark/texture_09.png" id="10_6bjbs"]
+[ext_resource type="Texture2D" uid="uid://bgpyk5bv64ebv" path="res://Assets/Textures/Light/texture_07.png" id="11_ndx6v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nh6iu"]
 sky_top_color = Color(0.505882, 0.160784, 0, 1)
@@ -62,11 +67,33 @@ color_ramp = ExtResource("5_k7t1i")
 size = Vector2(0.5, 0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpvxl"]
-albedo_texture = ExtResource("6_67v3v")
+albedo_texture = ExtResource("6_gxhws")
 
 [sub_resource type="BoxMesh" id="BoxMesh_573hr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bh16b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gmbd"]
+albedo_texture = ExtResource("7_ug03w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6gypb"]
+albedo_texture = ExtResource("8_3db2m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_88fln"]
+albedo_texture = ExtResource("9_nnb47")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_suhko"]
+albedo_texture = ExtResource("10_6bjbs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmwd0"]
+albedo_texture = ExtResource("11_ndx6v")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3od2t"]
+load_path = "res://.godot/imported/texture_07.png-6e7b8701b5435f6445261342318c20bc.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4pdhp"]
+albedo_color = Color(0, 0.6, 1, 1)
+albedo_texture = SubResource("CompressedTexture2D_3od2t")
 
 [node name="insert creative name for level here" type="Node3D"]
 
@@ -111,4 +138,74 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box/StaticBody3D"]
 shape = SubResource("BoxShape3D_bh16b")
 
-[connection signal="Finished" from="Player" to="Player/HUD" method="Finished" flags=18]
+[node name="Box2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -2)
+material_override = SubResource("StandardMaterial3D_8gmbd")
+mesh = SubResource("BoxMesh_573hr")
+skeleton = NodePath("StaticBody3D")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Box2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box2/StaticBody3D"]
+shape = SubResource("BoxShape3D_bh16b")
+
+[node name="Box3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -4)
+material_override = SubResource("StandardMaterial3D_6gypb")
+mesh = SubResource("BoxMesh_573hr")
+skeleton = NodePath("StaticBody3D")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Box3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box3/StaticBody3D"]
+shape = SubResource("BoxShape3D_bh16b")
+
+[node name="Box4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -6)
+material_override = SubResource("StandardMaterial3D_88fln")
+mesh = SubResource("BoxMesh_573hr")
+skeleton = NodePath("StaticBody3D")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Box4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box4/StaticBody3D"]
+shape = SubResource("BoxShape3D_bh16b")
+
+[node name="Box5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -8)
+material_override = SubResource("StandardMaterial3D_suhko")
+mesh = SubResource("BoxMesh_573hr")
+skeleton = NodePath("StaticBody3D")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Box5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box5/StaticBody3D"]
+shape = SubResource("BoxShape3D_bh16b")
+
+[node name="Box6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -10)
+material_override = SubResource("StandardMaterial3D_dmwd0")
+mesh = SubResource("BoxMesh_573hr")
+skeleton = NodePath("StaticBody3D")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Box6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box6/StaticBody3D"]
+shape = SubResource("BoxShape3D_bh16b")
+
+[node name="Box7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -12)
+material_override = SubResource("StandardMaterial3D_4pdhp")
+mesh = SubResource("BoxMesh_573hr")
+skeleton = NodePath("StaticBody3D")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Box7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box7/StaticBody3D"]
+shape = SubResource("BoxShape3D_bh16b")
