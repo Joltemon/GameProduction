@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://csmrehdav17jr"]
 
-[ext_resource type="ArrayMesh" uid="uid://eqodjkaq77wp" path="res://Assets/Models/Castle/towerBase.obj" id="1_nu3qh"]
-[ext_resource type="ArrayMesh" uid="uid://cq7haldmecfh2" path="res://Assets/Models/Castle/towerTop.obj" id="2_j62c6"]
+[ext_resource type="ArrayMesh" uid="uid://eqodjkaq77wp" path="res://Assets/Models/Castle/towerBase.obj" id="1_6no2e"]
+[ext_resource type="ArrayMesh" uid="uid://cq7haldmecfh2" path="res://Assets/Models/Castle/towerTop.obj" id="2_1jah5"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5e0oy"]
 points = PackedVector3Array(-5, 0, 0, -6.29503, 0, 0.170321, -5, 1.3, 0, -3.70595, 0, 0.170321, -7.5, 0, 0.669538, -6.29503, 0.849912, 0.170321, -8.53563, 1.3, 1.46437, -3.70595, 1.3, 0.170321, -2.5, 0, 0.669538, -7.5, 0.849912, 0.669538, -8.53563, 0, 1.46437, -9.33046, 1.3, 2.5, -2.5, 1.3, 0.669538, -1.46535, 0, 1.46437, -9.33046, 0, 2.5, -9.82968, 1.3, 3.70497, -1.46535, 1.3, 1.46437, -0.670517, 0, 2.5, -9.82968, 0, 3.70497, -10, 1.3, 5, 0, 1.3, 5, -0.670517, 0.849912, 2.5, -0.1713, 0, 3.70497, -10, 0, 5, -9.82968, 0.849912, 6.29405, -9.33046, 0.849912, 7.5, -8.53563, 1.3, 8.53465, -0.1713, 1.3, 6.29405, 0, 0, 5, -0.1713, 0.849912, 3.70497, -9.82968, 0, 6.29405, -9.33046, 0, 7.5, -8.53563, 0, 8.53465, -7.5, 1.3, 9.32948, -0.1713, 0, 6.29405, -0.670517, 1.3, 7.5, -7.5, 0, 9.32948, -6.29503, 1.3, 9.8287, -0.670517, 0, 7.5, -1.46535, 1.3, 8.53465, -6.29503, 0, 9.8287, -5, 1.3, 10, -1.46535, 0, 8.53465, -2.5, 0.849912, 9.32948, -5, 0, 10, -3.70595, 0.849912, 9.8287, -2.5, 0, 9.32948, -3.70595, 0, 9.8287)
@@ -12,11 +12,11 @@ points = PackedVector3Array(-10, 0, 5, -9.82968, 0, 3.70497, -9.82968, 0, 6.2940
 [node name="Node3D" type="Node3D"]
 
 [node name="TowerBase" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_nu3qh")
+mesh = ExtResource("1_6no2e")
 
 [node name="TowerTop" type="MeshInstance3D" parent="TowerBase"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000167847, 13.0651, 0.00019455)
-mesh = ExtResource("2_j62c6")
+mesh = ExtResource("2_1jah5")
 skeleton = NodePath("../..")
 
 [node name="Collider" type="StaticBody3D" parent="TowerBase/TowerTop"]

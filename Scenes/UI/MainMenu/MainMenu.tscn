@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=3 uid="uid://dfcvbhiopq6s7"]
 
-[ext_resource type="Script" path="res://Scenes/UI/MainMenu/MainMenu.cs" id="1_4h1p6"]
-[ext_resource type="PackedScene" uid="uid://doq53hm1rrb3s" path="res://Scenes/UI/MainMenu/Title/Title.tscn" id="2_yqlg6"]
-[ext_resource type="Shader" path="res://Scenes/UI/MainMenu/MainMenuBlur.gdshader" id="3_bwycm"]
-[ext_resource type="PackedScene" uid="uid://bglm530iuirb7" path="res://Scenes/UI/MainMenu/MenuButton/MenuButton.tscn" id="4_n0b07"]
-[ext_resource type="Texture2D" uid="uid://c6a4ini0u0vvm" path="res://Assets/Button Backgrounds/SettingsButtonIMG.PNG" id="5_dwk2c"]
+[ext_resource type="Script" path="res://Scenes/UI/MainMenu/MainMenu.cs" id="1_n6oxg"]
+[ext_resource type="PackedScene" uid="uid://doq53hm1rrb3s" path="res://Scenes/UI/MainMenu/Title/Title.tscn" id="2_hf7op"]
+[ext_resource type="Shader" path="res://Scenes/UI/MainMenu/MainMenuBlur.gdshader" id="3_e4ipx"]
+[ext_resource type="PackedScene" uid="uid://bglm530iuirb7" path="res://Scenes/UI/MainMenu/MenuButton/MenuButton.tscn" id="4_kds40"]
+[ext_resource type="Texture2D" uid="uid://c6a4ini0u0vvm" path="res://Assets/Button Backgrounds/SettingsButtonIMG.PNG" id="5_lw0xx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tdhd3"]
 sky_top_color = Color(0.301961, 0.439216, 0.729412, 1)
@@ -22,7 +22,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsg02"]
-shader = ExtResource("3_bwycm")
+shader = ExtResource("3_e4ipx")
 shader_parameter/strength = 0.25
 
 [sub_resource type="Animation" id="Animation_j415k"]
@@ -87,7 +87,7 @@ _data = {
 [sub_resource type="BoxMesh" id="BoxMesh_mn28o"]
 
 [node name="MainMenu" type="Node"]
-script = ExtResource("1_4h1p6")
+script = ExtResource("1_n6oxg")
 SettingsPage = "res://Scenes/UI/MainMenu/Pages/SettingsPage.tscn"
 CreditsPage = "res://Scenes/UI/MainMenu/Pages/CreditsPage.tscn"
 LevelsPage = "res://Scenes/UI/MainMenu/Pages/LevelsPage.tscn"
@@ -103,7 +103,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" parent="UI" instance=ExtResource("2_yqlg6")]
+[node name="Title" parent="UI" instance=ExtResource("2_hf7op")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -157,7 +157,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NewGameButton" parent="UI/Buttons" instance=ExtResource("4_n0b07")]
+[node name="NewGameButton" parent="UI/Buttons" instance=ExtResource("4_kds40")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -169,7 +169,7 @@ offset_bottom = -352.0
 grow_vertical = 0
 Text = "New Game"
 
-[node name="LevelsButton" parent="UI/Buttons" instance=ExtResource("4_n0b07")]
+[node name="LevelsButton" parent="UI/Buttons" instance=ExtResource("4_kds40")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -181,7 +181,7 @@ offset_bottom = -272.0
 grow_vertical = 0
 Text = "Levels"
 
-[node name="SettingsButton" parent="UI/Buttons" instance=ExtResource("4_n0b07")]
+[node name="SettingsButton" parent="UI/Buttons" instance=ExtResource("4_kds40")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -192,9 +192,9 @@ offset_right = 552.0
 offset_bottom = -192.0
 grow_vertical = 0
 Text = "Settings"
-OverlayTexture = ExtResource("5_dwk2c")
+OverlayTexture = ExtResource("5_lw0xx")
 
-[node name="CreditsButton" parent="UI/Buttons" instance=ExtResource("4_n0b07")]
+[node name="CreditsButton" parent="UI/Buttons" instance=ExtResource("4_kds40")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -206,7 +206,7 @@ offset_bottom = -112.0
 grow_vertical = 0
 Text = "Credits"
 
-[node name="QuitButton" parent="UI/Buttons" instance=ExtResource("4_n0b07")]
+[node name="QuitButton" parent="UI/Buttons" instance=ExtResource("4_kds40")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
