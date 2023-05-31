@@ -535,3 +535,5 @@ shape = SubResource("BoxShape3D_mhcw2")
 
 [node name="unnamed" parent="." instance=ExtResource("11_vx3tg")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.1458, 0.282895, -7.29737)
+
+[connection signal="Finished" from="Player" to="Player/HUD" method="Finished" flags=18]

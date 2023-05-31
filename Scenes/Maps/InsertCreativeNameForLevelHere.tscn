@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://c480nilt0hht8"]
+[gd_scene load_steps=21 format=3 uid="uid://c480nilt0hht8"]
 
 [ext_resource type="PackedScene" uid="uid://c5stgguw5utpr" path="res://Scenes/Player/Player.tscn" id="1_kwx4p"]
 [ext_resource type="Shader" path="res://Assets/Shaders/fire.gdshader" id="2_oywnb"]
 [ext_resource type="Texture2D" uid="uid://xp8din1y2bjr" path="res://Assets/Shaders/Fire/HoleNoise.png" id="3_x6731"]
 [ext_resource type="Texture2D" uid="uid://cr7c1vrygs0ci" path="res://Assets/Shaders/Fire/FireMask.png" id="4_dn4vi"]
 [ext_resource type="Texture2D" uid="uid://c8yi6jar2jv6e" path="res://Assets/Shaders/Fire/BlueFireGradient.tres" id="5_k7t1i"]
+[ext_resource type="Texture2D" uid="uid://du13li7n836ha" path="res://Assets/Textures/Green/texture_10.png" id="6_67v3v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nh6iu"]
 sky_top_color = Color(0.505882, 0.160784, 0, 1)
@@ -28,7 +29,7 @@ emission_energy_multiplier = 0.08
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xbmfl"]
 material = SubResource("StandardMaterial3D_t0gvs")
-size = Vector2(40, 40)
+size = Vector2(100, 100)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_883xn"]
 
@@ -60,6 +61,13 @@ color_ramp = ExtResource("5_k7t1i")
 [sub_resource type="QuadMesh" id="QuadMesh_rh30q"]
 size = Vector2(0.5, 0.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpvxl"]
+albedo_texture = ExtResource("6_67v3v")
+
+[sub_resource type="BoxMesh" id="BoxMesh_573hr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bh16b"]
+
 [node name="insert creative name for level here" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -82,7 +90,7 @@ shape = SubResource("WorldBoundaryShape3D_883xn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.267, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -25.733, 0)
 material_override = SubResource("ShaderMaterial_4ua5f")
 cast_shadow = 0
 amount = 50
@@ -90,5 +98,17 @@ randomness = 0.74
 draw_order = 1
 process_material = SubResource("ParticleProcessMaterial_wbcdo")
 draw_pass_1 = SubResource("QuadMesh_rh30q")
+
+[node name="Box" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 0)
+material_override = SubResource("StandardMaterial3D_vpvxl")
+mesh = SubResource("BoxMesh_573hr")
+skeleton = NodePath("StaticBody3D")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Box"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box/StaticBody3D"]
+shape = SubResource("BoxShape3D_bh16b")
 
 [connection signal="Finished" from="Player" to="Player/HUD" method="Finished" flags=18]
