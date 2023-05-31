@@ -21,22 +21,22 @@ ground_horizon_color = Color(0.571569, 0.573529, 0.660784, 1)
 sun_angle_max = 10.0
 sun_curve = 0.5
 
-[sub_resource type="Sky" id="Sky_obeso"]
+[sub_resource type="Sky" id="Sky_v6cnm"]
 sky_material = SubResource("ProceduralSkyMaterial_d2xdq")
 
 [sub_resource type="Environment" id="Environment_k1b1x"]
 background_mode = 2
-sky = SubResource("Sky_obeso")
+sky = SubResource("Sky_v6cnm")
 tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8wau"]
 albedo_texture = ExtResource("2_3rfyf")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4lhem"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ag1n"]
 albedo_color = Color(0.054902, 0.0588235, 0.156863, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8rljh"]
-material = SubResource("StandardMaterial3D_4lhem")
+material = SubResource("StandardMaterial3D_7ag1n")
 size = Vector3(100, 0.5, 100)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_xgt3q"]
@@ -44,11 +44,11 @@ size = Vector3(100, 0.5, 100)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7pcjc"]
 albedo_texture = ExtResource("3_0f4bh")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hi55o"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6etv0"]
 albedo_color = Color(0.184314, 1, 0.164706, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_22s1k"]
-material = SubResource("StandardMaterial3D_hi55o")
+material = SubResource("StandardMaterial3D_6etv0")
 size = Vector3(20, 2, 10)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_l6kmt"]
@@ -57,19 +57,19 @@ points = PackedVector3Array(-10, -1, -5, -10, -1, 5, 0, 1, -5, 10, -1, -5, 10, -
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80c8a"]
 albedo_texture = ExtResource("4_e5xxr")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kon7d"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06ku6"]
 albedo_color = Color(1, 0.25098, 0.25098, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_oexsu"]
-material = SubResource("StandardMaterial3D_kon7d")
+material = SubResource("StandardMaterial3D_06ku6")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hgoml"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b71da"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67nip"]
 albedo_color = Color(1, 0.207843, 0.945098, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_t37eq"]
-material = SubResource("StandardMaterial3D_b71da")
+material = SubResource("StandardMaterial3D_67nip")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_na2et"]
 albedo_texture = ExtResource("4_e5xxr")
@@ -83,11 +83,11 @@ size = Vector3(0.896748, 1, 0.917226)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avxf0"]
 albedo_texture = ExtResource("5_rn6b7")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3rwa"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4baf"]
 albedo_color = Color(0, 0.662745, 0.592157, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_m05c6"]
-material = SubResource("StandardMaterial3D_b3rwa")
+material = SubResource("StandardMaterial3D_s4baf")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12yii"]
 albedo_texture = ExtResource("5_rn6b7")
@@ -104,11 +104,11 @@ albedo_texture = ExtResource("5_rn6b7")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aa86e"]
 albedo_texture = ExtResource("5_rn6b7")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cta8i"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g3l36"]
 albedo_color = Color(0.682353, 0.556863, 0.188235, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_d13k1"]
-material = SubResource("StandardMaterial3D_cta8i")
+material = SubResource("StandardMaterial3D_g3l36")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kwfp6"]
 albedo_texture = ExtResource("5_rn6b7")
@@ -119,11 +119,11 @@ albedo_texture = ExtResource("5_rn6b7")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hkuqa"]
 albedo_texture = ExtResource("6_gb8sp")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hlbqt"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2im2"]
 albedo_color = Color(0.682353, 0.631373, 0.682353, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e17qe"]
-material = SubResource("StandardMaterial3D_hlbqt")
+material = SubResource("StandardMaterial3D_v2im2")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1371a"]
 albedo_texture = ExtResource("6_gb8sp")
@@ -138,7 +138,7 @@ albedo_texture = ExtResource("6_gb8sp")
 albedo_texture = ExtResource("7_cbdaj")
 
 [sub_resource type="BoxMesh" id="BoxMesh_fj225"]
-material = SubResource("StandardMaterial3D_b71da")
+material = SubResource("StandardMaterial3D_67nip")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wd0ba"]
 albedo_texture = ExtResource("4_e5xxr")
@@ -152,11 +152,11 @@ albedo_texture = ExtResource("4_e5xxr")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d3rcp"]
 albedo_texture = ExtResource("4_e5xxr")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mipx1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40hf7"]
 albedo_color = Color(1, 0.25098, 0.25098, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_tu7jm"]
-material = SubResource("StandardMaterial3D_mipx1")
+material = SubResource("StandardMaterial3D_40hf7")
 size = Vector3(1, 10, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lcdi8"]
@@ -165,11 +165,11 @@ size = Vector3(1, 10, 5)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hj5si"]
 albedo_texture = ExtResource("5_rn6b7")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyeu6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spptr"]
 albedo_color = Color(0.243137, 0.160784, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fpvsv"]
-material = SubResource("StandardMaterial3D_jyeu6")
+material = SubResource("StandardMaterial3D_spptr")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mhcw2"]
 size = Vector3(8.91081, 3.10762, 5.039)

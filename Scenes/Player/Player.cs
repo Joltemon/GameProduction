@@ -115,7 +115,7 @@ public partial class Player : RigidBody3D
 			if (ExtraSpeedChange == true)
 			{
 				ExtraSpeedChange = false;
-				UpdateSpeed(0.75f);
+				UpdateSpeed(1/1.5f);
 				Hud.SprintingParticle!.ProcessMaterial.Set("color", Color.Color8(255, 255, 255));
 			}
 		}
