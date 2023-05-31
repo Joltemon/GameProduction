@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://5c0fu2d5le87" path="res://Assets/Textures/Purple/texture_09.png" id="7_ug03w"]
 [ext_resource type="Texture2D" uid="uid://bxs71de6j0425" path="res://Assets/Textures/Red/texture_09.png" id="8_3db2m"]
 [ext_resource type="Texture2D" uid="uid://dt2iv4c1eyv1f" path="res://Assets/Textures/Green/texture_09.png" id="9_nnb47"]
-[ext_resource type="Texture2D" uid="uid://b8pjor6shpoge" path="res://Assets/Textures/Dark/texture_09.png" id="10_6bjbs"]
+[ext_resource type="Texture2D" uid="uid://dnooxfupsybki" path="res://Assets/Textures/Dark/texture_08.png" id="10_dwgah"]
 [ext_resource type="Texture2D" uid="uid://bgpyk5bv64ebv" path="res://Assets/Textures/Light/texture_07.png" id="11_ndx6v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nh6iu"]
@@ -83,7 +83,7 @@ albedo_texture = ExtResource("8_3db2m")
 albedo_texture = ExtResource("9_nnb47")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_suhko"]
-albedo_texture = ExtResource("10_6bjbs")
+albedo_texture = ExtResource("10_dwgah")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmwd0"]
 albedo_texture = ExtResource("11_ndx6v")
