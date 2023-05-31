@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://phk6uejxvcxk"]
 
-[ext_resource type="Script" path="res://Scenes/UI/HUD/HUD.cs" id="1_k1pn2"]
-[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="2_i5shp"]
-[ext_resource type="Shader" uid="uid://jx8m6uyfkcvj" path="res://Assets/Shaders/Pixelate.tres" id="3_sbs7t"]
-[ext_resource type="Texture2D" uid="uid://dgskw8uqnqfoa" path="res://Assets/Icons/uhhh.png" id="4_uvc5g"]
-[ext_resource type="Texture2D" uid="uid://c1ejuro6jb3dj" path="res://Assets/Icons/EnergyCrystal.png" id="5_ecnvd"]
-[ext_resource type="Texture2D" uid="uid://c3248lhgwo4gc" path="res://Assets/Icons/undercirc.png" id="6_hxy3w"]
-[ext_resource type="Texture2D" uid="uid://d0qcoffmyswt8" path="res://Assets/Icons/unnamedbarunder.png" id="7_v0vbi"]
-[ext_resource type="Texture2D" uid="uid://bc4wujglln0br" path="res://Assets/Icons/unnamedbar.png" id="8_paxle"]
-[ext_resource type="PackedScene" uid="uid://p8hsy7i7ewlg" path="res://Scenes/UI/PauseMenu/PauseMenu.tscn" id="9_42c2i"]
+[ext_resource type="Script" path="res://Scenes/UI/HUD/HUD.cs" id="1_enbec"]
+[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="2_m4fhm"]
+[ext_resource type="Shader" uid="uid://jx8m6uyfkcvj" path="res://Assets/Shaders/Pixelate.tres" id="3_vfcm8"]
+[ext_resource type="Texture2D" uid="uid://dgskw8uqnqfoa" path="res://Assets/Icons/uhhh.png" id="4_bgyku"]
+[ext_resource type="Texture2D" uid="uid://c1ejuro6jb3dj" path="res://Assets/Icons/EnergyCrystal.png" id="5_hogwv"]
+[ext_resource type="Texture2D" uid="uid://c3248lhgwo4gc" path="res://Assets/Icons/undercirc.png" id="6_j1jbr"]
+[ext_resource type="Texture2D" uid="uid://d0qcoffmyswt8" path="res://Assets/Icons/unnamedbarunder.png" id="7_0wfnc"]
+[ext_resource type="Texture2D" uid="uid://bc4wujglln0br" path="res://Assets/Icons/unnamedbar.png" id="8_80e0g"]
+[ext_resource type="PackedScene" uid="uid://p8hsy7i7ewlg" path="res://Scenes/UI/PauseMenu/PauseMenu.tscn" id="9_iwdod"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3fphl"]
 emission_shape = 2
@@ -24,7 +24,7 @@ radial_accel_max = 100.0
 scale_max = 5.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hcf8d"]
-shader = ExtResource("3_sbs7t")
+shader = ExtResource("3_vfcm8")
 shader_parameter/pix = 128.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un8lr"]
@@ -55,7 +55,7 @@ _data = {
 }
 
 [node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("Root", "AmmoLabel", "TimerLabel", "SprintBar", "SprintingParticle", "Animation", "PauseMenu", "RestartProgressBar", "ExtraSpeedBar", "PixelationLayer")]
-script = ExtResource("1_k1pn2")
+script = ExtResource("1_enbec")
 Root = NodePath("HUD")
 AmmoLabel = NodePath("HUD/EnergyCrystal/Label")
 TimerLabel = NodePath("HUD/TimerLabel")
@@ -76,7 +76,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(576, 324)
-theme = ExtResource("2_i5shp")
+theme = ExtResource("2_m4fhm")
 
 [node name="ParticleControl" type="Control" parent="HUD"]
 layout_mode = 1
@@ -133,7 +133,7 @@ offset_top = -64.0
 offset_right = 40.0
 offset_bottom = -16.0
 grow_vertical = 0
-texture = ExtResource("4_uvc5g")
+texture = ExtResource("4_bgyku")
 expand_mode = 1
 stretch_mode = 5
 
@@ -159,7 +159,7 @@ offset_left = 16.0
 offset_top = 16.0
 offset_right = 48.0
 offset_bottom = 64.0
-texture = ExtResource("5_ecnvd")
+texture = ExtResource("5_hogwv")
 expand_mode = 1
 stretch_mode = 4
 
@@ -202,7 +202,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
 fill_mode = 4
-texture_progress = ExtResource("6_hxy3w")
+texture_progress = ExtResource("6_j1jbr")
 
 [node name="ExtraSpeedProgressBar" type="TextureProgressBar" parent="HUD"]
 layout_mode = 1
@@ -219,13 +219,13 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.2, 0.2)
 value = 25.0
-texture_under = ExtResource("7_v0vbi")
-texture_progress = ExtResource("8_paxle")
+texture_under = ExtResource("7_0wfnc")
+texture_progress = ExtResource("8_80e0g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_htar3")
 }
 
-[node name="PauseMenu" parent="." instance=ExtResource("9_42c2i")]
+[node name="PauseMenu" parent="." instance=ExtResource("9_iwdod")]
 visible = false
