@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cs6vix6ik3j8o"]
 
-[ext_resource type="PackedScene" uid="uid://ceaw5xwq4efkk" path="res://Assets/Models/City/large_buildingA.glb" id="1_db2f1"]
+[ext_resource type="PackedScene" uid="uid://ceaw5xwq4efkk" path="res://Assets/Models/City/large_buildingA.glb" id="1_iemsy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m7u4g"]
 size = Vector3(2, 1.7, 1.2)
 
-[node name="large_buildingA" instance=ExtResource("1_db2f1")]
+[node name="large_buildingA" instance=ExtResource("1_iemsy")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]

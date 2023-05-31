@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://buj3lk6i75p8r"]
 
-[ext_resource type="PackedScene" uid="uid://c5stgguw5utpr" path="res://Scenes/Player/Player.tscn" id="1_bcqhj"]
-[ext_resource type="Shader" path="res://Assets/Shaders/fire.gdshader" id="2_p6fxg"]
-[ext_resource type="Texture2D" uid="uid://xp8din1y2bjr" path="res://Assets/Shaders/Fire/HoleNoise.png" id="3_dfwqd"]
-[ext_resource type="Texture2D" uid="uid://cr7c1vrygs0ci" path="res://Assets/Shaders/Fire/FireMask.png" id="4_lo5ua"]
-[ext_resource type="Texture2D" uid="uid://c8yi6jar2jv6e" path="res://Assets/Shaders/Fire/BlueFireGradient.tres" id="5_788e6"]
+[ext_resource type="PackedScene" uid="uid://c5stgguw5utpr" path="res://Scenes/Player/Player.tscn" id="1_kwx4p"]
+[ext_resource type="Shader" path="res://Assets/Shaders/fire.gdshader" id="2_oywnb"]
+[ext_resource type="Texture2D" uid="uid://xp8din1y2bjr" path="res://Assets/Shaders/Fire/HoleNoise.png" id="3_x6731"]
+[ext_resource type="Texture2D" uid="uid://cr7c1vrygs0ci" path="res://Assets/Shaders/Fire/FireMask.png" id="4_dn4vi"]
+[ext_resource type="Texture2D" uid="uid://c8yi6jar2jv6e" path="res://Assets/Shaders/Fire/BlueFireGradient.tres" id="5_k7t1i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nh6iu"]
 sky_top_color = Color(0.505882, 0.160784, 0, 1)
@@ -34,13 +34,13 @@ size = Vector2(40, 40)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ua5f"]
 render_priority = 0
-shader = ExtResource("2_p6fxg")
+shader = ExtResource("2_oywnb")
 shader_parameter/emission_intensity = 2.0
 shader_parameter/time_scale = 3.0
 shader_parameter/texture_scale = Vector2(1, 1)
 shader_parameter/edge_softness = 0.1
-shader_parameter/noise_texture = ExtResource("3_dfwqd")
-shader_parameter/texture_mask = ExtResource("4_lo5ua")
+shader_parameter/noise_texture = ExtResource("3_x6731")
+shader_parameter/texture_mask = ExtResource("4_dn4vi")
 
 [sub_resource type="Curve" id="Curve_ge2tc"]
 _data = [Vector2(0, 0), 0.0, 2.8, 0, 0, Vector2(0.597403, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -55,7 +55,7 @@ lifetime_randomness = 0.81
 spread = 0.0
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_t328y")
-color_ramp = ExtResource("5_788e6")
+color_ramp = ExtResource("5_k7t1i")
 
 [sub_resource type="QuadMesh" id="QuadMesh_rh30q"]
 size = Vector2(0.5, 0.5)
@@ -78,7 +78,7 @@ mesh = SubResource("PlaneMesh_xbmfl")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_883xn")
 
-[node name="Player" parent="." instance=ExtResource("1_bcqhj")]
+[node name="Player" parent="." instance=ExtResource("1_kwx4p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
@@ -90,5 +90,3 @@ randomness = 0.74
 draw_order = 1
 process_material = SubResource("ParticleProcessMaterial_wbcdo")
 draw_pass_1 = SubResource("QuadMesh_rh30q")
-
-[connection signal="Finished" from="Player" to="Player/HUD" method="Finished" flags=18]

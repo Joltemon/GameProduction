@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1t4wt2556wt8"]
 
-[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="1_efoqx"]
-[ext_resource type="Script" path="res://Scenes/UI/IntermIsion/IntermissionScreen.cs" id="2_btk68"]
+[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="1_cnidf"]
+[ext_resource type="Script" path="res://Scenes/UI/IntermIsion/IntermissionScreen.cs" id="2_am3as"]
 
 [node name="Intermission Screen" type="Control"]
 layout_mode = 3
@@ -10,8 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_efoqx")
-script = ExtResource("2_btk68")
+theme = ExtResource("1_cnidf")
+script = ExtResource("2_am3as")
 MainMenu = "res://Scenes/UI/MainMenu/MainMenu.tscn"
 
 [node name="Win message" type="Label" parent="."]

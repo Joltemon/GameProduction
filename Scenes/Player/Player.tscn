@@ -1,10 +1,10 @@
 [gd_scene load_steps=21 format=3 uid="uid://c5stgguw5utpr"]
 
-[ext_resource type="Script" path="res://Scenes/Player/Player.cs" id="1_xcnsr"]
-[ext_resource type="PackedScene" uid="uid://c1je4btt0vci8" path="res://Scenes/Weapons/WeaponHolder/WeaponHolder.tscn" id="2_k2ikj"]
-[ext_resource type="Shader" path="res://Assets/Shaders/Outline.gdshader" id="3_6u74l"]
-[ext_resource type="Script" path="res://Scenes/Player/Scripts/OverlayCamera.cs" id="4_62bi2"]
-[ext_resource type="PackedScene" uid="uid://phk6uejxvcxk" path="res://Scenes/UI/HUD/HUD.tscn" id="5_6gv44"]
+[ext_resource type="Script" path="res://Scenes/Player/Player.cs" id="1_d0orf"]
+[ext_resource type="PackedScene" uid="uid://c1je4btt0vci8" path="res://Scenes/Weapons/WeaponHolder/WeaponHolder.tscn" id="2_3xeca"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Outline.gdshader" id="3_y0lvb"]
+[ext_resource type="Script" path="res://Scenes/Player/Scripts/OverlayCamera.cs" id="4_3qdm8"]
+[ext_resource type="PackedScene" uid="uid://phk6uejxvcxk" path="res://Scenes/UI/HUD/HUD.tscn" id="5_4xucl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jbb0a"]
 friction = 0.0
@@ -41,7 +41,7 @@ size = Vector2(3, 3)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_74rfd"]
 render_priority = 0
-shader = ExtResource("3_6u74l")
+shader = ExtResource("3_y0lvb")
 shader_parameter/shadows_enabled = true
 shader_parameter/highlights_enabled = true
 shader_parameter/shadow_strength = 0.4
@@ -109,7 +109,7 @@ mass = 3.0
 physics_material_override = SubResource("PhysicsMaterial_jbb0a")
 can_sleep = false
 lock_rotation = true
-script = ExtResource("1_xcnsr")
+script = ExtResource("1_d0orf")
 MoveSpeed = 80.0
 AirMoveSpeed = 40.0
 FlyMoveSpeed = 150.0
@@ -168,7 +168,7 @@ cull_mask = 1048573
 attributes = SubResource("CameraAttributesPractical_2hkth")
 fov = 150.0
 
-[node name="WeaponHolder" parent="Head/Camera" node_paths=PackedStringArray("Player") instance=ExtResource("2_k2ikj")]
+[node name="WeaponHolder" parent="Head/Camera" node_paths=PackedStringArray("Player") instance=ExtResource("2_3xeca")]
 Player = NodePath("../../..")
 
 [node name="AimRaycast" type="RayCast3D" parent="Head/Camera"]
@@ -203,10 +203,10 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cull_mask = 1047554
 current = true
-script = ExtResource("4_62bi2")
+script = ExtResource("4_3qdm8")
 TrackingCamera = NodePath("../../../Head/Camera")
 
-[node name="HUD" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("5_6gv44")]
+[node name="HUD" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("5_4xucl")]
 Player = NodePath("..")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
@@ -216,4 +216,3 @@ libraries = {
 
 [connection signal="Finished" from="." to="HUD" method="Finished"]
 [connection signal="AmmunitionUpdated" from="Head/Camera/WeaponHolder" to="HUD" method="UpdateAmmunition"]
-[connection signal="Checkpoint" from="HUD" to="." method="GoToCheckpoint"]

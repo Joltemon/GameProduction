@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bclxmowxm3wf2"]
 
-[ext_resource type="Script" path="res://Scenes/Weapons/Projectile/WarpField.cs" id="1_y6fjv"]
+[ext_resource type="Script" path="res://Scenes/Weapons/Projectile/WarpField.cs" id="1_fxfut"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3wccs"]
 radius = 2.5
@@ -15,7 +15,7 @@ height = 5.0
 
 [node name="WarpField" type="Area3D"]
 collision_mask = 2
-script = ExtResource("1_y6fjv")
+script = ExtResource("1_fxfut")
 VerticalForce = 80.0
 HorizontalForce = 45.0
 Radius = 2.5
