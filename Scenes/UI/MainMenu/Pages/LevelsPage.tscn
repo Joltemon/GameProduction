@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://2ovnxqf16kqc"]
+[gd_scene load_steps=12 format=3 uid="uid://2ovnxqf16kqc"]
 
-[ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/LevelsPage.cs" id="1_ju748"]
-[ext_resource type="PackedScene" uid="uid://c5364smmu1y8c" path="res://Scenes/UI/MainMenu/Pages/LevelsItems/LevelSection.tscn" id="2_8kgn1"]
-[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="3_jw6cf"]
-[ext_resource type="Texture2D" uid="uid://d21sicjaf81cf" path="res://Assets/Icons/logout.png" id="4_lucgd"]
-[ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="5_f62sw"]
+[ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/LevelsPage.cs" id="1_go33b"]
+[ext_resource type="PackedScene" uid="uid://c5364smmu1y8c" path="res://Scenes/UI/MainMenu/Pages/LevelsItems/LevelSection.tscn" id="2_u1gj5"]
+[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="3_bmvyu"]
+[ext_resource type="Texture2D" uid="uid://d21sicjaf81cf" path="res://Assets/Icons/logout.png" id="4_e4cma"]
+[ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="5_njtbt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb174"]
 bg_color = Color(0.152941, 0.152941, 0.152941, 1)
@@ -46,7 +46,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ju748")
+script = ExtResource("1_go33b")
 MainMenuPage = "res://Scenes/UI/MainMenu/MainMenu.tscn"
 Galaxy = NodePath("Galaxy")
 
@@ -61,7 +61,6 @@ offset_right = 196.0
 offset_bottom = 136.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ob1rl")
 expand_mode = 1
 stretch_mode = 6
 
@@ -98,24 +97,18 @@ offset_right = 897.0
 offset_bottom = 519.0
 columns = 4
 
-[node name="City" parent="LevelsPanel/GridContainer" instance=ExtResource("2_8kgn1")]
+[node name="City" parent="LevelsPanel/GridContainer" instance=ExtResource("2_u1gj5")]
 layout_mode = 2
 size_flags_vertical = 4
 Level = "res://Scenes/Maps/City/City.tscn"
 
-[node name="TextureRect" parent="LevelsPanel/GridContainer/City" index="0"]
-texture = ExtResource("3_evswh")
-
 [node name="CreditorTitle" parent="LevelsPanel/GridContainer/City" index="1"]
 text = "Pink City idk"
 
-[node name="Demo Level" parent="LevelsPanel/GridContainer" instance=ExtResource("2_8kgn1")]
+[node name="Demo Level" parent="LevelsPanel/GridContainer" instance=ExtResource("2_u1gj5")]
 layout_mode = 2
 size_flags_vertical = 4
 Level = "res://Scenes/Maps/Empty/Empty.tscn"
-
-[node name="TextureRect" parent="LevelsPanel/GridContainer/Demo Level" index="0"]
-texture = ExtResource("4_bueb7")
 
 [node name="CreditorTitle" parent="LevelsPanel/GridContainer/Demo Level" index="1"]
 text = "Demo
@@ -131,7 +124,7 @@ offset_right = -28.0
 offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("3_jw6cf")
+theme = ExtResource("3_bmvyu")
 theme_override_colors/font_color = Color(0, 0.313726, 0.972549, 1)
 theme_override_colors/font_outline_color = Color(0.564706, 0.560784, 0.784314, 1)
 theme_override_constants/outline_size = 6
@@ -178,7 +171,7 @@ offset_top = -14.0
 offset_bottom = 12.0
 grow_horizontal = 0
 grow_vertical = 2
-texture = ExtResource("4_lucgd")
+texture = ExtResource("4_e4cma")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="BackButtonPanel"]
@@ -191,7 +184,7 @@ offset_top = -20.0
 offset_right = 104.0
 offset_bottom = 20.0
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("5_f62sw")
+theme_override_fonts/font = ExtResource("5_njtbt")
 theme_override_font_sizes/font_size = 24
 text = "Back"
 vertical_alignment = 1

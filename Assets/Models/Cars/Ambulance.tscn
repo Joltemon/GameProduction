@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmb6orawdgix6"]
 
-[ext_resource type="PackedScene" uid="uid://bu62jylca4qm" path="res://Assets/Models/Cars/ambulance.glb" id="1_flubh"]
+[ext_resource type="PackedScene" uid="uid://bu62jylca4qm" path="res://Assets/Models/Cars/ambulance.glb" id="1_axxic"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yjxsx"]
 size = Vector3(1.2, 1.8, 3)
 
-[node name="ambulance" instance=ExtResource("1_flubh")]
+[node name="ambulance" instance=ExtResource("1_axxic")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
 collision_mask = 2
