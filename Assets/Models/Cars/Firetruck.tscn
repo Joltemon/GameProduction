@@ -7,7 +7,7 @@ points = PackedVector3Array(0.75, 1.39986, 1.6, 0.549873, 1.5, 1.15301, 0.498923
 
 [node name="firetruck" instance=ExtResource("1_ayy37")]
 
-[node name="StaticBody3D" type="RigidBody3D" parent="." index="1"]
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59888e-14, 0.2, 0.05)

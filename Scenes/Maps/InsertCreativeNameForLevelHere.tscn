@@ -1,0 +1,94 @@
+[gd_scene load_steps=17 format=3 uid="uid://c480nilt0hht8"]
+
+[ext_resource type="PackedScene" uid="uid://c5stgguw5utpr" path="res://Scenes/Player/Player.tscn" id="1_kwx4p"]
+[ext_resource type="Shader" path="res://Assets/Shaders/fire.gdshader" id="2_oywnb"]
+[ext_resource type="Texture2D" uid="uid://xp8din1y2bjr" path="res://Assets/Shaders/Fire/HoleNoise.png" id="3_x6731"]
+[ext_resource type="Texture2D" uid="uid://cr7c1vrygs0ci" path="res://Assets/Shaders/Fire/FireMask.png" id="4_dn4vi"]
+[ext_resource type="Texture2D" uid="uid://c8yi6jar2jv6e" path="res://Assets/Shaders/Fire/BlueFireGradient.tres" id="5_k7t1i"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nh6iu"]
+sky_top_color = Color(0.505882, 0.160784, 0, 1)
+sky_horizon_color = Color(0.678431, 0.590196, 0.547059, 1)
+ground_bottom_color = Color(0.207843, 0.2, 0.188235, 1)
+ground_horizon_color = Color(0.678431, 0.590196, 0.547059, 1)
+
+[sub_resource type="Sky" id="Sky_0e734"]
+sky_material = SubResource("ProceduralSkyMaterial_nh6iu")
+
+[sub_resource type="Environment" id="Environment_efvfe"]
+background_mode = 2
+sky = SubResource("Sky_0e734")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t0gvs"]
+albedo_color = Color(0, 0, 0, 1)
+emission = Color(0, 0, 1, 1)
+emission_energy_multiplier = 0.08
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xbmfl"]
+material = SubResource("StandardMaterial3D_t0gvs")
+size = Vector2(40, 40)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_883xn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ua5f"]
+render_priority = 0
+shader = ExtResource("2_oywnb")
+shader_parameter/emission_intensity = 2.0
+shader_parameter/time_scale = 3.0
+shader_parameter/texture_scale = Vector2(1, 1)
+shader_parameter/edge_softness = 0.1
+shader_parameter/noise_texture = ExtResource("3_x6731")
+shader_parameter/texture_mask = ExtResource("4_dn4vi")
+
+[sub_resource type="Curve" id="Curve_ge2tc"]
+_data = [Vector2(0, 0), 0.0, 2.8, 0, 0, Vector2(0.597403, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_t328y"]
+width = 128
+curve = SubResource("Curve_ge2tc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wbcdo"]
+lifetime_randomness = 0.81
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_t328y")
+color_ramp = ExtResource("5_k7t1i")
+
+[sub_resource type="QuadMesh" id="QuadMesh_rh30q"]
+size = Vector2(0.5, 0.5)
+
+[node name="insert creative name for level here" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_energy = 2.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_efvfe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_xbmfl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_883xn")
+
+[node name="Player" parent="." instance=ExtResource("1_kwx4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.267, 0)
+material_override = SubResource("ShaderMaterial_4ua5f")
+cast_shadow = 0
+amount = 50
+randomness = 0.74
+draw_order = 1
+process_material = SubResource("ParticleProcessMaterial_wbcdo")
+draw_pass_1 = SubResource("QuadMesh_rh30q")
+
+[connection signal="Finished" from="Player" to="Player/HUD" method="Finished" flags=18]

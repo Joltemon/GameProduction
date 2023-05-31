@@ -235,294 +235,6 @@ transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 9.3034
 [node name="firetruck18" parent="." instance=ExtResource("11_3viiw")]
 transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 9.30342, -91.3462)
 
-[node name="firetruck19" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 12.2772, -94.7976)
-
-[node name="firetruck20" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 12.2772, -91.3462)
-
-[node name="firetruck21" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 12.2772, -94.7976)
-
-[node name="firetruck22" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 12.2772, -91.3462)
-
-[node name="firetruck23" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 15.4798, -94.7976)
-
-[node name="firetruck24" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 15.4798, -91.3462)
-
-[node name="firetruck25" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 15.4798, -94.7976)
-
-[node name="firetruck26" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 15.4798, -91.3462)
-
-[node name="firetruck27" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 18.378, -94.7976)
-
-[node name="firetruck28" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 18.378, -91.3462)
-
-[node name="firetruck29" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 18.378, -94.7976)
-
-[node name="firetruck30" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 18.378, -91.3462)
-
-[node name="firetruck31" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 21.5806, -94.7976)
-
-[node name="firetruck32" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 21.5806, -91.3462)
-
-[node name="firetruck33" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 21.5806, -94.7976)
-
-[node name="firetruck34" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 21.5806, -91.3462)
-
-[node name="firetruck35" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 24.4547, -94.7976)
-
-[node name="firetruck36" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 24.4547, -91.3462)
-
-[node name="firetruck37" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 24.4547, -94.7976)
-
-[node name="firetruck38" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 24.4547, -91.3462)
-
-[node name="firetruck39" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 27.6573, -94.7976)
-
-[node name="firetruck40" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 27.6573, -91.3462)
-
-[node name="firetruck41" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 27.6573, -94.7976)
-
-[node name="firetruck42" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 27.6573, -91.3462)
-
-[node name="firetruck43" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 30.5555, -94.7976)
-
-[node name="firetruck44" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 30.5555, -91.3462)
-
-[node name="firetruck45" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 30.5555, -94.7976)
-
-[node name="firetruck46" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 30.5555, -91.3462)
-
-[node name="firetruck47" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 33.7581, -94.7976)
-
-[node name="firetruck48" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 33.7581, -91.3462)
-
-[node name="firetruck49" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 33.7581, -94.7976)
-
-[node name="firetruck50" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 33.7581, -91.3462)
-
-[node name="firetruck51" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 36.1342, -94.7976)
-
-[node name="firetruck52" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 36.1342, -91.3462)
-
-[node name="firetruck53" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 36.1342, -94.7976)
-
-[node name="firetruck54" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 36.1342, -91.3462)
-
-[node name="firetruck55" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 39.3368, -94.7976)
-
-[node name="firetruck56" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 39.3368, -91.3462)
-
-[node name="firetruck57" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 39.3368, -94.7976)
-
-[node name="firetruck58" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 39.3368, -91.3462)
-
-[node name="firetruck59" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 42.2349, -94.7976)
-
-[node name="firetruck60" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 42.2349, -91.3462)
-
-[node name="firetruck61" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 42.2349, -94.7976)
-
-[node name="firetruck62" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 42.2349, -91.3462)
-
-[node name="firetruck63" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 45.4376, -94.7976)
-
-[node name="firetruck64" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 45.4376, -91.3462)
-
-[node name="firetruck65" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 45.4376, -94.7976)
-
-[node name="firetruck66" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 45.4376, -91.3462)
-
-[node name="firetruck67" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 48.1414, -94.7976)
-
-[node name="firetruck68" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 48.1414, -91.3462)
-
-[node name="firetruck69" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 48.1414, -94.7976)
-
-[node name="firetruck70" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 48.1414, -91.3462)
-
-[node name="firetruck71" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 51.344, -94.7976)
-
-[node name="firetruck72" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 51.344, -91.3462)
-
-[node name="firetruck73" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 51.344, -94.7976)
-
-[node name="firetruck74" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 51.344, -91.3462)
-
-[node name="firetruck75" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 54.2421, -94.7976)
-
-[node name="firetruck76" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 54.2421, -91.3462)
-
-[node name="firetruck77" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 54.2421, -94.7976)
-
-[node name="firetruck78" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 54.2421, -91.3462)
-
-[node name="firetruck79" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 57.4448, -94.7976)
-
-[node name="firetruck80" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 57.4448, -91.3462)
-
-[node name="firetruck81" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 57.4448, -94.7976)
-
-[node name="firetruck82" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 57.4448, -91.3462)
-
-[node name="firetruck83" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 60.0417, -94.7976)
-
-[node name="firetruck84" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 60.0417, -91.3462)
-
-[node name="firetruck85" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 60.0417, -94.7976)
-
-[node name="firetruck86" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 60.0417, -91.3462)
-
-[node name="firetruck87" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 63.2444, -94.7976)
-
-[node name="firetruck88" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 63.2444, -91.3462)
-
-[node name="firetruck89" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 63.2444, -94.7976)
-
-[node name="firetruck90" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 63.2444, -91.3462)
-
-[node name="firetruck91" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 66.1425, -94.7976)
-
-[node name="firetruck92" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 66.1425, -91.3462)
-
-[node name="firetruck93" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 66.1425, -94.7976)
-
-[node name="firetruck94" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 66.1425, -91.3462)
-
-[node name="firetruck95" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 69.3451, -94.7976)
-
-[node name="firetruck96" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 69.3451, -91.3462)
-
-[node name="firetruck97" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 69.3451, -94.7976)
-
-[node name="firetruck98" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 69.3451, -91.3462)
-
-[node name="firetruck99" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 72.5759, -94.7976)
-
-[node name="firetruck100" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 72.5759, -91.3462)
-
-[node name="firetruck101" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 72.5759, -94.7976)
-
-[node name="firetruck102" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 72.5759, -91.3462)
-
-[node name="firetruck103" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 75.7785, -94.7976)
-
-[node name="firetruck104" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 75.7785, -91.3462)
-
-[node name="firetruck105" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 75.7785, -94.7976)
-
-[node name="firetruck106" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 75.7785, -91.3462)
-
-[node name="firetruck107" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 78.6767, -94.7976)
-
-[node name="firetruck108" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 78.6767, -91.3462)
-
-[node name="firetruck109" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 78.6767, -94.7976)
-
-[node name="firetruck110" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 78.6767, -91.3462)
-
-[node name="firetruck111" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 81.8793, -94.7976)
-
-[node name="firetruck112" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -71, 81.8793, -91.3462)
-
-[node name="firetruck113" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 81.8793, -94.7976)
-
-[node name="firetruck114" parent="." instance=ExtResource("11_3viiw")]
-transform = Transform3D(0, 0, 1.99999, 0, 2, 0, -1.99999, 0, 0, -64.6973, 81.8793, -91.3462)
-
 [node name="police2" parent="." instance=ExtResource("12_j02i5")]
 transform = Transform3D(-1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, -1.41421, 1.78496, 0, -86.7262)
 
@@ -1054,10 +766,28 @@ transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, -69.9532
 transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, -69.9532, 0, -61.3687)
 
 [node name="large_buildingD142" parent="." instance=ExtResource("21_qke0w")]
-transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, -88.9532, 0, -74.3687)
+transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, -89.3964, 0, -74.3687)
 
 [node name="large_buildingD143" parent="." instance=ExtResource("21_qke0w")]
-transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, -88.9532, 11.6232, -74.3687)
+transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, -89.3964, 11.6232, -74.3687)
+
+[node name="large_buildingD144" parent="." instance=ExtResource("21_qke0w")]
+transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, -89.3964, 0, -65.9228)
+
+[node name="large_buildingD145" parent="." instance=ExtResource("21_qke0w")]
+transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, -89.3964, 11.6232, -65.9228)
+
+[node name="large_buildingD146" parent="." instance=ExtResource("21_qke0w")]
+transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, -91.3964, 0, -57.5325)
+
+[node name="large_buildingD147" parent="." instance=ExtResource("21_qke0w")]
+transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, -91.3964, 11.6232, -57.5325)
+
+[node name="large_buildingD148" parent="." instance=ExtResource("21_qke0w")]
+transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, -99.3964, 0, -57.5325)
+
+[node name="large_buildingD149" parent="." instance=ExtResource("21_qke0w")]
+transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, -99.3964, 11.6232, -57.5325)
 
 [node name="large_buildingA2" parent="." instance=ExtResource("3_h2gtm")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -167.497, 0, -140.848)
@@ -2048,5 +1778,20 @@ transform = Transform3D(-5.24537e-07, 0, 12, 0, 12, 0, -12, 0, -5.24537e-07, -60
 
 [node name="large_buildingF5" parent="." instance=ExtResource("25_tnjfb")]
 transform = Transform3D(4.76837e-07, 0, -12, 0, 12, 0, 12, 0, 4.76837e-07, -69, 0, -109)
+
+[node name="large_buildingF7" parent="." instance=ExtResource("25_tnjfb")]
+transform = Transform3D(8.30477e-07, 0, -11, 0, 11, 0, 11, 0, 8.30477e-07, -89, 0, -101)
+
+[node name="large_buildingF8" parent="." instance=ExtResource("25_tnjfb")]
+transform = Transform3D(8.30477e-07, 0, -11, 0, 11, 0, 11, 0, 8.30477e-07, -89, 0, -123)
+
+[node name="large_buildingF9" parent="." instance=ExtResource("25_tnjfb")]
+transform = Transform3D(8.30477e-07, 0, -11, 0, 11, 0, 11, 0, 8.30477e-07, -89, 14, -101)
+
+[node name="large_buildingF10" parent="." instance=ExtResource("25_tnjfb")]
+transform = Transform3D(8.30477e-07, 0, -11, 0, 11, 0, 11, 0, 8.30477e-07, -89, 14, -123)
+
+[node name="large_buildingF6" parent="." instance=ExtResource("25_tnjfb")]
+transform = Transform3D(-3.49691e-07, 0, 8, 0, 9, 0, -8, 0, -3.49691e-07, -9, 0, 32)
 
 [connection signal="Finished" from="Player" to="Player/HUD" method="Finished" flags=18]
