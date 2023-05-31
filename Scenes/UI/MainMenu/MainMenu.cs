@@ -8,7 +8,19 @@ public partial class MainMenu : Node
 	[Export(PropertyHint.File, "*.tscn,*.scn")] string? CreditsPage;
 	[Export(PropertyHint.File, "*.tscn,*.scn")] string? LevelsPage;
 
-    void StartGame() => GD.Print("Game started");
+	[Export(PropertyHint.File, "*.tscn,*.scn")] string? StartLevel;
+
+	[Export] AnimationPlayer? LevelDisplayAnimation;
+
+	public override void _Ready()
+	{
+		LevelDisplayAnimation!.Play("Sway");
+	}
+
+    void StartGame()
+	{
+		GetTree().ChangeSceneToFile(StartLevel);
+	}
 
     void Quit() => GetTree().Quit();
 
@@ -30,4 +42,5 @@ public partial class MainMenu : Node
 			GetTree().ChangeSceneToFile(LevelsPage);
 		}
 	}
+
 }

@@ -35,15 +35,18 @@ public partial class PauseMenu : Control
 	{
 		if (inputEvent.IsActionPressed("Pause"))
 		{
-			if (Visible) 
+			if (GetTree().Paused == false) 
 			{
-				ResumeButtonPressed();
-			}
-			else 
-			{
-				Input.MouseMode = Input.MouseModeEnum.Visible;
-				Visible = true;
-				GetTree().Paused = true;
+				if (Visible) 
+				{
+					ResumeButtonPressed();
+				}
+				else 
+				{
+					Input.MouseMode = Input.MouseModeEnum.Visible;
+					Visible = true;
+					GetTree().Paused = true;
+				}
 			}
 		}
 	}
