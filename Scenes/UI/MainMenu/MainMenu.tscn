@@ -265,7 +265,6 @@ script = ExtResource("1_n6oxg")
 SettingsPage = "res://Scenes/UI/MainMenu/Pages/Settings/SettingsPage.tscn"
 CreditsPage = "res://Scenes/UI/MainMenu/Pages/Credits/CreditsPage.tscn"
 LevelsPage = "res://Scenes/UI/MainMenu/Pages/Levels/LevelsPage.tscn"
-StartLevel = "res://Scenes/Maps/Empty/Empty.tscn"
 LevelDisplayAnimation = NodePath("World/CameraTarget/Camera/Animation")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -750,12 +749,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57214, 0.24925, -3.31611)
 
 [node name="Crystal" parent="EmptyMap" instance=ExtResource("15_y0e64")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 24.1703, 18.1639, -27.1357)
+ScoreBonus = 0.0
 
 [node name="scene2" parent="EmptyMap" instance=ExtResource("14_tbfq2")]
 transform = Transform3D(1.39501, -1.43316, 0, 1.43316, 1.39501, 0, 0, 0, 2, 25.4918, 18.553, -28.1397)
 
 [node name="EnergyCrystal" parent="EmptyMap" instance=ExtResource("15_y0e64")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.03682, 0.236523, -20.7224)
+ScoreBonus = 0.0
 
 [node name="End Point" parent="EmptyMap" instance=ExtResource("16_evatf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8239, 25.7142, 41.5912)
