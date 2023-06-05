@@ -85,7 +85,7 @@ _data = {
 
 [node name="Item" node_paths=PackedStringArray("FloatingAnimation") instance=ExtResource("1_h3rxt")]
 script = ExtResource("2_7vps5")
-AmmoAmount = 0
+ScoreBonus = 1
 FloatingAnimation = NodePath("AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]

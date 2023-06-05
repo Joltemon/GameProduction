@@ -177,6 +177,7 @@ target_position = Vector3(0, 0, -10)
 
 [node name="PostProcesser" type="MeshInstance3D" parent="Head/Camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.06)
+visible = false
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_hslsf")
 surface_material_override/0 = SubResource("ShaderMaterial_74rfd")
@@ -216,5 +217,6 @@ libraries = {
 }
 
 [connection signal="Finished" from="." to="HUD" method="Finished"]
+[connection signal="ScoreUpdated" from="." to="HUD" method="UpdateScore"]
 [connection signal="AmmunitionUpdated" from="Head/Camera/WeaponHolder" to="HUD" method="UpdateAmmunition"]
 [connection signal="Checkpoint" from="HUD" to="." method="GoToCheckpoint"]
