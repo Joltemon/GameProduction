@@ -24,6 +24,7 @@ public partial class Player : RigidBody3D
 	float FovIncrease;
 	public double Stopwatch;
 	public Boolean StopwatchRunning = true;
+	public double Score;
 	float CurrentCoyoteTime;
 	float sprintEnergy = 100;
 	public Vector3 LastCheckpoint = Vector3.Zero;
@@ -340,6 +341,11 @@ public partial class Player : RigidBody3D
 		Camera!.GlobalRotation = Vector3.Zero;
 		
 		Freeze = false;
+
+		if (LastCheckpointValue == 0)
+		{
+			Stopwatch = 0;
+		}
 	}
 
 	public override void _Input(InputEvent inputEvent)

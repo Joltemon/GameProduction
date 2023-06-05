@@ -3,14 +3,14 @@ using System;
 
 public partial class EnergyCrystal : Item
 {
-	[Export] int AmmoAmount;
+	[Export] float ScoreBonus;
 	[Export] AnimationPlayer? FloatingAnimation;
 
 	public void PlayerEnter(Node3D body)
 	{
 		if (body is Player player)
 		{
-			// player.WeaponHolder?.AddAmmunition(AmmoAmount);
+			player.Score += ScoreBonus;
 			QueueFree();
 		}
 	}

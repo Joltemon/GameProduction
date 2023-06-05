@@ -464,6 +464,7 @@ transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_hgoml")
 
 [node name="Checkpoint" parent="Objects/BigBlock3" instance=ExtResource("9_nu6ql")]
+CheckpointNumber = 1
 
 [node name="Shape" type="CollisionShape3D" parent="Objects/BigBlock3/Checkpoint"]
 transform = Transform3D(1, 0, 6.0536e-08, 0, 0.999999, 0, 5.96046e-08, 0, 1, 0, 0.648155, 0)
