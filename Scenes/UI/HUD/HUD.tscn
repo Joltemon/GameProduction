@@ -22,7 +22,6 @@ linear_accel_max = 1.0
 radial_accel_min = 100.0
 radial_accel_max = 100.0
 scale_max = 5.0
-color = Color(1, 1, 1, 0.392157)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hcf8d"]
 shader = ExtResource("3_vfcm8")
@@ -76,7 +75,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.3, 1.3)
 pivot_offset = Vector2(576, 324)
 theme = ExtResource("2_m4fhm")
 
