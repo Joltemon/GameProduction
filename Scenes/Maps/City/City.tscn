@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cjyn4ianhnsip"]
+[gd_scene load_steps=34 format=3 uid="uid://cjyn4ianhnsip"]
 
 [ext_resource type="PackedScene" uid="uid://c5stgguw5utpr" path="res://Scenes/Player/Player.tscn" id="1_cqbjr"]
 [ext_resource type="PackedScene" uid="uid://c5exo6l6xbjp7" path="res://Assets/Models/Roads/road_curve.glb" id="2_sux0d"]
@@ -12,10 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://cilytuwae1cus" path="res://Assets/Models/Cars/Sedan.tscn" id="10_i8euk"]
 [ext_resource type="PackedScene" uid="uid://i3vvbm2p5cos" path="res://Assets/Models/Cars/Firetruck.tscn" id="11_3viiw"]
 [ext_resource type="PackedScene" uid="uid://msgssfevv8uy" path="res://Assets/Models/Cars/Police.tscn" id="12_j02i5"]
-[ext_resource type="PackedScene" path="res://Assets/Models/City/Roads/RoadBridge.tscn" id="13_rns7p"]
+[ext_resource type="PackedScene" uid="uid://cvm8eeycob882" path="res://Assets/Models/City/Roads/RoadBridge.tscn" id="13_rns7p"]
 [ext_resource type="PackedScene" uid="uid://bvx280aoqes3o" path="res://Assets/Models/Roads/road_bridge.glb" id="14_0pqbn"]
-[ext_resource type="PackedScene" path="res://Assets/Models/City/Roads/RoadCurve.tscn" id="15_6u4t7"]
-[ext_resource type="PackedScene" path="res://Assets/Models/City/Roads/RoadStraight.tscn" id="16_nhibw"]
+[ext_resource type="PackedScene" uid="uid://crgp1pqjorrlr" path="res://Assets/Models/City/Roads/RoadCurve.tscn" id="15_6u4t7"]
+[ext_resource type="PackedScene" uid="uid://bvqx0mmf5vaex" path="res://Assets/Models/City/Roads/RoadStraight.tscn" id="16_nhibw"]
 [ext_resource type="PackedScene" uid="uid://dnyumdp7mvbnn" path="res://Assets/Models/City/Roads/RoadSlant.tscn" id="17_emfyf"]
 [ext_resource type="PackedScene" uid="uid://7mkk4g71idk6" path="res://Assets/Models/Roads/road_curveIntersection.glb" id="18_7f3d5"]
 [ext_resource type="PackedScene" uid="uid://pwy4pew5bel3" path="res://Assets/Models/Roads/road_bend.glb" id="19_v1x6r"]
@@ -54,6 +54,9 @@ material = SubResource("StandardMaterial3D_m516r")
 size = Vector2(300, 700)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_d7l57"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gdwke"]
+size = Vector3(3, 12, 6)
 
 [node name="City" type="Node3D"]
 
@@ -483,15 +486,19 @@ transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, -12
 
 [node name="EnergyCrystal" parent="." instance=ExtResource("20_lxqfj")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -118.248, 8.40644, -298.152)
+ScoreBonus = 0.0
 
 [node name="EnergyCrystal2" parent="." instance=ExtResource("20_lxqfj")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -118.248, 8.40644, -295.416)
+ScoreBonus = 0.0
 
 [node name="EnergyCrystal3" parent="." instance=ExtResource("20_lxqfj")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -118.248, 8.40644, -300.568)
+ScoreBonus = 0.0
 
 [node name="EnergyCrystal4" parent="." instance=ExtResource("20_lxqfj")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -118.248, 8.40644, -305.112)
+ScoreBonus = 0.0
 
 [node name="road_slantHigh18" parent="." instance=ExtResource("8_3ybcn")]
 transform = Transform3D(-10, 0, -1.43059e-06, 0, 10, 0, 1.43059e-06, 0, -10, -147, 15, -614.5)
@@ -577,13 +584,18 @@ transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 6, 0, -3)
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 6, 13, -3)
 
 [node name="End Point" parent="." instance=ExtResource("22_ht4ay")]
-transform = Transform3D(3, 0, 0, 0, 10, 0, 0, 0, 10, -163.738, 4.1099, -622)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163.738, 4.1099, -622)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="End Point"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+shape = SubResource("BoxShape3D_gdwke")
 
 [node name="scene" parent="." instance=ExtResource("23_7jfhy")]
 transform = Transform3D(1.82329, 0, -1.58824, 0, 3, 0, 2.38235, 0, 1.21553, -162.151, -0.367378, -622.288)
 
 [node name="EnergyCrystal6" parent="." instance=ExtResource("20_lxqfj")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.748024, 0.599077, -72.9986)
+ScoreBonus = 0.0
 
 [node name="scene2" parent="." instance=ExtResource("24_uxy1l")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -77.5886, 0.771935, -24.4783)
