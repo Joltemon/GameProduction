@@ -11,11 +11,12 @@ config_version=5
 [application]
 
 config/name="Adrenarush"
-run/main_scene="res://Scenes/Maps/Empty/Empty.tscn"
+run/main_scene="res://Scenes/UI/MainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.0", "C#", "Forward Plus")
 boot_splash/bg_color=Color(0.568627, 0.568627, 0.568627, 1)
-boot_splash/image="res://Assets/Icons/unity bad.png"
+boot_splash/image="res://screenshot.png"
 config/icon="res://Assets/Icons/sprint_icon.svg"
+run/main_scene.editor="res://Scenes/Maps/Empty/Empty.tscn"
 
 [dotnet]
 

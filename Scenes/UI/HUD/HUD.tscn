@@ -54,10 +54,10 @@ _data = {
 "Show": SubResource("Animation_u3kwk")
 }
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("Root", "AmmoLabel", "TimerLabel", "SprintBar", "SprintingParticle", "Animation", "PauseMenu", "RestartProgressBar", "ExtraSpeedBar", "PixelationLayer")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("Root", "ScoreLabel", "TimerLabel", "SprintBar", "SprintingParticle", "Animation", "PauseMenu", "RestartProgressBar", "ExtraSpeedBar", "PixelationLayer")]
 script = ExtResource("1_enbec")
 Root = NodePath("HUD")
-AmmoLabel = NodePath("HUD/EnergyCrystal/Label")
+ScoreLabel = NodePath("HUD/EnergyCrystal/Label")
 TimerLabel = NodePath("HUD/TimerLabel")
 SprintBar = NodePath("HUD/BottleIcon/ProgressBar")
 SprintingParticle = NodePath("HUD/ParticleControl/GPUParticles2D")
@@ -229,3 +229,5 @@ libraries = {
 
 [node name="PauseMenu" parent="." instance=ExtResource("9_iwdod")]
 visible = false
+
+[connection signal="Reset" from="PauseMenu" to="." method="ResetToCheckpoint"]

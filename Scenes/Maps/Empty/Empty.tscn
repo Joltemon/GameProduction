@@ -519,14 +519,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57214, 0.24925, -3.31611)
 
 [node name="Crystal" parent="." instance=ExtResource("9_f3d5t")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 24.1703, 18.1639, -27.1357)
-ScoreBonus = 0.0
+ScoreBonus = 0
 
 [node name="scene2" parent="." instance=ExtResource("8_myqm3")]
 transform = Transform3D(1.39501, -1.43316, 0, 1.43316, 1.39501, 0, 0, 0, 2, 25.4918, 18.553, -28.1397)
 
 [node name="EnergyCrystal" parent="." instance=ExtResource("9_f3d5t")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.03682, 0.236523, -20.7224)
-ScoreBonus = 0.0
+ScoreBonus = 0
 
 [node name="End Point" parent="." instance=ExtResource("10_kf25w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8239, 25.7142, 41.5912)
