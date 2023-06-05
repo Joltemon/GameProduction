@@ -62,7 +62,6 @@ libraries = {
 "": SubResource("AnimationLibrary_mxxmn")
 }
 
-[connection signal="AmmunitionUpdated" from="WeaponOffset/Propulsor" to="." method="OnAmmunitionUpdated"]
 [connection signal="Fired" from="WeaponOffset/Propulsor" to="." method="OnFired"]
 
 [editable path="WeaponOffset/Propulsor"]

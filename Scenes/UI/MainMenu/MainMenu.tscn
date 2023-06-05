@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://dfcvbhiopq6s7"]
+[gd_scene load_steps=78 format=3 uid="uid://dfcvbhiopq6s7"]
 
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu/MainMenu.cs" id="1_n6oxg"]
 [ext_resource type="PackedScene" uid="uid://doq53hm1rrb3s" path="res://Scenes/UI/MainMenu/Title/Title.tscn" id="2_hf7op"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://pducdeyki048" path="res://Scenes/Items/Adrenaline/Adrenaline.tscn" id="14_tbfq2"]
 [ext_resource type="PackedScene" uid="uid://cluoqsk08s7uw" path="res://Scenes/Items/EnergyCrystal/EnergyCrystal.tscn" id="15_y0e64"]
 [ext_resource type="PackedScene" uid="uid://bqn3604romco1" path="res://Scenes/MapComponents/Endpoint/Endpoint.tscn" id="16_evatf"]
-[ext_resource type="PackedScene" uid="uid://bvxansvqn0pdq" path="res://Scenes/Items/unnamed/unnamed.tscn" id="17_g4a7w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tdhd3"]
 sky_top_color = Color(0.301961, 0.439216, 0.729412, 1)
@@ -74,6 +73,9 @@ _data = {
 "RESET": SubResource("Animation_x5wx6")
 }
 
+[sub_resource type="Animation" id="Animation_40skc"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_rlt22"]
 resource_name = "Sway"
 length = 20.0
@@ -90,9 +92,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_40skc"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eyv4o"]
 _data = {
@@ -266,7 +265,6 @@ script = ExtResource("1_n6oxg")
 SettingsPage = "res://Scenes/UI/MainMenu/Pages/Settings/SettingsPage.tscn"
 CreditsPage = "res://Scenes/UI/MainMenu/Pages/Credits/CreditsPage.tscn"
 LevelsPage = "res://Scenes/UI/MainMenu/Pages/Levels/LevelsPage.tscn"
-StartLevel = "res://Scenes/Maps/Empty/Empty.tscn"
 LevelDisplayAnimation = NodePath("World/CameraTarget/Camera/Animation")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -763,9 +761,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8239, 25.7142, 41.5912)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EmptyMap/End Point"]
 shape = SubResource("BoxShape3D_gpvaf")
-
-[node name="unnamed" parent="EmptyMap" instance=ExtResource("17_g4a7w")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.1458, 0.282895, -7.29737)
 
 [connection signal="Pressed" from="UI/Buttons/NewGameButton" to="." method="StartGame"]
 [connection signal="Pressed" from="UI/Buttons/LevelsButton" to="." method="LevelsButtonPressed"]

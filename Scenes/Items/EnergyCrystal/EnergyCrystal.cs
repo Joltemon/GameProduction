@@ -10,7 +10,7 @@ public partial class EnergyCrystal : Item
 	{
 		if (body is Player player)
 		{
-			player.WeaponHolder?.AddAmmunition(AmmoAmount);
+			// player.WeaponHolder?.AddAmmunition(AmmoAmount);
 			QueueFree();
 		}
 	}

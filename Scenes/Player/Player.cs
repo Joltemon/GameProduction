@@ -363,7 +363,7 @@ public partial class Player : RigidBody3D
 		{
 			if (OS.HasFeature("editor"))
 			{
-				WeaponHolder?.SetAmmunition(10);
+				// WeaponHolder?.SetAmmunition(10);
 				SprintEnergy = 100;
 			}
 		}
