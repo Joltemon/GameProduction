@@ -1,0 +1,5 @@
+on load:
+    broadcast "this project sucks ass lmao"
+
+on click action:
+    execute console command "stop"
