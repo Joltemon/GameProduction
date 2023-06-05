@@ -85,7 +85,7 @@ _data = {
 
 [node name="Adrenaline" node_paths=PackedStringArray("FloatingAnimation") instance=ExtResource("1_a5hps")]
 script = ExtResource("2_kqedr")
-Energy = 0
+Energy = 20
 FloatingAnimation = NodePath("AnimationPlayer")
 
 [node name="Water_bottle_01" type="Node3D" parent="." index="0"]

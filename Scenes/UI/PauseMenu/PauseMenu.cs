@@ -30,23 +30,19 @@ public partial class PauseMenu : Control
 		EmitSignal("Reset");
 	}
 
-
 	public override void _Input(InputEvent inputEvent)
 	{
 		if (inputEvent.IsActionPressed("Pause"))
 		{
-			if (GetTree().Paused == false) 
+			if (Visible)
 			{
-				if (Visible) 
-				{
-					ResumeButtonPressed();
-				}
-				else 
-				{
-					Input.MouseMode = Input.MouseModeEnum.Visible;
-					Visible = true;
-					GetTree().Paused = true;
-				}
+				ResumeButtonPressed();
+			}
+			else
+			{
+				Input.MouseMode = Input.MouseModeEnum.Visible;
+				Visible = true;
+				GetTree().Paused = true;
 			}
 		}
 	}

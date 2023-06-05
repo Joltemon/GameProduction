@@ -3,7 +3,7 @@ using System;
 
 public partial class EnergyCrystal : Item
 {
-	[Export] float ScoreBonus;
+	[Export] int ScoreBonus;
 	[Export] AnimationPlayer? FloatingAnimation;
 
 	public void PlayerEnter(Node3D body)
@@ -11,6 +11,7 @@ public partial class EnergyCrystal : Item
 		if (body is Player player)
 		{
 			player.Score += ScoreBonus;
+			player.EmitSignal("ScoreUpdated", player.Score);
 			QueueFree();
 		}
 	}

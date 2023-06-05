@@ -6,7 +6,7 @@ public partial class HUD : CanvasLayer
 {
 	[Export] Player? Player;
 	[Export] Control? Root;
-	[Export] Label? AmmoLabel;
+	[Export] Label? ScoreLabel;
 	[Export] public Label? TimerLabel;
 	[Export] ProgressBar? SprintBar;
 	[Export] public GpuParticles2D? SprintingParticle;
@@ -25,10 +25,12 @@ public partial class HUD : CanvasLayer
 
 	[Signal] public delegate void CheckpointEventHandler();
 
-	void UpdateAmmunition(int ammo)
+	bool IsRestartPressed;
+
+	void UpdateScore(int score)
 	{
-		if (AmmoLabel != null)
-			AmmoLabel.Text = ammo.ToString();
+		if (ScoreLabel != null)
+			ScoreLabel.Text = score.ToString();
 	}
 
 	public void UpdateSpeedEffects(float currentSpeed, float dotValue) 
@@ -79,13 +81,19 @@ public partial class HUD : CanvasLayer
 
 		UpdateTimer(Player.Stopwatch);
 
-		if (Input.IsActionPressed("RestartLevel")) 
+		if (IsRestartPressed) 
 		{
-			RestartPressed(delta);
+			ProgressBarProgress += delta * 200.0;
+		
+			// if the progres bar is full it restarts
+			if (ProgressBarProgress >= 100) 
+			{
+				ResetToCheckpoint();
+			}
 		}
 		else
 		{
-			RestartReleased(delta);
+			ProgressBarProgress -= delta * 250.0;
 		}
 
 		ProgressBarProgress = Mathf.Clamp(ProgressBarProgress, 0, 100);
@@ -110,28 +118,24 @@ public partial class HUD : CanvasLayer
 		TimerLabel?.Set("theme_override_colors/font_color", Color.Color8(0, 232, 0));
 	}
 
-	public void RestartPressed(double delta)
-	{
-		ProgressBarProgress += delta * 200.0;
-		
-		// if the progres bar is full it restarts
-		if (ProgressBarProgress >= 100) 
-		{
-			ResetToCheckpoint();
-		}
-	}
-
 	public void ResetToCheckpoint()
 	{
+		IsRestartPressed = false;
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		GetTree().Paused = false;
 		ProgressBarProgress = 0;
 		EmitSignal("Checkpoint");
 	}
 
-	public void RestartReleased(double delta) 
+	public override void _Input(InputEvent ev)
 	{
-		// await Task.Delay(100);
-		ProgressBarProgress -= delta * 250.0;
+		if (ev.IsActionPressed("RestartLevel"))
+		{
+			IsRestartPressed = true;
+		}
+		else if (ev.IsActionReleased("RestartLevel"))
+		{
+			IsRestartPressed = false;
+		}
 	}
 }
