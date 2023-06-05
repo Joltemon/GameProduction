@@ -24,7 +24,7 @@ public partial class Player : RigidBody3D
 	float FovIncrease;
 	public double Stopwatch;
 	public Boolean StopwatchRunning = true;
-	public double Score;
+	public int Score;
 	float CurrentCoyoteTime;
 	float sprintEnergy = 100;
 	public Vector3 LastCheckpoint = Vector3.Zero;
@@ -57,6 +57,7 @@ public partial class Player : RigidBody3D
 	Boolean ExtraSpeedChange = false;
 
 	[Signal] public delegate void FinishedEventHandler();
+	[Signal] public delegate void ScoreUpdatedEventHandler(int score);
 
 	public override void _Ready()
 	{
@@ -369,7 +370,6 @@ public partial class Player : RigidBody3D
 		{
 			if (OS.HasFeature("editor"))
 			{
-				// WeaponHolder?.SetAmmunition(10);
 				SprintEnergy = 100;
 			}
 		}
