@@ -101,18 +101,20 @@ columns = 4
 layout_mode = 2
 size_flags_vertical = 4
 Level = "res://Scenes/Maps/City/City.tscn"
+LevelName = "City"
 
-[node name="CreditorTitle" parent="LevelsPanel/GridContainer/City" index="1"]
-text = "Pink City idk"
+[node name="LevelName" parent="LevelsPanel/GridContainer/City" index="1"]
+text = "Pink city
+"
 
 [node name="Demo Level" parent="LevelsPanel/GridContainer" instance=ExtResource("2_u1gj5")]
 layout_mode = 2
 size_flags_vertical = 4
 Level = "res://Scenes/Maps/Empty/Empty.tscn"
+LevelName = "EmptyMap"
 
-[node name="CreditorTitle" parent="LevelsPanel/GridContainer/Demo Level" index="1"]
-text = "Demo
-"
+[node name="LevelName" parent="LevelsPanel/GridContainer/Demo Level" index="1"]
+text = "Demo"
 
 [node name="LevelsTitle" type="Label" parent="LevelsPanel"]
 layout_mode = 1

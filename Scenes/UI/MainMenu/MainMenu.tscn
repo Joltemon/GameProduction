@@ -265,6 +265,7 @@ script = ExtResource("1_n6oxg")
 SettingsPage = "res://Scenes/UI/MainMenu/Pages/Settings/SettingsPage.tscn"
 CreditsPage = "res://Scenes/UI/MainMenu/Pages/Credits/CreditsPage.tscn"
 LevelsPage = "res://Scenes/UI/MainMenu/Pages/Levels/LevelsPage.tscn"
+StartLevel = "res://Scenes/Maps/Empty/Empty.tscn"
 LevelDisplayAnimation = NodePath("World/CameraTarget/Camera/Animation")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

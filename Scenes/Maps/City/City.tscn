@@ -55,7 +55,7 @@ size = Vector2(300, 700)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_d7l57"]
 
-[node name="Node3D" type="Node3D"]
+[node name="City" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_04nc8")
