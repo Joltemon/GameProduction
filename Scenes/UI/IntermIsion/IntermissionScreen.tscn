@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="1_cnidf"]
 [ext_resource type="Script" path="res://Scenes/UI/IntermIsion/IntermissionScreen.cs" id="2_am3as"]
 
-[node name="Intermission Screen" type="Control"]
+[node name="IntermissionScreen" type="Control" node_paths=PackedStringArray("TimeLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +13,16 @@ grow_vertical = 2
 theme = ExtResource("1_cnidf")
 script = ExtResource("2_am3as")
 MainMenu = "res://Scenes/UI/MainMenu/MainMenu.tscn"
+TimeLabel = NodePath("Label")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.666667)
 
 [node name="Win message" type="Label" parent="."]
 layout_mode = 1
@@ -72,6 +82,7 @@ grow_vertical = 0
 text = " Next Level"
 
 [node name="Label" type="Label" parent="."]
+process_mode = 3
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -84,7 +95,7 @@ offset_right = 20.0
 offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
-text = " Your time: 00:00.00"
+text = "Your time: 00:00.00"
 
 [connection signal="pressed" from="Main Menu" to="." method="MainMenuPressed"]
 [connection signal="pressed" from="Retry" to="." method="RetryPressed"]

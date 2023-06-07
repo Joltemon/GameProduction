@@ -4,27 +4,32 @@ using System;
 public partial class IntermissionScreen : Control
 {
 	[Export(PropertyHint.File, "*.tscn,*.scn")] string? MainMenu;
+	[Export] Label? TimeLabel;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	public void Activate(Player player)
 	{
-		GD.Print(";-;");
+		Visible = true;
+
+		if (TimeLabel != null)
+		{
+			var time = TimeSpan.FromSeconds(player.Stopwatch);
+
+			TimeLabel.Text = $"Your time: {((int)time.TotalMinutes).ToString("0")}:{time.Seconds.ToString("00")}:{time.Milliseconds.ToString("00")}";
+		}
 	}
 
-	void NextLevelPressed(){
+	void NextLevelPressed()
+	{
 		GD.Print(">:(");
 	}
 
-	void RetryPressed(){
+	void RetryPressed()
+	{
 		GD.Print("https://www.youtube.com/watch?v=DKF2-zCNJ0A");
 	}
 
-	void MainMenuPressed(){
-		GetTree().ChangeSceneToFile(MainMenu);
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	void MainMenuPressed()
 	{
+		GetTree().ChangeSceneToFile(MainMenu);
 	}
 }

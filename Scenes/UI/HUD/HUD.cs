@@ -12,6 +12,7 @@ public partial class HUD : CanvasLayer
 	[Export] public GpuParticles2D? SprintingParticle;
 	[Export] AnimationPlayer? Animation;
 	[Export] Control? PauseMenu;
+	[Export] IntermissionScreen? IntermissionScreen;
 
 	[Export] TextureProgressBar? RestartProgressBar;
 	Boolean ProgressBarPressed;
@@ -133,7 +134,15 @@ public partial class HUD : CanvasLayer
 
 	void ShowIntermission()
 	{
-		GD.Print("done");
+		Input.MouseMode = Input.MouseModeEnum.Visible;
+		GetTree().Paused = true;
+
+		if (IntermissionScreen != null && Player != null)
+		{
+			if (PauseMenu != null) PauseMenu.Visible = false;
+			if (Root != null) Root.Visible = false;
+			IntermissionScreen.Activate(Player);
+		}
 	}
 
 	public override void _Input(InputEvent ev)

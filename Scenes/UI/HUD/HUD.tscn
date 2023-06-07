@@ -55,7 +55,7 @@ _data = {
 "Show": SubResource("Animation_u3kwk")
 }
 
-[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("Root", "ScoreLabel", "TimerLabel", "SprintBar", "SprintingParticle", "Animation", "PauseMenu", "RestartProgressBar", "ExtraSpeedBar", "PixelationLayer")]
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("Root", "ScoreLabel", "TimerLabel", "SprintBar", "SprintingParticle", "Animation", "PauseMenu", "IntermissionScreen", "RestartProgressBar", "ExtraSpeedBar", "PixelationLayer")]
 script = ExtResource("1_enbec")
 Root = NodePath("HUD")
 ScoreLabel = NodePath("HUD/EnergyCrystal/Label")
@@ -64,6 +64,7 @@ SprintBar = NodePath("HUD/BottleIcon/ProgressBar")
 SprintingParticle = NodePath("HUD/ParticleControl/GPUParticles2D")
 Animation = NodePath("AnimationPlayer")
 PauseMenu = NodePath("PauseMenu")
+IntermissionScreen = NodePath("Intermission Screen")
 RestartProgressBar = NodePath("HUD/RestartProgressBar")
 ExtraSpeedBar = NodePath("HUD/ExtraSpeedProgressBar")
 PixelationLayer = NodePath("HUD/PixelationLayer")
