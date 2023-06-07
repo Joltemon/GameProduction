@@ -6,14 +6,10 @@ public partial class EnergyCrystal : Item
 	[Export] int ScoreBonus;
 	[Export] AnimationPlayer? FloatingAnimation;
 
-	public void PlayerEnter(Node3D body)
+	public override void PlayerEnter(Player player)
 	{
-		if (body is Player player)
-		{
-			player.Score += ScoreBonus;
-			player.EmitSignal("ScoreUpdated", player.Score);
-			QueueFree();
-		}
+		player.Score += ScoreBonus;
+		player.EmitSignal("ScoreUpdated", player.Score);
 	}
 
 	public override void _Ready()

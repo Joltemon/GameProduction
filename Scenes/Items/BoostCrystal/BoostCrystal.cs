@@ -5,13 +5,9 @@ public partial class BoostCrystal : Item
 {
 	[Export] AnimationPlayer? FloatingAnimation;
 
-	public void PlayerEntered(Node3D body)
+	public override void PlayerEnter(Player player)
 	{
-		if (body is Player player)
-		{
-			QueueFree();
-			player.ExtraSpeedBoost();
-		}
+		player.ExtraSpeedBoost();
 	}
 
 	public override void _Ready()

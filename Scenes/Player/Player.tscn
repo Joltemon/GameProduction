@@ -217,6 +217,5 @@ libraries = {
 }
 
 [connection signal="Finished" from="." to="HUD" method="Finished"]
-[connection signal="ScoreUpdated" from="." to="HUD" method="UpdateScore"]
 [connection signal="AmmunitionUpdated" from="Head/Camera/WeaponHolder" to="HUD" method="UpdateAmmunition"]
 [connection signal="Checkpoint" from="HUD" to="." method="GoToCheckpoint"]

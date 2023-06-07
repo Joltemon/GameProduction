@@ -58,6 +58,8 @@ public partial class Player : RigidBody3D
 
 	[Signal] public delegate void FinishedEventHandler();
 	[Signal] public delegate void ScoreUpdatedEventHandler(int score);
+	[Signal] public delegate void HitCheckpointEventHandler();
+	[Signal] public delegate void RestoredFromCheckpointEventHandler();
 
 	public override void _Ready()
 	{
@@ -347,6 +349,8 @@ public partial class Player : RigidBody3D
 		{
 			Stopwatch = 0;
 		}
+
+		EmitSignal("RestoredFromCheckpoint");
 	}
 
 	public override void _Input(InputEvent inputEvent)

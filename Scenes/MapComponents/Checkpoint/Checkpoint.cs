@@ -9,8 +9,11 @@ public partial class Checkpoint : Area3D
 	{
 		if (node is Player player) 
 		{
+			if (player.LastCheckpointValue >= CheckpointNumber) return;
+			
 			player.LastCheckpoint = GlobalPosition;
 			player.LastCheckpointValue = CheckpointNumber;
+			player.EmitSignal("HitCheckpoint");
 		}
 	}
 }

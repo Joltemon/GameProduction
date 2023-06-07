@@ -6,13 +6,9 @@ public partial class Adrenaline : Item
 	[Export] int Energy;
 	[Export] AnimationPlayer? FloatingAnimation;
 
-	public void PlayerEnter(Node3D body)
+	public override void PlayerEnter(Player player)
 	{
-		if (body is Player player)
-		{
-			player.SprintEnergy += Energy;
-			QueueFree();
-		}
+		player.SprintEnergy += Energy;
 	}
 
 	public override void _Ready()

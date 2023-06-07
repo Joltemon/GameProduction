@@ -34,7 +34,6 @@ roughness = 0.7
 
 [node name="Propulsor" type="Node3D" node_paths=PackedStringArray("Tip", "CooldownTimer")]
 script = ExtResource("1_8ma6v")
-Ammunition = 5
 Projectile = ExtResource("2_h7blf")
 Tip = NodePath("Tip")
 CooldownTimer = NodePath("Cooldown")

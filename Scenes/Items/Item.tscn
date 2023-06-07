@@ -6,4 +6,4 @@
 collision_mask = 2
 script = ExtResource("1_sy5bx")
 
-[connection signal="body_entered" from="." to="." method="PlayerEnter"]
+[connection signal="body_entered" from="." to="." method="OnEnter"]
