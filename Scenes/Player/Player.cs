@@ -25,8 +25,10 @@ public partial class Player : RigidBody3D
 	public double Stopwatch;
 	public Boolean StopwatchRunning = true;
 	public int Score;
+	public int SavedScore;
 	float CurrentCoyoteTime;
 	float sprintEnergy = 100;
+	public float SavedSprintEnergy = 100;
 	public Vector3 LastCheckpoint = Vector3.Zero;
 	public int LastCheckpointValue;
 	public float SprintEnergy
@@ -149,7 +151,7 @@ public partial class Player : RigidBody3D
 
 
 		if (Flying)
-			MoveFly(isGrounded, sprintAdjustment, (float)delta);
+			MoveFly(sprintAdjustment, (float)delta);
 		else
 			Move(currentVelocity, isGrounded, sprintAdjustment, (float)delta);
 	}
@@ -185,7 +187,7 @@ public partial class Player : RigidBody3D
 		{
 			if (isCrouchSliding)
 			{
-				LinearDamp = 0.8f;
+				LinearDamp = 0.3f;
 				
 				if (!IsCurrentlyCrouchSliding)
 				{
@@ -296,7 +298,7 @@ public partial class Player : RigidBody3D
 		}
 	}
 
-	void MoveFly(bool isGrounded, float speed, float delta)
+	void MoveFly(float speed, float delta)
 	{
 		GravityScale = 0;
 
@@ -351,6 +353,10 @@ public partial class Player : RigidBody3D
 		}
 
 		EmitSignal("RestoredFromCheckpoint");
+
+		// Restore variables
+		Score = SavedScore;
+		SprintEnergy = SavedSprintEnergy;
 	}
 
 	public override void _Input(InputEvent inputEvent)
@@ -388,8 +394,8 @@ public partial class Player : RigidBody3D
 
 	void UpdateSpeed(float num) 
 	{
-		MoveSpeed = MoveSpeed*num;
-		AirMoveSpeed = AirMoveSpeed*num;
-		FlyMoveSpeed = FlyMoveSpeed*num;
+		MoveSpeed *= num;
+		AirMoveSpeed *= num;
+		FlyMoveSpeed *= num;
 	}
 }

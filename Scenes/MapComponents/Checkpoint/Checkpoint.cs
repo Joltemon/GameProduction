@@ -14,6 +14,10 @@ public partial class Checkpoint : Area3D
 			player.LastCheckpoint = GlobalPosition;
 			player.LastCheckpointValue = CheckpointNumber;
 			player.EmitSignal("HitCheckpoint");
+
+			// Save player variables
+			player.SavedScore = player.Score;
+			player.SavedSprintEnergy = player.SprintEnergy;
 		}
 	}
 }

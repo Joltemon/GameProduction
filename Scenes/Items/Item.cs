@@ -3,20 +3,23 @@ using System;
 
 public partial class Item : Area3D
 {
+	bool Active;
 	bool BoundSignals;
 	
 	void OnEnter(Node3D body)
 	{
 		if (body is Player player)
 		{
-			PlayerEnter(player);
-			BindSignals(player);
 			Remove();
+			BindSignals(player);
+			if (Active)
+				PlayerEnter(player);
 		}
 	}
 	
 	void Remove()
 	{
+		Active = false;
 		SetDeferred("visible", false);
 		SetDeferred("monitoring", false);
 	}
@@ -30,6 +33,7 @@ public partial class Item : Area3D
 	// When a player respawns from a checkpoint, reactivate the item
 	void Respawn()
 	{
+		Active = true;
 		Visible = true;
 		Monitoring = true;
 	}

@@ -770,3 +770,5 @@ shape = SubResource("BoxShape3D_gpvaf")
 [connection signal="Pressed" from="UI/Buttons/SettingsButton" to="." method="SettingsPressed"]
 [connection signal="Pressed" from="UI/Buttons/CreditsButton" to="." method="CreditsPressed"]
 [connection signal="Pressed" from="UI/Buttons/QuitButton" to="." method="Quit"]
+
+[editable path="UI/Buttons/NewGameButton"]

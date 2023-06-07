@@ -29,7 +29,6 @@ width = 128
 curve = SubResource("Curve_qcwtn")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pt078"]
-lifetime_randomness = 0.81
 spread = 3.15
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_b6wek")
@@ -301,7 +300,8 @@ autostart = true
 material_override = SubResource("ShaderMaterial_6peo3")
 cast_shadow = 0
 amount = 50
-randomness = 0.74
+lifetime = 0.2
+randomness = 0.7
 draw_order = 1
 process_material = SubResource("ParticleProcessMaterial_pt078")
 draw_pass_1 = SubResource("QuadMesh_usn1t")
