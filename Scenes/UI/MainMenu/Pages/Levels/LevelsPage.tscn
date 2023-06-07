@@ -91,21 +91,15 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_bb174")
 clip_contents = true
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
-offset_left = 16.0
-offset_top = 96.0
-offset_right = 897.0
-offset_bottom = 519.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = 106.0
+offset_right = -46.0
+grow_horizontal = 2
+grow_vertical = 2
 columns = 4
-
-[node name="City" parent="LevelsPanel/GridContainer" instance=ExtResource("2_u1gj5")]
-layout_mode = 2
-size_flags_vertical = 4
-Level = "res://Scenes/Maps/City/City.tscn"
-LevelName = "City"
-
-[node name="LevelName" parent="LevelsPanel/GridContainer/City" index="1"]
-text = "Pink city
-"
 
 [node name="Demo Level" parent="LevelsPanel/GridContainer" instance=ExtResource("2_u1gj5")]
 layout_mode = 2
@@ -115,6 +109,44 @@ LevelName = "EmptyMap"
 
 [node name="LevelName" parent="LevelsPanel/GridContainer/Demo Level" index="1"]
 text = "Demo"
+
+[node name="City" parent="LevelsPanel/GridContainer" instance=ExtResource("2_u1gj5")]
+layout_mode = 2
+size_flags_vertical = 4
+Level = "res://Scenes/Maps/City/City.tscn"
+LevelName = "City"
+
+[node name="LevelName" parent="LevelsPanel/GridContainer/City" index="1"]
+text = "City
+"
+
+[node name="Castle" parent="LevelsPanel/GridContainer" instance=ExtResource("2_u1gj5")]
+layout_mode = 2
+size_flags_vertical = 4
+Level = "res://Scenes/Maps/Castle/Castle.tscn"
+LevelName = "Castle"
+
+[node name="LevelName" parent="LevelsPanel/GridContainer/Castle" index="1"]
+text = "Castle"
+
+[node name="Level 3" parent="LevelsPanel/GridContainer" instance=ExtResource("2_u1gj5")]
+layout_mode = 2
+size_flags_vertical = 4
+Level = "res://Scenes/Maps/InsertCreativeNameForLevelHere.tscn"
+LevelName = "Level 3"
+
+[node name="LevelName" parent="LevelsPanel/GridContainer/Level 3" index="1"]
+text = "Level 3"
+
+[node name="Cramped" parent="LevelsPanel/GridContainer" instance=ExtResource("2_u1gj5")]
+layout_mode = 2
+size_flags_vertical = 4
+Level = "res://Scenes/Maps/Cramped/Cramped.tscn"
+LevelName = "EmptyMap"
+
+[node name="LevelName" parent="LevelsPanel/GridContainer/Cramped" index="1"]
+text = "Cramped
+"
 
 [node name="LevelsTitle" type="Label" parent="LevelsPanel"]
 layout_mode = 1
@@ -193,5 +225,8 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="BackButtonPanel/Button" to="." method="BackButtonPressed"]
 
-[editable path="LevelsPanel/GridContainer/City"]
 [editable path="LevelsPanel/GridContainer/Demo Level"]
+[editable path="LevelsPanel/GridContainer/City"]
+[editable path="LevelsPanel/GridContainer/Castle"]
+[editable path="LevelsPanel/GridContainer/Level 3"]
+[editable path="LevelsPanel/GridContainer/Cramped"]

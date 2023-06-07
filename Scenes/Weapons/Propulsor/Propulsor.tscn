@@ -52,6 +52,7 @@ surface_material_override/2 = SubResource("StandardMaterial3D_ribur")
 surface_material_override/3 = SubResource("StandardMaterial3D_hyv6a")
 
 [node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.8
 one_shot = true
 
 [editable path="Model"]
