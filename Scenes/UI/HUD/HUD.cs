@@ -71,6 +71,10 @@ public partial class HUD : CanvasLayer
 		}
 
 		Animation?.Play("Show");
+
+		if (Player == null) return;
+
+		Player.Connect("Finished", Callable.From(ShowIntermission));
 	}
 
 	public override void _Process(double delta) {
@@ -125,6 +129,11 @@ public partial class HUD : CanvasLayer
 		GetTree().Paused = false;
 		ProgressBarProgress = 0;
 		EmitSignal("Checkpoint");
+	}
+
+	void ShowIntermission()
+	{
+		GD.Print("done");
 	}
 
 	public override void _Input(InputEvent ev)

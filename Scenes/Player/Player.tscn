@@ -123,6 +123,7 @@ CrouchStrength = 0.5
 MaxAirSpeed = 20.0
 SprintDepletionRate = 10.0
 CoyoteTime = 2.0
+CrouchSlideBoost = 1.0
 Camera = NodePath("Head/Camera")
 MoveAnim = NodePath("Head/Animation")
 FloorDetector = NodePath("Collider/FloorDetector")
@@ -217,5 +218,6 @@ libraries = {
 }
 
 [connection signal="Finished" from="." to="HUD" method="Finished"]
+[connection signal="ScoreUpdated" from="." to="HUD" method="UpdateScore"]
 [connection signal="AmmunitionUpdated" from="Head/Camera/WeaponHolder" to="HUD" method="UpdateAmmunition"]
 [connection signal="Checkpoint" from="HUD" to="." method="GoToCheckpoint"]

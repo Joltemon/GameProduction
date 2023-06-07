@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://phk6uejxvcxk"]
+[gd_scene load_steps=16 format=3 uid="uid://phk6uejxvcxk"]
 
 [ext_resource type="Script" path="res://Scenes/UI/HUD/HUD.cs" id="1_enbec"]
 [ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="2_m4fhm"]
+[ext_resource type="PackedScene" uid="uid://b1t4wt2556wt8" path="res://Scenes/UI/IntermIsion/IntermissionScreen.tscn" id="2_yjvih"]
 [ext_resource type="Shader" uid="uid://jx8m6uyfkcvj" path="res://Assets/Shaders/Pixelate.tres" id="3_vfcm8"]
 [ext_resource type="Texture2D" uid="uid://dgskw8uqnqfoa" path="res://Assets/Icons/uhhh.png" id="4_bgyku"]
 [ext_resource type="Texture2D" uid="uid://c1ejuro6jb3dj" path="res://Assets/Icons/EnergyCrystal.png" id="5_hogwv"]
@@ -67,6 +68,9 @@ RestartProgressBar = NodePath("HUD/RestartProgressBar")
 ExtraSpeedBar = NodePath("HUD/ExtraSpeedProgressBar")
 PixelationLayer = NodePath("HUD/PixelationLayer")
 SpeedLimit = 16.0
+
+[node name="Intermission Screen" parent="." instance=ExtResource("2_yjvih")]
+visible = false
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3

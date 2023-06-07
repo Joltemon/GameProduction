@@ -7,14 +7,14 @@ public partial class PauseMenu : Control
 	[Export(PropertyHint.File, "*.tscn,*.scn")] string? MainMenu;
 	[Signal] public delegate void ResetEventHandler();
 
-	void ResumeButtonPressed() 
+	void ResumeButtonPressed()
 	{
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		Visible = false;
 		GetTree().Paused = false;
 	}
 
-	void MainMenuButtonPressed() 
+	void MainMenuButtonPressed()
 	{
 		if (MainMenu != null) {
 			GetTree().ChangeSceneToFile(MainMenu);
