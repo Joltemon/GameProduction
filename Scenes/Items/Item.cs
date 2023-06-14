@@ -3,7 +3,7 @@ using System;
 
 public partial class Item : Area3D
 {
-	bool Active;
+	bool Active = true;
 	bool BoundSignals;
 	
 	void OnEnter(Node3D body)
