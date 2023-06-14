@@ -1,17 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1t4wt2556wt8"]
 
-[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="1_cnidf"]
-[ext_resource type="Script" path="res://Scenes/UI/IntermIsion/IntermissionScreen.cs" id="2_am3as"]
+[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="1_k7c78"]
+[ext_resource type="Script" path="res://Scenes/UI/Intermission/IntermissionScreen.cs" id="2_u2l2l"]
 
 [node name="IntermissionScreen" type="Control" node_paths=PackedStringArray("TimeLabel")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_cnidf")
-script = ExtResource("2_am3as")
+theme = ExtResource("1_k7c78")
+script = ExtResource("2_u2l2l")
 MainMenu = "res://Scenes/UI/MainMenu/MainMenu.tscn"
 TimeLabel = NodePath("Label")
 

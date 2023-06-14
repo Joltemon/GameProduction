@@ -58,7 +58,7 @@ public partial class Player : RigidBody3D
 	double ExtraSpeedTimer;
 	Boolean ExtraSpeedChange = false;
 
-	[Signal] public delegate void FinishedEventHandler();
+	[Signal] public delegate void FinishedEventHandler(string nextLevel);
 	[Signal] public delegate void ScoreUpdatedEventHandler(int score);
 	[Signal] public delegate void HitCheckpointEventHandler();
 	[Signal] public delegate void RestoredFromCheckpointEventHandler();
