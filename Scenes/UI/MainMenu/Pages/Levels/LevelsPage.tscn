@@ -1,10 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://2ovnxqf16kqc"]
+[gd_scene load_steps=17 format=3 uid="uid://2ovnxqf16kqc"]
 
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/Levels/LevelsPage.cs" id="1_go33b"]
 [ext_resource type="PackedScene" uid="uid://c5364smmu1y8c" path="res://Scenes/UI/MainMenu/Pages/LevelsItems/LevelSection.tscn" id="2_u1gj5"]
 [ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="3_bmvyu"]
 [ext_resource type="Texture2D" uid="uid://d21sicjaf81cf" path="res://Assets/Icons/logout.png" id="4_e4cma"]
+[ext_resource type="Texture2D" uid="uid://cnompceb7vfnl" path="res://dev_screenshot.png" id="4_ubb6g"]
 [ext_resource type="FontFile" uid="uid://dl8gk8ghrx1c6" path="res://Assets/Fonts/Kenney Future.ttf" id="5_njtbt"]
+[ext_resource type="Texture2D" uid="uid://c4tq0ypww45ik" path="res://screenshot.png" id="5_r2gnp"]
+[ext_resource type="Texture2D" uid="uid://bwy15wowlnhu3" path="res://Assets/Icons/castle.png" id="6_k1ulq"]
+[ext_resource type="Texture2D" uid="uid://b2sq1umsuedl7" path="res://Assets/Icons/cramped.png" id="7_4sobj"]
+[ext_resource type="Texture2D" uid="uid://bm33typ8habd5" path="res://Assets/Icons/Level3.png" id="7_24but"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb174"]
 bg_color = Color(0.152941, 0.152941, 0.152941, 1)
@@ -124,6 +129,9 @@ size_flags_vertical = 4
 Level = "res://Scenes/Maps/Empty/Empty.tscn"
 LevelName = "EmptyMap"
 
+[node name="TextureRect" parent="LevelsPanel/HFlowContainer/Demo Level" index="0"]
+texture = ExtResource("4_ubb6g")
+
 [node name="LevelName" parent="LevelsPanel/HFlowContainer/Demo Level" index="1"]
 text = "Demo"
 
@@ -132,6 +140,9 @@ layout_mode = 2
 size_flags_vertical = 4
 Level = "res://Scenes/Maps/City/City.tscn"
 LevelName = "City"
+
+[node name="TextureRect" parent="LevelsPanel/HFlowContainer/City" index="0"]
+texture = ExtResource("5_r2gnp")
 
 [node name="LevelName" parent="LevelsPanel/HFlowContainer/City" index="1"]
 text = "City
@@ -143,6 +154,9 @@ size_flags_vertical = 4
 Level = "res://Scenes/Maps/Castle/Castle.tscn"
 LevelName = "Castle"
 
+[node name="TextureRect" parent="LevelsPanel/HFlowContainer/Castle" index="0"]
+texture = ExtResource("6_k1ulq")
+
 [node name="LevelName" parent="LevelsPanel/HFlowContainer/Castle" index="1"]
 text = "Castle"
 
@@ -152,6 +166,9 @@ size_flags_vertical = 4
 Level = "res://Scenes/Maps/InsertCreativeNameForLevelHere.tscn"
 LevelName = "Level 3"
 
+[node name="TextureRect" parent="LevelsPanel/HFlowContainer/Level 3" index="0"]
+texture = ExtResource("7_24but")
+
 [node name="LevelName" parent="LevelsPanel/HFlowContainer/Level 3" index="1"]
 text = "Level 3"
 
@@ -160,6 +177,9 @@ layout_mode = 2
 size_flags_vertical = 4
 Level = "res://Scenes/Maps/Cramped/Cramped.tscn"
 LevelName = "EmptyMap"
+
+[node name="TextureRect" parent="LevelsPanel/HFlowContainer/Cramped" index="0"]
+texture = ExtResource("7_4sobj")
 
 [node name="LevelName" parent="LevelsPanel/HFlowContainer/Cramped" index="1"]
 text = "Cramped

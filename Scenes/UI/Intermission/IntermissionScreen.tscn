@@ -1,0 +1,103 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1t4wt2556wt8"]
+
+[ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="1_k7c78"]
+[ext_resource type="Script" path="res://Scenes/UI/Intermission/IntermissionScreen.cs" id="2_u2l2l"]
+
+[node name="IntermissionScreen" type="Control" node_paths=PackedStringArray("TimeLabel")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_k7c78")
+script = ExtResource("2_u2l2l")
+MainMenu = "res://Scenes/UI/MainMenu/MainMenu.tscn"
+TimeLabel = NodePath("Label")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.666667)
+
+[node name="Win message" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -293.0
+offset_top = 31.0
+offset_right = 293.0
+offset_bottom = 63.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = " Level Cleared!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Main Menu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -136.0
+offset_right = 376.0
+offset_bottom = -72.0
+grow_vertical = 0
+text = " Main Menu"
+
+[node name="Retry" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -136.0
+offset_right = 128.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+text = " Retry"
+
+[node name="Next Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -376.0
+offset_top = -136.0
+offset_right = -120.0
+offset_bottom = -72.0
+grow_horizontal = 0
+grow_vertical = 0
+text = " Next Level"
+
+[node name="Label" type="Label" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -18.0
+offset_right = 20.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Your time: 00:00.00"
+
+[connection signal="pressed" from="Main Menu" to="." method="MainMenuPressed"]
+[connection signal="pressed" from="Retry" to="." method="RetryPressed"]
+[connection signal="pressed" from="Next Button" to="." method="NextLevelPressed"]

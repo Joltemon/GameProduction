@@ -75,7 +75,7 @@ public partial class HUD : CanvasLayer
 
 		if (Player == null) return;
 
-		Player.Connect("Finished", Callable.From(ShowIntermission));
+		Player.Connect("Finished", Callable.From<string>(Finished));
 	}
 
 	public override void _Process(double delta) {
@@ -119,8 +119,18 @@ public partial class HUD : CanvasLayer
 		}
 	}
 
-	void Finished() {
+	void Finished(string nextLevel) {
 		TimerLabel?.Set("theme_override_colors/font_color", Color.Color8(0, 232, 0));
+
+		Input.MouseMode = Input.MouseModeEnum.Visible;
+		GetTree().Paused = true;
+
+		if (IntermissionScreen != null && Player != null)
+		{
+			if (PauseMenu != null) PauseMenu.Visible = false;
+			if (Root != null) Root.Visible = false;
+			IntermissionScreen.Activate(Player, nextLevel);
+		}
 	}
 
 	public void ResetToCheckpoint()
@@ -130,19 +140,6 @@ public partial class HUD : CanvasLayer
 		GetTree().Paused = false;
 		ProgressBarProgress = 0;
 		EmitSignal("Checkpoint");
-	}
-
-	void ShowIntermission()
-	{
-		Input.MouseMode = Input.MouseModeEnum.Visible;
-		GetTree().Paused = true;
-
-		if (IntermissionScreen != null && Player != null)
-		{
-			if (PauseMenu != null) PauseMenu.Visible = false;
-			if (Root != null) Root.Visible = false;
-			IntermissionScreen.Activate(Player);
-		}
 	}
 
 	public override void _Input(InputEvent ev)
