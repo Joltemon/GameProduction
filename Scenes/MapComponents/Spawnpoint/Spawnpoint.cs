@@ -12,6 +12,6 @@ public partial class Spawnpoint : Node3D
 		AddSibling(player);
 		player.GlobalPosition = GlobalPosition;
 		player.GlobalRotation = GlobalRotation;
-		player.LastCheckpoint = GlobalPosition;
+		player.LastCheckpoint = this;
 	}
 }

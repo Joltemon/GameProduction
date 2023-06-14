@@ -139,7 +139,6 @@ skeleton = NodePath("StaticBody3D/CollisionShape3D")
 [node name="StaticBody3D" type="StaticBody3D" parent="BeginningSection/BeginningBlock"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BeginningSection/BeginningBlock/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_flb5k")
 
 [node name="Floor" type="MeshInstance3D" parent="BeginningSection"]
@@ -207,7 +206,6 @@ mesh = SubResource("PrismMesh_32fso")
 [node name="StaticBody3D" type="StaticBody3D" parent="BeginningSection/Ramp"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BeginningSection/Ramp/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_wh3lh")
 
 [node name="Platform1" type="MeshInstance3D" parent="BeginningSection"]
@@ -226,7 +224,6 @@ mesh = SubResource("CylinderMesh_5qbrw")
 [node name="StaticBody3D" type="StaticBody3D" parent="BeginningSection/Platform2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BeginningSection/Platform2/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_m3cb8")
 
 [node name="Platform3" type="MeshInstance3D" parent="BeginningSection"]
@@ -333,7 +330,6 @@ shape = SubResource("BoxShape3D_jkgfm")
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("2_wyg3c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.781045, 41.9883, -18.876)
-CheckpointNumber = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.779955, -0.871597, 0.440926)

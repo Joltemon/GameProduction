@@ -3,7 +3,7 @@ using System;
 
 public partial class Checkpoint : Area3D
 {
-	[Export] int CheckpointNumber;
+	[Export] int CheckpointNumber = 1;
 
 	public void CheckpointEntered(Node3D node) 
 	{
@@ -11,7 +11,7 @@ public partial class Checkpoint : Area3D
 		{
 			if (player.LastCheckpointValue >= CheckpointNumber) return;
 			
-			player.LastCheckpoint = GlobalPosition;
+			player.LastCheckpoint = this;
 			player.LastCheckpointValue = CheckpointNumber;
 			player.EmitSignal("HitCheckpoint");
 
