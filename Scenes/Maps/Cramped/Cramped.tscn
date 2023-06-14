@@ -150,7 +150,7 @@ shadow_enabled = true
 [node name="BeginningSection" type="Node3D" parent="."]
 
 [node name="Spawnpoint" parent="BeginningSection" instance=ExtResource("1_eibh1")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 4.81981, -105.343)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 3, 0)
 
 [node name="BeginningBlock" type="MeshInstance3D" parent="BeginningSection"]
 transform = Transform3D(1.56273, 0, 0, 0, 0.585537, 0, 0, 0, 1.56561, 0, 0.605685, 0)
