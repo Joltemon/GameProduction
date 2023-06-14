@@ -10,10 +10,10 @@ public partial class Item : Area3D
 	{
 		if (body is Player player)
 		{
-			Remove();
 			BindSignals(player);
-			if (Active)
+			if (Active) 
 				PlayerEnter(player);
+			Remove();
 		}
 	}
 	
