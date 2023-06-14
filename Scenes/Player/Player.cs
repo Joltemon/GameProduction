@@ -29,7 +29,7 @@ public partial class Player : RigidBody3D
 	float CurrentCoyoteTime;
 	float sprintEnergy = 100;
 	public float SavedSprintEnergy = 100;
-	public Vector3 LastCheckpoint = Vector3.Zero;
+	public Node3D? LastCheckpoint;
 	public int LastCheckpointValue;
 	public float SprintEnergy
 	{
@@ -67,7 +67,7 @@ public partial class Player : RigidBody3D
 	{
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		Animation?.Play("Start");
-		LastCheckpoint = GlobalPosition;
+		LastCheckpoint = GetParent<Node3D>();
 
 		Savedata.Load();
 		if (Savedata.Get<bool>("FullScreen", false))
@@ -341,9 +341,9 @@ public partial class Player : RigidBody3D
 		Animation?.Play("Start");
 		Freeze = true;
 		await ToSignal(GetTree(), "process_frame");
-		GlobalPosition = LastCheckpoint;		
+		GlobalPosition = LastCheckpoint?.GlobalPosition??Vector3.Zero;
 		GlobalRotation = Vector3.Zero;
-		Camera!.GlobalRotation = Vector3.Zero;
+		Camera!.GlobalRotation = LastCheckpoint?.GlobalRotation??Vector3.Zero;
 		
 		Freeze = false;
 
@@ -357,6 +357,8 @@ public partial class Player : RigidBody3D
 		// Restore variables
 		Score = SavedScore;
 		SprintEnergy = SavedSprintEnergy;
+		Hud?.UpdateSprint(SprintEnergy, true);
+		Hud?.UpdateScore(Score);
 	}
 
 	public override void _Input(InputEvent inputEvent)

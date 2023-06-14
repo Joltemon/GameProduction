@@ -446,7 +446,6 @@ skeleton = NodePath("../../FirstGap")
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("2_wyg3c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.781045, 41.9883, -18.876)
-CheckpointNumber = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.779955, -0.871597, 0.440926)

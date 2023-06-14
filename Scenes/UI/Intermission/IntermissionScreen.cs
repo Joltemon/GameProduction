@@ -22,14 +22,14 @@ public partial class IntermissionScreen : Control
 
 	void NextLevelPressed()
 	{
+		GetTree().Paused = false;
 		if (!String.IsNullOrWhiteSpace(NextLevel))
 		{
-			GetTree().Paused = false;
 			GetTree().ChangeSceneToFile(NextLevel);
 		}
 		else
 		{
-			GD.PrintErr("No next level specified");
+			GetTree().ChangeSceneToFile(MainMenu);
 		}
 	}
 

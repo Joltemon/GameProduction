@@ -28,7 +28,7 @@ public partial class HUD : CanvasLayer
 
 	bool IsRestartPressed;
 
-	void UpdateScore(int score)
+	public void UpdateScore(int score)
 	{
 		if (ScoreLabel != null)
 			ScoreLabel.Text = score.ToString();
