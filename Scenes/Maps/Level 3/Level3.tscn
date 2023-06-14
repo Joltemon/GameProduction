@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c480nilt0hht8"]
+[gd_scene load_steps=40 format=3 uid="uid://c480nilt0hht8"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/fire.gdshader" id="1_vhvli"]
 [ext_resource type="Texture2D" uid="uid://xp8din1y2bjr" path="res://Assets/Shaders/Fire/HoleNoise.png" id="2_4ukuf"]
@@ -548,10 +548,11 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box23/StaticBody3D"]
 shape = SubResource("BoxShape3D_bh16b")
 
-[node name="Area3D" parent="." instance=ExtResource("13_yy31g")]
+[node name="End Point" parent="." instance=ExtResource("13_yy31g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99, 68, 284)
+NextLevel = "res://Scenes/Maps/Cramped/Cramped.tscn"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="End Point"]
 shape = SubResource("BoxShape3D_71a7c")
 
 [node name="Deathfield" parent="." instance=ExtResource("8_ydpvn")]

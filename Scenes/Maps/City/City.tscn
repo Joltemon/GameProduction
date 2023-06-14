@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cjyn4ianhnsip"]
+[gd_scene load_steps=38 format=3 uid="uid://df5pyidu5ej4g"]
 
 [ext_resource type="PackedScene" uid="uid://08mhrjk2i2eo" path="res://Scenes/MapComponents/Spawnpoint/Spawnpoint.tscn" id="1_sbe8t"]
 [ext_resource type="PackedScene" uid="uid://c5exo6l6xbjp7" path="res://Assets/Models/Roads/road_curve.glb" id="2_sux0d"]
@@ -12,10 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://cilytuwae1cus" path="res://Assets/Models/Cars/Sedan.tscn" id="10_i8euk"]
 [ext_resource type="PackedScene" uid="uid://i3vvbm2p5cos" path="res://Assets/Models/Cars/Firetruck.tscn" id="11_3viiw"]
 [ext_resource type="PackedScene" uid="uid://msgssfevv8uy" path="res://Assets/Models/Cars/Police.tscn" id="12_j02i5"]
-[ext_resource type="PackedScene" uid="uid://cvm8eeycob882" path="res://Assets/Models/City/Roads/RoadBridge.tscn" id="13_rns7p"]
+[ext_resource type="PackedScene" path="res://Assets/Models/City/Roads/RoadBridge.tscn" id="13_rns7p"]
 [ext_resource type="PackedScene" uid="uid://bvx280aoqes3o" path="res://Assets/Models/Roads/road_bridge.glb" id="14_0pqbn"]
-[ext_resource type="PackedScene" uid="uid://crgp1pqjorrlr" path="res://Assets/Models/City/Roads/RoadCurve.tscn" id="15_6u4t7"]
-[ext_resource type="PackedScene" uid="uid://bvqx0mmf5vaex" path="res://Assets/Models/City/Roads/RoadStraight.tscn" id="16_nhibw"]
+[ext_resource type="PackedScene" path="res://Assets/Models/City/Roads/RoadCurve.tscn" id="15_6u4t7"]
+[ext_resource type="PackedScene" path="res://Assets/Models/City/Roads/RoadStraight.tscn" id="16_nhibw"]
 [ext_resource type="PackedScene" uid="uid://dnyumdp7mvbnn" path="res://Assets/Models/City/Roads/RoadSlant.tscn" id="17_emfyf"]
 [ext_resource type="PackedScene" uid="uid://7mkk4g71idk6" path="res://Assets/Models/Roads/road_curveIntersection.glb" id="18_7f3d5"]
 [ext_resource type="PackedScene" uid="uid://pwy4pew5bel3" path="res://Assets/Models/Roads/road_bend.glb" id="19_v1x6r"]
@@ -587,6 +587,7 @@ transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 6, 13, -3)
 
 [node name="End Point" parent="." instance=ExtResource("22_ht4ay")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163.738, 4.1099, -622)
+NextLevel = "res://Scenes/Maps/Level 3/Level3.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="End Point"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
@@ -1816,7 +1817,6 @@ shape = SubResource("BoxShape3D_6a4f6")
 
 [node name="Checkpoint" parent="." instance=ExtResource("28_cqcy4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119, 0, -185)
-CheckpointNumber = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint"]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 3, -1)

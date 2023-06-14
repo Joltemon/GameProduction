@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://s3a1t28agsbi"]
+[gd_scene load_steps=49 format=3 uid="uid://s3a1t28agsbi"]
 
 [ext_resource type="PackedScene" uid="uid://08mhrjk2i2eo" path="res://Scenes/MapComponents/Spawnpoint/Spawnpoint.tscn" id="1_eibh1"]
 [ext_resource type="PackedScene" uid="uid://ci0b8habhsgxt" path="res://Scenes/MapComponents/Deathfield/Deathfield.tscn" id="2_kckh1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c7byltpk3dt68" path="res://Assets/Textures/Red/texture_11.png" id="4_rwiec"]
 [ext_resource type="PackedScene" uid="uid://cluoqsk08s7uw" path="res://Scenes/Items/EnergyCrystal/EnergyCrystal.tscn" id="6_l4nia"]
 [ext_resource type="PackedScene" uid="uid://pducdeyki048" path="res://Scenes/Items/Adrenaline/Adrenaline.tscn" id="7_rvgv4"]
+[ext_resource type="PackedScene" uid="uid://bqn3604romco1" path="res://Scenes/MapComponents/Endpoint/Endpoint.tscn" id="10_d6fwi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jhdf7"]
 sky_top_color = Color(0, 0.517647, 0.509804, 1)
@@ -133,6 +134,9 @@ size = Vector3(12.1124, 0.752669, 9.64906)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gmx24"]
 size = Vector3(29.2882, 2.74665, 7.56611)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_272me"]
+size = Vector3(31.0477, 5.53426, 8.45299)
 
 [node name="CrampedMap" type="Node3D"]
 
@@ -504,3 +508,11 @@ CheckpointNumber = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.779955, -0.871597, 0.440926)
 shape = SubResource("BoxShape3D_gmx24")
+
+[node name="Endpoint" parent="." instance=ExtResource("10_d6fwi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0301766, 0.191145, -169.988)
+NextLevel = "res://Scenes/Maps/Empty/Empty.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Endpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.77345, -0.679428)
+shape = SubResource("BoxShape3D_272me")
