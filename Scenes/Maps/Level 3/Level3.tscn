@@ -13,8 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://bgpyk5bv64ebv" path="res://Assets/Textures/Light/texture_07.png" id="11_7dp5w"]
 [ext_resource type="PackedScene" uid="uid://08mhrjk2i2eo" path="res://Scenes/MapComponents/Spawnpoint/Spawnpoint.tscn" id="12_ve604"]
 [ext_resource type="PackedScene" uid="uid://bqn3604romco1" path="res://Scenes/MapComponents/Endpoint/Endpoint.tscn" id="13_yy31g"]
-[ext_resource type="PackedScene" uid="uid://pducdeyki048" path="res://Scenes/Items/Adrenaline/Adrenaline.tscn" id="14_y5j6h"]
-[ext_resource type="PackedScene" uid="uid://cluoqsk08s7uw" path="res://Scenes/Items/EnergyCrystal/EnergyCrystal.tscn" id="15_2c5vn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nh6iu"]
 sky_top_color = Color(0.505882, 0.160784, 0, 1)
@@ -105,7 +103,7 @@ albedo_texture = SubResource("CompressedTexture2D_3od2t")
 [sub_resource type="BoxShape3D" id="BoxShape3D_71a7c"]
 size = Vector3(8, 2, 8)
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ybpcv"]
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_3rmfa"]
 
 [node name="insert creative name for level here" type="Node3D"]
 
@@ -355,12 +353,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box28/StaticBody3D"]
 shape = SubResource("BoxShape3D_bh16b")
 
-[node name="Deathfield" parent="." instance=ExtResource("8_ydpvn")]
-transform = Transform3D(8, 0, 0, 0, -4.37114e-08, 3, 0, -1, -1.31134e-07, -68, 20.5, 44)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Deathfield"]
-shape = SubResource("BoxShape3D_bh16b")
-
 [node name="Box29" type="MeshInstance3D" parent="."]
 transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, -99, 66.5, 284)
 material_override = SubResource("StandardMaterial3D_8gmbd")
@@ -397,13 +389,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box31/StaticBody3D"]
 shape = SubResource("BoxShape3D_bh16b")
 
-[node name="Murder block4" type="MeshInstance3D" parent="."]
-transform = Transform3D(8, 0, 0, 0, -4.37114e-08, 3, 0, -1, -1.31134e-07, -68, 20.5, 44)
-material_override = SubResource("StandardMaterial3D_6gypb")
-mesh = SubResource("BoxMesh_573hr")
-skeleton = NodePath("")
-metadata/_edit_group_ = true
-
 [node name="Murder block5" type="MeshInstance3D" parent="."]
 transform = Transform3D(8, 0, 0, 0, -4.37114e-08, 3, 0, -1, -1.31134e-07, -68, 20.5, 35)
 material_override = SubResource("StandardMaterial3D_6gypb")
@@ -416,8 +401,20 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Murder block5/Deathfield"]
 shape = SubResource("BoxShape3D_bh16b")
 
+[node name="Murder block8" type="MeshInstance3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, -4.37114e-08, 3, 0, -1, -1.31134e-07, -68, 20.5, 44)
+material_override = SubResource("StandardMaterial3D_6gypb")
+mesh = SubResource("BoxMesh_573hr")
+skeleton = NodePath("")
+metadata/_edit_group_ = true
+
+[node name="Deathfield" parent="Murder block8" instance=ExtResource("8_ydpvn")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Murder block8/Deathfield"]
+shape = SubResource("BoxShape3D_bh16b")
+
 [node name="Murder block6" type="MeshInstance3D" parent="."]
-transform = Transform3D(8, 0, 0, 0, -4.37114e-08, 3, 0, -1, -1.31134e-07, -68, 20.5, 25)
+transform = Transform3D(8, -0.00060751, 0.00140278, -0.00373775, 0.000634121, 3, -0.00486238, -1, 0.00190154, -68, 20.5, 25)
 material_override = SubResource("StandardMaterial3D_6gypb")
 mesh = SubResource("BoxMesh_573hr")
 skeleton = NodePath("")
@@ -524,7 +521,7 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box10/StaticBody3D"]
 shape = SubResource("CylinderShape3D_v7glq")
 
-[node name="Spawnpoint" parent="." instance=ExtResource("11_p6u2h")]
+[node name="Spawnpoint" parent="." instance=ExtResource("12_ve604")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 41, 5, -8)
 
 [node name="Box22" type="MeshInstance3D" parent="."]
@@ -557,9 +554,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99, 68, 284)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_71a7c")
 
-[node name="Deathfield" parent="." instance=ExtResource("8_siisj")]
+[node name="Deathfield" parent="." instance=ExtResource("8_ydpvn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -23)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Deathfield"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-shape = SubResource("WorldBoundaryShape3D_ybpcv")
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_3rmfa")
