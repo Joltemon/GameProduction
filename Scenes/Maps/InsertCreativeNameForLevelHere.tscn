@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c480nilt0hht8"]
+[gd_scene load_steps=40 format=3 uid="uid://c480nilt0hht8"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/fire.gdshader" id="2_oywnb"]
 [ext_resource type="Texture2D" uid="uid://xp8din1y2bjr" path="res://Assets/Shaders/Fire/HoleNoise.png" id="3_x6731"]
@@ -28,17 +28,6 @@ background_mode = 2
 sky = SubResource("Sky_0e734")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t0gvs"]
-albedo_color = Color(0, 0, 0, 1)
-emission = Color(0, 0, 1, 1)
-emission_energy_multiplier = 0.08
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_xbmfl"]
-material = SubResource("StandardMaterial3D_t0gvs")
-size = Vector2(100, 100)
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_883xn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ua5f"]
 render_priority = 0
@@ -114,6 +103,8 @@ albedo_texture = SubResource("CompressedTexture2D_3od2t")
 [sub_resource type="BoxShape3D" id="BoxShape3D_71a7c"]
 size = Vector3(8, 2, 8)
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ybpcv"]
+
 [node name="insert creative name for level here" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -123,14 +114,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_efvfe")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_xbmfl")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("WorldBoundaryShape3D_883xn")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -25.733, 0)
@@ -212,6 +195,18 @@ metadata/_edit_group_ = true
 [node name="StaticBody3D" type="StaticBody3D" parent="Box2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box2/StaticBody3D"]
+shape = SubResource("BoxShape3D_bh16b")
+
+[node name="Box32" type="MeshInstance3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 8, 39, 0.5, -8)
+material_override = SubResource("StandardMaterial3D_8gmbd")
+mesh = SubResource("BoxMesh_573hr")
+skeleton = NodePath("StaticBody3D")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Box32"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box32/StaticBody3D"]
 shape = SubResource("BoxShape3D_bh16b")
 
 [node name="Box3" type="MeshInstance3D" parent="."]
@@ -467,7 +462,7 @@ metadata/_edit_group_ = true
 shape = SubResource("BoxShape3D_bh16b")
 
 [node name="Box5" type="MeshInstance3D" parent="."]
-transform = Transform3D(8, 0, 0, 0, 3, 0, 0, 0, 6, 30, 1.5, -8)
+transform = Transform3D(8, 0, 0, 0, 3, 0, 0, 0, 6, 31, 2.5, -8)
 material_override = SubResource("StandardMaterial3D_suhko")
 mesh = SubResource("PrismMesh_px82i")
 skeleton = NodePath("StaticBody3D")
@@ -527,7 +522,7 @@ metadata/_edit_group_ = true
 shape = SubResource("CylinderShape3D_v7glq")
 
 [node name="Spawnpoint" parent="." instance=ExtResource("11_p6u2h")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 44, 5, -8)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 41, 5, -8)
 
 [node name="Box22" type="MeshInstance3D" parent="."]
 transform = Transform3D(-3.49691e-07, 0, 24.6, 0, 1, 0, -8, 0, -1.0753e-06, -68, 17.5, 292)
@@ -558,3 +553,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99, 68, 284)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_71a7c")
+
+[node name="Deathfield" parent="." instance=ExtResource("8_siisj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -23)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Deathfield"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("WorldBoundaryShape3D_ybpcv")
