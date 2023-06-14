@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/UI/HUD/HUD.cs" id="1_enbec"]
 [ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="2_m4fhm"]
-[ext_resource type="PackedScene" uid="uid://b1t4wt2556wt8" path="res://Scenes/UI/IntermIsion/IntermissionScreen.tscn" id="2_yjvih"]
+[ext_resource type="PackedScene" uid="uid://b1t4wt2556wt8" path="res://Scenes/UI/Intermission/IntermissionScreen.tscn" id="2_yjvih"]
 [ext_resource type="Shader" uid="uid://jx8m6uyfkcvj" path="res://Assets/Shaders/Pixelate.tres" id="3_vfcm8"]
 [ext_resource type="Texture2D" uid="uid://dgskw8uqnqfoa" path="res://Assets/Icons/uhhh.png" id="4_bgyku"]
 [ext_resource type="Texture2D" uid="uid://c1ejuro6jb3dj" path="res://Assets/Icons/EnergyCrystal.png" id="5_hogwv"]
