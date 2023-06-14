@@ -6,6 +6,8 @@
 
 A fast paced first person game focused around movement and speed. The player is equipped with a "Propulsor", which pushes them backwards when fired. The game takes place over a variety of unique locations where they race to the exit as fast as they can, while looking for powerups or secrets to either speed them up or discover new hidden locations.
 
+Survey link https://docs.google.com/forms/d/e/1FAIpQLSeM1JZLYEz4u_p8TCGONtuHC9CfZeRTzl2LQgwOufY0qLolYA/viewform?usp=sf_link
+
 ### Developing
 
 Please use the official C# style guide where possible, but with tabs instead of spaces for indentation.
