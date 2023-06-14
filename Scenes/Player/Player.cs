@@ -376,14 +376,13 @@ public partial class Player : RigidBody3D
 		}
 		else if (inputEvent.IsActionPressed("MoveFly"))
 		{
-			Flying = !Flying;
+			if (OS.HasFeature("editor"))
+				Flying = !Flying;
 		}
 		else if (inputEvent.IsActionPressed("Reload"))
 		{
 			if (OS.HasFeature("editor"))
-			{
 				SprintEnergy = 100;
-			}
 		}
 	}
 
