@@ -95,10 +95,10 @@ Energy = 20
 FloatingAnimation = NodePath("AnimationPlayer")
 
 [node name="Water_bottle_01" type="Node3D" parent="." index="0"]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0.099981, 0)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0.0784333, 0)
 
 [node name="Node3D" type="Node3D" parent="Water_bottle_01" index="0"]
-transform = Transform3D(-49.9843, 0, -1.25372, 0, 50, 0, 1.25372, 0, -49.9843, 0, 0, 0)
+transform = Transform3D(-29.4228, 0, -40.4264, 0, 50, 0, 40.4264, 0, -29.4228, 0, 0, 0)
 
 [node name="Water_bottle_01_RGB_texture_0" type="MeshInstance3D" parent="Water_bottle_01/Node3D" index="0"]
 transform = Transform3D(0.02, 1.74845e-09, 1.74847e-09, -6.39989e-10, 0.0173206, -0.00999988, -2.38844e-09, 0.00999988, 0.0173206, 0, 2.09644e-14, -0.0922024)
