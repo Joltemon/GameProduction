@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=38 format=3 uid="uid://cjyn4ianhnsip"]
-=======
-[gd_scene load_steps=36 format=3 uid="uid://cjyn4ianhnsip"]
->>>>>>> Stashed changes
 
 [ext_resource type="PackedScene" uid="uid://08mhrjk2i2eo" path="res://Scenes/MapComponents/Spawnpoint/Spawnpoint.tscn" id="1_sbe8t"]
 [ext_resource type="PackedScene" uid="uid://c5exo6l6xbjp7" path="res://Assets/Models/Roads/road_curve.glb" id="2_sux0d"]
@@ -30,12 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://pducdeyki048" path="res://Scenes/Items/Adrenaline/Adrenaline.tscn" id="24_uxy1l"]
 [ext_resource type="PackedScene" uid="uid://8hnc4oblt8gx" path="res://Assets/Models/City/Buildinga/LargeBuildingF.tscn" id="25_tnjfb"]
 [ext_resource type="PackedScene" uid="uid://bxlldii8kefhc" path="res://Assets/Models/City/Buildinga/LargeBuildingE.tscn" id="26_lcxf5"]
-<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://ci0b8habhsgxt" path="res://Scenes/MapComponents/Deathfield/Deathfield.tscn" id="27_4ba2b"]
 [ext_resource type="PackedScene" uid="uid://cyuvev6t4tvf8" path="res://Scenes/MapComponents/Checkpoint/Checkpoint.tscn" id="28_cqcy4"]
-=======
-[ext_resource type="PackedScene" uid="uid://ci0b8habhsgxt" path="res://Scenes/MapComponents/Deathfield/Deathfield.tscn" id="27_adpo5"]
->>>>>>> Stashed changes
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8eok3"]
 sky_top_color = Color(1, 0.45098, 0.309804, 1)
@@ -68,13 +60,9 @@ size = Vector2(300, 700)
 [sub_resource type="BoxShape3D" id="BoxShape3D_gdwke"]
 size = Vector3(3, 12, 6)
 
-<<<<<<< Updated upstream
 [sub_resource type="BoxShape3D" id="BoxShape3D_6a4f6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_88ls7"]
-=======
-[sub_resource type="BoxShape3D" id="BoxShape3D_232dx"]
->>>>>>> Stashed changes
 
 [node name="City" type="Node3D"]
 
@@ -1819,7 +1807,6 @@ transform = Transform3D(8.30477e-07, 0, -11, 0, 11, 0, 11, 0, 8.30477e-07, -89, 
 [node name="large_buildingF6" parent="." instance=ExtResource("25_tnjfb")]
 transform = Transform3D(-3.49691e-07, 0, 8, 0, 9, 0, -8, 0, -3.49691e-07, -9, 0, 32)
 
-<<<<<<< Updated upstream
 [node name="Deathfield" parent="." instance=ExtResource("27_4ba2b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, -318)
 
@@ -1834,21 +1821,6 @@ CheckpointNumber = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint"]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 3, -1)
 shape = SubResource("BoxShape3D_88ls7")
-=======
-[node name="Deathfield" parent="." instance=ExtResource("27_adpo5")]
-transform = Transform3D(12, 0, 0, 0, 1, 0, 0, 0, 200, -118, 0, -296)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Deathfield"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("BoxShape3D_232dx")
-
-[node name="Deathfield2" parent="." instance=ExtResource("27_adpo5")]
-transform = Transform3D(80, 0, 0, 0, 1, 0, 0, 0, 250, -139, -1, -521)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Deathfield2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("BoxShape3D_232dx")
->>>>>>> Stashed changes
 
 [connection signal="body_entered" from="EnergyCrystal" to="EnergyCrystal" method="PlayerEnter" flags=18]
 [connection signal="body_entered" from="EnergyCrystal2" to="EnergyCrystal2" method="PlayerEnter" flags=18]
