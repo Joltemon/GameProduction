@@ -1,20 +1,20 @@
 [gd_scene load_steps=42 format=3 uid="uid://c480nilt0hht8"]
 
-[ext_resource type="Shader" path="res://Assets/Shaders/fire.gdshader" id="1_vhvli"]
-[ext_resource type="Texture2D" uid="uid://xp8din1y2bjr" path="res://Assets/Shaders/Fire/HoleNoise.png" id="2_4ukuf"]
-[ext_resource type="Texture2D" uid="uid://cr7c1vrygs0ci" path="res://Assets/Shaders/Fire/FireMask.png" id="3_2a1xi"]
-[ext_resource type="Texture2D" uid="uid://c8yi6jar2jv6e" path="res://Assets/Shaders/Fire/BlueFireGradient.tres" id="4_mqgn7"]
-[ext_resource type="Texture2D" uid="uid://owgjyt08scr4" path="res://Assets/Textures/Orange/texture_09.png" id="5_mi15f"]
-[ext_resource type="Texture2D" uid="uid://5c0fu2d5le87" path="res://Assets/Textures/Purple/texture_09.png" id="6_ki6x3"]
-[ext_resource type="Texture2D" uid="uid://bxs71de6j0425" path="res://Assets/Textures/Red/texture_09.png" id="7_86usp"]
-[ext_resource type="PackedScene" uid="uid://ci0b8habhsgxt" path="res://Scenes/MapComponents/Deathfield/Deathfield.tscn" id="8_ydpvn"]
-[ext_resource type="Texture2D" uid="uid://dt2iv4c1eyv1f" path="res://Assets/Textures/Green/texture_09.png" id="9_sgrf0"]
-[ext_resource type="Texture2D" uid="uid://dnooxfupsybki" path="res://Assets/Textures/Dark/texture_08.png" id="10_dm5dg"]
-[ext_resource type="Texture2D" uid="uid://bgpyk5bv64ebv" path="res://Assets/Textures/Light/texture_07.png" id="11_7dp5w"]
-[ext_resource type="PackedScene" uid="uid://08mhrjk2i2eo" path="res://Scenes/MapComponents/Spawnpoint/Spawnpoint.tscn" id="12_ve604"]
-[ext_resource type="PackedScene" uid="uid://bqn3604romco1" path="res://Scenes/MapComponents/Endpoint/Endpoint.tscn" id="13_yy31g"]
-[ext_resource type="PackedScene" uid="uid://cyuvev6t4tvf8" path="res://Scenes/MapComponents/Checkpoint/Checkpoint.tscn" id="14_qxpc7"]
-[ext_resource type="PackedScene" uid="uid://pducdeyki048" path="res://Scenes/Items/Adrenaline/Adrenaline.tscn" id="15_cqvaj"]
+[ext_resource type="Shader" path="res://Assets/Shaders/fire.gdshader" id="1_yy1o0"]
+[ext_resource type="Texture2D" uid="uid://xp8din1y2bjr" path="res://Assets/Shaders/Fire/HoleNoise.png" id="2_lcerd"]
+[ext_resource type="Texture2D" uid="uid://cr7c1vrygs0ci" path="res://Assets/Shaders/Fire/FireMask.png" id="3_dti1l"]
+[ext_resource type="Texture2D" uid="uid://c8yi6jar2jv6e" path="res://Assets/Shaders/Fire/BlueFireGradient.tres" id="4_kk853"]
+[ext_resource type="Texture2D" uid="uid://owgjyt08scr4" path="res://Assets/Textures/Orange/texture_09.png" id="5_ye5ff"]
+[ext_resource type="Texture2D" uid="uid://5c0fu2d5le87" path="res://Assets/Textures/Purple/texture_09.png" id="6_y03g0"]
+[ext_resource type="Texture2D" uid="uid://bxs71de6j0425" path="res://Assets/Textures/Red/texture_09.png" id="7_yophu"]
+[ext_resource type="PackedScene" uid="uid://ci0b8habhsgxt" path="res://Scenes/MapComponents/Deathfield/Deathfield.tscn" id="8_t5f7n"]
+[ext_resource type="Texture2D" uid="uid://dt2iv4c1eyv1f" path="res://Assets/Textures/Green/texture_09.png" id="9_pppvt"]
+[ext_resource type="Texture2D" uid="uid://dnooxfupsybki" path="res://Assets/Textures/Dark/texture_08.png" id="10_a2oyb"]
+[ext_resource type="Texture2D" uid="uid://bgpyk5bv64ebv" path="res://Assets/Textures/Light/texture_07.png" id="11_4k5lf"]
+[ext_resource type="PackedScene" uid="uid://08mhrjk2i2eo" path="res://Scenes/MapComponents/Spawnpoint/Spawnpoint.tscn" id="12_5kkjh"]
+[ext_resource type="PackedScene" uid="uid://bqn3604romco1" path="res://Scenes/MapComponents/Endpoint/Endpoint.tscn" id="13_lcojk"]
+[ext_resource type="PackedScene" uid="uid://cyuvev6t4tvf8" path="res://Scenes/MapComponents/Checkpoint/Checkpoint.tscn" id="14_lpomm"]
+[ext_resource type="PackedScene" uid="uid://pducdeyki048" path="res://Scenes/Items/Adrenaline/Adrenaline.tscn" id="15_vhygn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nh6iu"]
 sky_top_color = Color(0.505882, 0.160784, 0, 1)
@@ -33,13 +33,13 @@ glow_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ua5f"]
 render_priority = 0
-shader = ExtResource("1_vhvli")
+shader = ExtResource("1_yy1o0")
 shader_parameter/emission_intensity = 2.0
 shader_parameter/time_scale = 3.0
 shader_parameter/texture_scale = Vector2(1, 1)
 shader_parameter/edge_softness = 0.1
-shader_parameter/noise_texture = ExtResource("2_4ukuf")
-shader_parameter/texture_mask = ExtResource("3_2a1xi")
+shader_parameter/noise_texture = ExtResource("2_lcerd")
+shader_parameter/texture_mask = ExtResource("3_dti1l")
 
 [sub_resource type="Curve" id="Curve_ge2tc"]
 _data = [Vector2(0, 0), 0.0, 2.8, 0, 0, Vector2(0.597403, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -54,13 +54,13 @@ lifetime_randomness = 0.81
 spread = 0.0
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_t328y")
-color_ramp = ExtResource("4_mqgn7")
+color_ramp = ExtResource("4_kk853")
 
 [sub_resource type="QuadMesh" id="QuadMesh_rh30q"]
 size = Vector2(0.5, 0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpvxl"]
-albedo_texture = ExtResource("5_mi15f")
+albedo_texture = ExtResource("5_ye5ff")
 
 [sub_resource type="PrismMesh" id="PrismMesh_vr7n7"]
 
@@ -68,20 +68,20 @@ albedo_texture = ExtResource("5_mi15f")
 points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gmbd"]
-albedo_texture = ExtResource("6_ki6x3")
+albedo_texture = ExtResource("6_y03g0")
 
 [sub_resource type="BoxMesh" id="BoxMesh_573hr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bh16b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6gypb"]
-albedo_texture = ExtResource("7_86usp")
+albedo_texture = ExtResource("7_yophu")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_88fln"]
-albedo_texture = ExtResource("9_sgrf0")
+albedo_texture = ExtResource("9_pppvt")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_suhko"]
-albedo_texture = ExtResource("10_dm5dg")
+albedo_texture = ExtResource("10_a2oyb")
 
 [sub_resource type="PrismMesh" id="PrismMesh_px82i"]
 
@@ -89,7 +89,7 @@ albedo_texture = ExtResource("10_dm5dg")
 points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmwd0"]
-albedo_texture = ExtResource("11_7dp5w")
+albedo_texture = ExtResource("11_4k5lf")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3od2t"]
 load_path = "res://.godot/imported/texture_07.png-6e7b8701b5435f6445261342318c20bc.s3tc.ctex"
@@ -398,7 +398,7 @@ mesh = SubResource("BoxMesh_573hr")
 skeleton = NodePath("")
 metadata/_edit_group_ = true
 
-[node name="Deathfield" parent="Murder block5" instance=ExtResource("8_ydpvn")]
+[node name="Deathfield" parent="Murder block5" instance=ExtResource("8_t5f7n")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Murder block5/Deathfield"]
 shape = SubResource("BoxShape3D_bh16b")
@@ -410,7 +410,7 @@ mesh = SubResource("BoxMesh_573hr")
 skeleton = NodePath("")
 metadata/_edit_group_ = true
 
-[node name="Deathfield" parent="Murder block8" instance=ExtResource("8_ydpvn")]
+[node name="Deathfield" parent="Murder block8" instance=ExtResource("8_t5f7n")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Murder block8/Deathfield"]
 shape = SubResource("BoxShape3D_bh16b")
@@ -422,7 +422,7 @@ mesh = SubResource("BoxMesh_573hr")
 skeleton = NodePath("")
 metadata/_edit_group_ = true
 
-[node name="Deathfield" parent="Murder block6" instance=ExtResource("8_ydpvn")]
+[node name="Deathfield" parent="Murder block6" instance=ExtResource("8_t5f7n")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Murder block6/Deathfield"]
 shape = SubResource("BoxShape3D_bh16b")
@@ -434,7 +434,7 @@ mesh = SubResource("BoxMesh_573hr")
 skeleton = NodePath("")
 metadata/_edit_group_ = true
 
-[node name="Deathfield" parent="Murder block7" instance=ExtResource("8_ydpvn")]
+[node name="Deathfield" parent="Murder block7" instance=ExtResource("8_t5f7n")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Murder block7/Deathfield"]
 shape = SubResource("BoxShape3D_bh16b")
@@ -523,7 +523,7 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box10/StaticBody3D"]
 shape = SubResource("CylinderShape3D_v7glq")
 
-[node name="Spawnpoint" parent="." instance=ExtResource("12_ve604")]
+[node name="Spawnpoint" parent="." instance=ExtResource("12_5kkjh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 41, 5, -8)
 
 [node name="Box22" type="MeshInstance3D" parent="."]
@@ -550,28 +550,28 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box23/StaticBody3D"]
 shape = SubResource("BoxShape3D_bh16b")
 
-[node name="End Point" parent="." instance=ExtResource("13_yy31g")]
+[node name="End Point" parent="." instance=ExtResource("13_lcojk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99, 68, 284)
 NextLevel = "res://Scenes/Maps/Cramped/Cramped.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="End Point"]
 shape = SubResource("BoxShape3D_71a7c")
 
-[node name="Deathfield" parent="." instance=ExtResource("8_ydpvn")]
+[node name="Deathfield" parent="." instance=ExtResource("8_t5f7n")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 6, 0, -23)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Deathfield"]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_3rmfa")
 
-[node name="Checkpoint" parent="." instance=ExtResource("14_qxpc7")]
+[node name="Checkpoint" parent="." instance=ExtResource("14_lpomm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68, 18, -5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -2, 0, 1, -2)
 shape = SubResource("BoxShape3D_71a7c")
 
-[node name="Checkpoint2" parent="." instance=ExtResource("14_qxpc7")]
+[node name="Checkpoint2" parent="." instance=ExtResource("14_lpomm")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -65, 18, 291)
 CheckpointNumber = 2
 
@@ -579,67 +579,67 @@ CheckpointNumber = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -2, -1, 1, -2)
 shape = SubResource("BoxShape3D_71a7c")
 
-[node name="Adrenaline" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2, 13, -8)
 
-[node name="Adrenaline2" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline2" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -23, 16, -7)
 
-[node name="Adrenaline3" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline3" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -52, 19, -7)
 
-[node name="Adrenaline4" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline4" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 18, 2)
 
-[node name="Adrenaline9" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline9" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 19, 58)
 
-[node name="Adrenaline10" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline10" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 19, 89)
 
-[node name="Adrenaline11" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline11" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 19, 120)
 Energy = 30
 
-[node name="Adrenaline12" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline12" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 19, 151)
 Energy = 30
 
-[node name="Adrenaline13" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline13" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -60, 19, 181)
 
-[node name="Adrenaline14" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline14" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -76, 19, 212)
 Energy = 30
 
-[node name="Adrenaline15" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline15" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -60, 19, 243)
 Energy = 30
 
-[node name="Adrenaline16" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline16" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 19, 274)
 Energy = 30
 
-[node name="Adrenaline17" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline17" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -76, 19, 291)
 Energy = 30
 
-[node name="Adrenaline18" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline18" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -72, 19, 291)
 Energy = 30
 
-[node name="Adrenaline19" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline19" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 19, 291)
 Energy = 30
 
-[node name="Adrenaline5" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline5" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 18, -1)
 
-[node name="Adrenaline6" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline6" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 18, -4)
 
-[node name="Adrenaline7" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline7" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 18, -7)
 
-[node name="Adrenaline8" parent="." instance=ExtResource("15_cqvaj")]
+[node name="Adrenaline8" parent="." instance=ExtResource("15_vhygn")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 18, -10)
