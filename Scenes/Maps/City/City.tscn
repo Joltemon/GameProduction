@@ -12,10 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://cilytuwae1cus" path="res://Assets/Models/Cars/Sedan.tscn" id="10_i8euk"]
 [ext_resource type="PackedScene" uid="uid://i3vvbm2p5cos" path="res://Assets/Models/Cars/Firetruck.tscn" id="11_3viiw"]
 [ext_resource type="PackedScene" uid="uid://msgssfevv8uy" path="res://Assets/Models/Cars/Police.tscn" id="12_j02i5"]
-[ext_resource type="PackedScene" path="res://Assets/Models/City/Roads/RoadBridge.tscn" id="13_rns7p"]
+[ext_resource type="PackedScene" uid="uid://cvm8eeycob882" path="res://Assets/Models/City/Roads/RoadBridge.tscn" id="13_rns7p"]
 [ext_resource type="PackedScene" uid="uid://bvx280aoqes3o" path="res://Assets/Models/Roads/road_bridge.glb" id="14_0pqbn"]
-[ext_resource type="PackedScene" path="res://Assets/Models/City/Roads/RoadCurve.tscn" id="15_6u4t7"]
-[ext_resource type="PackedScene" path="res://Assets/Models/City/Roads/RoadStraight.tscn" id="16_nhibw"]
+[ext_resource type="PackedScene" uid="uid://crgp1pqjorrlr" path="res://Assets/Models/City/Roads/RoadCurve.tscn" id="15_6u4t7"]
+[ext_resource type="PackedScene" uid="uid://bvqx0mmf5vaex" path="res://Assets/Models/City/Roads/RoadStraight.tscn" id="16_nhibw"]
 [ext_resource type="PackedScene" uid="uid://dnyumdp7mvbnn" path="res://Assets/Models/City/Roads/RoadSlant.tscn" id="17_emfyf"]
 [ext_resource type="PackedScene" uid="uid://7mkk4g71idk6" path="res://Assets/Models/Roads/road_curveIntersection.glb" id="18_7f3d5"]
 [ext_resource type="PackedScene" uid="uid://pwy4pew5bel3" path="res://Assets/Models/Roads/road_bend.glb" id="19_v1x6r"]
@@ -63,6 +63,7 @@ size = Vector3(3, 12, 6)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6a4f6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_88ls7"]
+size = Vector3(1.38752, 0.636836, 1.36176)
 
 [node name="City" type="Node3D"]
 
@@ -1820,6 +1821,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119, 0, -185)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint"]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 3, -1)
+shape = SubResource("BoxShape3D_88ls7")
+
+[node name="Checkpoint2" parent="." instance=ExtResource("28_cqcy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.648, 24.2078, -464.32)
+CheckpointNumber = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint2"]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -0.344498, 1.78445, -0.422302)
 shape = SubResource("BoxShape3D_88ls7")
 
 [connection signal="body_entered" from="EnergyCrystal" to="EnergyCrystal" method="PlayerEnter" flags=18]
