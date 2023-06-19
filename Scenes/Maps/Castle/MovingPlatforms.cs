@@ -3,30 +3,40 @@ using System;
 
 public partial class MovingPlatforms : Area3D
 {
-	private bool timeout = false;
-	void OnPlayerEntered(Node3D body)
+	bool IsPlayerInside = false;
+	bool IsMovingPlayer = false;
+	Node3D? OldParent;
+
+	async void OnPlayerEntered(Node3D body)
 	{
-		if (body is Player player)
+		if (body is Player player && !IsPlayerInside && !IsMovingPlayer)
 		{
+			IsMovingPlayer = true;
+			IsPlayerInside = true;
+
+			OldParent = player.GetParent<Node3D>();
+
 			player.Reparent(this, true);
 
+			await ToSignal(GetTree(), "process_frame");
+
+			IsMovingPlayer = false;
 		}
 	}
 
-	void OnPlayerExited(Node3D body)
+	async void OnPlayerExited(Node3D body)
 	{
-		if (body is Player player)
+		if (body is Player player && IsPlayerInside && !IsMovingPlayer)
 		{
-			if (timeout == true)
-			{
-				timeout = false;
-				player.Reparent(GetNode("../../../"), true);
-			}
-		}
-	}
+			IsMovingPlayer = true;
+			IsPlayerInside = false;
+			
+			if (OldParent != null)
+				player.Reparent(OldParent, true);
 
-	void OnTimerTimeout()
-	{
-		timeout = true;
+			await ToSignal(GetTree(), "process_frame");
+
+			IsMovingPlayer = false;
+		}
 	}
 }

@@ -168,6 +168,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 [node name="Camera" type="Camera3D" parent="Head"]
 cull_mask = 1048573
 attributes = SubResource("CameraAttributesPractical_2hkth")
+current = true
 fov = 150.0
 
 [node name="WeaponHolder" parent="Head/Camera" node_paths=PackedStringArray("Player") instance=ExtResource("2_3xeca")]
