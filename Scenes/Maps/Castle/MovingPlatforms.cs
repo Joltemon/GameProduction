@@ -9,33 +9,35 @@ public partial class MovingPlatforms : Area3D
 
 	async void OnPlayerEntered(Node3D body)
 	{
+		GD.Print("I "+IsMovingPlayer);
 		if (body is Player player && !IsPlayerInside && !IsMovingPlayer)
 		{
 			IsMovingPlayer = true;
-			IsPlayerInside = true;
 
 			OldParent = player.GetParent<Node3D>();
 
 			player.Reparent(this, true);
 
-			await ToSignal(GetTree(), "process_frame");
+			IsPlayerInside = true;
 
+			await ToSignal(GetTree(), "process_frame");
 			IsMovingPlayer = false;
 		}
 	}
 
 	async void OnPlayerExited(Node3D body)
 	{
+		GD.Print("O "+IsMovingPlayer);
 		if (body is Player player && IsPlayerInside && !IsMovingPlayer)
 		{
 			IsMovingPlayer = true;
-			IsPlayerInside = false;
 			
 			if (OldParent != null)
 				player.Reparent(OldParent, true);
 
-			await ToSignal(GetTree(), "process_frame");
+			IsPlayerInside = false;
 
+			await ToSignal(GetTree(), "process_frame");
 			IsMovingPlayer = false;
 		}
 	}

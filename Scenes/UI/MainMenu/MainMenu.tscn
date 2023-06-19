@@ -401,6 +401,7 @@ transform = Transform3D(-0.223918, 0, 0.974608, 0, 1, 0, -0.974608, 0, -0.223918
 
 [node name="Camera" type="Camera3D" parent="World/CameraTarget"]
 transform = Transform3D(0.771724, 0.383614, -0.507229, 2.28108e-08, 0.797584, 0.603208, 0.635957, -0.46551, 0.615515, -29.059, 37.524, 34.955)
+current = true
 
 [node name="Animation" type="AnimationPlayer" parent="World/CameraTarget/Camera"]
 root_node = NodePath("../../../..")
