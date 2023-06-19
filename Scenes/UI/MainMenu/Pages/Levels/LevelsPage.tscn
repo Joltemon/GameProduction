@@ -160,17 +160,17 @@ texture = ExtResource("6_k1ulq")
 [node name="LevelName" parent="LevelsPanel/HFlowContainer/Castle" index="1"]
 text = "Castle"
 
-[node name="Level 3" parent="LevelsPanel/HFlowContainer" instance=ExtResource("2_u1gj5")]
+[node name="Chase" parent="LevelsPanel/HFlowContainer" instance=ExtResource("2_u1gj5")]
 layout_mode = 2
 size_flags_vertical = 4
-Level = "res://Scenes/Maps/InsertCreativeNameForLevelHere.tscn"
-LevelName = "Level 3"
+Level = "res://Scenes/Maps/Chase/Chase.tscn"
+LevelName = "Chase"
 
-[node name="TextureRect" parent="LevelsPanel/HFlowContainer/Level 3" index="0"]
+[node name="TextureRect" parent="LevelsPanel/HFlowContainer/Chase" index="0"]
 texture = ExtResource("7_24but")
 
-[node name="LevelName" parent="LevelsPanel/HFlowContainer/Level 3" index="1"]
-text = "Level 3"
+[node name="LevelName" parent="LevelsPanel/HFlowContainer/Chase" index="1"]
+text = "Chase"
 
 [node name="Cramped" parent="LevelsPanel/HFlowContainer" instance=ExtResource("2_u1gj5")]
 layout_mode = 2
@@ -247,5 +247,5 @@ vertical_alignment = 1
 [editable path="LevelsPanel/HFlowContainer/Demo Level"]
 [editable path="LevelsPanel/HFlowContainer/City"]
 [editable path="LevelsPanel/HFlowContainer/Castle"]
-[editable path="LevelsPanel/HFlowContainer/Level 3"]
+[editable path="LevelsPanel/HFlowContainer/Chase"]
 [editable path="LevelsPanel/HFlowContainer/Cramped"]

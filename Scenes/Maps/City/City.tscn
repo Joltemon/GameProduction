@@ -588,7 +588,7 @@ transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 6, 13, -3)
 
 [node name="End Point" parent="." instance=ExtResource("22_ht4ay")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163.738, 4.1099, -622)
-NextLevel = "res://Scenes/Maps/Level 3/Level3.tscn"
+NextLevel = "res://Scenes/Maps/Chase/Chase.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="End Point"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
