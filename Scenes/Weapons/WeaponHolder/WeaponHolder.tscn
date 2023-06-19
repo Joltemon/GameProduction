@@ -44,6 +44,7 @@ AimRaycast = NodePath("RayCast")
 AnimationPlayer = NodePath("AnimationPlayer")
 VerticalRecoil = 35.0
 HorizontalRecoil = 10.0
+ShootingCoyoteTime = 0.2
 
 [node name="WeaponOffset" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.3, 0.05)

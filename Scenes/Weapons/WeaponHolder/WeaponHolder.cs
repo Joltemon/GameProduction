@@ -15,20 +15,30 @@ public partial class WeaponHolder : Node3D
 	[Signal] public delegate void FiredEventHandler();
 	[Signal] public delegate void AmmunitionUpdatedEventHandler(int ammunition);
 
+	[Export] double ShootingCoyoteTime;
+	double CurrentShootingCoyoteTime;
+
 	public override void _Input(InputEvent inputEvent)
 	{
-		// Shooting the gun
-		if (inputEvent.IsActionPressed("PrimaryFire") && (Weapon?.CanFire()??true))
+		if (inputEvent.IsActionPressed("PrimaryFire"))
 		{
-			if (AimRaycast!.IsColliding() && Mathf.Abs(GlobalPosition.DistanceTo(AimRaycast.GetCollisionPoint())) <= 1)
-				CloseRangePrimaryFire();
-			else
-				StandardPrimaryFire();
+			CurrentShootingCoyoteTime = ShootingCoyoteTime;
 		}
 	}
 
 	public override void _Process(double delta)
 	{
+		// Shooting the gun
+		if (CurrentShootingCoyoteTime > 0 && (Weapon?.CanFire()??true))
+		{
+			CurrentShootingCoyoteTime = 0;
+
+			if (AimRaycast!.IsColliding() && Mathf.Abs(GlobalPosition.DistanceTo(AimRaycast.GetCollisionPoint())) <= 1)
+				CloseRangePrimaryFire();
+			else
+				StandardPrimaryFire();
+		}
+		
 		if (WeaponOffset != null)
 		{
 			// Look swaying
@@ -38,6 +48,8 @@ public partial class WeaponHolder : Node3D
 			targetRotation.Y = Mathf.DegToRad(mouseVelocity.X / 128);
 			WeaponOffset.Rotation = WeaponOffset.Rotation.Lerp(targetRotation, 0.1f);
 		}
+
+		CurrentShootingCoyoteTime -= delta;
 	}
 
 	void CloseRangePrimaryFire()
