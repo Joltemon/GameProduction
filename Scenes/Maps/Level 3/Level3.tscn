@@ -620,6 +620,18 @@ Energy = 30
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 19, 274)
 Energy = 30
 
+[node name="Adrenaline17" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -76, 19, 291)
+Energy = 30
+
+[node name="Adrenaline18" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -72, 19, 291)
+Energy = 30
+
+[node name="Adrenaline19" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 19, 291)
+Energy = 30
+
 [node name="Adrenaline5" parent="." instance=ExtResource("15_cqvaj")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 18, -1)
 
