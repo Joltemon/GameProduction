@@ -123,17 +123,17 @@ offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Demo Level" parent="LevelsPanel/HFlowContainer" instance=ExtResource("2_u1gj5")]
+[node name="Castle" parent="LevelsPanel/HFlowContainer" instance=ExtResource("2_u1gj5")]
 layout_mode = 2
 size_flags_vertical = 4
-Level = "res://Scenes/Maps/Empty/Empty.tscn"
-LevelName = "EmptyMap"
+Level = "res://Scenes/Maps/Castle/Castle.tscn"
+LevelName = "Castle"
 
-[node name="TextureRect" parent="LevelsPanel/HFlowContainer/Demo Level" index="0"]
-texture = ExtResource("4_ubb6g")
+[node name="TextureRect" parent="LevelsPanel/HFlowContainer/Castle" index="0"]
+texture = ExtResource("6_k1ulq")
 
-[node name="LevelName" parent="LevelsPanel/HFlowContainer/Demo Level" index="1"]
-text = "Demo"
+[node name="LevelName" parent="LevelsPanel/HFlowContainer/Castle" index="1"]
+text = "Castle"
 
 [node name="City" parent="LevelsPanel/HFlowContainer" instance=ExtResource("2_u1gj5")]
 layout_mode = 2
@@ -148,22 +148,10 @@ texture = ExtResource("5_r2gnp")
 text = "City
 "
 
-[node name="Castle" parent="LevelsPanel/HFlowContainer" instance=ExtResource("2_u1gj5")]
-layout_mode = 2
-size_flags_vertical = 4
-Level = "res://Scenes/Maps/Castle/Castle.tscn"
-LevelName = "Castle"
-
-[node name="TextureRect" parent="LevelsPanel/HFlowContainer/Castle" index="0"]
-texture = ExtResource("6_k1ulq")
-
-[node name="LevelName" parent="LevelsPanel/HFlowContainer/Castle" index="1"]
-text = "Castle"
-
 [node name="Level 3" parent="LevelsPanel/HFlowContainer" instance=ExtResource("2_u1gj5")]
 layout_mode = 2
 size_flags_vertical = 4
-Level = "res://Scenes/Maps/InsertCreativeNameForLevelHere.tscn"
+Level = "res://Scenes/Maps/Level 3/Level3.tscn"
 LevelName = "Level 3"
 
 [node name="TextureRect" parent="LevelsPanel/HFlowContainer/Level 3" index="0"]
@@ -176,7 +164,7 @@ text = "Level 3"
 layout_mode = 2
 size_flags_vertical = 4
 Level = "res://Scenes/Maps/Cramped/Cramped.tscn"
-LevelName = "EmptyMap"
+LevelName = "CrampedMap"
 
 [node name="TextureRect" parent="LevelsPanel/HFlowContainer/Cramped" index="0"]
 texture = ExtResource("7_4sobj")
@@ -184,6 +172,18 @@ texture = ExtResource("7_4sobj")
 [node name="LevelName" parent="LevelsPanel/HFlowContainer/Cramped" index="1"]
 text = "Cramped
 "
+
+[node name="Demo Level" parent="LevelsPanel/HFlowContainer" instance=ExtResource("2_u1gj5")]
+layout_mode = 2
+size_flags_vertical = 4
+Level = "res://Scenes/Maps/Empty/Empty.tscn"
+LevelName = "EmptyMap"
+
+[node name="TextureRect" parent="LevelsPanel/HFlowContainer/Demo Level" index="0"]
+texture = ExtResource("4_ubb6g")
+
+[node name="LevelName" parent="LevelsPanel/HFlowContainer/Demo Level" index="1"]
+text = "Demo"
 
 [node name="BackButtonPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -244,8 +244,8 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="BackButtonPanel/Button" to="." method="BackButtonPressed"]
 
-[editable path="LevelsPanel/HFlowContainer/Demo Level"]
-[editable path="LevelsPanel/HFlowContainer/City"]
 [editable path="LevelsPanel/HFlowContainer/Castle"]
+[editable path="LevelsPanel/HFlowContainer/City"]
 [editable path="LevelsPanel/HFlowContainer/Level 3"]
 [editable path="LevelsPanel/HFlowContainer/Cramped"]
+[editable path="LevelsPanel/HFlowContainer/Demo Level"]
