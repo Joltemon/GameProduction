@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c480nilt0hht8"]
+[gd_scene load_steps=42 format=3 uid="uid://c480nilt0hht8"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/fire.gdshader" id="1_vhvli"]
 [ext_resource type="Texture2D" uid="uid://xp8din1y2bjr" path="res://Assets/Shaders/Fire/HoleNoise.png" id="2_4ukuf"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://bgpyk5bv64ebv" path="res://Assets/Textures/Light/texture_07.png" id="11_7dp5w"]
 [ext_resource type="PackedScene" uid="uid://08mhrjk2i2eo" path="res://Scenes/MapComponents/Spawnpoint/Spawnpoint.tscn" id="12_ve604"]
 [ext_resource type="PackedScene" uid="uid://bqn3604romco1" path="res://Scenes/MapComponents/Endpoint/Endpoint.tscn" id="13_yy31g"]
+[ext_resource type="PackedScene" uid="uid://cyuvev6t4tvf8" path="res://Scenes/MapComponents/Checkpoint/Checkpoint.tscn" id="14_qxpc7"]
+[ext_resource type="PackedScene" uid="uid://pducdeyki048" path="res://Scenes/Items/Adrenaline/Adrenaline.tscn" id="15_cqvaj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nh6iu"]
 sky_top_color = Color(0.505882, 0.160784, 0, 1)
@@ -101,7 +103,7 @@ albedo_texture = SubResource("CompressedTexture2D_3od2t")
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_v7glq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_71a7c"]
-size = Vector3(8, 2, 8)
+size = Vector3(8, 2, 12)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_3rmfa"]
 
@@ -462,7 +464,7 @@ metadata/_edit_group_ = true
 shape = SubResource("BoxShape3D_bh16b")
 
 [node name="Box5" type="MeshInstance3D" parent="."]
-transform = Transform3D(8, 0, 0, 0, 3, 0, 0, 0, 6, 31, 2.5, -8)
+transform = Transform3D(8, 0, 0, 0, 3, 0, 0, 0, 7.8, 31, 2.5, -8)
 material_override = SubResource("StandardMaterial3D_suhko")
 mesh = SubResource("PrismMesh_px82i")
 skeleton = NodePath("StaticBody3D")
@@ -474,7 +476,7 @@ metadata/_edit_group_ = true
 shape = SubResource("ConvexPolygonShape3D_o1nlk")
 
 [node name="Box8" type="MeshInstance3D" parent="."]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 2, 3, -8)
+transform = Transform3D(8, 0, 0, 0, 6, 0, 0, 0, 8, 2, 3, -8)
 material_override = SubResource("StandardMaterial3D_dmwd0")
 mesh = SubResource("BoxMesh_573hr")
 skeleton = NodePath("StaticBody3D")
@@ -486,7 +488,7 @@ metadata/_edit_group_ = true
 shape = SubResource("BoxShape3D_bh16b")
 
 [node name="Box9" type="MeshInstance3D" parent="."]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 2, 9, -8)
+transform = Transform3D(8, 0, 0, 0, 6, 0, 0, 0, 8, 2, 9, -8)
 material_override = SubResource("StandardMaterial3D_dmwd0")
 mesh = SubResource("BoxMesh_573hr")
 skeleton = NodePath("StaticBody3D")
@@ -556,8 +558,76 @@ NextLevel = "res://Scenes/Maps/Cramped/Cramped.tscn"
 shape = SubResource("BoxShape3D_71a7c")
 
 [node name="Deathfield" parent="." instance=ExtResource("8_ydpvn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -23)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 6, 0, -23)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Deathfield"]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_3rmfa")
+
+[node name="Checkpoint" parent="." instance=ExtResource("14_qxpc7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68, 18, -5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -2, 0, 1, -2)
+shape = SubResource("BoxShape3D_71a7c")
+
+[node name="Checkpoint2" parent="." instance=ExtResource("14_qxpc7")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -65, 18, 291)
+CheckpointNumber = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -2, -1, 1, -2)
+shape = SubResource("BoxShape3D_71a7c")
+
+[node name="Adrenaline" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2, 13, -8)
+
+[node name="Adrenaline2" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -23, 16, -7)
+
+[node name="Adrenaline3" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -52, 19, -7)
+
+[node name="Adrenaline4" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 18, 2)
+
+[node name="Adrenaline9" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 19, 58)
+
+[node name="Adrenaline10" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 19, 89)
+
+[node name="Adrenaline11" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 19, 120)
+Energy = 30
+
+[node name="Adrenaline12" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 19, 151)
+Energy = 30
+
+[node name="Adrenaline13" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -60, 19, 181)
+
+[node name="Adrenaline14" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -76, 19, 212)
+Energy = 30
+
+[node name="Adrenaline15" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -60, 19, 243)
+Energy = 30
+
+[node name="Adrenaline16" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 19, 274)
+Energy = 30
+
+[node name="Adrenaline5" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 18, -1)
+
+[node name="Adrenaline6" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 18, -4)
+
+[node name="Adrenaline7" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 18, -7)
+
+[node name="Adrenaline8" parent="." instance=ExtResource("15_cqvaj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -68, 18, -10)
