@@ -502,10 +502,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.779955, -0.871597, 0.440926
 shape = SubResource("BoxShape3D_gmx24")
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("2_wyg3c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.781045, 2.41444, -103.711)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.781045, 41.416, -59.251)
 CheckpointNumber = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.779955, -0.871597, 0.440926)
+shape = SubResource("BoxShape3D_gmx24")
+
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("2_wyg3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.781045, 2.41444, -103.711)
+CheckpointNumber = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.779955, -0.871597, 0.440926)
 shape = SubResource("BoxShape3D_gmx24")
 

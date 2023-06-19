@@ -63,6 +63,7 @@ size = Vector3(3, 12, 6)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6a4f6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_88ls7"]
+size = Vector3(1.38752, 0.636836, 1.36176)
 
 [node name="City" type="Node3D"]
 
@@ -1820,6 +1821,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119, 0, -185)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint"]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 3, -1)
+shape = SubResource("BoxShape3D_88ls7")
+
+[node name="Checkpoint2" parent="." instance=ExtResource("28_cqcy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.648, 24.2078, -464.32)
+CheckpointNumber = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint2"]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -0.344498, 1.78445, -0.422302)
 shape = SubResource("BoxShape3D_88ls7")
 
 [connection signal="body_entered" from="EnergyCrystal" to="EnergyCrystal" method="PlayerEnter" flags=18]

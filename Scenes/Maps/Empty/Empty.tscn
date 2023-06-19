@@ -143,9 +143,6 @@ material = SubResource("StandardMaterial3D_67nip")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wd0ba"]
 albedo_texture = ExtResource("4_e5xxr")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sb8iy"]
-size = Vector3(0.864251, 0.323273, 0.87538)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypgw0"]
 albedo_texture = ExtResource("4_e5xxr")
 
@@ -170,6 +167,9 @@ albedo_color = Color(0.243137, 0.160784, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fpvsv"]
 material = SubResource("StandardMaterial3D_spptr")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sb8iy"]
+size = Vector3(4.66165, 2.55995, 5.32491)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mhcw2"]
 size = Vector3(8.91081, 3.10762, 5.039)
@@ -463,13 +463,6 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_hgoml")
 
-[node name="Checkpoint" parent="Objects/BigBlock3" instance=ExtResource("9_nu6ql")]
-transform = Transform3D(0.679813, 0, -0.733386, 0, 1, 0, 0.733386, 0, 0.679813, 0, 0, 0)
-
-[node name="Shape" type="CollisionShape3D" parent="Objects/BigBlock3/Checkpoint"]
-transform = Transform3D(1, 0, 6.0536e-08, 0, 0.999999, 0, 5.96046e-08, 0, 1, 0, 0.648155, 0)
-shape = SubResource("BoxShape3D_sb8iy")
-
 [node name="BigBlock4" type="MeshInstance3D" parent="Objects"]
 transform = Transform3D(0.0384929, 0, -5.38867, 0, 17.957, 0, 5.00063, 0, 0.0414798, 24.4523, 9.14043, -27.1307)
 material_override = SubResource("StandardMaterial3D_ypgw0")
@@ -526,6 +519,13 @@ transform = Transform3D(1.39501, -1.43316, 0, 1.43316, 1.39501, 0, 0, 0, 2, 25.4
 
 [node name="EnergyCrystal" parent="." instance=ExtResource("9_f3d5t")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.03682, 0.236523, -20.7224)
+
+[node name="Checkpoint" parent="." instance=ExtResource("9_nu6ql")]
+transform = Transform3D(-0.65521, 0, -0.755446, 0, 1, 0, 0.755446, 0, -0.65521, 24.4009, 19.4199, -26.8419)
+
+[node name="Shape" type="CollisionShape3D" parent="Checkpoint"]
+transform = Transform3D(0.754148, 0, 0.656704, 0, 0.999999, 0, -0.656704, 0, 0.754148, -0.173752, -0.264843, 0.119711)
+shape = SubResource("BoxShape3D_sb8iy")
 
 [node name="End Point" parent="." instance=ExtResource("10_kf25w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8239, 25.7142, 41.5912)
