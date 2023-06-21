@@ -74,8 +74,7 @@ public partial class Player : RigidBody3D
 		Sensitivity = Savedata.Get<double>("Sensitivity", LookSpeed) / 100;
 
 		Savedata.Load();
-		if (Savedata.Get<bool>("FullScreen", false))
-			DisplayServer.WindowSetMode(DisplayServer.WindowMode.ExclusiveFullscreen);
+		Settings.UpdateSettings();
 	}
 
 	public override void _Process(double delta)

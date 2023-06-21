@@ -38,7 +38,7 @@ public partial class PauseMenu : Control
 			{
 				ResumeButtonPressed();
 			}
-			else
+			else if (!GetTree().Paused)
 			{
 				Input.MouseMode = Input.MouseModeEnum.Visible;
 				Visible = true;

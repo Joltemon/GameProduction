@@ -125,7 +125,6 @@ grow_vertical = 2
 
 [node name="Castle" parent="LevelsPanel/HFlowContainer" instance=ExtResource("2_u1gj5")]
 layout_mode = 2
-size_flags_vertical = 4
 Level = "res://Scenes/Maps/Castle/Castle.tscn"
 LevelName = "Castle"
 

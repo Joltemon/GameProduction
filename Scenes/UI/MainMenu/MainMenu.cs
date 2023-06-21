@@ -3,7 +3,6 @@ using System;
 
 public partial class MainMenu : Node
 {
-
 	[Export(PropertyHint.File, "*.tscn,*.scn")] string? SettingsPage;
 	[Export(PropertyHint.File, "*.tscn,*.scn")] string? CreditsPage;
 	[Export(PropertyHint.File, "*.tscn,*.scn")] string? LevelsPage;
@@ -25,16 +24,16 @@ public partial class MainMenu : Node
 
     void Quit() => GetTree().Quit();
 
-    void SettingsPressed() {
-		if (SettingsPage != null) {
+    void SettingsPressed()
+	{
+		if (SettingsPage != null)
 			GetTree().ChangeSceneToFile(SettingsPage);
-		}
 	}
 
-    void CreditsPressed() {
-		if (CreditsPage != null) {
+    void CreditsPressed()
+	{
+		if (CreditsPage != null)
 			GetTree().ChangeSceneToFile(CreditsPage);
-		}
 	}
 
 	void LevelsButtonPressed() 

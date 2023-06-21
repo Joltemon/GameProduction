@@ -22,11 +22,13 @@ public partial class SettingsPage : Control
 		ControlsTitle?.Set("theme_override_colors/font_outline_color", Color.FromHsv(HSVValue, 1, 1, 1));
 	}
 
-	public override void _Ready() {
+	public override void _Ready()
+	{
 		LoadSettings();
 	}
 
-	void BackButtonPressed() {
+	void BackButtonPressed()
+	{
 		if (MainMenu != null) {
 			GetTree().ChangeSceneToFile(MainMenu);
 		}
@@ -58,6 +60,8 @@ public partial class SettingsPage : Control
 				Savedata.Set(settingsItem.GetName(), settingsItem.GetValue());
 			}
 		}
+
+		Settings.UpdateSettings();
 
 		Savedata.Save();
 	}

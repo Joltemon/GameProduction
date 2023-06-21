@@ -14,7 +14,7 @@ public partial class Endpoint : Node3D
 			var LevelName = GetNode("/root").GetChild(0).Name;
 
 			var seconds = Savedata.Get<double>("Times." + LevelName, 0);
-			if (seconds != 0) 
+			if (seconds != 0)
 			{
 				// Overrides the players previous time if it is faster
 				if (player.Stopwatch < seconds)

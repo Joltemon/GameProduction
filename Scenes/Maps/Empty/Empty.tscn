@@ -529,6 +529,7 @@ shape = SubResource("BoxShape3D_sb8iy")
 
 [node name="End Point" parent="." instance=ExtResource("10_kf25w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8239, 25.7142, 41.5912)
+NextLevel = "res://Scenes/UI/MainMenu/Pages/Credits/CreditsPage.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="End Point"]
 shape = SubResource("BoxShape3D_mhcw2")
