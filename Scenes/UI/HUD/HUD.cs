@@ -152,5 +152,9 @@ public partial class HUD : CanvasLayer
 		{
 			IsRestartPressed = false;
 		}
+		if (ev.IsActionPressed("InstantRestart")) 
+		{
+			ResetToCheckpoint();
+		}
 	}
 }
