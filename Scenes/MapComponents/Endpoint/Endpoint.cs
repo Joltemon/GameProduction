@@ -26,7 +26,7 @@ public partial class Endpoint : Node3D
 			{
 				Savedata.Set("Times." + LevelName, player.Stopwatch, true);
 			}
-			GetNode<MeshInstance3D>("./Player/Head/Camera/PostProcesser").Visible = false;
+			GetNode<MeshInstance3D>("../Player/Head/Camera/PostProcesser").Visible = false;
 		}
 	}
 }
