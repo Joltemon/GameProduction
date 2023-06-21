@@ -18,11 +18,13 @@ public partial class Player : RigidBody3D
 	[Export] float SprintDepletionRate;
 	[Export] float CoyoteTime;
 	[Export] float CrouchSlideBoost;
+	double Sensitivity;
 
 	public bool Flying = false;
 	float LookSensitivity = 1;
 	float FovIncrease;
 	public double Stopwatch;
+	public double SavedStopwatch;
 	public Boolean StopwatchRunning = true;
 	public int Score;
 	public int SavedScore;
@@ -68,6 +70,8 @@ public partial class Player : RigidBody3D
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		Animation?.Play("Start");
 		LastCheckpoint = GetParent<Node3D>();
+
+		Sensitivity = Savedata.Get<double>("Sensitivity", LookSpeed) / 100;
 
 		Savedata.Load();
 		if (Savedata.Get<bool>("FullScreen", false))
@@ -347,14 +351,10 @@ public partial class Player : RigidBody3D
 		
 		Freeze = false;
 
-		if (LastCheckpointValue == 0)
-		{
-			Stopwatch = 0;
-		}
-
 		EmitSignal("RestoredFromCheckpoint");
 
 		// Restore variables
+		Stopwatch = SavedStopwatch;
 		Score = SavedScore;
 		SprintEnergy = SavedSprintEnergy;
 		Hud?.UpdateSprint(SprintEnergy, true);
@@ -369,9 +369,9 @@ public partial class Player : RigidBody3D
 			var mouseMovement = mouseEvent.Relative * LookSensitivity;
 
 			Vector3 newRotation = Camera!.GlobalRotation;
-			newRotation.X -= Mathf.DegToRad(mouseMovement.Y * LookSpeed);
+			newRotation.X -= Mathf.DegToRad(mouseMovement.Y * (float)Sensitivity);
 			newRotation.X = Mathf.Clamp(newRotation.X, -Mathf.Pi/2, Mathf.Pi/2);
-			newRotation.Y -= Mathf.DegToRad(mouseMovement.X * LookSpeed);
+			newRotation.Y -= Mathf.DegToRad(mouseMovement.X * (float)Sensitivity);
 			Camera!.GlobalRotation = newRotation;
 		}
 		else if (inputEvent.IsActionPressed("MoveFly"))

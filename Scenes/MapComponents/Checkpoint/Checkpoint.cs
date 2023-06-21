@@ -16,6 +16,7 @@ public partial class Checkpoint : Area3D
 			player.EmitSignal("HitCheckpoint");
 
 			// Save player variables
+			player.SavedStopwatch = player.Stopwatch;
 			player.SavedScore = player.Score;
 			player.SavedSprintEnergy = player.SprintEnergy;
 		}

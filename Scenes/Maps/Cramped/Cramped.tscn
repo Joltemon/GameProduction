@@ -147,10 +147,10 @@ environment = SubResource("Environment_48wn2")
 transform = Transform3D(0.995416, 0.0126189, 0.0948011, -0.0956373, 0.13134, 0.986713, 0, -0.991257, 0.131945, 4.69977, 33.9893, 52.5983)
 shadow_enabled = true
 
-[node name="BeginningSection" type="Node3D" parent="."]
-
-[node name="Spawnpoint" parent="BeginningSection" instance=ExtResource("1_eibh1")]
+[node name="Spawnpoint" parent="." instance=ExtResource("1_eibh1")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 3, 0)
+
+[node name="BeginningSection" type="Node3D" parent="."]
 
 [node name="BeginningBlock" type="MeshInstance3D" parent="BeginningSection"]
 transform = Transform3D(1.56273, 0, 0, 0, 0.585537, 0, 0, 0, 1.56561, 0, 0.605685, 0)
