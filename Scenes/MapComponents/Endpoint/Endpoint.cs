@@ -5,7 +5,7 @@ public partial class Endpoint : Node3D
 {
 	[Export(PropertyHint.File, "*.tscn,*.scn")] string? NextLevel;
 
-	public void EndPointEntered(Node3D node) 
+	public void EndPointEntered(Node3D node)
 	{
 		if (node is Player player) 
 		{

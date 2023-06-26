@@ -142,6 +142,11 @@ public partial class HUD : CanvasLayer
 		EmitSignal("Checkpoint");
 	}
 
+	public void ResetToSpawn()
+	{
+		GetTree().ReloadCurrentScene();
+	}
+
 	public override void _Input(InputEvent ev)
 	{
 		if (ev.IsActionPressed("RestartLevel"))
