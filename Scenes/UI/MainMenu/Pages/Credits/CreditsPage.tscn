@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bplymclic6bkw"]
+[gd_scene load_steps=14 format=3 uid="uid://bplymclic6bkw"]
 
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu/Pages/Credits/CreditsPage.cs" id="1_2w50i"]
 [ext_resource type="Theme" uid="uid://qr8eayjefc34" path="res://Assets/Themes/AdrenarushUI.tres" id="2_ukbpv"]
+[ext_resource type="Texture2D" uid="uid://b7222m5clualo" path="res://Assets/Icons/picture-32222-1523023495-383544945.png" id="3_m8mf8"]
 [ext_resource type="PackedScene" uid="uid://buy74qtmg3cln" path="res://Scenes/UI/CreditsPage/Section.tscn" id="3_vc013"]
 [ext_resource type="Texture2D" uid="uid://hojhj4msab7x" path="res://Assets/Icons/flaticon.jpg" id="4_s3svf"]
 [ext_resource type="Texture2D" uid="uid://d21sicjaf81cf" path="res://Assets/Icons/logout.png" id="5_8gsq8"]
@@ -79,12 +80,83 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 72.0
-offset_top = 120.0
-offset_right = -72.0
-offset_bottom = -56.0
+offset_left = 136.0
+offset_top = 95.0
+offset_right = -132.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Section5" parent="CreditsPanel/VFlowContainer" instance=ExtResource("3_vc013")]
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="TextureRect" parent="CreditsPanel/VFlowContainer/Section5" index="0"]
+texture = ExtResource("3_m8mf8")
+
+[node name="CreditorTitle" parent="CreditsPanel/VFlowContainer/Section5" index="1"]
+offset_top = -56.0
+offset_right = 154.0
+offset_bottom = -22.0
+text = "Quaternius.com"
+
+[node name="Label" parent="CreditsPanel/VFlowContainer/Section5" index="2"]
+offset_top = -24.0
+offset_right = 404.0
+offset_bottom = 51.0
+text = "Propulsor gun model"
+
+[node name="Section6" parent="CreditsPanel/VFlowContainer" instance=ExtResource("3_vc013")]
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="CreditorTitle" parent="CreditsPanel/VFlowContainer/Section6" index="1"]
+offset_top = -56.0
+offset_right = 154.0
+offset_bottom = -22.0
+text = "gdquest
+"
+
+[node name="Label" parent="CreditsPanel/VFlowContainer/Section6" index="2"]
+offset_top = -24.0
+offset_right = 404.0
+offset_bottom = 51.0
+text = "On Godotshaders.com
+Propulsor projectile shader"
+
+[node name="Section4" parent="CreditsPanel/VFlowContainer" instance=ExtResource("3_vc013")]
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="CreditorTitle" parent="CreditsPanel/VFlowContainer/Section4" index="1"]
+offset_top = -56.0
+offset_right = 154.0
+offset_bottom = -22.0
+text = "Islide"
+
+[node name="Label" parent="CreditsPanel/VFlowContainer/Section4" index="2"]
+offset_top = -24.0
+offset_right = 404.0
+offset_bottom = 51.0
+text = "On Sketchfab.com
+Bottle model"
+
+[node name="Section3" parent="CreditsPanel/VFlowContainer" instance=ExtResource("3_vc013")]
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="CreditorTitle" parent="CreditsPanel/VFlowContainer/Section3" index="1"]
+offset_top = -56.0
+offset_right = 154.0
+offset_bottom = -22.0
+text = "Emannuele Oliveira"
+
+[node name="Label" parent="CreditsPanel/VFlowContainer/Section3" index="2"]
+offset_top = -24.0
+offset_right = 404.0
+offset_bottom = 51.0
+text = "On Sketchfab.com
+Crystal model"
 
 [node name="Section" parent="CreditsPanel/VFlowContainer" instance=ExtResource("3_vc013")]
 layout_mode = 2
@@ -128,9 +200,7 @@ levels and block textures"
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-offset_left = 36.0
 offset_top = 16.0
-offset_right = -28.0
 offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -201,5 +271,9 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="BackButtonPanel/Button" to="." method="BackButtonPressed"]
 
+[editable path="CreditsPanel/VFlowContainer/Section5"]
+[editable path="CreditsPanel/VFlowContainer/Section6"]
+[editable path="CreditsPanel/VFlowContainer/Section4"]
+[editable path="CreditsPanel/VFlowContainer/Section3"]
 [editable path="CreditsPanel/VFlowContainer/Section"]
 [editable path="CreditsPanel/VFlowContainer/Section2"]
