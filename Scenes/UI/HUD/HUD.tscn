@@ -235,4 +235,4 @@ libraries = {
 [node name="PauseMenu" parent="." instance=ExtResource("9_iwdod")]
 visible = false
 
-[connection signal="Reset" from="PauseMenu" to="." method="ResetToCheckpoint"]
+[connection signal="Reset" from="PauseMenu" to="." method="ResetToSpawn"]

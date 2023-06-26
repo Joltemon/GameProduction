@@ -9,7 +9,6 @@ public partial class MovingPlatforms : Area3D
 
 	async void OnPlayerEntered(Node3D body)
 	{
-		GD.Print("I "+IsMovingPlayer);
 		if (body is Player player && !IsPlayerInside && !IsMovingPlayer)
 		{
 			IsMovingPlayer = true;
@@ -27,7 +26,6 @@ public partial class MovingPlatforms : Area3D
 
 	async void OnPlayerExited(Node3D body)
 	{
-		GD.Print("O "+IsMovingPlayer);
 		if (body is Player player && IsPlayerInside && !IsMovingPlayer)
 		{
 			IsMovingPlayer = true;
