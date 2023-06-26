@@ -10,7 +10,8 @@ public partial class MenuButton : Control
 	[ExportGroup("Components")]
 	[Export] Button? Button;
 	[Export] ColorRect? Overlay;
-	[Export] Texture2D? OverlayTexture;
+	[Export] Texture2D? ButtonTexture;
+	[Export] TextureRect? TextureRect;
 
 	bool MouseOver;
 	bool HasBeenPressed;
@@ -51,8 +52,13 @@ public partial class MenuButton : Control
 		tween.TweenProperty(this, "position", newPosition, 0.5f);
 		tween.TweenProperty(this, "scale", finalScale, 0.5f).SetEase(Tween.EaseType.In);
 		
-		if (Overlay != null)
+		if (Overlay != null && ButtonTexture == null)
 			tween.TweenProperty(Overlay, "modulate", new Color(1, 1, 1, 1), 0.5f);
+
+		else 
+		{
+			TextureRect!.Texture = ButtonTexture;
+		}
 		
 		await ToSignal(tween, "finished");
 		EmitSignal("Pressed");
