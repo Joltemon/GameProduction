@@ -1,13 +1,16 @@
-[gd_scene load_steps=78 format=3 uid="uid://dfcvbhiopq6s7"]
+[gd_scene load_steps=81 format=3 uid="uid://dfcvbhiopq6s7"]
 
 [ext_resource type="Script" path="res://Scenes/UI/MainMenu/MainMenu.cs" id="1_n6oxg"]
 [ext_resource type="PackedScene" uid="uid://doq53hm1rrb3s" path="res://Scenes/UI/MainMenu/Title/Title.tscn" id="2_hf7op"]
 [ext_resource type="Shader" path="res://Scenes/UI/MainMenu/MainMenuBlur.gdshader" id="3_e4ipx"]
 [ext_resource type="PackedScene" uid="uid://bglm530iuirb7" path="res://Scenes/UI/MainMenu/MenuButton/MenuButton.tscn" id="4_kds40"]
-[ext_resource type="Texture2D" uid="uid://c6a4ini0u0vvm" path="res://Assets/Button Backgrounds/SettingsButtonIMG.PNG" id="5_lw0xx"]
+[ext_resource type="Texture2D" uid="uid://cnkrl0brx3ols" path="res://Assets/Button Backgrounds/newgame.png" id="5_lxxy3"]
 [ext_resource type="Texture2D" uid="uid://dnooxfupsybki" path="res://Assets/Textures/Dark/texture_08.png" id="6_7q1cx"]
+[ext_resource type="Texture2D" uid="uid://d0inblq8ts6vk" path="res://Assets/Button Backgrounds/levelspage,png.PNG" id="6_32lr0"]
 [ext_resource type="Texture2D" uid="uid://dt2iv4c1eyv1f" path="res://Assets/Textures/Green/texture_09.png" id="7_3j2a6"]
+[ext_resource type="Texture2D" uid="uid://b8puvre5u1m0p" path="res://Assets/Button Backgrounds/settings.png" id="7_7m1eu"]
 [ext_resource type="Texture2D" uid="uid://bxs71de6j0425" path="res://Assets/Textures/Red/texture_09.png" id="8_3x0nh"]
+[ext_resource type="Texture2D" uid="uid://cyqcexfc3gc0y" path="res://Assets/Button Backgrounds/credits.png" id="8_ulj6w"]
 [ext_resource type="PackedScene" uid="uid://ci0b8habhsgxt" path="res://Scenes/MapComponents/Deathfield/Deathfield.tscn" id="9_dcgvt"]
 [ext_resource type="Texture2D" uid="uid://owgjyt08scr4" path="res://Assets/Textures/Orange/texture_09.png" id="10_fd6o6"]
 [ext_resource type="Texture2D" uid="uid://bgpyk5bv64ebv" path="res://Assets/Textures/Light/texture_07.png" id="11_mvqr3"]
@@ -344,6 +347,7 @@ offset_right = 328.0
 offset_bottom = -352.0
 grow_vertical = 0
 Text = "New Game"
+ButtonTexture = ExtResource("5_lxxy3")
 
 [node name="LevelsButton" parent="UI/Buttons" instance=ExtResource("4_kds40")]
 layout_mode = 1
@@ -356,6 +360,7 @@ offset_right = 440.0
 offset_bottom = -272.0
 grow_vertical = 0
 Text = "Levels"
+ButtonTexture = ExtResource("6_32lr0")
 
 [node name="SettingsButton" parent="UI/Buttons" instance=ExtResource("4_kds40")]
 layout_mode = 1
@@ -368,7 +373,7 @@ offset_right = 552.0
 offset_bottom = -192.0
 grow_vertical = 0
 Text = "Settings"
-OverlayTexture = ExtResource("5_lw0xx")
+ButtonTexture = ExtResource("7_7m1eu")
 
 [node name="CreditsButton" parent="UI/Buttons" instance=ExtResource("4_kds40")]
 layout_mode = 1
@@ -381,6 +386,7 @@ offset_right = 664.0
 offset_bottom = -112.0
 grow_vertical = 0
 Text = "Credits"
+ButtonTexture = ExtResource("8_ulj6w")
 
 [node name="QuitButton" parent="UI/Buttons" instance=ExtResource("4_kds40")]
 layout_mode = 1
@@ -773,3 +779,4 @@ shape = SubResource("BoxShape3D_gpvaf")
 [connection signal="Pressed" from="UI/Buttons/QuitButton" to="." method="Quit"]
 
 [editable path="UI/Buttons/NewGameButton"]
+[editable path="UI/Buttons/LevelsButton"]

@@ -27,7 +27,7 @@ corner_radius_bottom_left = 26
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ylyyh"]
 
-[node name="MenuButton" type="Control" node_paths=PackedStringArray("Button", "Overlay")]
+[node name="MenuButton" type="Control" node_paths=PackedStringArray("Button", "Overlay", "TextureRect")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 256.0
@@ -37,6 +37,7 @@ script = ExtResource("1_05nnj")
 HoverOffset = Vector2(20, 0)
 Button = NodePath("Button")
 Overlay = NodePath("Button/Overlay")
+TextureRect = NodePath("Button/OverlayTexture")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -66,6 +67,16 @@ grow_vertical = 2
 pivot_offset = Vector2(128, 32)
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="OverlayTexture" type="TextureRect" parent="Button"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
 
 [connection signal="mouse_entered" from="Button" to="." method="OnMouseEnter"]
 [connection signal="mouse_exited" from="Button" to="." method="OnMouseExit"]
